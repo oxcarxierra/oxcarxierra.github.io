@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="OXcarXierra">
-    <title>백준 11053 가장 긴 증가하는 부분수열 - OXcarXierra</title>
+    <title>2022년 6월 회고록 - OXcarXierra</title>
     <meta name="author" content="Seungseok Oh">
     
     
@@ -15,19 +15,18 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\n주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\n풀이123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n참고자료 - https://namu.wiki/w/최장 증가 부분 수열","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-07-27T15:06:02+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이","headline":"백준 11053 가장 긴 증가하는 부분수열","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-11723/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-11723/","keywords":"DP, LIS"}</script>
-    <meta name="description" content="DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.\n\n\n\nDjango와 React Native를 이용해 개발할 만한 주제를 탐색하다 USFK Bus Schedule App으로 정했고, 6월 초 간단한 구상 이후 본격적인 개발을 시작했다. 현재 백엔드 서버는 개발 및 배포가 완료되었고, 프론트엔드 앱도 기능 구현이 모두 완료되었다. 앞으로 남은건 간단한 UI 수정과 App Store 심사 및 배포 과정 정도이다. Django Model 구상 및 Django Rest Framework, MySQL DB를 다루는 방법을 배울 수 있었다.\n\nelice에서 제공하는 2022 군 장병 SW∙AI 역량강화 교육을 수강하고 있다. 배정된 수준별 ML과정을 수강해 보았는데, pandas, sklearn 등 라이브러리의 사용 방법과 기본적인 ML 알고리즘 몇 개를 배울 수 있었다. Kaggle에 도전하려는 데엔 도움이 되었지만 결국 깊이있게 이해하기 위해선 수학적 베이스도 공부해야 할 것 같다. CS229 강의를 계속 들었어야 되는데 한번 끊기니까 이해도 잘 안되고 의욕도 줄었다… 앞으로는 두 코스를 병행하도록 노력해야 겠다.\n\n헬스를 다시 시작했다. 귀찮을 땐 방에 사둔 풀업바 이용해서 조금씩이라도 하려고 노력중이다.\n\n\n읽은 책들\nDale Carnegie, &lt;인간관계론&gt;\n유시민, &lt;국가란 무엇인가&gt;\n무라카미 하루키, &lt;1Q84 #1&gt;\n\n여름 한동안은 포데이 외박도 없고, 날씨와 훈련 때문이라도 많이 지치는 기간이 될 것 같다. 나가기 싫으면 차라리 방에 박혀서 공부라도 많이 해야겠다.\n","dateCreated":"2022-06-30T17:47:53+09:00","dateModified":"2022-07-26T10:56:50+09:00","datePublished":"2022-06-30T17:47:53+09:00","description":"그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.","headline":"2022년 6월 회고록","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/OKR/june_2022_review/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/OKR/june_2022_review/","keywords":"회고"}</script>
+    <meta name="description" content="그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="백준 11053 가장 긴 증가하는 부분수열">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-11723/index.html">
+<meta property="og:title" content="2022년 6월 회고록">
+<meta property="og:url" content="https://oxcarxierra.github.io/OKR/june_2022_review/index.html">
 <meta property="og:site_name" content="OXcarXierra">
-<meta property="og:description" content="DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이">
+<meta property="og:description" content="그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-24T03:01:19.000Z">
-<meta property="article:modified_time" content="2022-07-27T06:06:02.943Z">
+<meta property="article:published_time" content="2022-06-30T08:47:53.000Z">
+<meta property="article:modified_time" content="2022-07-26T01:56:50.880Z">
 <meta property="article:author" content="Seungseok Oh">
-<meta property="article:tag" content="DP">
-<meta property="article:tag" content="LIS">
+<meta property="article:tag" content="회고">
 <meta name="twitter:card" content="summary">
     
     
@@ -69,7 +68,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj-11723/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/okr/june_2022_review/">
 </head>
 
     <body>
@@ -218,20 +217,20 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            백준 11053 가장 긴 증가하는 부분수열
+            2022년 6월 회고록
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2022-07-24T12:01:19+09:00">
+    <time datetime="2022-06-30T17:47:53+09:00">
 	
-		    Jul 24, 2022
+		    Jun 30, 2022
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="category-link" href="/categories/OKR/">OKR</a>
 
 
     
@@ -243,20 +242,24 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <p>그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.</p>
+<span id="more"></span>
 
-<p>처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.<br>LIS, Longest Increasing Subsequence라고도 불린다.</p>
-<p>주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.</p>
-<p>즉, A[i]를 찾는 알고리즘은 아래와 같다.</p>
-<ol>
-<li>A[0] &#x3D; 0, D[0] &#x3D; 0</li>
-<li>A[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.</li>
-<li>그 값에 1을 더한 값울 D[i]에 할당한다.</li>
-<li>이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.<br>O(n^2)이라 느려서, 더 좋은 방법도 존재한다.</li>
-</ol>
-<h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Longest Increasing Subsequence</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">A = [<span class="number">0</span>]</span><br><span class="line">A.extend(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())))</span><br><span class="line">D = [<span class="number">0</span>]*(N+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">  max_D = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, i):</span><br><span class="line">    <span class="keyword">if</span> A[j] &lt; A[i]:</span><br><span class="line">      max_D = <span class="built_in">max</span>(max_D, D[j])</span><br><span class="line">  D[i] = max_D + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(D))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Django와 React Native를 이용해 개발할 만한 주제를 탐색하다 USFK Bus Schedule App으로 정했고, 6월 초 간단한 구상 이후 본격적인 개발을 시작했다. 현재 백엔드 서버는 개발 및 배포가 완료되었고, 프론트엔드 앱도 기능 구현이 모두 완료되었다. 앞으로 남은건 간단한 UI 수정과 App Store 심사 및 배포 과정 정도이다. Django Model 구상 및 Django Rest Framework, MySQL DB를 다루는 방법을 배울 수 있었다.</p>
+</li>
+<li><p>elice에서 제공하는 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://military22.elice.io/explore"><strong>2022 군 장병 SW∙AI 역량강화 교육</strong></a>을 수강하고 있다. 배정된 수준별 ML과정을 수강해 보았는데, pandas, sklearn 등 라이브러리의 사용 방법과 기본적인 ML 알고리즘 몇 개를 배울 수 있었다. Kaggle에 도전하려는 데엔 도움이 되었지만 결국 깊이있게 이해하기 위해선 수학적 베이스도 공부해야 할 것 같다. CS229 강의를 계속 들었어야 되는데 한번 끊기니까 이해도 잘 안되고 의욕도 줄었다… 앞으로는 두 코스를 병행하도록 노력해야 겠다.</p>
+</li>
+<li><p>헬스를 다시 시작했다. 귀찮을 땐 방에 사둔 풀업바 이용해서 조금씩이라도 하려고 노력중이다.</p>
+</li>
+</ul>
+<h3 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h3><ul>
+<li>Dale Carnegie, <strong>&lt;인간관계론&gt;</strong><!-- 사실 각 챕터에서 다루는 주제는 당연한 말들이지만, 사람들을 대하는 태도를 평가하기에 좋은 잣대가 될 것 같다. 자기효용감의 관점으로 접근하는 방식이 인상깊었다. 어쩌면 과할 정도로 모든 내용이 궁극적으로 타인의 자기효용감을 충족시켜준다는 목적인데, 확실한 것은 그 목적으로부터 나오는 모든 행동은 긍정적인 효과를 준다는 사실이다. --></li>
+<li>유시민, <strong>&lt;국가란 무엇인가&gt;</strong><!-- 정치는 역시 어렵다. --></li>
+<li>무라카미 하루키, <strong>&lt;1Q84 #1&gt;</strong><!-- 소설은 역시 재밌다. --></li>
+</ul>
+<p>여름 한동안은 포데이 외박도 없고, 날씨와 훈련 때문이라도 많이 지치는 기간이 될 것 같다. 나가기 싫으면 차라리 방에 박혀서 공부라도 많이 해야겠다.</p>
 
-<p>참고자료 - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EC%B5%9C%EC%9E%A5%20%EC%A6%9D%EA%B0%80%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4">https://namu.wiki/w/최장 증가 부분 수열</a></p>
             
 
 
@@ -267,7 +270,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/DP/" rel="tag">DP</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/LIS/" rel="tag">LIS</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/%ED%9A%8C%EA%B3%A0/" rel="tag">회고</a>
 
             </div>
         
@@ -278,7 +281,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="PREVIOUS: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/OKR/2022_3q_okr/" data-tooltip="2022년 3분기 OKR" aria-label="PREVIOUS: 2022년 3분기 OKR">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -287,7 +290,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="NEXT: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/usfk-bus-app-review/" data-tooltip="USFK Bus Schedule 앱 제작 후기 및 Troubleshooting" aria-label="NEXT: USFK Bus Schedule 앱 제작 후기 및 Troubleshooting">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -305,7 +308,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -313,7 +316,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -321,7 +324,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -367,7 +370,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="PREVIOUS: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/OKR/2022_3q_okr/" data-tooltip="2022년 3분기 OKR" aria-label="PREVIOUS: 2022년 3분기 OKR">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -376,7 +379,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="NEXT: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/usfk-bus-app-review/" data-tooltip="USFK Bus Schedule 앱 제작 후기 및 Troubleshooting" aria-label="NEXT: USFK Bus Schedule 앱 제작 후기 및 Troubleshooting">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -394,7 +397,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -402,7 +405,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -410,7 +413,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/OKR/june_2022_review/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -438,7 +441,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-11723/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/OKR/june_2022_review/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -446,7 +449,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-11723/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/OKR/june_2022_review/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -454,7 +457,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-11723/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/OKR/june_2022_review/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
