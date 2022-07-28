@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-07-27T06:04:40.021Z</updated>
+  <updated>2022-07-28T02:05:52.316Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>백준 11404번 플로이드</title>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-11404/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-11404/</id>
+    <published>2022-07-28T01:43:12.000Z</published>
+    <updated>2022-07-28T02:05:52.316Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><h3 id="Floyd-Warshall-알고리즘이란"><a href="#Floyd-Warshall-알고리즘이란" class="headerlink" title="Floyd-Warshall 알고리즘이란"></a>Floyd-Warshall 알고리즘이란</h3><p>Dijkstra 알고리즘이 그래프의 정해진 한 노드에서 다른 노드까지의 최단거리를 구하는 알고리즘이었다면, Floyd-Warshall 알고리즘은 출발 노드가 따로 정해져있지 않다. 따라서 V개의 노드가 있다면 V^2개의 최단경로를 결과로 얻게 된다.</p><p>이 알고리즘의 핵심은 각 노드를 돌며 <strong>이 노드를 지나는 경로가 더 짧을 경우 갱신</strong>헤주는 방식이다.</p><ol><li>최단경로를 저장할 V by V 인접행렬을 만들고, INF값으로 초기화시킨다.</li><li>입력값을 행렬에 저장한다. 대각선 원소들에는 0을 저장한다.</li><li>각 노드를 순환하며, 다른 두 노드 사이의 최단거리가 이 노드를 거쳐갈 경우에 거리가 짧아진다면 갱신한다. (min함수를 이용한다)</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">INF = <span class="built_in">int</span>(<span class="number">1e9</span>)</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">dist = [[INF]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">  a, b, c= <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  dist[a][b] = <span class="built_in">min</span>(dist[a][b],c)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>):</span><br><span class="line">  dist[i][i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">      dist[j][k] = <span class="built_in">min</span>(dist[j][k],dist[j][i] + dist[i][k])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> dist[z][y] == INF:</span><br><span class="line">            dist[z][y] = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(*dist[z][<span class="number">1</span>:],sep=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure><p>백준 11404에선 입력값에 같은 간선이 들어올 수 있으므로 입력받을 때에도 min함수를 이용해 비교해주어야 한다.</p><h3 id="Floyd-Warshall-알고리즘의-시간복잡도"><a href="#Floyd-Warshall-알고리즘의-시간복잡도" class="headerlink" title="Floyd-Warshall 알고리즘의 시간복잡도"></a>Floyd-Warshall 알고리즘의 시간복잡도</h3><p>단순하게 생각하면, V개의 노드를 세 번 순환을 돌았으니 O(V^3)이다.</p><h3 id="참고문헌"><a href="#참고문헌" class="headerlink" title="참고문헌"></a>참고문헌</h3><p><a href="https://namu.wiki/w/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%9B%8C%EC%85%9C%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">https://namu.wiki/w/플로이드-워셜%20알고리즘</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;그래프의 모든 노드들 간의 최단 경로를 구하는 Floyd-Warshall 알고리즘&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="algorithm" scheme="https://oxcarxierra.github.io/categories/algorithm/"/>
+    
+    
+    <category term="Graph" scheme="https://oxcarxierra.github.io/tags/Graph/"/>
+    
+    <category term="Floyd-Warshall" scheme="https://oxcarxierra.github.io/tags/Floyd-Warshall/"/>
+    
+  </entry>
   
   <entry>
     <title>백준 1753 최단경로</title>
