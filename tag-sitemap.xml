@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/%ED%9A%8C%EA%B3%A0/</loc>
+        <lastmod>2022-07-30T15:25:29.407Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/Floyd-Warshall/</loc>
         <lastmod>2022-07-28T02:05:52.316Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,13 +96,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/OKR/</loc>
         <lastmod>2022-07-26T01:58:05.486Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/%ED%9A%8C%EA%B3%A0/</loc>
-        <lastmod>2022-07-26T01:57:19.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
