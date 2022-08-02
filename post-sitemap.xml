@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/</loc>
+        <lastmod>2022-08-02T13:18:55.259Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_1918/</loc>
+        <lastmod>2022-08-02T13:16:27.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-bellman-ford/</loc>
         <lastmod>2022-08-02T08:29:53.300Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -35,14 +51,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/june-2022-review/</loc>
         <lastmod>2022-08-02T08:28:45.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/july-2022-review/</loc>
-        <lastmod>2022-08-02T08:28:34.133Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
