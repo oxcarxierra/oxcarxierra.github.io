@@ -3,99 +3,99 @@
 
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/%ED%9A%8C%EA%B3%A0/</loc>
-        <lastmod>2022-07-30T15:25:29.407Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/retrospective/</loc>
+        <lastmod>2022-08-02T08:12:41.823Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/Floyd-Warshall/</loc>
-        <lastmod>2022-07-28T02:05:52.316Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/django/</loc>
+        <lastmod>2022-08-02T07:50:18.553Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/Graph/</loc>
-        <lastmod>2022-07-28T02:05:52.316Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/react-native/</loc>
+        <lastmod>2022-08-02T07:50:18.553Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://oxcarxierra.github.io/tags/seaborn/</loc>
-        <lastmod>2022-07-27T07:12:43.500Z</lastmod>
+        <lastmod>2022-08-02T07:50:00.381Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://oxcarxierra.github.io/tags/pandas/</loc>
-        <lastmod>2022-07-27T07:12:43.500Z</lastmod>
+        <lastmod>2022-08-02T07:50:00.381Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/Django/</loc>
-        <lastmod>2022-07-27T06:06:56.327Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/okr/</loc>
+        <lastmod>2022-08-02T07:49:34.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/React-Native/</loc>
-        <lastmod>2022-07-27T06:06:56.327Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/lis/</loc>
+        <lastmod>2022-08-02T07:49:20.187Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/LIS/</loc>
-        <lastmod>2022-07-27T06:06:02.943Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/dp/</loc>
+        <lastmod>2022-08-02T07:49:20.187Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/DP/</loc>
-        <lastmod>2022-07-27T06:06:02.943Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
+        <lastmod>2022-08-02T07:49:17.653Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/floyd-warshall/</loc>
+        <lastmod>2022-08-02T07:49:17.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://oxcarxierra.github.io/tags/data-structure/</loc>
-        <lastmod>2022-07-27T06:06:00.639Z</lastmod>
+        <lastmod>2022-08-02T07:49:14.943Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/LCS/</loc>
-        <lastmod>2022-07-27T06:05:57.860Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/lcs/</loc>
+        <lastmod>2022-08-02T07:49:09.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://oxcarxierra.github.io/tags/greedy-algorithm/</loc>
-        <lastmod>2022-07-27T06:05:55.267Z</lastmod>
+        <lastmod>2022-08-02T07:49:05.178Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/Dijkstra-Algorithm/</loc>
-        <lastmod>2022-07-27T06:04:40.021Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/OKR/</loc>
-        <lastmod>2022-07-26T01:58:05.486Z</lastmod>
+        <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
+        <lastmod>2022-08-02T07:45:49.219Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

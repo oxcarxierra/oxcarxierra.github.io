@@ -9,32 +9,32 @@
 
 
     <url>
-        <loc>https://oxcarxierra.github.io/OKR/july_2022_review/</loc>
-        <lastmod>2022-07-30T15:25:29.407Z</lastmod>
+        <loc>https://oxcarxierra.github.io/OKR/may-2022-review/</loc>
+        <lastmod>2022-08-02T08:12:41.823Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/OKR/june_2022_review/</loc>
-        <lastmod>2022-07-30T14:33:39.074Z</lastmod>
+        <loc>https://oxcarxierra.github.io/OKR/june-2022-review/</loc>
+        <lastmod>2022-08-02T08:12:40.340Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/algorithm/boj-11404/</loc>
-        <lastmod>2022-07-28T02:05:52.316Z</lastmod>
+        <loc>https://oxcarxierra.github.io/OKR/july-2022-review/</loc>
+        <lastmod>2022-08-02T08:12:38.939Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/ML/ml-library-cheatsheet/</loc>
-        <lastmod>2022-07-27T07:12:43.500Z</lastmod>
+        <loc>https://oxcarxierra.github.io/uncategorized/boj-bellman-ford/</loc>
+        <lastmod>2022-08-02T08:08:40.954Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,7 +42,23 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Development/usfk-bus-app-review/</loc>
-        <lastmod>2022-07-27T06:06:56.327Z</lastmod>
+        <lastmod>2022-08-02T07:50:18.553Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/ML/ml-library-cheatsheet/</loc>
+        <lastmod>2022-08-02T07:50:00.381Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/OKR/2022-3q-okr/</loc>
+        <lastmod>2022-08-02T07:49:34.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,7 +66,15 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-11723/</loc>
-        <lastmod>2022-07-27T06:06:02.943Z</lastmod>
+        <lastmod>2022-08-02T07:49:20.187Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/algorithm/boj-11404/</loc>
+        <lastmod>2022-08-02T07:49:17.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -58,7 +82,7 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-10816/</loc>
-        <lastmod>2022-07-27T06:06:00.639Z</lastmod>
+        <lastmod>2022-08-02T07:49:14.943Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,7 +90,7 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-9251/</loc>
-        <lastmod>2022-07-27T06:05:57.860Z</lastmod>
+        <lastmod>2022-08-02T07:49:09.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -74,39 +98,23 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-1931/</loc>
-        <lastmod>2022-07-27T06:05:55.267Z</lastmod>
+        <lastmod>2022-08-02T07:49:05.178Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/</loc>
-        <lastmod>2022-07-27T06:04:40.021Z</lastmod>
+        <loc>https://oxcarxierra.github.io/OKR/2022-2q-okr/</loc>
+        <lastmod>2022-08-02T07:47:15.857Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/OKR/2022_2q_okr/</loc>
-        <lastmod>2022-07-26T01:58:05.486Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/OKR/may_2022_review/</loc>
-        <lastmod>2022-07-26T01:57:19.168Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/OKR/2022_3q_okr/</loc>
-        <lastmod>2022-07-25T08:59:58.661Z</lastmod>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj-1753/</loc>
+        <lastmod>2022-08-02T07:45:49.219Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

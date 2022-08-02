@@ -6,28 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="OXcarXierra">
-    <title>백준 1753 최단경로 - OXcarXierra</title>
+    <title>Dijkstra 알고리즘 - BOJ 1753 최단경로 - OXcarXierra</title>
     <meta name="author" content="Seungseok Oh">
     
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\nDijkstra Algorithm이란?그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다.\n→ 다른 알고리즘으로는 플로이드-워셜 알고리즘이 있다. 이건 모든 노드쌍 사이의 최단경로 알고리즘.→ 단선에 음의 가중치가 있을 땐 벨만-포드 알고리즘.\n노드의 개수 V, 단선의 개수 E인 그래프에 가중치가 주어졌고, 각 노드까지의 최단경로를 저장할 distance list를 선언했다고 가정하자.\n\n출발 노드를 설정\n출발 노드와 연결된 노드들의 distance 설정 (최단거리라는 보장은 없다)\n방문하지 않은 노드들 중 출발 노드와 최단거리가 가장 작은 노드를 선택한다.\n이 노드를 거치는 경로를 계산했을 때 더 짧은 거리가 생성된다면 distance를 고친다.\n3,4과정을 모든 노드에 대해 반복한다.\n\n핵심은, 3) 방문하지 않은 노드 중 최단거리의 노드를 선택하는 과정을 반복하는 데에 있다. 문제 안의 소문제를 찾아서 해결하는 DP의 응용이기도 하다.\n이 과정에서 단순 탐색을 이용하는 방법과, 우선순위 큐를 이용하는 방법이 있다.\n단순탐색을 이용한 Dijkstra Algorithm이 때는 각 노드의 방문여부를 flag로 만들어준다.\n12345678910111213141516171819202122232425262728293031323334353637383940INF = int(1e9)V, E = map(int, input().split())K = int(input())graph= [[] for _ in range(V+1)]for _ in range(E):  u, v, w= map(int, input().split())  graph[u].append((v,w))distance = [INF]*(V+1)visited = [False]*(V+1)def get_smallest_node():  min_value = INF  index = 0  for i in range(1, V+1):    if not visited[i] and distance[i] &lt; min_value:      index = i      min_value = distance[i]  return indexdef dijkstra():  visited[K] = True  distance[K] = 0  for (i,v) in graph[K]:    distance[i] = v  for _ in range(V-1):    i = get_smallest_node()    visited[i] = True    for (j,v) in graph[i]:      if distance[j] &gt; distance[i] + v:        distance[j] = distance[i]+ vdijkstra()for i in range(1, V+1):  if distance[i] == INF:    print(&#x27;INF&#x27;)  else:    print(distance[i])\n\n시간복잡도는 O(V^2)이다. 왜냐하면 V개의 모든 노드에 대해 3)과정을 거치며 V번의 비교를 하게 되기 때문.\n우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm이 과정에서 우선순위 큐(최소 힙)을 이용한다면, 복잡도를 줄일 수 있다.\n12345678910111213141516171819202122232425262728293031323334import heapqINF = int(1e9)V, E = map(int, input().split())K = int(input())graph= [[] for _ in range(V+1)]for _ in range(E):  u, v, w= map(int, input().split())  graph[u].append((v,w))distance = [INF]*(V+1)def dijkstra():  q = []  distance[K] = 0  heapq.heappush(q, (0, K))  while q:    dist, node = heapq.heappop(q)    if distance[node] &lt; dist:      continue    for (j,v) in graph[node]:      cost = distance[node]+ v      if distance[j] &gt; cost:        distance[j] = cost        heapq.heappush(q, (cost, j))dijkstra()for i in range(1, V+1):  if distance[i] == INF:    print(&#x27;INF&#x27;)  else:    print(distance[i])\n\n이 과정에서는 최단거리 노드를 찾는 데에 O(VlogV)가 필요하고(V개의 노드에 대해 힙에서 추출하는 시간 logV, 각 노드가 인접한 노드를 갱신할 때 (visited를 체크하지 않으므로) 모든 간선을 확인하는 것과 같으며 갱신될 때 logV가 필요하므로 O(ElogV)가 필요하다. 결과적으론 O((E+V)logV)가 필요한 셈.\n이 부분에서 헷갈린게 있었는데, 최악의 경우 E는 V^2 스케일일 때 복잡도를 비교하면 전자가 더 빠르다. 즉 그래프가 sparse할 때만 효율적이다.\n참고문헌https://techblog-history-younghunjo1.tistory.com/248?category=1014800\n위 블로그가 정말 설명이 깔끔하게 잘 되어있다. 다른 알고리즘도 참고해 보아야겠다\nhttps://namu.wiki/w/다익스트라 알고리즘","dateCreated":"2022-07-26T22:27:45+09:00","dateModified":"2022-07-27T15:04:40+09:00","datePublished":"2022-07-26T22:27:45+09:00","description":"가중치 그래프의 최단경로의 길이를 구하는 Dijkstra Algorithm을 공부해보자","headline":"백준 1753 최단경로","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/","keywords":"Dijkstra Algorithm, Graph"}</script>
-    <meta name="description" content="가중치 그래프의 최단경로의 길이를 구하는 Dijkstra Algorithm을 공부해보자">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nDijkstra Algorithm이란?그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다.\n→ 다른 알고리즘으로는 플로이드-워셜 알고리즘이 있다. 이건 모든 노드쌍 사이의 최단경로 알고리즘.→ 단선에 음의 가중치가 있을 땐 벨만-포드 알고리즘.\n노드의 개수 V, 단선의 개수 E인 그래프에 가중치가 주어졌고, 각 노드까지의 최단경로를 저장할 distance list를 선언했다고 가정하자.\n\n출발 노드를 설정\n출발 노드와 연결된 노드들의 distance 설정 (최단거리라는 보장은 없다)\n방문하지 않은 노드들 중 출발 노드와 최단거리가 가장 작은 노드를 선택한다.\n이 노드를 거치는 경로를 계산했을 때 더 짧은 거리가 생성된다면 distance를 고친다.\n3,4과정을 모든 노드에 대해 반복한다.\n\n핵심은, 3) 방문하지 않은 노드 중 최단거리의 노드를 선택하는 과정을 반복하는 데에 있다. 문제 안의 소문제를 찾아서 해결하는 DP의 응용이기도 하다.\n이 과정에서 단순 탐색을 이용하는 방법과, 우선순위 큐를 이용하는 방법이 있다.\n단순탐색을 이용한 Dijkstra Algorithm이 때는 각 노드의 방문여부를 flag로 만들어준다.\n12345678910111213141516171819202122232425262728293031323334353637383940INF = int(1e9)V, E = map(int, input().split())K = int(input())graph= [[] for _ in range(V+1)]for _ in range(E):  u, v, w= map(int, input().split())  graph[u].append((v,w))distance = [INF]*(V+1)visited = [False]*(V+1)def get_smallest_node():  min_value = INF  index = 0  for i in range(1, V+1):    if not visited[i] and distance[i] &lt; min_value:      index = i      min_value = distance[i]  return indexdef dijkstra():  visited[K] = True  distance[K] = 0  for (i,v) in graph[K]:    distance[i] = v  for _ in range(V-1):    i = get_smallest_node()    visited[i] = True    for (j,v) in graph[i]:      if distance[j] &gt; distance[i] + v:        distance[j] = distance[i]+ vdijkstra()for i in range(1, V+1):  if distance[i] == INF:    print(&#x27;INF&#x27;)  else:    print(distance[i])\n\n시간복잡도는 O(V^2)이다. 왜냐하면 V개의 모든 노드에 대해 3)과정을 거치며 V번의 비교를 하게 되기 때문.\n우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm이 과정에서 우선순위 큐(최소 힙)을 이용한다면, 복잡도를 줄일 수 있다.아래 코드는 BOJ 1753 최단경로의 답이기도 하다.\n12345678910111213141516171819202122232425262728293031323334import heapqINF = int(1e9)V, E = map(int, input().split())K = int(input())graph= [[] for _ in range(V+1)]for _ in range(E):  u, v, w= map(int, input().split())  graph[u].append((v,w))distance = [INF]*(V+1)def dijkstra():  q = []  distance[K] = 0  heapq.heappush(q, (0, K))  while q:    dist, node = heapq.heappop(q)    if distance[node] &lt; dist:      continue    for (j,v) in graph[node]:      cost = distance[node]+ v      if distance[j] &gt; cost:        distance[j] = cost        heapq.heappush(q, (cost, j))dijkstra()for i in range(1, V+1):  if distance[i] == INF:    print(&#x27;INF&#x27;)  else:    print(distance[i])\n\n이 과정에서는 최단거리 노드를 찾는 데에 O(VlogV)가 필요하고(V개의 노드에 대해 힙에서 추출하는 시간 logV, 각 노드가 인접한 노드를 갱신할 때 (visited를 체크하지 않으므로) 모든 간선을 확인하는 것과 같으며 갱신될 때 logV가 필요하므로 O(ElogV)가 필요하다. 결과적으론 O((E+V)logV)가 필요한 셈.\n이 부분에서 헷갈린게 있었는데, 최악의 경우 E는 V^2 스케일일 때 복잡도를 비교하면 전자가 더 빠르다. 즉 그래프가 sparse할 때만 효율적이다.\n\n참고문헌https://techblog-history-younghunjo1.tistory.com/248?category=1014800위 블로그가 정말 설명이 깔끔하게 잘 되어있다. 다른 알고리즘도 참고해 보아야겠다https://namu.wiki/w/다익스트라 알고리즘\n\n","dateCreated":"2022-07-26T22:27:45+09:00","dateModified":"2022-08-02T16:45:49+09:00","datePublished":"2022-07-26T22:27:45+09:00","description":"","headline":"Dijkstra 알고리즘 - BOJ 1753 최단경로","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-1753/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-1753/","keywords":"graph, dijkstra algorithm"}</script>
+    <meta name="description" content="Dijkstra Algorithm이란?그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다. → 다른 알고리즘으로는 플로이드-워셜 알고리즘이 있다. 이건 모든 노드쌍 사이의 최단경로 알고리즘.→ 단선에 음의 가중치가 있을 땐 벨만-포드 알고리즘. 노드의 개수 V, 단선의 개수 E인 그래프에 가중치가 주어졌">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="백준 1753 최단경로">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/index.html">
+<meta property="og:title" content="Dijkstra 알고리즘 - BOJ 1753 최단경로">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-1753/index.html">
 <meta property="og:site_name" content="OXcarXierra">
-<meta property="og:description" content="가중치 그래프의 최단경로의 길이를 구하는 Dijkstra Algorithm을 공부해보자">
+<meta property="og:description" content="Dijkstra Algorithm이란?그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다. → 다른 알고리즘으로는 플로이드-워셜 알고리즘이 있다. 이건 모든 노드쌍 사이의 최단경로 알고리즘.→ 단선에 음의 가중치가 있을 땐 벨만-포드 알고리즘. 노드의 개수 V, 단선의 개수 E인 그래프에 가중치가 주어졌">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-26T13:27:45.000Z">
-<meta property="article:modified_time" content="2022-07-27T06:04:40.021Z">
+<meta property="article:modified_time" content="2022-08-02T07:45:49.219Z">
 <meta property="article:author" content="Seungseok Oh">
-<meta property="article:tag" content="Dijkstra Algorithm">
-<meta property="article:tag" content="Graph">
+<meta property="article:tag" content="graph">
+<meta property="article:tag" content="dijkstra algorithm">
 <meta name="twitter:card" content="summary">
     
     
@@ -69,7 +71,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj-1753-dijkstra-algorithm/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj-1753/">
 </head>
 
     <body>
@@ -107,11 +109,8 @@
         
             <div class="sidebar-profile">
               <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                <!-- <a
-                aria-label="Read more about the author"
-                href="/#about"
-                >
-                </a> -->
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
                 <h4 class="sidebar-profile-name">Seungseok Oh</h4>
                 
                     <h5 class="sidebar-profile-bio"><p>기록의 중요성을 실천하려 합니다</p>
@@ -140,17 +139,17 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <a class="sidebar-button-link " href="/categories/OKR" rel="noopener" title="Retrospectives &amp; OKR">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Retrospectives &amp; OKR</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
                     </a>
             </li>
             
@@ -192,6 +191,10 @@
             
         </ul>
         
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
     </div>
 </nav>
 
@@ -206,23 +209,23 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            백준 1753 최단경로
+            Dijkstra 알고리즘 - BOJ 1753 최단경로
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2022-07-26T22:27:45+09:00">
-	
-		    Jul 26, 2022
-    	
-    </time>
-    
-        <span>in </span>
-        
+  <time datetime="2022-07-26T22:27:45+09:00">
+     Jul 26, 2022 
+  </time>
+  
+  <span>in </span>
+  
     <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
 
-
-    
+ 
+  <span class="post-readingtime">
+     - 7 min read
+  </span>
 </div>
 
     
@@ -231,11 +234,9 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra-Algorithm%EC%9D%B4%EB%9E%80"><span class="toc-text">Dijkstra Algorithm이란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A8%EC%88%9C%ED%83%90%EC%83%89%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Dijkstra-Algorithm"><span class="toc-text">단순탐색을 이용한 Dijkstra Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-%EC%B5%9C%EC%86%8C-%ED%9E%99-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-Dijkstra-Algorithm"><span class="toc-text">우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm</span></a></li></ol>
 
-<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dijkstra-Algorithm%EC%9D%B4%EB%9E%80"><span class="toc-text">Dijkstra Algorithm이란?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A8%EC%88%9C%ED%83%90%EC%83%89%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Dijkstra-Algorithm"><span class="toc-text">단순탐색을 이용한 Dijkstra Algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-%EC%B5%9C%EC%86%8C-%ED%9E%99-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-Dijkstra-Algorithm"><span class="toc-text">우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%B0%B8%EA%B3%A0%EB%AC%B8%ED%97%8C"><span class="toc-text">참고문헌</span></a></li></ol>
-
-<h3 id="Dijkstra-Algorithm이란"><a href="#Dijkstra-Algorithm이란" class="headerlink" title="Dijkstra Algorithm이란?"></a>Dijkstra Algorithm이란?</h3><p>그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다.</p>
+<h2 id="Dijkstra-Algorithm이란"><a href="#Dijkstra-Algorithm이란" class="headerlink" title="Dijkstra Algorithm이란?"></a>Dijkstra Algorithm이란?</h2><p>그래프의 모든 단선이 음이 아닌 가중치를 가졌을 때 노드와 노드 사이의 최단경로를 구하는 알고리즘이다.</p>
 <p>→ 다른 알고리즘으로는 플로이드-워셜 알고리즘이 있다. 이건 모든 노드쌍 사이의 최단경로 알고리즘.<br>→ 단선에 음의 가중치가 있을 땐 벨만-포드 알고리즘.</p>
 <p>노드의 개수 V, 단선의 개수 E인 그래프에 가중치가 주어졌고, 각 노드까지의 최단경로를 저장할 distance list를 선언했다고 가정하자.</p>
 <ol>
@@ -247,18 +248,19 @@
 </ol>
 <p>핵심은, 3) 방문하지 않은 노드 중 최단거리의 노드를 선택하는 과정을 반복하는 데에 있다. 문제 안의 소문제를 찾아서 해결하는 DP의 응용이기도 하다.</p>
 <p>이 과정에서 단순 탐색을 이용하는 방법과, 우선순위 큐를 이용하는 방법이 있다.</p>
-<h3 id="단순탐색을-이용한-Dijkstra-Algorithm"><a href="#단순탐색을-이용한-Dijkstra-Algorithm" class="headerlink" title="단순탐색을 이용한 Dijkstra Algorithm"></a>단순탐색을 이용한 Dijkstra Algorithm</h3><p>이 때는 각 노드의 방문여부를 flag로 만들어준다.</p>
+<h2 id="단순탐색을-이용한-Dijkstra-Algorithm"><a href="#단순탐색을-이용한-Dijkstra-Algorithm" class="headerlink" title="단순탐색을 이용한 Dijkstra Algorithm"></a>단순탐색을 이용한 Dijkstra Algorithm</h2><p>이 때는 각 노드의 방문여부를 flag로 만들어준다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">INF = <span class="built_in">int</span>(<span class="number">1e9</span>)</span><br><span class="line"></span><br><span class="line">V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">K = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">graph= [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V+<span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">  u, v, w= <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  graph[u].append((v,w))</span><br><span class="line"></span><br><span class="line">distance = [INF]*(V+<span class="number">1</span>)</span><br><span class="line">visited = [<span class="literal">False</span>]*(V+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_smallest_node</span>():</span><br><span class="line">  min_value = INF</span><br><span class="line">  index = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> visited[i] <span class="keyword">and</span> distance[i] &lt; min_value:</span><br><span class="line">      index = i</span><br><span class="line">      min_value = distance[i]</span><br><span class="line">  <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>():</span><br><span class="line">  visited[K] = <span class="literal">True</span></span><br><span class="line">  distance[K] = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> (i,v) <span class="keyword">in</span> graph[K]:</span><br><span class="line">    distance[i] = v</span><br><span class="line">  <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V-<span class="number">1</span>):</span><br><span class="line">    i = get_smallest_node()</span><br><span class="line">    visited[i] = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> (j,v) <span class="keyword">in</span> graph[i]:</span><br><span class="line">      <span class="keyword">if</span> distance[j] &gt; distance[i] + v:</span><br><span class="line">        distance[j] = distance[i]+ v</span><br><span class="line"></span><br><span class="line">dijkstra()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V+<span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> distance[i] == INF:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;INF&#x27;</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(distance[i])</span><br></pre></td></tr></table></figure>
 
 <p>시간복잡도는 O(V^2)이다. 왜냐하면 V개의 모든 노드에 대해 3)과정을 거치며 V번의 비교를 하게 되기 때문.</p>
-<h3 id="우선순위-큐-최소-힙-을-이용하는-Dijkstra-Algorithm"><a href="#우선순위-큐-최소-힙-을-이용하는-Dijkstra-Algorithm" class="headerlink" title="우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm"></a>우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm</h3><p>이 과정에서 우선순위 큐(최소 힙)을 이용한다면, 복잡도를 줄일 수 있다.</p>
+<h2 id="우선순위-큐-최소-힙-을-이용하는-Dijkstra-Algorithm"><a href="#우선순위-큐-최소-힙-을-이용하는-Dijkstra-Algorithm" class="headerlink" title="우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm"></a>우선순위 큐(최소 힙)을 이용하는 Dijkstra Algorithm</h2><p>이 과정에서 우선순위 큐(최소 힙)을 이용한다면, 복잡도를 줄일 수 있다.<br>아래 코드는 BOJ 1753 최단경로의 답이기도 하다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">INF = <span class="built_in">int</span>(<span class="number">1e9</span>)</span><br><span class="line"></span><br><span class="line">V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">K = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">graph= [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V+<span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">  u, v, w= <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  graph[u].append((v,w))</span><br><span class="line"></span><br><span class="line">distance = [INF]*(V+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>():</span><br><span class="line">  q = []</span><br><span class="line">  distance[K] = <span class="number">0</span></span><br><span class="line">  heapq.heappush(q, (<span class="number">0</span>, K))</span><br><span class="line">  <span class="keyword">while</span> q:</span><br><span class="line">    dist, node = heapq.heappop(q)</span><br><span class="line">    <span class="keyword">if</span> distance[node] &lt; dist:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">for</span> (j,v) <span class="keyword">in</span> graph[node]:</span><br><span class="line">      cost = distance[node]+ v</span><br><span class="line">      <span class="keyword">if</span> distance[j] &gt; cost:</span><br><span class="line">        distance[j] = cost</span><br><span class="line">        heapq.heappush(q, (cost, j))</span><br><span class="line"></span><br><span class="line">dijkstra()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V+<span class="number">1</span>):</span><br><span class="line">  <span class="keyword">if</span> distance[i] == INF:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;INF&#x27;</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(distance[i])</span><br></pre></td></tr></table></figure>
 
 <p>이 과정에서는 최단거리 노드를 찾는 데에 O(VlogV)가 필요하고(V개의 노드에 대해 힙에서 추출하는 시간 logV, 각 노드가 인접한 노드를 갱신할 때 (visited를 체크하지 않으므로) 모든 간선을 확인하는 것과 같으며 갱신될 때 logV가 필요하므로 O(ElogV)가 필요하다. 결과적으론 O((E+V)logV)가 필요한 셈.</p>
 <p>이 부분에서 헷갈린게 있었는데, 최악의 경우 E는 V^2 스케일일 때 복잡도를 비교하면 전자가 더 빠르다. 즉 그래프가 sparse할 때만 효율적이다.</p>
-<h3 id="참고문헌"><a href="#참고문헌" class="headerlink" title="참고문헌"></a>참고문헌</h3><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://techblog-history-younghunjo1.tistory.com/248?category=1014800">https://techblog-history-younghunjo1.tistory.com/248?category=1014800</a></p>
-<p>위 블로그가 정말 설명이 깔끔하게 잘 되어있다. 다른 알고리즘도 참고해 보아야겠다</p>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">https://namu.wiki/w/다익스트라 알고리즘</a></p>
+<blockquote>
+<p>참고문헌<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://techblog-history-younghunjo1.tistory.com/248?category=1014800">https://techblog-history-younghunjo1.tistory.com/248?category=1014800</a><br>위 블로그가 정말 설명이 깔끔하게 잘 되어있다. 다른 알고리즘도 참고해 보아야겠다<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC">https://namu.wiki/w/다익스트라</a> 알고리즘</p>
+</blockquote>
+
             
 
 
@@ -269,7 +271,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/Dijkstra-Algorithm/" rel="tag">Dijkstra Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Graph/" rel="tag">Graph</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/dijkstra-algorithm/" rel="tag">dijkstra algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/graph/" rel="tag">graph</a>
 
             </div>
         
@@ -280,7 +282,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-11404/" data-tooltip="백준 11404번 플로이드" aria-label="PREVIOUS: 백준 11404번 플로이드">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-11404/" data-tooltip="Floyd-Warshall 알고리즘  - BOJ 11404번 플로이드" aria-label="PREVIOUS: Floyd-Warshall 알고리즘  - BOJ 11404번 플로이드">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -289,7 +291,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="NEXT: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="BOJ 9251 LCS" aria-label="NEXT: BOJ 9251 LCS">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -307,7 +309,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -315,7 +317,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -323,7 +325,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -369,7 +371,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-11404/" data-tooltip="백준 11404번 플로이드" aria-label="PREVIOUS: 백준 11404번 플로이드">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-11404/" data-tooltip="Floyd-Warshall 알고리즘  - BOJ 11404번 플로이드" aria-label="PREVIOUS: Floyd-Warshall 알고리즘  - BOJ 11404번 플로이드">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -378,7 +380,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="NEXT: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="BOJ 9251 LCS" aria-label="NEXT: BOJ 9251 LCS">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -396,7 +398,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -404,7 +406,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -412,7 +414,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -440,7 +442,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1753/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -448,7 +450,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1753/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -456,7 +458,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753-dijkstra-algorithm/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1753/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

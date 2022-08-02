@@ -6,28 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="OXcarXierra">
-    <title>백준 11053 가장 긴 증가하는 부분수열 - OXcarXierra</title>
+    <title>BOJ 11053 가장 긴 증가하는 부분수열 - OXcarXierra</title>
     <meta name="author" content="Seungseok Oh">
     
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\n주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\n풀이123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n참고자료 - https://namu.wiki/w/최장 증가 부분 수열","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-07-27T15:06:02+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이","headline":"백준 11053 가장 긴 증가하는 부분수열","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-11723/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-11723/","keywords":"DP, LIS"}</script>
-    <meta name="description" content="DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\nLIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\nBOJ 11723 가장 긴 증가하는 부분수열123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n\n참고문헌https://namu.wiki/w/최장 증가 부분 수열\n\n","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-08-02T16:49:20+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"","headline":"BOJ 11053 가장 긴 증가하는 부분수열","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-11723/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-11723/","keywords":"dp, lis"}</script>
+    <meta name="description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="백준 11053 가장 긴 증가하는 부분수열">
+<meta property="og:title" content="BOJ 11053 가장 긴 증가하는 부분수열">
 <meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-11723/index.html">
 <meta property="og:site_name" content="OXcarXierra">
-<meta property="og:description" content="DP를 적용하는 대표적인 문제 LIS를 python으로 구현한 풀이">
+<meta property="og:description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-24T03:01:19.000Z">
-<meta property="article:modified_time" content="2022-07-27T06:06:02.943Z">
+<meta property="article:modified_time" content="2022-08-02T07:49:20.187Z">
 <meta property="article:author" content="Seungseok Oh">
-<meta property="article:tag" content="DP">
-<meta property="article:tag" content="LIS">
+<meta property="article:tag" content="dp">
+<meta property="article:tag" content="lis">
 <meta name="twitter:card" content="summary">
     
     
@@ -107,11 +109,8 @@
         
             <div class="sidebar-profile">
               <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                <!-- <a
-                aria-label="Read more about the author"
-                href="/#about"
-                >
-                </a> -->
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
                 <h4 class="sidebar-profile-name">Seungseok Oh</h4>
                 
                     <h5 class="sidebar-profile-bio"><p>기록의 중요성을 실천하려 합니다</p>
@@ -140,17 +139,17 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <a class="sidebar-button-link " href="/categories/OKR" rel="noopener" title="Retrospectives &amp; OKR">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Retrospectives &amp; OKR</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
                     </a>
             </li>
             
@@ -192,6 +191,10 @@
             
         </ul>
         
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
     </div>
 </nav>
 
@@ -206,23 +209,23 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            백준 11053 가장 긴 증가하는 부분수열
+            BOJ 11053 가장 긴 증가하는 부분수열
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2022-07-24T12:01:19+09:00">
-	
-		    Jul 24, 2022
-    	
-    </time>
-    
-        <span>in </span>
-        
+  <time datetime="2022-07-24T12:01:19+09:00">
+     Jul 24, 2022 
+  </time>
+  
+  <span>in </span>
+  
     <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
 
-
-    
+ 
+  <span class="post-readingtime">
+     - 2 min read
+  </span>
 </div>
 
     
@@ -231,10 +234,10 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LIS"><span class="toc-text">LIS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-11723-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4"><span class="toc-text">BOJ 11723 가장 긴 증가하는 부분수열</span></a></li></ol>
 
 <p>처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.<br>LIS, Longest Increasing Subsequence라고도 불린다.</p>
-<p>주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.</p>
+<h2 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a>LIS</h2><p>주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.</p>
 <p>즉, A[i]를 찾는 알고리즘은 아래와 같다.</p>
 <ol>
 <li>A[0] &#x3D; 0, D[0] &#x3D; 0</li>
@@ -242,9 +245,12 @@
 <li>그 값에 1을 더한 값울 D[i]에 할당한다.</li>
 <li>이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.<br>O(n^2)이라 느려서, 더 좋은 방법도 존재한다.</li>
 </ol>
-<h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Longest Increasing Subsequence</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">A = [<span class="number">0</span>]</span><br><span class="line">A.extend(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())))</span><br><span class="line">D = [<span class="number">0</span>]*(N+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">  max_D = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, i):</span><br><span class="line">    <span class="keyword">if</span> A[j] &lt; A[i]:</span><br><span class="line">      max_D = <span class="built_in">max</span>(max_D, D[j])</span><br><span class="line">  D[i] = max_D + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(D))</span><br></pre></td></tr></table></figure>
+<h2 id="BOJ-11723-가장-긴-증가하는-부분수열"><a href="#BOJ-11723-가장-긴-증가하는-부분수열" class="headerlink" title="BOJ 11723 가장 긴 증가하는 부분수열"></a>BOJ 11723 가장 긴 증가하는 부분수열</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Longest Increasing Subsequence</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">A = [<span class="number">0</span>]</span><br><span class="line">A.extend(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())))</span><br><span class="line">D = [<span class="number">0</span>]*(N+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">  max_D = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, i):</span><br><span class="line">    <span class="keyword">if</span> A[j] &lt; A[i]:</span><br><span class="line">      max_D = <span class="built_in">max</span>(max_D, D[j])</span><br><span class="line">  D[i] = max_D + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(D))</span><br></pre></td></tr></table></figure>
 
-<p>참고자료 - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EC%B5%9C%EC%9E%A5%20%EC%A6%9D%EA%B0%80%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4">https://namu.wiki/w/최장 증가 부분 수열</a></p>
+<blockquote>
+<p>참고문헌<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EC%B5%9C%EC%9E%A5">https://namu.wiki/w/최장</a> 증가 부분 수열</p>
+</blockquote>
+
             
 
 
@@ -255,7 +261,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/DP/" rel="tag">DP</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/LIS/" rel="tag">LIS</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/dp/" rel="tag">dp</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/lis/" rel="tag">lis</a>
 
             </div>
         
@@ -266,7 +272,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="PREVIOUS: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="BOJ 9251 LCS" aria-label="PREVIOUS: BOJ 9251 LCS">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -275,7 +281,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="NEXT: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="NEXT: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -319,7 +325,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -355,7 +361,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="백준 9251 LCS" aria-label="PREVIOUS: 백준 9251 LCS">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9251/" data-tooltip="BOJ 9251 LCS" aria-label="PREVIOUS: BOJ 9251 LCS">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -364,7 +370,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="NEXT: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="NEXT: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -408,7 +414,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>

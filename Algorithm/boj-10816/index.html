@@ -6,25 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="OXcarXierra">
-    <title>백준 10816번 숫자카드 2 - OXcarXierra</title>
+    <title>BOJ 10816번 숫자카드 2 - OXcarXierra</title>
     <meta name="author" content="Seungseok Oh">
     
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
     
     
         
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오.\n풀이지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두 훑으면서 개수를 찾으면 시간초과.숫자를 key로 가지는 딕셔너리를 활용한다면, 입력을 받음과 동시에 개수를 저장할 수 있다. 이 때의 복잡도는 O(n)으로 훨씬 빠름.\n12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import sysN = int(sys.stdin.readline().strip())deck = list(map(int, sys.stdin.readline().split()))M = int(sys.stdin.readline().strip())card = list(map(int, sys.stdin.readline().split()))hash = &#123;&#125;for i in deck:    if i in hash:        hash[i] += 1    else:        hash[i] = 1answer = []for i in card:    if i in hash:        answer.append(str(hash[i]))    else:        answer.append(&#x27;0&#x27;)print(&#x27; &#x27;.join(answer))#이분탐색으로 접근 - 실패# deck.sort()# def find_card(n):#     start = 0#     end = N-1#     while start &lt;= end :#         p = (start + end) // 2#         if deck[p] &gt; n:#             end = p - 1#         elif deck[p] &lt; n :#             start = p + 1#         elif deck[p] == n:#             cnt = 1#             i, j=1, 1#             while p-i&gt;= 0:#                 if deck[p-i] == n:#                     cnt += 1#                     i += 1#                 else:#                     break#             while p+j &lt; N:#                 if deck[p+j] == n:#                     cnt += 1#                     j += 1#                 else:#                     break#             return cnt#     return 0# answer = []# for i in range(M):#     answer.append(str(find_card(card[i])))# print(&#x27; &#x27;.join(answer))","dateCreated":"2022-07-12T12:01:19+09:00","dateModified":"2022-07-27T15:06:00+09:00","datePublished":"2022-07-12T12:01:19+09:00","description":"해시 자료구조를 python dictionary로 구현한 풀이","headline":"백준 10816번 숫자카드 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-10816/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-10816/","keywords":"data structure"}</script>
-    <meta name="description" content="해시 자료구조를 python dictionary로 구현한 풀이">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오.\n이분탐색을 이용한 풀이(시간초과)지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두 훑으면서 개수를 찾으면 시간초과.\n1234567891011121314151617181920212223242526272829303132333435이분탐색으로 접근 - 실패deck.sort()def find_card(n):    start = 0    end = N-1    while start &lt;= end :        p = (start + end) // 2        if deck[p] &gt; n:            end = p - 1        elif deck[p] &lt; n :            start = p + 1        elif deck[p] == n:            cnt = 1            i, j=1, 1            while p-i&gt;= 0:                if deck[p-i] == n:                    cnt += 1                    i += 1                else:                    break            while p+j &lt; N:                if deck[p+j] == n:                    cnt += 1                    j += 1                else:                    break            return cnt    return 0answer = []for i in range(M):    answer.append(str(find_card(card[i])))print(&#x27; &#x27;.join(answer))\n\n딕셔너리를 이용한 풀이숫자를 key로 가지는 딕셔너리를 활용한다면, 입력을 받음과 동시에 개수를 저장할 수 있다. 이 때의 복잡도는 O(n)으로 훨씬 빠르다.\n123456789101112131415161718192021import sysN = int(sys.stdin.readline().strip())deck = list(map(int, sys.stdin.readline().split()))M = int(sys.stdin.readline().strip())card = list(map(int, sys.stdin.readline().split()))hash = &#123;&#125;for i in deck:    if i in hash:        hash[i] += 1    else:        hash[i] = 1answer = []for i in card:    if i in hash:        answer.append(str(hash[i]))    else:        answer.append(&#x27;0&#x27;)print(&#x27; &#x27;.join(answer))\n","dateCreated":"2022-07-12T12:01:19+09:00","dateModified":"2022-08-02T16:49:14+09:00","datePublished":"2022-07-12T12:01:19+09:00","description":"","headline":"BOJ 10816번 숫자카드 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-10816/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-10816/","keywords":"data structure"}</script>
+    <meta name="description" content="문제숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오. 이분탐색을 이용한 풀이(시간초과)지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="백준 10816번 숫자카드 2">
+<meta property="og:title" content="BOJ 10816번 숫자카드 2">
 <meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-10816/index.html">
 <meta property="og:site_name" content="OXcarXierra">
-<meta property="og:description" content="해시 자료구조를 python dictionary로 구현한 풀이">
+<meta property="og:description" content="문제숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오. 이분탐색을 이용한 풀이(시간초과)지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-12T03:01:19.000Z">
-<meta property="article:modified_time" content="2022-07-27T06:06:00.639Z">
+<meta property="article:modified_time" content="2022-08-02T07:49:14.943Z">
 <meta property="article:author" content="Seungseok Oh">
 <meta property="article:tag" content="data structure">
 <meta name="twitter:card" content="summary">
@@ -106,11 +108,8 @@
         
             <div class="sidebar-profile">
               <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                <!-- <a
-                aria-label="Read more about the author"
-                href="/#about"
-                >
-                </a> -->
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
                 <h4 class="sidebar-profile-name">Seungseok Oh</h4>
                 
                     <h5 class="sidebar-profile-bio"><p>기록의 중요성을 실천하려 합니다</p>
@@ -139,17 +138,17 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <a class="sidebar-button-link " href="/categories/OKR" rel="noopener" title="Retrospectives &amp; OKR">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Retrospectives &amp; OKR</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
                     </a>
             </li>
             
@@ -191,6 +190,10 @@
             
         </ul>
         
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
     </div>
 </nav>
 
@@ -205,23 +208,23 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            백준 10816번 숫자카드 2
+            BOJ 10816번 숫자카드 2
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2022-07-12T12:01:19+09:00">
-	
-		    Jul 12, 2022
-    	
-    </time>
-    
-        <span>in </span>
-        
+  <time datetime="2022-07-12T12:01:19+09:00">
+     Jul 12, 2022 
+  </time>
+  
+  <span>in </span>
+  
     <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
 
-
-    
+ 
+  <span class="post-readingtime">
+     - 3 min read
+  </span>
 </div>
 
     
@@ -230,11 +233,15 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AC%B8%EC%A0%9C"><span class="toc-text">문제</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%B4%EB%B6%84%ED%83%90%EC%83%89%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%92%80%EC%9D%B4-%EC%8B%9C%EA%B0%84%EC%B4%88%EA%B3%BC"><span class="toc-text">이분탐색을 이용한 풀이(시간초과)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%92%80%EC%9D%B4"><span class="toc-text">딕셔너리를 이용한 풀이</span></a></li></ol>
 
-<h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오.</p>
-<h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두 훑으면서 개수를 찾으면 시간초과.<br>숫자를 key로 가지는 딕셔너리를 활용한다면, 입력을 받음과 동시에 개수를 저장할 수 있다. 이 때의 복잡도는 O(n)으로 훨씬 빠름.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">deck = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line">M = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">card = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line"><span class="built_in">hash</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> deck:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] = <span class="number">1</span></span><br><span class="line">answer = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> card:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        answer.append(<span class="built_in">str</span>(<span class="built_in">hash</span>[i]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        answer.append(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(answer))</span><br><span class="line"></span><br><span class="line"><span class="comment">#이분탐색으로 접근 - 실패</span></span><br><span class="line"><span class="comment"># deck.sort()</span></span><br><span class="line"><span class="comment"># def find_card(n):</span></span><br><span class="line"><span class="comment">#     start = 0</span></span><br><span class="line"><span class="comment">#     end = N-1</span></span><br><span class="line"><span class="comment">#     while start &lt;= end :</span></span><br><span class="line"><span class="comment">#         p = (start + end) // 2</span></span><br><span class="line"><span class="comment">#         if deck[p] &gt; n:</span></span><br><span class="line"><span class="comment">#             end = p - 1</span></span><br><span class="line"><span class="comment">#         elif deck[p] &lt; n :</span></span><br><span class="line"><span class="comment">#             start = p + 1</span></span><br><span class="line"><span class="comment">#         elif deck[p] == n:</span></span><br><span class="line"><span class="comment">#             cnt = 1</span></span><br><span class="line"><span class="comment">#             i, j=1, 1</span></span><br><span class="line"><span class="comment">#             while p-i&gt;= 0:</span></span><br><span class="line"><span class="comment">#                 if deck[p-i] == n:</span></span><br><span class="line"><span class="comment">#                     cnt += 1</span></span><br><span class="line"><span class="comment">#                     i += 1</span></span><br><span class="line"><span class="comment">#                 else:</span></span><br><span class="line"><span class="comment">#                     break</span></span><br><span class="line"><span class="comment">#             while p+j &lt; N:</span></span><br><span class="line"><span class="comment">#                 if deck[p+j] == n:</span></span><br><span class="line"><span class="comment">#                     cnt += 1</span></span><br><span class="line"><span class="comment">#                     j += 1</span></span><br><span class="line"><span class="comment">#                 else:</span></span><br><span class="line"><span class="comment">#                     break</span></span><br><span class="line"><span class="comment">#             return cnt</span></span><br><span class="line"><span class="comment">#     return 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># answer = []</span></span><br><span class="line"><span class="comment"># for i in range(M):</span></span><br><span class="line"><span class="comment">#     answer.append(str(find_card(card[i])))</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(&#x27; &#x27;.join(answer))</span></span><br></pre></td></tr></table></figure>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p>숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오.</p>
+<h2 id="이분탐색을-이용한-풀이-시간초과"><a href="#이분탐색을-이용한-풀이-시간초과" class="headerlink" title="이분탐색을 이용한 풀이(시간초과)"></a>이분탐색을 이용한 풀이(시간초과)</h2><p>지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두 훑으면서 개수를 찾으면 시간초과.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">이분탐색으로 접근 - 실패</span><br><span class="line">deck.sort()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_card</span>(<span class="params">n</span>):</span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    end = N-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> start &lt;= end :</span><br><span class="line">        p = (start + end) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> deck[p] &gt; n:</span><br><span class="line">            end = p - <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> deck[p] &lt; n :</span><br><span class="line">            start = p + <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> deck[p] == n:</span><br><span class="line">            cnt = <span class="number">1</span></span><br><span class="line">            i, j=<span class="number">1</span>, <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> p-i&gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> deck[p-i] == n:</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">while</span> p+j &lt; N:</span><br><span class="line">                <span class="keyword">if</span> deck[p+j] == n:</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">return</span> cnt</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">answer = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    answer.append(<span class="built_in">str</span>(find_card(card[i])))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(answer))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="딕셔너리를-이용한-풀이"><a href="#딕셔너리를-이용한-풀이" class="headerlink" title="딕셔너리를 이용한 풀이"></a>딕셔너리를 이용한 풀이</h2><p>숫자를 key로 가지는 딕셔너리를 활용한다면, 입력을 받음과 동시에 개수를 저장할 수 있다. 이 때의 복잡도는 O(n)으로 훨씬 빠르다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">deck = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line">M = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">card = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line"><span class="built_in">hash</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> deck:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] = <span class="number">1</span></span><br><span class="line">answer = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> card:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        answer.append(<span class="built_in">str</span>(<span class="built_in">hash</span>[i]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        answer.append(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(answer))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
             
 
 
@@ -256,7 +263,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="PREVIOUS: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="PREVIOUS: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -309,7 +316,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -345,7 +352,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="백준 1931 회의실 배정" aria-label="PREVIOUS: 백준 1931 회의실 배정">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="PREVIOUS: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -398,7 +405,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
