@@ -3,8 +3,29 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/bellman-ford/</loc>
+        <lastmod>2022-08-02T08:29:53.300Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
+        <lastmod>2022-08-02T08:29:53.300Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/floyd-warshall/</loc>
+        <lastmod>2022-08-02T08:29:25.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/retrospective/</loc>
-        <lastmod>2022-08-02T08:12:41.823Z</lastmod>
+        <lastmod>2022-08-02T08:28:49.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -54,20 +75,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/dp/</loc>
         <lastmod>2022-08-02T07:49:20.187Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
-        <lastmod>2022-08-02T07:49:17.653Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/floyd-warshall/</loc>
-        <lastmod>2022-08-02T07:49:17.653Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
