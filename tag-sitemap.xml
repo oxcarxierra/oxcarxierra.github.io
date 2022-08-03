@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/stack/</loc>
+        <lastmod>2022-08-03T07:34:09.089Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
         <lastmod>2022-08-03T07:30:17.864Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,13 +40,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/retrospective/</loc>
         <lastmod>2022-08-03T07:10:49.578Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/stack/</loc>
-        <lastmod>2022-08-02T13:16:27.567Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
