@@ -9,15 +9,22 @@
 
 
     <url>
-        <loc>https://oxcarxierra.github.io/categories/Monthly-Retrospectives/</loc>
-        <lastmod>2022-08-02T13:18:55.259Z</lastmod>
+        <loc>https://oxcarxierra.github.io/categories/Algorithm/</loc>
+        <lastmod>2022-08-03T07:30:17.864Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/categories/Algorithm/</loc>
-        <lastmod>2022-08-02T13:16:27.567Z</lastmod>
+        <loc>https://oxcarxierra.github.io/categories/OKR/</loc>
+        <lastmod>2022-08-03T07:30:09.130Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/categories/Monthly-Retrospectives/</loc>
+        <lastmod>2022-08-03T07:10:49.578Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -32,13 +39,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/categories/ML/</loc>
         <lastmod>2022-08-02T07:50:00.381Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/categories/OKR/</loc>
-        <lastmod>2022-08-02T07:49:34.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

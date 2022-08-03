@@ -9,8 +9,32 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_1753/</loc>
+        <lastmod>2022-08-03T07:30:17.864Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/OKR/2022_3q_okr/</loc>
+        <lastmod>2022-08-03T07:30:09.130Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_bellman_ford/</loc>
+        <lastmod>2022-08-03T07:23:17.043Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/</loc>
-        <lastmod>2022-08-02T13:18:55.259Z</lastmod>
+        <lastmod>2022-08-03T07:10:49.578Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -19,14 +43,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj_1918/</loc>
         <lastmod>2022-08-02T13:16:27.567Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj-bellman-ford/</loc>
-        <lastmod>2022-08-02T08:29:53.300Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,14 +89,6 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/OKR/2022-3q-okr/</loc>
-        <lastmod>2022-08-02T07:49:34.747Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-11723/</loc>
         <lastmod>2022-08-02T07:49:20.187Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,14 +123,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/OKR/2022-2q-okr/</loc>
         <lastmod>2022-08-02T07:47:15.857Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj-1753/</loc>
-        <lastmod>2022-08-02T07:45:49.219Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

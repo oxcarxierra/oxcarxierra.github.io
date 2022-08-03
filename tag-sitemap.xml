@@ -3,8 +3,36 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
+        <lastmod>2022-08-03T07:30:17.864Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
+        <lastmod>2022-08-03T07:30:17.864Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/okr/</loc>
+        <lastmod>2022-08-03T07:30:09.130Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/bellman-ford/</loc>
+        <lastmod>2022-08-03T07:23:17.043Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/retrospective/</loc>
-        <lastmod>2022-08-02T13:18:55.259Z</lastmod>
+        <lastmod>2022-08-03T07:10:49.578Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -12,20 +40,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/stack/</loc>
         <lastmod>2022-08-02T13:16:27.567Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/bellman-ford/</loc>
-        <lastmod>2022-08-02T08:29:53.300Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
-        <lastmod>2022-08-02T08:29:53.300Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -66,13 +80,6 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/tags/okr/</loc>
-        <lastmod>2022-08-02T07:49:34.747Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://oxcarxierra.github.io/tags/lis/</loc>
         <lastmod>2022-08-02T07:49:20.187Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -103,13 +110,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/greedy-algorithm/</loc>
         <lastmod>2022-08-02T07:49:05.178Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
-        <lastmod>2022-08-02T07:45:49.219Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
