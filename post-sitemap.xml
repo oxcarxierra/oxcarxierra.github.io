@@ -9,16 +9,16 @@
 
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj-disjoint-set/</loc>
-        <lastmod>2022-08-07T07:16:13.019Z</lastmod>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj-kruskal/</loc>
+        <lastmod>2022-08-07T08:54:08.266Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj_1753/</loc>
-        <lastmod>2022-08-07T05:56:19.520Z</lastmod>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj-disjoint-set/</loc>
+        <lastmod>2022-08-07T08:53:35.876Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,15 +26,23 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj_1931/</loc>
-        <lastmod>2022-08-07T05:56:00.100Z</lastmod>
+        <lastmod>2022-08-07T07:42:32.335Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj_11404/</loc>
-        <lastmod>2022-08-07T05:55:36.304Z</lastmod>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_dijkstra/</loc>
+        <lastmod>2022-08-07T07:42:24.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/</loc>
+        <lastmod>2022-08-07T07:41:20.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
