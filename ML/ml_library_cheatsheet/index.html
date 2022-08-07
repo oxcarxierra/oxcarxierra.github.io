@@ -17,16 +17,16 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\nPandasA DataFrame is a table. It contains an array of individual entries.\nrow name을 index = [’A’,’B’]로 할당 가능\nA Series is a sequence of data values, a single column of a DataFrame.\nindex=[’A’,’B’],name=”SERIES NAME”\nMethods\npd.read_csv(’’, index_col=0) : index_col은 가져오지 않음.\nDataFrame.to_csv(’name.csv’) : name.csv으로 저장\nDataFrame.shape : 크기 m by n\nDataFrame.describe() : count, mean, Q1, Q2, Q3…\nDataFrame.iloc[:, 0] : Index - based selection. row first, column next.\nDataFrame.loc[: , ‘title’] : Label - based selction.\nDataFrame.set_index[‘title’] : index열의 이름을 붙여줌..loc[] 내에 조건을 주어 접근 가능, &amp; , | 사용 가능\nisin : reviews.country.isin([&#39;Italy&#39;, &#39;France&#39;])\nisnull | notnull : reviews.price.notnull()\nDataFrame[’column_name’] : 열 접근\nDataFrame.columns : 칼럼 인덱스만 배열로 보여줌.\n\n“Summary Functions”\nSeries.mean()\nSeries.unique() : unique value array\nSeries.value_counts() : unique value와 그 빈도\n\n열의 각 원소에 접근하는 방법 2가지\nSeries.map(lambda p : ~~~ ) : 원소를 P로 매개변수화해서 접근\nDataFrame.apply(method, axis=”columns”) : row를 변수로 받는 메소드\n\n! 둘 다 새로운 DataFrame이나 Series를 리턴하며, 원래의 것을 변형시키지 않는다.\n\n사실 이런 연산도 가능하다 :\n\n12review_points_mean = reviews.points.mean()reviews.points - review_points_mean\n\n\nDataFrame.groupby([’columnA,&#39;columnB’]) : column의 value가 같은 데이터를 묶는다.column이 여러개인 경우 Multi-index가 생성. 말그대로 index를 구성하는 데이터가 두개 이상.multi-index를 풀려면 .reset_index()\nDataFrame.groupby().column.agg([&#39;functionA&#39;,&#39;functionB&#39;] : multi function\nDataFrame.sort_values(by=[’columnA’,&#39;columnB&#39;], ascending=Boolean) : 데이터 순서 정렬\nDataFrame.sort_index() : index순서로 정렬\nSeries.dtype : column의 data type\nSeries.astype(&#39;type&#39;) : column의 data type을 변환! NaN은 float64타입으로 취급된다\npd.isnull(DataFrame.column) : column의 value &#x3D; NaN인 row만 추출\nSeries.fillna(&#39;something&#39;) : 해당 column의 nan값을 something으로 바꿔줌\nSeries.replace(&#39;value1&#39;,&#39;value2&#39;) : 해당 column중 value1인 것들을 value2로 바꿈\nDataFrame.rename(columns=&#123;&#39;before&#39;:&#39;after&#39;&#125;)\npd.concat([DF1,DF2]) : field(column)이 모두 동일한 두 DF를 합침\nDF1.join(DF2, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;) : index가 동일한 두 DF를 합침. lsuffix, rsuffix는 두 DF의 같은 column이 있을 때 column name 뒤에 추가됨\n\nSeabornplt.figure(figsize=(14,6)) set size of chart\nLine Chartssns.lineplot(data=&#39;&#39;, label=&#39;&#39;)\nBar Chartssns.barplot(x=column, y=column)\nHeatmapsns.heatmap(data=data, annot=Boolean) annot : cell 위에 숫자 표시 여부\nScatterPlot\nsns.scatterplot(x=columnA, y=columnB, hue?=columnC) : hue에 넣은 column은 색으로 구분\nsns.regplot(x=columnA, y=columnB) : regression line\nsns.lmplot(x=columnName, y=columnName, hue=columnName, data=data)\n\nHistogram : y축은 항상 countsns.histplot(column)\nkernel density estimate (KDE) Plot : smoothed histogram\nsns.kdeplot(data=column, shade=Boolean) : 1D\nsns.jointplot(x=column, y=column, kind=&quot;kde&quot;)\n\nStylesns.setstyle(&#39;option&#39;)\n\n&quot;darkgrid&quot;\n&quot;whitegrid&quot;\n&quot;dark&quot;\n&quot;white&quot;\n&quot;ticks&quot;\n","dateCreated":"2022-07-09T17:27:45+09:00","dateModified":"2022-08-02T16:50:00+09:00","datePublished":"2022-07-09T17:27:45+09:00","description":"What I learned in Kaggle Pandas, Seaborn course","headline":"ML Library cheatsheet","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/ML/ml-library-cheatsheet/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/ML/ml-library-cheatsheet/","keywords":"pandas, seaborn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\nPandasA DataFrame is a table. It contains an array of individual entries.\nrow name을 index = [’A’,’B’]로 할당 가능\nA Series is a sequence of data values, a single column of a DataFrame.\nindex=[’A’,’B’],name=”SERIES NAME”\nMethods\npd.read_csv(’’, index_col=0) : index_col은 가져오지 않음.\nDataFrame.to_csv(’name.csv’) : name.csv으로 저장\nDataFrame.shape : 크기 m by n\nDataFrame.describe() : count, mean, Q1, Q2, Q3…\nDataFrame.iloc[:, 0] : Index - based selection. row first, column next.\nDataFrame.loc[: , ‘title’] : Label - based selction.\nDataFrame.set_index[‘title’] : index열의 이름을 붙여줌..loc[] 내에 조건을 주어 접근 가능, &amp; , | 사용 가능\nisin : reviews.country.isin([&#39;Italy&#39;, &#39;France&#39;])\nisnull | notnull : reviews.price.notnull()\nDataFrame[’column_name’] : 열 접근\nDataFrame.columns : 칼럼 인덱스만 배열로 보여줌.\n\n“Summary Functions”\nSeries.mean()\nSeries.unique() : unique value array\nSeries.value_counts() : unique value와 그 빈도\n\n열의 각 원소에 접근하는 방법 2가지\nSeries.map(lambda p : ~~~ ) : 원소를 P로 매개변수화해서 접근\nDataFrame.apply(method, axis=”columns”) : row를 변수로 받는 메소드\n\n! 둘 다 새로운 DataFrame이나 Series를 리턴하며, 원래의 것을 변형시키지 않는다.\n\n사실 이런 연산도 가능하다 :\n\n12review_points_mean = reviews.points.mean()reviews.points - review_points_mean\n\n\nDataFrame.groupby([’columnA,&#39;columnB’]) : column의 value가 같은 데이터를 묶는다.column이 여러개인 경우 Multi-index가 생성. 말그대로 index를 구성하는 데이터가 두개 이상.multi-index를 풀려면 .reset_index()\nDataFrame.groupby().column.agg([&#39;functionA&#39;,&#39;functionB&#39;] : multi function\nDataFrame.sort_values(by=[’columnA’,&#39;columnB&#39;], ascending=Boolean) : 데이터 순서 정렬\nDataFrame.sort_index() : index순서로 정렬\nSeries.dtype : column의 data type\nSeries.astype(&#39;type&#39;) : column의 data type을 변환! NaN은 float64타입으로 취급된다\npd.isnull(DataFrame.column) : column의 value &#x3D; NaN인 row만 추출\nSeries.fillna(&#39;something&#39;) : 해당 column의 nan값을 something으로 바꿔줌\nSeries.replace(&#39;value1&#39;,&#39;value2&#39;) : 해당 column중 value1인 것들을 value2로 바꿈\nDataFrame.rename(columns=&#123;&#39;before&#39;:&#39;after&#39;&#125;)\npd.concat([DF1,DF2]) : field(column)이 모두 동일한 두 DF를 합침\nDF1.join(DF2, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;) : index가 동일한 두 DF를 합침. lsuffix, rsuffix는 두 DF의 같은 column이 있을 때 column name 뒤에 추가됨\n\nSeabornplt.figure(figsize=(14,6)) set size of chart\nLine Chartssns.lineplot(data=&#39;&#39;, label=&#39;&#39;)\nBar Chartssns.barplot(x=column, y=column)\nHeatmapsns.heatmap(data=data, annot=Boolean) annot : cell 위에 숫자 표시 여부\nScatterPlot\nsns.scatterplot(x=columnA, y=columnB, hue?=columnC) : hue에 넣은 column은 색으로 구분\nsns.regplot(x=columnA, y=columnB) : regression line\nsns.lmplot(x=columnName, y=columnName, hue=columnName, data=data)\n\nHistogram : y축은 항상 countsns.histplot(column)\nkernel density estimate (KDE) Plot : smoothed histogram\nsns.kdeplot(data=column, shade=Boolean) : 1D\nsns.jointplot(x=column, y=column, kind=&quot;kde&quot;)\n\nStylesns.setstyle(&#39;option&#39;)\n\n&quot;darkgrid&quot;\n&quot;whitegrid&quot;\n&quot;dark&quot;\n&quot;white&quot;\n&quot;ticks&quot;\n","dateCreated":"2022-07-09T17:27:45+09:00","dateModified":"2022-08-06T18:15:56+09:00","datePublished":"2022-07-09T17:27:45+09:00","description":"What I learned in Kaggle Pandas, Seaborn course","headline":"ML Library cheatsheet","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/ML/ml_library_cheatsheet/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/ML/ml_library_cheatsheet/","keywords":"pandas, seaborn"}</script>
     <meta name="description" content="What I learned in Kaggle Pandas, Seaborn course">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="ML Library cheatsheet">
-<meta property="og:url" content="https://oxcarxierra.github.io/ML/ml-library-cheatsheet/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/ML/ml_library_cheatsheet/index.html">
 <meta property="og:site_name" content="Blog of Seungseok Oh">
 <meta property="og:description" content="What I learned in Kaggle Pandas, Seaborn course">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-09T08:27:45.000Z">
-<meta property="article:modified_time" content="2022-08-02T07:50:00.381Z">
+<meta property="article:modified_time" content="2022-08-06T09:15:56.517Z">
 <meta property="article:author" content="Seungseok Oh">
 <meta property="article:tag" content="pandas">
 <meta property="article:tag" content="seaborn">
@@ -71,7 +71,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/ml/ml-library-cheatsheet/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/ml/ml_library_cheatsheet/">
 </head>
 
     <body>
@@ -101,6 +101,7 @@
 
 
 
+
         
     
 
@@ -117,6 +118,7 @@
                 
             </div>
         
+        <!-- <h4 class="sidebar-profile-name">17</h4> -->
         
             <ul class="sidebar-buttons">
             
@@ -326,7 +328,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -353,7 +355,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -361,7 +363,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -369,7 +371,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -415,7 +417,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -442,7 +444,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -450,7 +452,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -458,7 +460,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -486,7 +488,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -494,7 +496,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -502,7 +504,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml-library-cheatsheet/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ML/ml_library_cheatsheet/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

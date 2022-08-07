@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of Seungseok Oh">
+    <title>Tag: backtracking - Blog of Seungseok Oh</title>
+    <meta name="author" content="Seungseok Oh">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="오승석의 기록들">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Blog of Seungseok Oh">
+<meta property="og:url" content="https://oxcarxierra.github.io/tags/backtracking/index.html">
+<meta property="og:site_name" content="Blog of Seungseok Oh">
+<meta property="og:description" content="오승석의 기록들">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Seungseok Oh">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHBEZ8W1TY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHBEZ8W1TY');
+    </script>
+
+
+    
+
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/tags/backtracking/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of Seungseok Oh
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/posts" aria-label="Open the link: /posts">
+        
+        
+            <i class="fa fa-list fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">Seungseok Oh</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <!-- <h4 class="sidebar-profile-name">17</h4> -->
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+  
+  
+  <article class="postShorten postShorten--thumbnailimg-right">
+      <div class="postShorten-wrap">
+          
+          <div class="postShorten-header">
+              <h1 class="postShorten-title">
+                  
+                      <a class="link-unstyled" href="/Algorithm/boj-2239/" aria-label=": BOJ 2239번 스도쿠">
+                          BOJ 2239번 스도쿠
+                      </a>
+                  
+              </h1>
+              <div class="postShorten-meta">
+  <time datetime="2022-08-07T01:41:40+09:00">
+     Aug 07, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+
+ 
+  <span class="post-readingtime">
+     - 3 min read
+  </span>
+</div>
+
+          </div>
+          
+              <div class="postShorten-content">
+                  
+                      
+
+
+                  
+                  
+                      <p>
+                          <a href="/Algorithm/boj-2239/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                              Read this post
+                          </a>
+                      </p>
+                  
+              </div>
+          
+      </div>
+      
+          <a href="/Algorithm/boj-2239/" aria-label=": BOJ 2239번 스도쿠">
+              <div class="postShorten-thumbnailimg">
+                  <img alt src="https://i.imgur.com/ydX4P1X.png">
+              </div>
+          </a>
+          
+      
+  </article>
+  
+  
+  <article class="postShorten postShorten--thumbnailimg-right">
+      <div class="postShorten-wrap">
+          
+          <div class="postShorten-header">
+              <h1 class="postShorten-title">
+                  
+                      <a class="link-unstyled" href="/Algorithm/boj-9663/" aria-label=": BOJ 9663번 N-Queen">
+                          BOJ 9663번 N-Queen
+                      </a>
+                  
+              </h1>
+              <div class="postShorten-meta">
+  <time datetime="2022-08-01T15:27:23+09:00">
+     Aug 01, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+
+ 
+  <span class="post-readingtime">
+     - 4 min read
+  </span>
+</div>
+
+          </div>
+          
+              <div class="postShorten-content">
+                  
+                      
+
+
+                  
+                  
+                      <p>
+                          <a href="/Algorithm/boj-9663/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                              Read this post
+                          </a>
+                      </p>
+                  
+              </div>
+          
+      </div>
+      
+          <a href="/Algorithm/boj-9663/" aria-label=": BOJ 9663번 N-Queen">
+              <div class="postShorten-thumbnailimg">
+                  <img alt src="https://i.imgur.com/ydX4P1X.png">
+              </div>
+          </a>
+          
+      
+  </article>
+  
+  <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2022 Seungseok Oh. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">Seungseok Oh</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/new_cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>

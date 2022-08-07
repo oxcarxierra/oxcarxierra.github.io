@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog of Seungseok Oh">
-    <title>그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정 - Blog of Seungseok Oh</title>
+    <title>BOJ 11053 가장 긴 증가하는 부분수열 - Blog of Seungseok Oh</title>
     <meta name="author" content="Seungseok Oh">
     
     
@@ -17,18 +17,19 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nGreedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.\n\n탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제\n다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.\n\n탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면\n\n탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)\n항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명\n\nBOJ 1931 회의실 배정초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.\n12345678910111213141516def greedy():  global cnt, time  time_min = time[0]  new_time=[]  for i in time:    if not time_min[1]&lt;=i[0]:      new_time.append(i)  time=new_time  print(time)  cnt += 1  if time:    greedy()  else:    print(cnt)greedy()\n\n탐욕법 이용:\n1234567891011import sysN = int(sys.stdin.readline())time = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]cnt = 1time.sort(key=lambda t: (t[1],t[0]))end_time = time[0][1]for i in range(1,N):  if time[i][0] &gt;= end_time:    cnt += 1    end_time=time[i][1]print(cnt)\n","dateCreated":"2022-07-16T17:27:45+09:00","dateModified":"2022-08-02T16:49:05+09:00","datePublished":"2022-07-16T17:27:45+09:00","description":"","headline":"그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-1931/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-1931/","keywords":"greedy algorithm"}</script>
-    <meta name="description" content="Greedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.  탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제 다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.  탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면  탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\nLIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\nBOJ 11723 가장 긴 증가하는 부분수열123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n\n참고문헌https://namu.wiki/w/최장 증가 부분 수열\n\n","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-08-06T22:57:12+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"","headline":"BOJ 11053 가장 긴 증가하는 부분수열","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_11723/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_11723/","keywords":"dp, lis","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <meta name="description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-1931/index.html">
+<meta property="og:title" content="BOJ 11053 가장 긴 증가하는 부분수열">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_11723/index.html">
 <meta property="og:site_name" content="Blog of Seungseok Oh">
-<meta property="og:description" content="Greedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.  탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제 다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.  탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면  탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적">
+<meta property="og:description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-16T08:27:45.000Z">
-<meta property="article:modified_time" content="2022-08-02T07:49:05.178Z">
+<meta property="article:published_time" content="2022-07-24T03:01:19.000Z">
+<meta property="article:modified_time" content="2022-08-06T13:57:12.340Z">
 <meta property="article:author" content="Seungseok Oh">
-<meta property="article:tag" content="greedy algorithm">
+<meta property="article:tag" content="dp">
+<meta property="article:tag" content="lis">
 <meta name="twitter:card" content="summary">
     
     
@@ -37,6 +38,9 @@
     
         <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
     
+    
+        <meta property="og:image" content="https://i.imgur.com/ydX4P1X.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/ydX4P1X.png">
     
     
     
@@ -70,7 +74,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj-1931/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj_11723/">
 </head>
 
     <body>
@@ -100,6 +104,7 @@
 
 
 
+
         
     
 
@@ -116,6 +121,7 @@
                 
             </div>
         
+        <!-- <h4 class="sidebar-profile-name">17</h4> -->
         
             <ul class="sidebar-buttons">
             
@@ -207,13 +213,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정
+            BOJ 11053 가장 긴 증가하는 부분수열
         </h1>
     
     
         <div class="post-meta">
-  <time datetime="2022-07-16T17:27:45+09:00">
-     Jul 16, 2022 
+  <time datetime="2022-07-24T12:01:19+09:00">
+     Jul 24, 2022 
   </time>
   
   <span>in </span>
@@ -232,23 +238,22 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Greedy-Algorithm"><span class="toc-text">Greedy Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-1931-%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95"><span class="toc-text">BOJ 1931 회의실 배정</span></a></li></ol>
+            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LIS"><span class="toc-text">LIS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-11723-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4"><span class="toc-text">BOJ 11723 가장 긴 증가하는 부분수열</span></a></li></ol>
 
-<h2 id="Greedy-Algorithm"><a href="#Greedy-Algorithm" class="headerlink" title="Greedy Algorithm"></a>Greedy Algorithm</h2><p>탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.</p>
+<p>처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.<br>LIS, Longest Increasing Subsequence라고도 불린다.</p>
+<h2 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a>LIS</h2><p>주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.</p>
+<p>즉, A[i]를 찾는 알고리즘은 아래와 같다.</p>
 <ol>
-<li>탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제</li>
-<li>다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.</li>
+<li>A[0] &#x3D; 0, D[0] &#x3D; 0</li>
+<li>A[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.</li>
+<li>그 값에 1을 더한 값울 D[i]에 할당한다.</li>
+<li>이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.<br>O(n^2)이라 느려서, 더 좋은 방법도 존재한다.</li>
 </ol>
-<p>탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면</p>
-<ol>
-<li>탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)</li>
-<li>항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명</li>
-</ol>
-<h2 id="BOJ-1931-회의실-배정"><a href="#BOJ-1931-회의실-배정" class="headerlink" title="BOJ 1931 회의실 배정"></a>BOJ 1931 회의실 배정</h2><p>초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greedy</span>():</span><br><span class="line">  <span class="keyword">global</span> cnt, time</span><br><span class="line">  time_min = time[<span class="number">0</span>]</span><br><span class="line">  new_time=[]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> time:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> time_min[<span class="number">1</span>]&lt;=i[<span class="number">0</span>]:</span><br><span class="line">      new_time.append(i)</span><br><span class="line">  time=new_time</span><br><span class="line">  <span class="built_in">print</span>(time)</span><br><span class="line">  cnt += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> time:</span><br><span class="line">    greedy()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(cnt)</span><br><span class="line"></span><br><span class="line">greedy()</span><br></pre></td></tr></table></figure>
+<h2 id="BOJ-11723-가장-긴-증가하는-부분수열"><a href="#BOJ-11723-가장-긴-증가하는-부분수열" class="headerlink" title="BOJ 11723 가장 긴 증가하는 부분수열"></a>BOJ 11723 가장 긴 증가하는 부분수열</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Longest Increasing Subsequence</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">A = [<span class="number">0</span>]</span><br><span class="line">A.extend(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())))</span><br><span class="line">D = [<span class="number">0</span>]*(N+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">  max_D = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, i):</span><br><span class="line">    <span class="keyword">if</span> A[j] &lt; A[i]:</span><br><span class="line">      max_D = <span class="built_in">max</span>(max_D, D[j])</span><br><span class="line">  D[i] = max_D + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(D))</span><br></pre></td></tr></table></figure>
 
-<p>탐욕법 이용:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">time = [<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">time.sort(key=<span class="keyword">lambda</span> t: (t[<span class="number">1</span>],t[<span class="number">0</span>]))</span><br><span class="line">end_time = time[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,N):</span><br><span class="line">  <span class="keyword">if</span> time[i][<span class="number">0</span>] &gt;= end_time:</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line">    end_time=time[i][<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>참고문헌<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EC%B5%9C%EC%9E%A5">https://namu.wiki/w/최장</a> 증가 부분 수열</p>
+</blockquote>
 
             
 
@@ -260,7 +265,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/greedy-algorithm/" rel="tag">greedy algorithm</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/dp/" rel="tag">dp</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/lis/" rel="tag">lis</a>
 
             </div>
         
@@ -271,7 +276,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -280,7 +285,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="NEXT: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -298,7 +303,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -306,7 +311,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -314,7 +319,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -360,7 +365,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -369,7 +374,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1931/" data-tooltip="그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정" aria-label="NEXT: 그리디 알고리즘(탐욕법) - BOJ 1931 회의실 배정">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -387,7 +392,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -395,7 +400,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -403,7 +408,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1931/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -431,7 +436,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-1931/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -439,7 +444,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-1931/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -447,7 +452,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-1931/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
