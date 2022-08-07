@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/data-structure/</loc>
+        <lastmod>2022-08-07T07:16:13.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
+        <lastmod>2022-08-07T05:56:19.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
+        <lastmod>2022-08-07T05:56:19.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/greedy-algorithm/</loc>
+        <lastmod>2022-08-07T05:56:00.100Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/floyd-warshall/</loc>
+        <lastmod>2022-08-07T05:55:36.304Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/backtracking/</loc>
         <lastmod>2022-08-07T05:12:39.154Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,34 +54,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/react-native/</loc>
         <lastmod>2022-08-06T14:05:38.941Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/graph/</loc>
-        <lastmod>2022-08-06T13:59:59.533Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/floyd-warshall/</loc>
-        <lastmod>2022-08-06T13:59:59.533Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/data-structure/</loc>
-        <lastmod>2022-08-06T13:59:50.303Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/greedy-algorithm/</loc>
-        <lastmod>2022-08-06T13:59:41.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -110,13 +117,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/tags/okr/</loc>
         <lastmod>2022-08-06T09:14:11.404Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/dijkstra-algorithm/</loc>
-        <lastmod>2022-08-06T09:13:57.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

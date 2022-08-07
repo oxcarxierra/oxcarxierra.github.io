@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj-disjoint-set/</loc>
+        <lastmod>2022-08-07T07:16:13.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_1753/</loc>
+        <lastmod>2022-08-07T05:56:19.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_1931/</loc>
+        <lastmod>2022-08-07T05:56:00.100Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Algorithm/boj_11404/</loc>
+        <lastmod>2022-08-07T05:55:36.304Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-2239/</loc>
         <lastmod>2022-08-07T05:12:39.154Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,24 +65,8 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj_11404/</loc>
-        <lastmod>2022-08-06T13:59:59.533Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj_10816/</loc>
         <lastmod>2022-08-06T13:59:50.303Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj_1931/</loc>
-        <lastmod>2022-08-06T13:59:41.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -131,14 +147,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/OKR/2022_2q_okr/</loc>
         <lastmod>2022-08-06T09:14:10.520Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/boj_1753/</loc>
-        <lastmod>2022-08-06T09:13:57.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
