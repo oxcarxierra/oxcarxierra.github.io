@@ -42,6 +42,24 @@
   font-weight: 700;
   src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(../fonts/merriweather-bold-italic.ttf) format("truetype"); }
 
+@font-face {
+  font-family: 'NanumGothicCoding';
+  font-style: consolas;
+  font-weight: 700;
+  src: local("NanumGothicCoding Bold"), url(../fonts/NanumGothicCoding-Bold.ttf) format("truetype"); }
+
+@font-face {
+  font-family: 'NanumGothicCoding';
+  font-style: consolas;
+  font-weight: 300;
+  src: local("NanumGothicCoding"), url(../fonts/NanumGothicCoding.ttf) format("truetype"); }
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: consolas;
+  font-weight: 300;
+  src: local("SourceCodePro"), url(../fonts/source-code-pro.otf) format("opentype"); }
+
 html {
   font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
   font-size: 10px;
@@ -155,7 +173,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: Source Code Pro, NanumSquareRound, Consolas;
+  font-family: Source Code Pro, Merriweather, Consolas;
   border: none;
   margin: 0;
   cursor: text;
@@ -166,7 +184,7 @@ pre > code {
 code {
   font-size: 1.5rem;
   display: inline-block;
-  font-family: "Source Code Pro", "NanumSquareRound", Consolas;
+  font-family: "Source Code Pro", "Merriweather", Consolas;
   font-weight: 400;
   background-color: #f7f8f8;
   padding: 0 10px; }
@@ -1301,7 +1319,7 @@ blockquote {
       -webkit-transform: translate3d(75px, 0, 0);
       -moz-transform: translate3d(75px, 0, 0);
       transform: translate3d(75px, 0, 0); }
-  #sidebar[data-behavior='3'] .sidebar-profile-bio, #sidebar[data-behavior='5'] .sidebar-profile-bio, #sidebar[data-behavior='6'] .sidebar-profile-bio {
+  #sidebar[data-behavior='2'] .sidebar-profile-bio, #sidebar[data-behavior='3'] .sidebar-profile-bio, #sidebar[data-behavior='5'] .sidebar-profile-bio, #sidebar[data-behavior='6'] .sidebar-profile-bio {
     display: none; } }
 
 @media only screen and (max-width: 1279px) {
@@ -1477,7 +1495,7 @@ figure.highlight,
   .codeblock .code,
   .codeblock .tag {
     background-color: inherit;
-    font-family: Source Code Pro, NanumSquareRound, Consolas;
+    font-family: Source Code Pro, Merriweather, Consolas;
     border: none;
     padding: 0;
     margin: 0;
@@ -1536,7 +1554,7 @@ figure.highlight,
 
 .gist .line,
 .gist .line-number {
-  font-family: "Source Code Pro", "NanumSquareRound", Consolas;
+  font-family: "Source Code Pro", "Merriweather", Consolas;
   font-size: 1em;
   margin: 0 0 5px 0; }
 
