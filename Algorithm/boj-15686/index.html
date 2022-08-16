@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of Seungseok Oh">
+    <title>BOJ 15686번 치킨 배달 - Blog of Seungseok Oh</title>
+    <meta name="author" content="Seungseok Oh">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제BOJ 15686번 문자열 폭발\n접근\n집 하나의 치킨거리를 구하기 위해 처음에는 BFS를 이용하여, 해당 집(1)에서 출발해 가장 가까운 직선거리에 있는 치킨집(2)을 발견하면 그 거리를 구했다. 결과는 당연히 시간초과. 치킨집들의 좌표를 배열로 저장해두고 각각으로의 치킨거리를 계산해서 최소값을 찾는 게 훨씬 빠르다.\n\nitertools를 몰라서 치킨 가게들 중 m개를 임의로 선택하는 함수를 직접 백트래킹으로 구현했었다. 알고리즘은 동일했겠지만 시간초과가 나왔다.\n\n\n그리디 알고리즘을 사용하면 안되는 이유도시의 치킨거리를 가장 많이 줄여주는 치킨집부터 m개를 고르는 방법도 생각해보았지만, 이 문제는 그리디 알고리즘을 사용하면 안된다. m에 따라 고르는 치킨집의 조합이 전혀 달라질 수 있기 때문이다.\n완전탐색 시간복잡도 계산치킨집의 최대 개수는 13, 집의 최대 개수는 2N &#x3D; 100개이다. 치킨집의 조합의 가짓수가 가장 많으려면 m&#x3D;6일때, 13C6으로 약 1700이다. 그럼 이 조합마다 도시의 치킨거리를 계산하는데 100*13=1300의 계산이 필요하다고 해도 1700*1300 &lt; 10^8로 주어진 1초 내에 해결 가능하다.컴퓨터는 1초에 약 1억번의 연산이 가능한 것을 이용해, 문제를 풀기 전 복잡도를 구해서 가능한 알고리즘인지 확인해보는 습관을 들여야겠다.\nItertools combinations() 함수 이용Python 내장 모듈 Itertools내에 주어진 집합의 부분집합을 반환해주는 함수 combinations()가 있다는 걸 알게되었다. 이를 이용하면 굳이 백트래킹으로 조합을 일일히 반환하지 않아도 된다.\n\npermutations(p,r): p의 부분집합 중 중복된 원소 없이 길이가 r인 부분집합의 배열을 반환\ncombinations(p,r) : p의 부분집합 중 중복된 원소 없이 길이가 r이고 사전순으로 정렬된 부분집합의 배열을 반환\ncombinations_with_replactment(p,r) : p의 부분집합 중 원소의 중복을 허용하는 길이가 r이고 사전순으로 정렬된 부분집합의 배열을 반환\n\n풀이BOJ 15686 치킨 배달1234567891011121314151617181920212223242526272829303132import sysfrom itertools import combinationsinput = sys.stdin.readlinen,m = map(int, input().split())home = []store =[]for x in range(n):  row = list(map(int,input().split()))  for y in range(n):    if row[y] == 2:      store.append([x,y])    elif row[y] == 1:      home.append([x,y])def nearest(i,j):  d = 999999  for [x,y] in selected:    d = min(d, abs(i-x)+abs(j-y))  return ddef chicken():  chicken = 0  for [x,y] in home:    chicken += nearest(x,y)  return chickenmin_chicken = 999999for selected in combinations(store, m):  min_chicken = min(min_chicken, chicken())print(min_chicken)\n\n\n참고문헌itertools 공식 문서\n\n","dateCreated":"2022-08-16T20:20:38+09:00","dateModified":"2022-08-16T21:53:28+09:00","datePublished":"2022-08-16T20:20:38+09:00","description":"","headline":"BOJ 15686번 치킨 배달","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-15686/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-15686/","keywords":"itertools","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <meta name="description" content="문제BOJ 15686번 문자열 폭발 접근 집 하나의 치킨거리를 구하기 위해 처음에는 BFS를 이용하여, 해당 집(1)에서 출발해 가장 가까운 직선거리에 있는 치킨집(2)을 발견하면 그 거리를 구했다. 결과는 당연히 시간초과. 치킨집들의 좌표를 배열로 저장해두고 각각으로의 치킨거리를 계산해서 최소값을 찾는 게 훨씬 빠르다.  itertools를 몰라서 치">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="BOJ 15686번 치킨 배달">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-15686/index.html">
+<meta property="og:site_name" content="Blog of Seungseok Oh">
+<meta property="og:description" content="문제BOJ 15686번 문자열 폭발 접근 집 하나의 치킨거리를 구하기 위해 처음에는 BFS를 이용하여, 해당 집(1)에서 출발해 가장 가까운 직선거리에 있는 치킨집(2)을 발견하면 그 거리를 구했다. 결과는 당연히 시간초과. 치킨집들의 좌표를 배열로 저장해두고 각각으로의 치킨거리를 계산해서 최소값을 찾는 게 훨씬 빠르다.  itertools를 몰라서 치">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-16T11:20:38.000Z">
+<meta property="article:modified_time" content="2022-08-16T12:53:28.174Z">
+<meta property="article:author" content="Seungseok Oh">
+<meta property="article:tag" content="itertools">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+        <meta property="og:image" content="https://i.imgur.com/ydX4P1X.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/ydX4P1X.png">
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHBEZ8W1TY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHBEZ8W1TY');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj-15686/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of Seungseok Oh
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">Seungseok Oh</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">22</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">5</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">22</div>
+            </a>
+          </div>
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            BOJ 15686번 치킨 배달
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2022-08-16T20:20:38+09:00">
+     Aug 16, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+
+ 
+  <span class="post-readingtime">
+     - 5 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AC%B8%EC%A0%9C"><span class="toc-text">문제</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%91%EA%B7%BC"><span class="toc-text">접근</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B7%B8%EB%A6%AC%EB%94%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4-%EC%95%88%EB%90%98%EB%8A%94-%EC%9D%B4%EC%9C%A0"><span class="toc-text">그리디 알고리즘을 사용하면 안되는 이유</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%99%84%EC%A0%84%ED%83%90%EC%83%89-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84-%EA%B3%84%EC%82%B0"><span class="toc-text">완전탐색 시간복잡도 계산</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Itertools-combinations-%ED%95%A8%EC%88%98-%EC%9D%B4%EC%9A%A9"><span class="toc-text">Itertools combinations() 함수 이용</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%92%80%EC%9D%B4"><span class="toc-text">풀이</span></a></li></ol>
+
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p><a href="'https://www.acmicpc.net/problem/15686'">BOJ 15686번 문자열 폭발</a></p>
+<h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><ul>
+<li><p>집 하나의 치킨거리를 구하기 위해 처음에는 BFS를 이용하여, 해당 집(1)에서 출발해 가장 가까운 직선거리에 있는 치킨집(2)을 발견하면 그 거리를 구했다. 결과는 당연히 시간초과. 치킨집들의 좌표를 배열로 저장해두고 각각으로의 치킨거리를 계산해서 최소값을 찾는 게 훨씬 빠르다.</p>
+</li>
+<li><p>itertools를 몰라서 치킨 가게들 중 m개를 임의로 선택하는 함수를 직접 백트래킹으로 구현했었다. 알고리즘은 동일했겠지만 시간초과가 나왔다.</p>
+</li>
+</ul>
+<h3 id="그리디-알고리즘을-사용하면-안되는-이유"><a href="#그리디-알고리즘을-사용하면-안되는-이유" class="headerlink" title="그리디 알고리즘을 사용하면 안되는 이유"></a>그리디 알고리즘을 사용하면 안되는 이유</h3><p>도시의 치킨거리를 가장 많이 줄여주는 치킨집부터 m개를 고르는 방법도 생각해보았지만, 이 문제는 그리디 알고리즘을 사용하면 안된다. m에 따라 고르는 치킨집의 조합이 전혀 달라질 수 있기 때문이다.</p>
+<h3 id="완전탐색-시간복잡도-계산"><a href="#완전탐색-시간복잡도-계산" class="headerlink" title="완전탐색 시간복잡도 계산"></a>완전탐색 시간복잡도 계산</h3><p>치킨집의 최대 개수는 13, 집의 최대 개수는 2N &#x3D; 100개이다. 치킨집의 조합의 가짓수가 가장 많으려면 m&#x3D;6일때, 13C6으로 약 1700이다. 그럼 이 조합마다 도시의 치킨거리를 계산하는데 <code>100*13=1300</code>의 계산이 필요하다고 해도 <code>1700*1300 &lt; 10^8</code>로 주어진 1초 내에 해결 가능하다.<br>컴퓨터는 1초에 약 1억번의 연산이 가능한 것을 이용해, 문제를 풀기 전 복잡도를 구해서 가능한 알고리즘인지 확인해보는 습관을 들여야겠다.</p>
+<h3 id="Itertools-combinations-함수-이용"><a href="#Itertools-combinations-함수-이용" class="headerlink" title="Itertools combinations() 함수 이용"></a>Itertools combinations() 함수 이용</h3><p>Python 내장 모듈 <code>Itertools</code>내에 주어진 집합의 부분집합을 반환해주는 함수 <code>combinations()</code>가 있다는 걸 알게되었다. 이를 이용하면 굳이 백트래킹으로 조합을 일일히 반환하지 않아도 된다.</p>
+<ul>
+<li><code>permutations(p,r)</code>: p의 부분집합 중 <strong>중복된 원소 없이</strong> 길이가 r인 부분집합의 배열을 반환</li>
+<li><code>combinations(p,r)</code> : p의 부분집합 중 <strong>중복된 원소 없이</strong> 길이가 r이고 <strong>사전순으로 정렬</strong>된 부분집합의 배열을 반환</li>
+<li><code>combinations_with_replactment(p,r)</code> : p의 부분집합 중 <strong>원소의 중복을 허용</strong>하는 길이가 r이고 <strong>사전순으로 정렬된</strong> 부분집합의 배열을 반환</li>
+</ul>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight py"><figcaption><span>BOJ 15686 치킨 배달</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">n,m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">home = []</span><br><span class="line">store =[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  row = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">if</span> row[y] == <span class="number">2</span>:</span><br><span class="line">      store.append([x,y])</span><br><span class="line">    <span class="keyword">elif</span> row[y] == <span class="number">1</span>:</span><br><span class="line">      home.append([x,y])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nearest</span>(<span class="params">i,j</span>):</span><br><span class="line">  d = <span class="number">999999</span></span><br><span class="line">  <span class="keyword">for</span> [x,y] <span class="keyword">in</span> selected:</span><br><span class="line">    d = <span class="built_in">min</span>(d, <span class="built_in">abs</span>(i-x)+<span class="built_in">abs</span>(j-y))</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chicken</span>():</span><br><span class="line">  chicken = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> [x,y] <span class="keyword">in</span> home:</span><br><span class="line">    chicken += nearest(x,y)</span><br><span class="line">  <span class="keyword">return</span> chicken</span><br><span class="line"></span><br><span class="line">min_chicken = <span class="number">999999</span></span><br><span class="line"><span class="keyword">for</span> selected <span class="keyword">in</span> combinations(store, m):</span><br><span class="line">  min_chicken = <span class="built_in">min</span>(min_chicken, chicken())</span><br><span class="line"><span class="built_in">print</span>(min_chicken)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>참고문헌<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/3/library/itertools.html">itertools 공식 문서</a></p>
+</blockquote>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/itertools/" rel="tag">itertools</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9935/" data-tooltip="BOJ 9935번 문자열 폭발" aria-label="NEXT: BOJ 9935번 문자열 폭발">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+              <script src="https://utteranc.es/client.js" repo="oxcarxierra/blog-comment" issue-term="title" theme="github-light" crossorigin="anonymous" async></script>
+
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2022 Seungseok Oh. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-9935/" data-tooltip="BOJ 9935번 문자열 폭발" aria-label="NEXT: BOJ 9935번 문자열 폭발">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-15686/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-15686/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-15686/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-15686/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">Seungseok Oh</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/new_cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
