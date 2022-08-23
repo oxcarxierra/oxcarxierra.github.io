@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/bitmask/</loc>
+        <lastmod>2022-08-23T07:13:04.940Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/itertools/</loc>
         <lastmod>2022-08-16T12:57:20.591Z</lastmod>
         <changefreq>weekly</changefreq>
