@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-08-23T07:13:04.940Z</updated>
+  <updated>2022-09-01T13:31:03.625Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2022년 8월 회고록</title>
+    <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/august-2022-review/"/>
+    <id>https://oxcarxierra.github.io/Monthly-Retrospectives/august-2022-review/</id>
+    <published>2022-09-01T10:59:02.000Z</published>
+    <updated>2022-09-01T13:31:03.625Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>군장병 공개SW 온라인 해커톤 준비로 (나름) 바빴던 한 달이었다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었다. 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><img src="https://imgur.com/dzRvkOI.png"/><blockquote><p>알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</p></blockquote><br /><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br /><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군대에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><p><del>PFC Oh promoted to CPL Oh!🫡</del></p><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>1Q84 #2</strong> - 무라카미 하루키<br><strong>규칙 없음</strong> - 리드 헤이스팅스 ∙ 에린 마이어</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;군장병 공개SW 온라인 해커톤 준비로 (나름) 바빴던 한 달이었다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었다. </summary>
+      
+    
+    
+    
+    <category term="Monthly Retrospectives" scheme="https://oxcarxierra.github.io/categories/Monthly-Retrospectives/"/>
+    
+    
+    <category term="retrospective" scheme="https://oxcarxierra.github.io/tags/retrospective/"/>
+    
+  </entry>
+  
+  <entry>
     <title>비트마스킹 Bitmask</title>
     <link href="https://oxcarxierra.github.io/Algorithm/boj-bitmask-1052/"/>
     <id>https://oxcarxierra.github.io/Algorithm/boj-bitmask-1052/</id>
     <published>2022-08-22T13:03:21.000Z</published>
-    <updated>2022-08-23T07:13:04.940Z</updated>
+    <updated>2022-08-23T07:29:02.667Z</updated>
     
     <content type="html"><![CDATA[<!-- excerpt --><!--toc--><h2 id="비트마스킹이란"><a href="#비트마스킹이란" class="headerlink" title="비트마스킹이란?"></a>비트마스킹이란?</h2><p><strong>이진법 숫자의 각 자리(비트)에</strong> <code>true</code>&#x2F;<code>false</code> <strong>혹은 0&#x2F;1의 데이터를 저장</strong>하는 자료구조 혹은 테크닉이다.<br>예를 들어, 0,1,2,3중 두 숫자를 뽑는 모든 경우의 수를 생각하자. <code>[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]</code>처럼 행렬로 묶는 방법이 있다.<br>비트마스킹을 이용하여 i의 포함 여부를 2^i자리에 저장한다면, <code>0011 0101 0110 1001 1010 1100</code>로 여섯 가지 방법을 나타낼 수 있다. 이 숫자들을 십진법으로 바꾸면 각각 <code>3,5,6,9,11,13</code>이 된다.<br>즉, 리스트형 데이터를 정수형으로 간단하게 표현할 수 있게 된 것이다. 이렇게 비트마스킹은 원소들의 집합을 표현할 때 유용하다.</p><h3 id="비트-연산자"><a href="#비트-연산자" class="headerlink" title="비트 연산자"></a>비트 연산자</h3><p>이렇게 만들어진 이진수(혹은 정수)는 아래 5가지의 연산이 가능하다.</p><ul><li><strong>AND</strong><br>입력받은 두 이진수의 각 자리수가 모두 1일 때만 결과에도 1을 반환<br><code>1100 ^ 1010 = 1000</code></li><li><strong>OR</strong><br>입력받은 두 이진수의 각 자리수 중 하나라도 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 1110</code></li><li><strong>XOR</strong><br>입력받은 두 이진수의 각 자리수 중 하나만 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 0110</code></li><li><strong>NOT</strong><br>입력받은 이진수의 비트가 0일 때 1, 1일 때 0을 반환<br><code>~1100 = 0011</code></li><li><strong>shift</strong><br>이진수의 비트를 왼쪽, 오른쪽으로 원하는 만큼 움직인 값을 반환<br><code>11 &lt;&lt; 2 = 1100</code><br><code>1100 &gt;&gt; 2 = 11</code></li></ul><h3 id="비트-연산자를-이용한-데이터-제어"><a href="#비트-연산자를-이용한-데이터-제어" class="headerlink" title="비트 연산자를 이용한 데이터 제어"></a>비트 연산자를 이용한 데이터 제어</h3><ul><li><strong>비트 삽입</strong><br>p번 비트 추가 : <code>x = x | (1&lt;&lt;p)</code><br><code>1010 | (1&lt;&lt;2) = 1010 | 100 = 1110</code></li><li><strong>비트 삭제</strong><br>p번 비트 삭제 : <code>x = x &amp; ~(1&lt;&lt;p)</code><br><code>1110 &amp; ~ (1&lt;&lt;2) = 1110 &amp; 1011 = 1010</code></li><li><strong>비트 조회</strong><br>p번 비트 조회 : <code>x &amp; (1&lt;&lt;p)</code>의 p번 비트<br><code>1110 &amp; (1&lt;&lt;2) = 1110 &amp; 0100 = 0100</code></li><li><strong>비트 토글</strong><br>p번 비트 토글 : <code>x = x ^ (1&lt;&lt;p)</code><br><code>1110 ^ (1&lt;&lt;2) = 1110 ^ 0100 = 1010</code></li></ul><h2 id="BOJ-1052번-물병"><a href="#BOJ-1052번-물병" class="headerlink" title="BOJ 1052번 물병"></a>BOJ 1052번 물병</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p><a href="'https://www.acmicpc.net/problem/1052'">BOJ 1052번 물병</a></p><h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>문제를 수기로 조금 풀어보면, 물병의 물을 합치다 보면 <code>2^i</code>리터들의 합으로 분리됨을 알 수 있다. 즉 총 물의 양인 <code>N</code>을 이진수로 표현했을 때 1의 개수만큼의 비지 않은 병이 생긴다. 결국, <code>N+cnt</code>를 이진수로 표현했을 때 1의 개수가 k보다 작거나 같도록 하는 최소의 <code>cnt</code>를 구하는 문제가 된다.<br><code>cnt</code>를 1씩 증가시키면서 계산하면 최악의 경우 복잡도가 <code>O(NlogN)</code>이라서 시간초과가 난다. 1이 있는 가장 작은 자리수부터 1을 추가해주면 계산이 간단해진다.</p><blockquote><p>int형 자료 N의 이진법 표현은 <code>bin(N)</code>으로 구할 수 있으며, <code>0b</code>로 시작하기 때문에 <code>bin(N)[2:]</code>를 사용하기도 한다.</p></blockquote><figure class="highlight py"><figcaption><span>BOJ 1052번 물병</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">bin</span>(n).count(<span class="string">&#x27;1&#x27;</span>) &gt; k:</span><br><span class="line">  b = <span class="built_in">bin</span>(n)</span><br><span class="line">  idx = <span class="built_in">len</span>(b)-b.rfind(<span class="string">&#x27;1&#x27;</span>)-<span class="number">1</span></span><br><span class="line">  n += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line">  cnt += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure><blockquote><p>참고문헌<br>프로그래밍 대회에서 배우는 알고리즘 문제해결전략 (종만북), 16장</p></blockquote>]]></content>
     
@@ -33,7 +58,7 @@
     <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
     
     
-    <category term="bitmask" scheme="https://oxcarxierra.github.io/tags/bitmask/"/>
+    <category term="data structure" scheme="https://oxcarxierra.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -265,16 +290,15 @@
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/</id>
     <published>2022-07-31T08:47:53.000Z</published>
-    <updated>2022-08-06T09:15:47.751Z</updated>
+    <updated>2022-09-01T13:24:03.569Z</updated>
     
-    <content type="html"><![CDATA[<p>7월 한 달간은 <a href="#">Post not found: 2022-3q-okr 2022년 3분기 OKR</a>의 큰 틀 내에서 작은 목표들을 성취하려고 노력했다. 코로나에 걸려서 한 주 정도 고생하기도 했다.</p><ul><li>4월에 프로젝트를 시작했던 USFK BUS 앱을 <strong>앱스토어에 배포 완료</strong>했다. Apple Developer Program 활성화에 걸린 시간을 제외하고는, 제출과정과 제출 이후 심사과정이 아주 빠르게 진행되어서 생각보다 빨리 진행할 수 있었다. 앱스토어에 내 이름으로, 내가 풀 스택으로 만든 앱이 올라와 있는 것을 보니 이렇게 뿌듯할 수가 없다. 8월에 시간이 난다면 KR중 하나인 앱 기능 확장도 진행해야겠다.</li></ul><br><ul><li><strong>2022 군장병 공개SW 온라인 해커톤 본선 진출</strong>을 위해 BOJ과 프로그래머스에서 <strong>알고리즘 공부와 PS 연습</strong>을 꾸준히 하고 있다. Class 3, 4에 선별된 문제들 위주로 7월 한달간 BOJ에서만 <strong>20일 연속 66문제</strong>를 풀었다. 티어도 7월 초에 Silver 5에서 7월 말 현재 <strong>Gold 4</strong>까지 올랐다. 그래프 이론을 하나도 모를 정도로 베이스가 없었던 것을 생각하면 꽤 빠른 속도로 많은 것을 배운 것 같다. 8월 중순에 코딩테스트가 있는데, 어느 정도 난이도로 나오는지 몰라서(후기를 찾아보면 생각보다 어려웠다는 내용 뿐이다) 일단은 난이도에 제한을 두지 않고 계속해서 PS연습을 할 계획이다.</li></ul><br><ul><li><p>또한 이론평가 대비를 위해 <strong>Dart와 Flutter 강의</strong>도 꾸준히 수강했다. 강의에서는 Windows + Android Studio로 개발을 하라고 권고하는데 나에게 익숙한 IDE인 VS Code에서도 Plugin을 잘 활용하면 충분히 효율적으로 비슷한 기능을 사용할 수 있어 좋았다. View를 구성하는 과정만 비교해보았을 땐, CSS와 비슷한 문법을 제공하는 React가 나에게는 훨씬 효율적이고 직관적으로 다가와서 아직 Flutter의 큰 장점을 느끼지 못하겠다. 기본적으로 제공하는 컴포넌트가 디자인이 잘 되어있긴 한데, 라이브러리를 활용하면 React도 충분히 구현 가능한 수준인 것 같다.</p><ul><li><span class="highlight-text success">APP 강의 수강 - Dart 언어 기초 (69%)</span></li><li><span class="highlight-text warning">APP 강의 수강 - Flutter 초급 (32%)</span></li><li><span class="highlight-text success">APP 강의 수강 - Flutter 중급 (61%)</span></li><li><span class="highlight-text danger">APP 강의 수강 - Flutter 고급 (0%)</span></li></ul></li></ul><br><ul><li>운동도 꾸준히 하고 있다. 코로나 걸렸던 기간 제외하고는 주 3일은 헬스장에 갔던 것 같다. 이렇게 시설 좋은 헬스장을 언제 또 공짜로 다녀 보겠는가!</li></ul><br><ul><li>이번 달에는 책을 한 권도 읽지 않았다. 지하철에서 책을 꺼내서 읽었던 시간에 PS에 미쳐서 BOJ을 풀어서… 다음 달에는 책 읽기를 소홀히 했던 부분을 개선해야겠다. 그리고 예선 심사에 제출해야 하는 개발계획서도 꾸준히 브레인스토밍을 해야겠다. 평가 항목중 중요도는 제일 낮지만 내 군생활 환경이 다른 만큼 오랜 시간 고민해야 하나정도 제대로 된 아이디어가 나올 것 같다.</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>4월에 시작했던 USFK BUS App 프로젝트를 <strong>앱스토어에 배포 완료</strong>함으로서 일단락했다. Apple Developer Program 활성화에 걸린 시간을 제외하고는, 제출과정과 제출 이후 심사과정이 아주 빠르게 진행되어서 생각보다 빨리 마무리할 수 있었다. 앱스토어에 내 이름으로, 직접 풀 스택으로 개발한 앱이 올라와 있는 것을 보니 이렇게 뿌듯할 수가 없다. 8월에 시간이 난다면 KR중 하나인 앱 기능 확장도 진행해야겠다.</li></ul><br><ul><li><strong>2022 군장병 공개SW 온라인 해커톤</strong> 본선 진출을 위해 BOJ와 프로그래머스에서 <strong>알고리즘 공부와 PS 연습</strong>을 꾸준히 하고 있다. Class 3, 4에 선별된 문제들 위주로 7월 한달간 BOJ에서만 <strong>20일 연속 66문제</strong>를 풀었다. 티어도 7월 초에 Silver 5에서 7월 말 현재 <strong>Gold 4</strong>까지 올랐다. 그래프 이론을 하나도 모를 정도로 베이스가 없었던 것을 생각하면 꽤 빠른 속도로 많은 것을 배운 것 같다. 8월 중순에 코딩테스트가 있는데, 어느 정도 난이도로 나오는지 몰라서(후기를 찾아보면 생각보다 어려웠다는 내용 뿐이다) 일단은 난이도에 제한을 두지 않고 계속해서 PS연습을 할 계획이다.</li></ul><br><ul><li><p>또한 이론평가 대비를 위해 <strong>Dart와 Flutter 강의</strong>도 꾸준히 수강했다. 강의에서는 Windows + Android Studio로 개발을 하라고 권고하는데 나에게 익숙한 IDE인 VS Code에서도 Plugin을 잘 활용하면 충분히 효율적으로 비슷한 기능을 사용할 수 있어 좋았다. View를 구성하는 과정만 비교해보았을 땐, CSS와 비슷한 문법을 제공하는 React가 나에게는 훨씬 효율적이고 직관적으로 다가와서 아직 Flutter의 큰 장점을 느끼지 못하겠다. 기본적으로 제공하는 컴포넌트가 디자인이 잘 되어있긴 한데, 라이브러리를 활용하면 React도 충분히 구현 가능한 수준인 것 같다.</p><ul><li><span class="highlight-text success">APP 강의 수강 - Dart 언어 기초 (69%)</span></li><li><span class="highlight-text warning">APP 강의 수강 - Flutter 초급 (32%)</span></li><li><span class="highlight-text success">APP 강의 수강 - Flutter 중급 (61%)</span></li><li><span class="highlight-text danger">APP 강의 수강 - Flutter 고급 (0%)</span></li></ul></li></ul><br><ul><li>운동도 꾸준히 하고 있다. 코로나 걸렸던 기간 제외하고는 주 3일은 헬스장에 갔던 것 같다. 이렇게 시설 좋은 헬스장을 언제 또 공짜로 다녀 보겠는가!</li></ul><br><ul><li>이번 달에는 책을 한 권도 읽지 않았다. 지하철에서 책을 꺼내서 읽었던 시간에 PS에 미쳐서 BOJ을 풀어서… 다음 달에는 책 읽기를 소홀히 했던 부분을 개선해야겠다. 그리고 예선 심사에 제출해야 하는 개발계획서도 꾸준히 브레인스토밍을 해야겠다. 평가 항목중 중요도는 제일 낮지만 내 군생활 환경이 다른 만큼 오랜 시간 고민해야 하나정도 제대로 된 아이디어가 나올 것 같다.</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;7월 한 달간은 &lt;a href=&quot;#&quot;&gt;Post not found: 2022-3q-okr 2022년 3분기 OKR&lt;/a&gt;의 큰 틀 내에서 작은 목표들을 성취하려고 노력했다. 코로나에 걸려서 한 주 정도 고생하기도 했다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;4월</summary>
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;4월에 시작했던 USFK BUS App 프로젝트를 &lt;strong&gt;앱스토어에 배포 완료&lt;/strong&gt;함으로서 일단락했다. Appl</summary>
       
     
     
@@ -478,32 +502,6 @@
     
     
     <category term="okr" scheme="https://oxcarxierra.github.io/tags/okr/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2022년 6월 회고록</title>
-    <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/june_2022_review/"/>
-    <id>https://oxcarxierra.github.io/Monthly-Retrospectives/june_2022_review/</id>
-    <published>2022-06-30T08:47:53.000Z</published>
-    <updated>2022-08-06T09:15:51.118Z</updated>
-    
-    <content type="html"><![CDATA[<p>그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.</p><ul><li><p>Django와 React Native를 이용해 개발할 만한 주제를 탐색하다 USFK Bus Schedule App으로 정했고, 6월 초 간단한 구상 이후 본격적인 개발을 시작했다. 현재 백엔드 서버는 개발 및 배포가 완료되었고, 프론트엔드 앱도 기능 구현이 모두 완료되었다. 앞으로 남은건 간단한 UI 수정과 App Store 심사 및 배포 과정 정도이다. Django Model 구상 및 Django Rest Framework, MySQL DB를 다루는 방법을 배울 수 있었다.</p></li><li><p>elice에서 제공하는 <a href="https://military22.elice.io/explore"><strong>2022 군 장병 SW∙AI 역량강화 교육</strong></a>을 수강하고 있다. 배정된 수준별 ML과정을 수강해 보았는데, pandas, sklearn 등 라이브러리의 사용 방법과 기본적인 ML 알고리즘 몇 개를 배울 수 있었다. Kaggle에 도전하려는 데엔 도움이 되었지만 결국 깊이있게 이해하기 위해선 수학적 베이스도 공부해야 할 것 같다. CS229 강의를 계속 들었어야 되는데 한번 끊기니까 이해도 잘 안되고 의욕도 줄었다… 앞으로는 두 코스를 병행하도록 노력해야 겠다.</p></li><li><p>헬스를 다시 시작했다. 귀찮을 땐 방에 사둔 풀업바 이용해서 조금씩이라도 하려고 노력중이다.</p></li></ul><h3 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h3><ul><li>Dale Carnegie, <strong>&lt;인간관계론&gt;</strong><!-- 사실 각 챕터에서 다루는 주제는 당연한 말들이지만, 사람들을 대하는 태도를 평가하기에 좋은 잣대가 될 것 같다. 자기효용감의 관점으로 접근하는 방식이 인상깊었다. 어쩌면 과할 정도로 모든 내용이 궁극적으로 타인의 자기효용감을 충족시켜준다는 목적인데, 확실한 것은 그 목적으로부터 나오는 모든 행동은 긍정적인 효과를 준다는 사실이다. --></li><li>유시민, <strong>&lt;국가란 무엇인가&gt;</strong><!-- 정치는 역시 어렵다. --></li><li>무라카미 하루키, <strong>&lt;1Q84 #1&gt;</strong><!-- 소설은 역시 재밌다. --></li></ul><p>여름 한동안은 포데이 외박도 없고, 날씨와 훈련 때문이라도 많이 지치는 기간이 될 것 같다. 나가기 싫으면 차라리 방에 박혀서 공부라도 많이 해야겠다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;그저 클론코딩이나 강의 수강에서 그친다면 그 기술을 학습했다고 할 수 없을 것이다. 개발을 공부했다면 그 내용을 바탕으로 한 산출물이 반드시 있어야 한다. 그렇기에 6월 한달은 개인 사이드 프로젝트에 매진해 보았다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="Monthly Retrospectives" scheme="https://oxcarxierra.github.io/categories/Monthly-Retrospectives/"/>
-    
-    
-    <category term="retrospective" scheme="https://oxcarxierra.github.io/tags/retrospective/"/>
     
   </entry>
   

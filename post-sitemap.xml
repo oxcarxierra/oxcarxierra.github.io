@@ -9,8 +9,32 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/august-2022-review/</loc>
+        <lastmod>2022-09-01T13:31:03.625Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/</loc>
+        <lastmod>2022-09-01T13:24:03.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/june_2022_review/</loc>
+        <lastmod>2022-08-31T07:57:46.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Algorithm/boj-bitmask-1052/</loc>
-        <lastmod>2022-08-23T07:13:04.940Z</lastmod>
+        <lastmod>2022-08-23T07:29:02.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -155,22 +179,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/may_2022_review/</loc>
         <lastmod>2022-08-06T09:15:53.402Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/june_2022_review/</loc>
-        <lastmod>2022-08-06T09:15:51.118Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/july_2022_review/</loc>
-        <lastmod>2022-08-06T09:15:47.751Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
