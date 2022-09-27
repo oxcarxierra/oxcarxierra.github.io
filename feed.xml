@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-09-01T13:31:03.625Z</updated>
+  <updated>2022-09-27T02:29:53.681Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,13 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Expo memos &amp; troubleshooting</title>
+    <link href="https://oxcarxierra.github.io/Development/expo-init/"/>
+    <id>https://oxcarxierra.github.io/Development/expo-init/</id>
+    <published>2022-09-27T02:20:51.000Z</published>
+    <updated>2022-09-27T02:29:53.681Z</updated>
+    
+    <content type="html"><![CDATA[<!--excerpt--><h3 id="Expo-CLI-설치"><a href="#Expo-CLI-설치" class="headerlink" title="Expo CLI 설치"></a>Expo CLI 설치</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx expo <span class="built_in">whoami</span> <span class="comment"># 로그인된 계정 확인, Not logged in 이 뜨면 로그인해줘야함</span></span><br><span class="line">npx expo register <span class="comment"># 회원가입</span></span><br><span class="line">npx expo login</span><br></pre></td></tr></table></figure><h3 id="Typescript-Expo-앱-시작"><a href="#Typescript-Expo-앱-시작" class="headerlink" title="Typescript - Expo 앱 시작"></a>Typescript - Expo 앱 시작</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app app-name</span><br><span class="line"><span class="built_in">cd</span> app-name</span><br><span class="line"><span class="built_in">touch</span> tsconfig.json</span><br><span class="line">npx expo start <span class="comment"># Typescript 필요 번들설치</span></span><br><span class="line"><span class="built_in">mv</span> App.js App.tsx</span><br><span class="line">npx tsc <span class="comment"># 타입체크</span></span><br></pre></td></tr></table></figure><p>또는, 이미 만들어진 Typescript 기반의 expo 템플릿을 설치하여 사용할 수도 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app -t expo-template-blank-typescript</span><br></pre></td></tr></table></figure><blockquote><p>참고문헌 : <a href="'https://docs.expo.dev/guides/typescript/'">Expo Docs</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;나중에 내가 보려고 메모해두는 Expo 앱 제작 과정 메모들&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>2022년 8월 회고록</title>
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/august-2022-review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/august-2022-review/</id>
     <published>2022-09-01T10:59:02.000Z</published>
-    <updated>2022-09-01T13:31:03.625Z</updated>
+    <updated>2022-09-07T12:53:10.697Z</updated>
     
-    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>군장병 공개SW 온라인 해커톤 준비로 (나름) 바빴던 한 달이었다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었다. 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><img src="https://imgur.com/dzRvkOI.png"/><blockquote><p>알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</p></blockquote><br /><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br /><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군대에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><p><del>PFC Oh promoted to CPL Oh!🫡</del></p><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>1Q84 #2</strong> - 무라카미 하루키<br><strong>규칙 없음</strong> - 리드 헤이스팅스 ∙ 에린 마이어</p>]]></content>
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>군장병 공개SW 온라인 해커톤 준비로 (나름) 바빴던 한 달이었다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었다. 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><img src="https://imgur.com/dzRvkOI.png"/><blockquote><p>알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</p></blockquote><br /><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br /><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군대에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><br /><ul><li>넷플릭스의 기업 문화를 담은 &lt;규칙 없음&gt;을 읽었다. 나는 극한의 인재 밀도를 추구하는 기업에 어울릴수 있는가? 나는 기업이 업계 최고의 대우를 해주어서라도 가지고 있을만한 인재인가? 나는 직설적이고 솔직한 피드백을 주고, 또 받을 준비가 되어있는가?</li></ul><br /><div class="figure center" style="width:;"><img class="fig-img" src="https://i.imgur.com/vhgtCzI.jpg" alt=""></div><blockquote><p>PFC Oh promoted to CPL Oh!🫡</p></blockquote><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>1Q84 #2</strong> - 무라카미 하루키<br><strong>규칙 없음</strong> - 리드 헤이스팅스 ∙ 에린 마이어</p>]]></content>
     
     
       
@@ -475,33 +494,6 @@
     <category term="pandas" scheme="https://oxcarxierra.github.io/tags/pandas/"/>
     
     <category term="seaborn" scheme="https://oxcarxierra.github.io/tags/seaborn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2022년 3분기 OKR</title>
-    <link href="https://oxcarxierra.github.io/OKR/2022_3q_okr/"/>
-    <id>https://oxcarxierra.github.io/OKR/2022_3q_okr/</id>
-    <published>2022-07-04T08:47:53.000Z</published>
-    <updated>2022-08-06T09:14:11.404Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h3 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h3><ol><li><strong>2022 군장병 공개SW 온라인 해커톤 참가자 선발(150명) 합격</strong></li><li><strong>사이드 프로젝트 진행</strong></li><li><strong>운동</strong></li></ol><hr><h3 id="Key-Results"><a href="#Key-Results" class="headerlink" title="Key Results"></a>Key Results</h3><ol><li><strong>2022 군장병 공개SW 온라인 해커톤 참가자 선발(150명) 합격</strong><ul><li>알고리즘 연습 - <a href="https://solved.ac/profile/oxcarxierra">백준</a> CLASS 5 &#x2F; GOLD 1 달성</li><li>알고리즘 연습 - <a href="https://school.programmers.co.kr/app/courses/14092/dashboard">프로그래머스 문제은행</a> 모두 해결</li><li>APP 강의 수강 - Dart 언어 기초 수강</li><li>APP 강의 수강 - Flutter 초급 수강</li><li>APP 강의 수강 - Flutter 중급 수강</li><li>APP 강의 수강 - Flutter 고급 수강</li><li>개발계획서 작성 - 아이디어 3개 이상 생각해서 md로 개요 작성</li></ul></li><li><strong>사이드 프로젝트 진행</strong><ul><li>USFK Bus App AppStore에 배포 완료</li><li>Camp Casey 시간표 추가 완료</li><li>다운로드수 100 달성</li></ul></li><li><strong>운동</strong><ul><li>일주일에 5일 이상 운동(휴가 제외)</li></ul></li></ol><h3 id="2022-3분기-OKR-평가"><a href="#2022-3분기-OKR-평가" class="headerlink" title="2022 3분기 OKR 평가"></a>2022 3분기 OKR 평가</h3><p>— TBA —</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h3 id=&quot;Objectives&quot;&gt;&lt;a href=&quot;#Objectives&quot; class=&quot;headerlink&quot; title=&quot;Objectives&quot;&gt;&lt;/a&gt;Objectives&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;2022 군장병 공</summary>
-      
-    
-    
-    
-    <category term="OKR" scheme="https://oxcarxierra.github.io/categories/OKR/"/>
-    
-    
-    <category term="okr" scheme="https://oxcarxierra.github.io/tags/okr/"/>
     
   </entry>
   
