@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of Seungseok Oh">
+    <title>비트마스킹 Bitmask - Blog of Seungseok Oh</title>
+    <meta name="author" content="Seungseok Oh">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n비트마스킹이란?이진법 숫자의 각 자리(비트)에 true&#x2F;false 혹은 0&#x2F;1의 데이터를 저장하는 자료구조 혹은 테크닉이다.예를 들어, 0,1,2,3중 두 숫자를 뽑는 모든 경우의 수를 생각하자. [0,1], [0,2], [0,3], [1,2], [1,3], [2,3]처럼 행렬로 묶는 방법이 있다.비트마스킹을 이용하여 i의 포함 여부를 2^i자리에 저장한다면, 0011 0101 0110 1001 1010 1100로 여섯 가지 방법을 나타낼 수 있다. 이 숫자들을 십진법으로 바꾸면 각각 3,5,6,9,11,13이 된다.즉, 리스트형 데이터를 정수형으로 간단하게 표현할 수 있게 된 것이다. 이렇게 비트마스킹은 원소들의 집합을 표현할 때 유용하다.\n비트 연산자이렇게 만들어진 이진수(혹은 정수)는 아래 5가지의 연산이 가능하다.\n\nAND입력받은 두 이진수의 각 자리수가 모두 1일 때만 결과에도 1을 반환1100 ^ 1010 = 1000\nOR입력받은 두 이진수의 각 자리수 중 하나라도 1일 때 결과에도 1을 반환1100 ^ 1010 = 1110\nXOR입력받은 두 이진수의 각 자리수 중 하나만 1일 때 결과에도 1을 반환1100 ^ 1010 = 0110\nNOT입력받은 이진수의 비트가 0일 때 1, 1일 때 0을 반환~1100 = 0011\nshift이진수의 비트를 왼쪽, 오른쪽으로 원하는 만큼 움직인 값을 반환11 &lt;&lt; 2 = 11001100 &gt;&gt; 2 = 11\n\n비트 연산자를 이용한 데이터 제어\n비트 삽입p번 비트 추가 : x = x | (1&lt;&lt;p)1010 | (1&lt;&lt;2) = 1010 | 100 = 1110\n비트 삭제p번 비트 삭제 : x = x &amp; ~(1&lt;&lt;p)1110 &amp; ~ (1&lt;&lt;2) = 1110 &amp; 1011 = 1010\n비트 조회p번 비트 조회 : x &amp; (1&lt;&lt;p)의 p번 비트1110 &amp; (1&lt;&lt;2) = 1110 &amp; 0100 = 0100\n비트 토글p번 비트 토글 : x = x ^ (1&lt;&lt;p)1110 ^ (1&lt;&lt;2) = 1110 ^ 0100 = 1010\n\nBOJ 1052번 물병문제BOJ 1052번 물병\n풀이문제를 수기로 조금 풀어보면, 물병의 물을 합치다 보면 2^i리터들의 합으로 분리됨을 알 수 있다. 즉 총 물의 양인 N을 이진수로 표현했을 때 1의 개수만큼의 비지 않은 병이 생긴다. 결국, N+cnt를 이진수로 표현했을 때 1의 개수가 k보다 작거나 같도록 하는 최소의 cnt를 구하는 문제가 된다.cnt를 1씩 증가시키면서 계산하면 최악의 경우 복잡도가 O(NlogN)이라서 시간초과가 난다. 1이 있는 가장 작은 자리수부터 1을 추가해주면 계산이 간단해진다.\n\nint형 자료 N의 이진법 표현은 bin(N)으로 구할 수 있으며, 0b로 시작하기 때문에 bin(N)[2:]를 사용하기도 한다.\n\nBOJ 1052번 물병12345678n, k = map(int, input().split())cnt = 0while bin(n).count(&#x27;1&#x27;) &gt; k:  b = bin(n)  idx = len(b)-b.rfind(&#x27;1&#x27;)-1  n += (1 &lt;&lt; idx)  cnt += (1 &lt;&lt; idx)print(cnt)\n\n\n참고자료프로그래밍 대회에서 배우는 알고리즘 문제해결전략 (종만북), 16장\n","dateCreated":"2022-08-22T22:03:21+09:00","dateModified":"2022-09-30T02:39:26+09:00","datePublished":"2022-08-22T22:03:21+09:00","description":"BOJ 1052번 물병","headline":"비트마스킹 Bitmask","image":["https://i.imgur.com/jOe1hdP.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/","keywords":"data structure","thumbnailUrl":"https://i.imgur.com/jOe1hdP.png"}</script>
+    <meta name="description" content="BOJ 1052번 물병">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="비트마스킹 Bitmask">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/index.html">
+<meta property="og:site_name" content="Blog of Seungseok Oh">
+<meta property="og:description" content="BOJ 1052번 물병">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-22T13:03:21.000Z">
+<meta property="article:modified_time" content="2022-09-29T17:39:26.470Z">
+<meta property="article:author" content="Seungseok Oh">
+<meta property="article:tag" content="data structure">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+        <meta property="og:image" content="https://i.imgur.com/jOe1hdP.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/jOe1hdP.png">
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHBEZ8W1TY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JHBEZ8W1TY');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/algorithm/boj-bitmask-1052/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of Seungseok Oh
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">Seungseok Oh</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">26</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">5</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">21</div>
+            </a>
+          </div>
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            비트마스킹 Bitmask
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2022-08-22T22:03:21+09:00">
+     Aug 22, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+
+ 
+  <span class="post-readingtime">
+     - 5 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B9%84%ED%8A%B8%EB%A7%88%EC%8A%A4%ED%82%B9%EC%9D%B4%EB%9E%80"><span class="toc-text">비트마스킹이란?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="toc-text">비트 연산자</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0%EC%9E%90%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%9C%EC%96%B4"><span class="toc-text">비트 연산자를 이용한 데이터 제어</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-1052%EB%B2%88-%EB%AC%BC%EB%B3%91"><span class="toc-text">BOJ 1052번 물병</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AC%B8%EC%A0%9C"><span class="toc-text">문제</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%92%80%EC%9D%B4"><span class="toc-text">풀이</span></a></li></ol></li></ol>
+
+<h2 id="비트마스킹이란"><a href="#비트마스킹이란" class="headerlink" title="비트마스킹이란?"></a>비트마스킹이란?</h2><p><strong>이진법 숫자의 각 자리(비트)에</strong> <code>true</code>&#x2F;<code>false</code> <strong>혹은 0&#x2F;1의 데이터를 저장</strong>하는 자료구조 혹은 테크닉이다.<br>예를 들어, 0,1,2,3중 두 숫자를 뽑는 모든 경우의 수를 생각하자. <code>[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]</code>처럼 행렬로 묶는 방법이 있다.<br>비트마스킹을 이용하여 i의 포함 여부를 2^i자리에 저장한다면, <code>0011 0101 0110 1001 1010 1100</code>로 여섯 가지 방법을 나타낼 수 있다. 이 숫자들을 십진법으로 바꾸면 각각 <code>3,5,6,9,11,13</code>이 된다.<br>즉, 리스트형 데이터를 정수형으로 간단하게 표현할 수 있게 된 것이다. 이렇게 비트마스킹은 원소들의 집합을 표현할 때 유용하다.</p>
+<h3 id="비트-연산자"><a href="#비트-연산자" class="headerlink" title="비트 연산자"></a>비트 연산자</h3><p>이렇게 만들어진 이진수(혹은 정수)는 아래 5가지의 연산이 가능하다.</p>
+<ul>
+<li><strong>AND</strong><br>입력받은 두 이진수의 각 자리수가 모두 1일 때만 결과에도 1을 반환<br><code>1100 ^ 1010 = 1000</code></li>
+<li><strong>OR</strong><br>입력받은 두 이진수의 각 자리수 중 하나라도 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 1110</code></li>
+<li><strong>XOR</strong><br>입력받은 두 이진수의 각 자리수 중 하나만 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 0110</code></li>
+<li><strong>NOT</strong><br>입력받은 이진수의 비트가 0일 때 1, 1일 때 0을 반환<br><code>~1100 = 0011</code></li>
+<li><strong>shift</strong><br>이진수의 비트를 왼쪽, 오른쪽으로 원하는 만큼 움직인 값을 반환<br><code>11 &lt;&lt; 2 = 1100</code><br><code>1100 &gt;&gt; 2 = 11</code></li>
+</ul>
+<h3 id="비트-연산자를-이용한-데이터-제어"><a href="#비트-연산자를-이용한-데이터-제어" class="headerlink" title="비트 연산자를 이용한 데이터 제어"></a>비트 연산자를 이용한 데이터 제어</h3><ul>
+<li><strong>비트 삽입</strong><br>p번 비트 추가 : <code>x = x | (1&lt;&lt;p)</code><br><code>1010 | (1&lt;&lt;2) = 1010 | 100 = 1110</code></li>
+<li><strong>비트 삭제</strong><br>p번 비트 삭제 : <code>x = x &amp; ~(1&lt;&lt;p)</code><br><code>1110 &amp; ~ (1&lt;&lt;2) = 1110 &amp; 1011 = 1010</code></li>
+<li><strong>비트 조회</strong><br>p번 비트 조회 : <code>x &amp; (1&lt;&lt;p)</code>의 p번 비트<br><code>1110 &amp; (1&lt;&lt;2) = 1110 &amp; 0100 = 0100</code></li>
+<li><strong>비트 토글</strong><br>p번 비트 토글 : <code>x = x ^ (1&lt;&lt;p)</code><br><code>1110 ^ (1&lt;&lt;2) = 1110 ^ 0100 = 1010</code></li>
+</ul>
+<h2 id="BOJ-1052번-물병"><a href="#BOJ-1052번-물병" class="headerlink" title="BOJ 1052번 물병"></a>BOJ 1052번 물병</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p><a href="'https://www.acmicpc.net/problem/1052'">BOJ 1052번 물병</a></p>
+<h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>문제를 수기로 조금 풀어보면, 물병의 물을 합치다 보면 <code>2^i</code>리터들의 합으로 분리됨을 알 수 있다. 즉 총 물의 양인 <code>N</code>을 이진수로 표현했을 때 1의 개수만큼의 비지 않은 병이 생긴다. 결국, <code>N+cnt</code>를 이진수로 표현했을 때 1의 개수가 k보다 작거나 같도록 하는 최소의 <code>cnt</code>를 구하는 문제가 된다.<br><code>cnt</code>를 1씩 증가시키면서 계산하면 최악의 경우 복잡도가 <code>O(NlogN)</code>이라서 시간초과가 난다. 1이 있는 가장 작은 자리수부터 1을 추가해주면 계산이 간단해진다.</p>
+<blockquote>
+<p>int형 자료 N의 이진법 표현은 <code>bin(N)</code>으로 구할 수 있으며, <code>0b</code>로 시작하기 때문에 <code>bin(N)[2:]</code>를 사용하기도 한다.</p>
+</blockquote>
+<figure class="highlight py"><figcaption><span>BOJ 1052번 물병</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">bin</span>(n).count(<span class="string">&#x27;1&#x27;</span>) &gt; k:</span><br><span class="line">  b = <span class="built_in">bin</span>(n)</span><br><span class="line">  idx = <span class="built_in">len</span>(b)-b.rfind(<span class="string">&#x27;1&#x27;</span>)-<span class="number">1</span></span><br><span class="line">  n += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line">  cnt += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>참고자료<br>프로그래밍 대회에서 배우는 알고리즘 문제해결전략 (종만북), 16장</p>
+</blockquote>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/data-structure/" rel="tag">data structure</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Monthly-Retrospectives/2022/august-2022-review/" data-tooltip="2022년 8월 회고록" aria-label="PREVIOUS: 2022년 8월 회고록">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="NEXT: BOJ 15686번 치킨 배달">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+              <script src="https://utteranc.es/client.js" repo="oxcarxierra/blog-comment" issue-term="title" theme="github-light" crossorigin="anonymous" async></script>
+
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2022 Seungseok Oh. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Monthly-Retrospectives/2022/august-2022-review/" data-tooltip="2022년 8월 회고록" aria-label="PREVIOUS: 2022년 8월 회고록">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="NEXT: BOJ 15686번 치킨 배달">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">Seungseok Oh</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/new_cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
