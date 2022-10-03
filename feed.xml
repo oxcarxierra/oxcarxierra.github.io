@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-09-29T18:20:36.468Z</updated>
+  <updated>2022-10-03T13:44:34.902Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,13 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2022년 4분기 OKR</title>
+    <link href="https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/"/>
+    <id>https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/</id>
+    <published>2022-10-02T01:50:18.000Z</published>
+    <updated>2022-10-03T13:44:34.902Z</updated>
+    
+    <content type="html"><![CDATA[<!-- toc --><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><ol><li><strong>경진대회 준비</strong></li><li><strong>꾸준한 자기개발</strong></li></ol><hr><h2 id="Key-Results"><a href="#Key-Results" class="headerlink" title="Key Results"></a>Key Results</h2><ol><li><strong>경진대회 준비</strong></li></ol><ul><li>2022 OSAM 국방 해커톤 1위 수상</li><li>제 8회 육군창업경진대회 본선 진출 및 수상</li></ul><ol start="2"><li><strong>꾸준한 자기개발</strong></li></ol><ul><li>경제, 금융 기초지식 공부하기</li><li>책 7권 읽기</li><li>운동(농구 헬스 포함) 일주일에 3번 이상 하기</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- toc --&gt;
+
+&lt;h2 id=&quot;Objectives&quot;&gt;&lt;a href=&quot;#Objectives&quot; class=&quot;headerlink&quot; title=&quot;Objectives&quot;&gt;&lt;/a&gt;Objectives&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;경진대회 준비&lt;/s</summary>
+      
+    
+    
+    
+    <category term="OKR" scheme="https://oxcarxierra.github.io/categories/OKR/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>2022년 9월 회고록</title>
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/2022/september-2022-review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/september-2022-review/</id>
     <published>2022-09-29T17:17:42.000Z</published>
-    <updated>2022-09-29T18:20:36.468Z</updated>
+    <updated>2022-10-03T13:45:11.611Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. <del>이게 군인이 맞냐?</del> 그치만 시간을 효율적으로 잘 보냈냐고 물어보면 잘 모르겠다.. 사람도 많이 만나고 개인적으로 재충전하느라 공부는 많이 못했다. 이럴 때 쉬어줘야지 느낌으로 자기합리화하는중.</p><br><ul><li><strong>군장병 공개SW 온라인 해커톤 본선</strong>에 진출했다. 9&#x2F;7에 참가자 발표가 났고, 나는 고등학교 친구가 낸 주제에 팀원으로 합류했다. 다른 장병분들도 주제를 보고 지원해 주셔서 총 7명의 거대 팀을 구성할 수 있었다. 모인 분들의 스펙이 대단하셔서 엄청 놀랐다.. 자세한 후기는 <a href="">OSAM 해커톤 후기</a>로 따로 포스팅할 생각이다. 이제 구체적인 기획을 마무리하고 내가 맡은 Front-End 쪽 개발에 집중할 계획이다. 그런데 마지막으로 받았던 피드백에서 주제가 대차게 까여서 어떻게 방향을 틀어야 할지 좀 고민이 돤다 ㅎㅎ..</li></ul><br><ul><li><strong>제 8회 육군창업경진대회</strong>를 2~3주 빡세게 준비해서 접수를 해놓은 상태다. 2주 뒤에 예선 결과발표가 나는데, 본선 진출만 해도 포상휴가라는 말에 시작한 대회였으니 제발 본선만이라도 갔으면 좋겠다. 지금 육군으로 복무중인 고등학교 친구 군바리 둘이랑 팀을 짜서, 몇 주 전부터 여러 아이디어를 내고 서로 피드백도 해주면서 나온 가장 괜찮은 아이템 하나로 develop하고 접수를 했다. 하나 걱정되는 건 아무래도 육군에서 주관하는 경진대회이다 보니 기술성을 많이 보고 특히 군과 관련된 아이템이 좋은 점수를 받는다고 하는데 우리 아이템이 그쪽은 아니라는거… 암튼 이번 기회에 유튜브로 Figma를 독학해서 프로토타입을 제작하는 데에 사용해봤다. UI&#x2F;UX Design + Front-End 개발을 같이 할 수 있다고 어디가서 말할 수 있을 것 같다.</li></ul><br><ul><li><strong>제로 투 원</strong>을 읽으며 인사이트를 얻을 수 있었다. 독점적 스타트업이 되야하는 이유, 기하급수적 성장의 중요성, 작은 시장부터 독점하는 방법, 경쟁과 자본주의의 근본적 차이점.</li></ul><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>제로 투 원</strong> - 피터 틸<br><strong>1Q84 #3</strong> - 무라카미 하루키</p>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. <del>이게 군인이 맞냐?</del> 그치만 시간을 효율적으로 잘 보냈냐고 물어보면 잘 모르겠다.. 사람도 많이 만나고 개인적으로 재충전하느라 공부는 많이 못했다. 이럴 때 쉬어줘야지 느낌으로 자기합리화하는중.</p><br><ul><li><strong>군장병 공개SW 온라인 해커톤 본선</strong>에 진출했다. 9&#x2F;7에 참가자 발표가 났고, 나는 고등학교 친구가 낸 주제에 팀원으로 합류했다. 다른 장병분들도 주제를 보고 지원해 주셔서 총 7명의 거대 팀을 구성할 수 있었다. 모인 분들의 스펙이 대단하셔서 엄청 놀랐다.. 자세한 후기는 <a href="">OSAM 해커톤 후기</a>로 따로 포스팅할 생각이다. 이제 구체적인 기획을 마무리하고 내가 맡은 Front-End 쪽 개발에 집중할 계획이다. 그런데 마지막으로 받았던 피드백에서 주제가 대차게 까여서 어떻게 방향을 틀어야 할지 좀 고민이 돤다 ㅎㅎ..</li></ul><br><ul><li><strong>제 8회 육군창업경진대회</strong>를 2~3주 빡세게 준비해서 접수를 해놓은 상태다. 2주 뒤에 예선 결과발표가 나는데, 본선 진출만 해도 포상휴가라는 말에 시작한 대회였으니 제발 본선만이라도 갔으면 좋겠다. 지금 육군으로 복무중인 고등학교 친구 군바리 둘이랑 팀을 짜서, 몇 주 전부터 여러 아이디어를 내고 서로 피드백도 해주면서 나온 가장 괜찮은 아이템 하나로 develop하고 접수를 했다. 하나 걱정되는 건 아무래도 육군에서 주관하는 경진대회이다 보니 기술성을 많이 보고 특히 군과 관련된 아이템이 좋은 점수를 받는다고 하는데 우리 아이템이 그쪽은 아니라는거… 암튼 이번 기회에 유튜브로 Figma를 독학해서 프로토타입을 제작하는 데에 사용해봤다. 컴포넌트를 지정하고 그 variation을 만드는 기능이 아주 유용했고, 전반적으로 Adobe XD보다 사용하기 편했던 것 같다. 이제 UI&#x2F;UX Design + Front-End 개발을 같이 할 수 있다고 어디가서 말할 수 있을 것 같다.</li></ul><br><ul><li><strong>제로 투 원</strong>을 읽으며 인사이트를 얻을 수 있었다. 독점적 스타트업이 되야하는 이유, 기하급수적 성장의 중요성, 20-80 법칙, 작은 시장부터 독점하는 방법, 경쟁과 자본주의의 근본적 차이점.</li></ul><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>제로 투 원</strong> - 피터 틸<br><strong>1Q84 #3</strong> - 무라카미 하루키</p>]]></content>
     
     
       
@@ -471,32 +496,6 @@
     
     
     <category term="greedy algorithm" scheme="https://oxcarxierra.github.io/tags/greedy-algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 10816번 숫자카드 2</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj_10816/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj_10816/</id>
-    <published>2022-07-12T03:01:19.000Z</published>
-    <updated>2022-08-16T11:20:24.074Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p>숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 몇 개 가지고 있는지 구하는 프로그램을 작성하시오.</p><h2 id="이분탐색을-이용한-풀이-시간초과"><a href="#이분탐색을-이용한-풀이-시간초과" class="headerlink" title="이분탐색을 이용한 풀이(시간초과)"></a>이분탐색을 이용한 풀이(시간초과)</h2><p>지금까지 배웠던 이분탐색으로 접근하면 숫자를 찾을수는 있어도 그 개수는 찾지 못한다. 각 정수마다 배열을 모두 훑으면서 개수를 찾으면 시간초과.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">이분탐색으로 접근 - 실패</span><br><span class="line">deck.sort()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_card</span>(<span class="params">n</span>):</span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    end = N-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> start &lt;= end :</span><br><span class="line">        p = (start + end) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> deck[p] &gt; n:</span><br><span class="line">            end = p - <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> deck[p] &lt; n :</span><br><span class="line">            start = p + <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> deck[p] == n:</span><br><span class="line">            cnt = <span class="number">1</span></span><br><span class="line">            i, j=<span class="number">1</span>, <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> p-i&gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> deck[p-i] == n:</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">while</span> p+j &lt; N:</span><br><span class="line">                <span class="keyword">if</span> deck[p+j] == n:</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">return</span> cnt</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">answer = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    answer.append(<span class="built_in">str</span>(find_card(card[i])))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(answer))</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="딕셔너리를-이용한-풀이"><a href="#딕셔너리를-이용한-풀이" class="headerlink" title="딕셔너리를 이용한 풀이"></a>딕셔너리를 이용한 풀이</h2><p>숫자를 key로 가지는 딕셔너리를 활용한다면, 입력을 받음과 동시에 개수를 저장할 수 있다. 이 때의 복잡도는 O(n)으로 훨씬 빠르다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">deck = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line">M = <span class="built_in">int</span>(sys.stdin.readline().strip())</span><br><span class="line">card = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line"><span class="built_in">hash</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> deck:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">hash</span>[i] = <span class="number">1</span></span><br><span class="line">answer = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> card:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> <span class="built_in">hash</span>:</span><br><span class="line">        answer.append(<span class="built_in">str</span>(<span class="built_in">hash</span>[i]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        answer.append(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(answer))</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h2&gt;&lt;p&gt;숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="data structure" scheme="https://oxcarxierra.github.io/tags/data-structure/"/>
     
   </entry>
   
