@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Development/development/expo-init/</loc>
+        <lastmod>2022-10-23T15:09:15.568Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Development/development/using-luxon-js/</loc>
+        <lastmod>2022-10-23T15:07:47.535Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/</loc>
-        <lastmod>2022-10-04T19:14:27.672Z</lastmod>
+        <lastmod>2022-10-23T14:32:56.496Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +57,7 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Development/usfk_bus_app_review/</loc>
+        <loc>https://oxcarxierra.github.io/Development/development/usfk_bus_app_review/</loc>
         <lastmod>2022-09-29T18:09:37.479Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -131,14 +147,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/Algorithm/algorithm/boj-topological-sort/</loc>
         <lastmod>2022-09-29T17:39:26.470Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Development/expo-init/</loc>
-        <lastmod>2022-09-29T17:39:26.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

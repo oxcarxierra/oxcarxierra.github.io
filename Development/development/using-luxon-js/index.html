@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog of Seungseok Oh">
-    <title>BOJ 11053 가장 긴 증가하는 부분수열 - Blog of Seungseok Oh</title>
+    <title>luxon.js 라이브러리로 날짜/시간 포맷팅하기 - Blog of Seungseok Oh</title>
     <meta name="author" content="Seungseok Oh">
     
     
@@ -17,19 +17,17 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\nLIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\nBOJ 11723 가장 긴 증가하는 부분수열123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n\n참고자료https://namu.wiki/w/최장 증가 부분 수열\n\n","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-09-30T02:39:27+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"","headline":"BOJ 11053 가장 긴 증가하는 부분수열","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/","keywords":"dp, lis","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
-    <meta name="description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nBackend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 Date type으로 오거나, 한 번 처리해서 202310232335처럼 string type으로 오기도 한다. 또는 10343904같은 number type으로 오기도 하는데, 이 경우는 1970.01.01 00:00:00 UTC를 기준으로 지난 시간을 millisec의 단위로 표시한 것이다. (참고: 여기에서는 현재 시간을 millisec 단위로 알려준다.)\nFrontend 단에서 이 데이터를 OOOO년 OO월 OO일 OO:OO 같은 형식으로 바꿔줄 때, 지금까지는 Date.getDate()같은 함수를 이용해서 새로운 함수를 정의해서 썼었다. 그러나 luxon.js의 DateTime을 이용하면 포맷팅을 아주 쉽게 할 수 있다.\n12345import &#123; DateTime &#125; from &#x27;luxon&#x27;;DateTime.fromMillis(time * 1000).toFormat(&#x27;yyyy.MM.dd  hh:mm&#x27;);// `toFormat()`함수를 이용해 내가 원하는 string 형식으로 변환할 수 있다.\n\n아래 공식문서를 참고해보면 이 외에도 유용한 기능이 많다.\n\nnpmjs\nGithub Docs\n","dateCreated":"2022-10-23T23:35:03+09:00","dateModified":"2022-10-24T00:07:47+09:00","datePublished":"2022-10-23T23:35:03+09:00","description":"","headline":"luxon.js 라이브러리로 날짜/시간 포맷팅하기","image":["https://i.imgur.com/iwTskEa.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/development/using-luxon-js/"},"publisher":{"@type":"Organization","name":"Seungseok Oh","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/development/using-luxon-js/","thumbnailUrl":"https://i.imgur.com/iwTskEa.png"}</script>
+    <meta name="description" content="Backend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 Date type으로 오거나, 한 번 처리해서 202310232335처럼 string type으로 오기도 한다. 또는 10343904같은 number type으로 오기도 하는데, 이 경우는 1970.01.01 00:00:00 UTC를 기준으로">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="BOJ 11053 가장 긴 증가하는 부분수열">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/index.html">
+<meta property="og:title" content="luxon.js 라이브러리로 날짜&#x2F;시간 포맷팅하기">
+<meta property="og:url" content="https://oxcarxierra.github.io/Development/development/using-luxon-js/index.html">
 <meta property="og:site_name" content="Blog of Seungseok Oh">
-<meta property="og:description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
+<meta property="og:description" content="Backend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 Date type으로 오거나, 한 번 처리해서 202310232335처럼 string type으로 오기도 한다. 또는 10343904같은 number type으로 오기도 하는데, 이 경우는 1970.01.01 00:00:00 UTC를 기준으로">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-24T03:01:19.000Z">
-<meta property="article:modified_time" content="2022-09-29T17:39:27.028Z">
+<meta property="article:published_time" content="2022-10-23T14:35:03.000Z">
+<meta property="article:modified_time" content="2022-10-23T15:07:47.535Z">
 <meta property="article:author" content="Seungseok Oh">
-<meta property="article:tag" content="dp">
-<meta property="article:tag" content="lis">
 <meta name="twitter:card" content="summary">
     
     
@@ -39,8 +37,8 @@
         <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
     
     
-        <meta property="og:image" content="https://i.imgur.com/ydX4P1X.png">
-        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/ydX4P1X.png">
+        <meta property="og:image" content="https://i.imgur.com/iwTskEa.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/iwTskEa.png">
     
     
     
@@ -74,7 +72,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/algorithm/boj_11723/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/development/development/using-luxon-js/">
 </head>
 
     <body>
@@ -234,18 +232,18 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            BOJ 11053 가장 긴 증가하는 부분수열
+            luxon.js 라이브러리로 날짜/시간 포맷팅하기
         </h1>
     
     
         <div class="post-meta">
-  <time datetime="2022-07-24T12:01:19+09:00">
-     Jul 24, 2022 
+  <time datetime="2022-10-23T23:35:03+09:00">
+     Oct 23, 2022 
   </time>
   
   <span>in </span>
   
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="category-link" href="/categories/Development/">Development</a>
 
  
   <span class="post-readingtime">
@@ -259,23 +257,17 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LIS"><span class="toc-text">LIS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-11723-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4"><span class="toc-text">BOJ 11723 가장 긴 증가하는 부분수열</span></a></li></ol>
+            <!-- excerpt -->
 
-<p>처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.<br>LIS, Longest Increasing Subsequence라고도 불린다.</p>
-<h2 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a>LIS</h2><p>주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.</p>
-<p>즉, A[i]를 찾는 알고리즘은 아래와 같다.</p>
-<ol>
-<li>A[0] &#x3D; 0, D[0] &#x3D; 0</li>
-<li>A[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.</li>
-<li>그 값에 1을 더한 값울 D[i]에 할당한다.</li>
-<li>이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.<br>O(n^2)이라 느려서, 더 좋은 방법도 존재한다.</li>
-</ol>
-<h2 id="BOJ-11723-가장-긴-증가하는-부분수열"><a href="#BOJ-11723-가장-긴-증가하는-부분수열" class="headerlink" title="BOJ 11723 가장 긴 증가하는 부분수열"></a>BOJ 11723 가장 긴 증가하는 부분수열</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Longest Increasing Subsequence</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">A = [<span class="number">0</span>]</span><br><span class="line">A.extend(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())))</span><br><span class="line">D = [<span class="number">0</span>]*(N+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">  max_D = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, i):</span><br><span class="line">    <span class="keyword">if</span> A[j] &lt; A[i]:</span><br><span class="line">      max_D = <span class="built_in">max</span>(max_D, D[j])</span><br><span class="line">  D[i] = max_D + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(D))</span><br></pre></td></tr></table></figure>
+<p>Backend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 <code>Date</code> type으로 오거나, 한 번 처리해서 <code>202310232335</code>처럼 <code>string</code> type으로 오기도 한다. 또는 <code>10343904</code>같은 <code>number</code> type으로 오기도 하는데, 이 경우는 <code>1970.01.01 00:00:00 UTC</code>를 기준으로 지난 시간을 millisec의 단위로 표시한 것이다. (참고: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://currentmillis.com/">여기</a>에서는 현재 시간을 millisec 단위로 알려준다.)</p>
+<p>Frontend 단에서 이 데이터를 <code>OOOO년 OO월 OO일 OO:OO</code> 같은 형식으로 바꿔줄 때, 지금까지는 <code>Date.getDate()</code>같은 함수를 이용해서 새로운 함수를 정의해서 썼었다. 그러나 luxon.js의 <code>DateTime</code>을 이용하면 포맷팅을 아주 쉽게 할 수 있다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DateTime</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;luxon&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">DateTime</span>.<span class="title function_">fromMillis</span>(time * <span class="number">1000</span>).<span class="title function_">toFormat</span>(<span class="string">&#x27;yyyy.MM.dd  hh:mm&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// `toFormat()`함수를 이용해 내가 원하는 string 형식으로 변환할 수 있다.</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>참고자료<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%EC%B5%9C%EC%9E%A5">https://namu.wiki/w/최장</a> 증가 부분 수열</p>
-</blockquote>
-
+<p>아래 공식문서를 참고해보면 이 외에도 유용한 기능이 많다.</p>
+<h2 id><a href="#" class="headerlink" title></a></h2><ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.npmjs.com/package/luxon">npmjs</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://moment.github.io/luxon/api-docs/index.html">Github Docs</a></li>
+</ul>
             
 
 
@@ -283,22 +275,14 @@
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
-                
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/dp/" rel="tag">dp</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/lis/" rel="tag">lis</a>
-
-            </div>
-        
         
             <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -306,7 +290,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/OKR/2022/2022-4q-okr/" data-tooltip="2022년 4분기 OKR" aria-label="NEXT: 2022년 4분기 OKR">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -324,7 +308,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -332,7 +316,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -340,7 +324,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -350,7 +334,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -385,9 +369,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -395,7 +378,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/OKR/2022/2022-4q-okr/" data-tooltip="2022년 4분기 OKR" aria-label="NEXT: 2022년 4분기 OKR">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -413,7 +396,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -421,7 +404,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -429,7 +412,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/development/using-luxon-js/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -439,7 +422,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -457,7 +440,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/development/using-luxon-js/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -465,7 +448,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/development/using-luxon-js/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -473,7 +456,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/development/using-luxon-js/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

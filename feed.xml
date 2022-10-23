@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-10-04T19:14:27.672Z</updated>
+  <updated>2022-10-23T15:07:47.535Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>luxon.js 라이브러리로 날짜/시간 포맷팅하기</title>
+    <link href="https://oxcarxierra.github.io/Development/development/using-luxon-js/"/>
+    <id>https://oxcarxierra.github.io/Development/development/using-luxon-js/</id>
+    <published>2022-10-23T14:35:03.000Z</published>
+    <updated>2022-10-23T15:07:47.535Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><p>Backend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 <code>Date</code> type으로 오거나, 한 번 처리해서 <code>202310232335</code>처럼 <code>string</code> type으로 오기도 한다. 또는 <code>10343904</code>같은 <code>number</code> type으로 오기도 하는데, 이 경우는 <code>1970.01.01 00:00:00 UTC</code>를 기준으로 지난 시간을 millisec의 단위로 표시한 것이다. (참고: <a href="https://currentmillis.com/">여기</a>에서는 현재 시간을 millisec 단위로 알려준다.)</p><p>Frontend 단에서 이 데이터를 <code>OOOO년 OO월 OO일 OO:OO</code> 같은 형식으로 바꿔줄 때, 지금까지는 <code>Date.getDate()</code>같은 함수를 이용해서 새로운 함수를 정의해서 썼었다. 그러나 luxon.js의 <code>DateTime</code>을 이용하면 포맷팅을 아주 쉽게 할 수 있다.</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DateTime</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;luxon&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">DateTime</span>.<span class="title function_">fromMillis</span>(time * <span class="number">1000</span>).<span class="title function_">toFormat</span>(<span class="string">&#x27;yyyy.MM.dd  hh:mm&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// `toFormat()`함수를 이용해 내가 원하는 string 형식으로 변환할 수 있다.</span></span><br></pre></td></tr></table></figure><p>아래 공식문서를 참고해보면 이 외에도 유용한 기능이 많다.</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><ul><li><a href="https://www.npmjs.com/package/luxon">npmjs</a></li><li><a href="https://moment.github.io/luxon/api-docs/index.html">Github Docs</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;p&gt;Backend에서 시간에 대한 정보가 담긴 데이터를 보내주는 유형은 다양하다. 일반적으로 js, ts에 존재하는 &lt;code&gt;Date&lt;/code&gt; type으로 오거나, 한 번 처리해서 &lt;code&gt;20231023233</summary>
+      
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>2022년 4분기 OKR</title>
     <link href="https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/"/>
     <id>https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/</id>
     <published>2022-10-02T01:50:18.000Z</published>
-    <updated>2022-10-04T19:14:27.672Z</updated>
+    <updated>2022-10-23T14:32:56.496Z</updated>
     
-    <content type="html"><![CDATA[<!-- toc --><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><ol><li><strong>경진대회 준비</strong></li><li><strong>꾸준한 자기개발</strong></li></ol><h2 id="Key-Results"><a href="#Key-Results" class="headerlink" title="Key Results"></a>Key Results</h2><ol><li><strong>경진대회 준비</strong></li></ol><ul><li>2022 OSAM 국방 해커톤 1위 수상</li><li>제 8회 육군창업경진대회 본선 진출 및 수상</li></ul><ol start="2"><li><strong>꾸준한 자기개발</strong></li></ol><ul><li>경제, 금융 기초지식 공부하기</li><li>책 7권 읽기</li><li>운동(농구 헬스 포함) 일주일에 3번 이상 하기</li></ul><blockquote><p>목표가 생기거나 바뀔 때 마다 OKR은 유연하게 수정해도 됨!</p></blockquote><hr>]]></content>
+    <content type="html"><![CDATA[<!-- toc --><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><ol><li><strong>경진대회 준비</strong></li><li><strong>꾸준한 자기개발</strong></li></ol><h2 id="Key-Results"><a href="#Key-Results" class="headerlink" title="Key Results"></a>Key Results</h2><ol><li><strong>경진대회 준비</strong></li></ol><ul><li>2022 OSAM 국방 해커톤 입상</li><li>제 8회 육군창업경진대회 본선 진출 및 수상</li></ul><ol start="2"><li><strong>꾸준한 자기개발</strong></li></ol><ul><li>책 7권 읽기 (경제∙금융 분야 포함)</li><li>운동(농구 헬스 포함) 일주일에 3번 이상 하기</li></ul><ol start="3"><li><strong>사이드 프로젝트</strong></li></ol><ul><li>USFK Bus 앱 업데이트 및 Playstore 배포</li><li>신규 사이드프로젝트 시작하기?</li></ul><blockquote><p>목표가 생기거나 바뀔 때 마다 OKR은 유연하게 수정해도 됨!</p></blockquote><hr>]]></content>
     
     
       
@@ -68,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>Expo memos &amp; troubleshooting</title>
-    <link href="https://oxcarxierra.github.io/Development/expo-init/"/>
-    <id>https://oxcarxierra.github.io/Development/expo-init/</id>
+    <title>Expo 라이브러리로 React-Native 앱 시작하기</title>
+    <link href="https://oxcarxierra.github.io/Development/development/expo-init/"/>
+    <id>https://oxcarxierra.github.io/Development/development/expo-init/</id>
     <published>2022-09-27T02:20:51.000Z</published>
-    <updated>2022-09-29T17:39:26.431Z</updated>
+    <updated>2022-10-23T15:09:15.568Z</updated>
     
     <content type="html"><![CDATA[<!--excerpt--><h3 id="Expo-CLI-설치"><a href="#Expo-CLI-설치" class="headerlink" title="Expo CLI 설치"></a>Expo CLI 설치</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx expo <span class="built_in">whoami</span> <span class="comment"># 로그인된 계정 확인, Not logged in 이 뜨면 로그인해줘야함</span></span><br><span class="line">npx expo register <span class="comment"># 회원가입</span></span><br><span class="line">npx expo login</span><br></pre></td></tr></table></figure><h3 id="Typescript-Expo-앱-시작"><a href="#Typescript-Expo-앱-시작" class="headerlink" title="Typescript - Expo 앱 시작"></a>Typescript - Expo 앱 시작</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app app-name</span><br><span class="line"><span class="built_in">cd</span> app-name</span><br><span class="line"><span class="built_in">touch</span> tsconfig.json</span><br><span class="line">npx expo start <span class="comment"># Typescript 필요 번들설치</span></span><br><span class="line"><span class="built_in">mv</span> App.js App.tsx</span><br><span class="line">npx tsc <span class="comment"># 타입체크</span></span><br></pre></td></tr></table></figure><p>또는, 이미 만들어진 Typescript 기반의 expo 템플릿을 설치하여 사용할 수도 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app -t expo-template-blank-typescript</span><br></pre></td></tr></table></figure><blockquote><p>참고자료 : <a href="'https://docs.expo.dev/guides/typescript/'">Expo Docs</a></p></blockquote>]]></content>
     
@@ -475,27 +499,6 @@
     <category term="dp" scheme="https://oxcarxierra.github.io/tags/dp/"/>
     
     <category term="lis" scheme="https://oxcarxierra.github.io/tags/lis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>탐욕법 Greedy Algorithm</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj_1931/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj_1931/</id>
-    <published>2022-07-16T08:27:45.000Z</published>
-    <updated>2022-08-07T07:42:32.335Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h2 id="Greedy-Algorithm"><a href="#Greedy-Algorithm" class="headerlink" title="Greedy Algorithm"></a>Greedy Algorithm</h2><p>탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.</p><ol><li>탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제</li><li>다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.</li></ol><p>탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면</p><ol><li>탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)</li><li>항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명</li></ol><h2 id="BOJ-1931-회의실-배정"><a href="#BOJ-1931-회의실-배정" class="headerlink" title="BOJ 1931 회의실 배정"></a>BOJ 1931 회의실 배정</h2><p>초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greedy</span>():</span><br><span class="line">  <span class="keyword">global</span> cnt, time</span><br><span class="line">  time_min = time[<span class="number">0</span>]</span><br><span class="line">  new_time=[]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> time:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> time_min[<span class="number">1</span>]&lt;=i[<span class="number">0</span>]:</span><br><span class="line">      new_time.append(i)</span><br><span class="line">  time=new_time</span><br><span class="line">  <span class="built_in">print</span>(time)</span><br><span class="line">  cnt += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> time:</span><br><span class="line">    greedy()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(cnt)</span><br><span class="line"></span><br><span class="line">greedy()</span><br></pre></td></tr></table></figure><p>탐욕법 이용:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">time = [<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">time.sort(key=<span class="keyword">lambda</span> t: (t[<span class="number">1</span>],t[<span class="number">0</span>]))</span><br><span class="line">end_time = time[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,N):</span><br><span class="line">  <span class="keyword">if</span> time[i][<span class="number">0</span>] &gt;= end_time:</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line">    end_time=time[i][<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;BOJ 1931 회의실 배정&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="greedy algorithm" scheme="https://oxcarxierra.github.io/tags/greedy-algorithm/"/>
     
   </entry>
   
