@@ -9,8 +9,8 @@
 
 
     <url>
-        <loc>https://oxcarxierra.github.io/Development/development/expo-init/</loc>
-        <lastmod>2022-10-23T15:09:15.568Z</lastmod>
+        <loc>https://oxcarxierra.github.io/Development/development/usfk_bus_app_review/</loc>
+        <lastmod>2022-11-03T13:16:01.652Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +18,15 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/Development/development/using-luxon-js/</loc>
-        <lastmod>2022-10-23T15:07:47.535Z</lastmod>
+        <lastmod>2022-11-03T13:15:56.740Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Development/development/starting-expo-app/</loc>
+        <lastmod>2022-11-03T13:15:22.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +34,15 @@
 
     <url>
         <loc>https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/</loc>
-        <lastmod>2022-10-23T14:32:56.496Z</lastmod>
+        <lastmod>2022-11-03T13:10:00.611Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/october-2022-review/</loc>
+        <lastmod>2022-11-03T12:48:26.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -51,14 +67,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/august-2022-review/</loc>
         <lastmod>2022-09-29T18:21:40.733Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/Development/development/usfk_bus_app_review/</loc>
-        <lastmod>2022-09-29T18:09:37.479Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -3,22 +3,22 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/tags/Django/</loc>
+        <lastmod>2022-11-03T13:16:01.652Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://oxcarxierra.github.io/tags/React/</loc>
+        <lastmod>2022-11-03T13:16:01.652Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/tags/retrospective/</loc>
-        <lastmod>2022-10-03T13:45:11.611Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/django/</loc>
-        <lastmod>2022-09-29T18:09:37.479Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/tags/react-native/</loc>
-        <lastmod>2022-09-29T18:09:37.479Z</lastmod>
+        <lastmod>2022-11-03T12:48:26.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
