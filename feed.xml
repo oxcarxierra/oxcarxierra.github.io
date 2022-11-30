@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-11-21T13:12:23.816Z</updated>
+  <updated>2022-11-30T14:56:02.051Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022년 11월 회고</title>
+    <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/2022/november-2022-review/"/>
+    <id>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/november-2022-review/</id>
+    <published>2022-11-30T11:37:11.000Z</published>
+    <updated>2022-11-30T14:56:02.051Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li><p>OSAM 해커톤에서 <strong>과학기술정보통신부 장관상</strong>을 받으며 잘 마무리했다. 내년 대회에 참여할 다른 사람이 참고할 수 있도록 후기도 작성해보았다.</p></li><li><p>Coursera에 올라와 있는 <strong>Deep Learning Specialization Course</strong>에 Financial Aid를 신청하고, 5개의 코스 중 첫 번째인 <strong>Neural Networks and Deep Learning</strong>을 모두 수강했다. 인공 신경망의 구조와 기초적인 수학 이론이 주를 이뤘고, submission 과제를 통해 numpy, pandas 사용법을 복습할 수 있었다.</p></li><li><p>시니어 카투사 달고 배럭 이사도 한 이후로 시간 효율성이 급격하게 떨어진 느낌이다. 퇴근을 3-4시에 하니까, 저녁 먹는 시간을 빼고도 밤에 잠드는 12시, 1시까지 시간이 정말 많은데 왜 이렇게 의미 없이 흘러가는지 모르겠다. 과제를 급하다고 생각하지 않다 보니까 목표의식이 많이 떨어지는 것 같고, 새로운 task에 마주하면서 스스로 해결하는게 귀찮아진 것 같다. 운동도 좀 꾸준히 해보고, 어디에서라도 동기부여를 좀 받아와야 할 것 같다.</p></li></ul><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul><li><strong>&lt;부의 추월차선&gt;</strong>, 엠제이 드마코<br>… 읽다 말았다. 뒤로 갈수록 대부분 동어 반복이며 자기모순적인 내용이 많다.</li><li><strong>&lt;경제기사 궁금증 300문 300답&gt;</strong> - 곽해신 (진중문고)</li><li><strong>&lt;존리의 금융문맹 탈출&gt;</strong> - 존리 (진중문고)</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;OSAM 해커톤에서 &lt;strong&gt;과학기술정보통신부 장관상&lt;/strong&gt;을 받으며 잘 마무리했다. 내년 대회에 참여할 다른</summary>
+      
+    
+    
+    
+    <category term="Monthly Retrospectives" scheme="https://oxcarxierra.github.io/categories/Monthly-Retrospectives/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>[React] Library not loaded: @rpath/hermes.framework/hermes 에러</title>
@@ -50,7 +73,7 @@
     <link href="https://oxcarxierra.github.io/Development/2022/army-hackathon-review/"/>
     <id>https://oxcarxierra.github.io/Development/2022/army-hackathon-review/</id>
     <published>2022-11-14T10:41:15.000Z</published>
-    <updated>2022-11-15T13:33:30.500Z</updated>
+    <updated>2022-11-24T09:38:13.112Z</updated>
     
     <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><br /><div class="figure center fig-100" style="width:;"><a class="fancybox" href="https://i.imgur.com/65y7cjS.png" title="" data-caption="" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/65y7cjS.png" alt=""></a></div><div style="clear:both;"></div><h2 id="해커톤-참가"><a href="#해커톤-참가" class="headerlink" title="해커톤 참가"></a>해커톤 참가</h2><p><a href="https://osam.kr/">국방오픈소스아카데미(OSAM) 홈페이지</a>를 해커톤 이전에 발견을 해서, 2022년 해커톤도 열리기를 기대하고 있던 중에 대회 공고가 올라왔고 자연스럽게 참여하게 되었다.</p><h2 id="참가자-선발-과정"><a href="#참가자-선발-과정" class="headerlink" title="참가자 선발 과정"></a>참가자 선발 과정</h2><p>해커톤에 참여하려면 <strong>온라인 평가</strong>, <strong>코딩 테스트</strong>, <strong>개발 계획서</strong> 이렇게 세 가지의 과제를 제출해야 했고, 각각 성적이 <code>50%</code>,<code>25%</code>,<code>25%</code>씩 반영된 선발 점수로 최종 해커톤 참여자 150명 내외를 선정하는 방식이었다.</p><h3 id="1-온라인-평가"><a href="#1-온라인-평가" class="headerlink" title="1. 온라인 평가"></a>1. 온라인 평가</h3><p>온라인 평가는 각 분야별 필수 강의를 듣고 그 강의에 관련된 시험을 보는 형태였다. 제한시간은 1시간, 총 40문제가 출제되었었다. 선택할 수 있는 분야는 <code>WEB</code>,<code>APP</code>,<code>IoT</code>,<code>Cloud</code> 총 4개가 잇었다. 내가 선택했던 APP 분야는 Dart 언어를 사용하는 Front-end 라이브러리 Flutter를 중점으로 했고, 플러터 초급∙중급∙고급 강좌를 필수적으로 이수해야 했다. 평가는 강의에서 나온 자료가 거의 그대로 나왔던 것 같다. 다만 막상 풀 때는 다 아는 내용이라고 생각했지만 결과를 확인해보니 95점이었다. 두 문제를 어디서 틀렸는지 아직도 모르겠다.<br>(<em>사실 문제를 풀면서 구글링도 가능하기 때문에 1시간을 적당히 잘 분배해서 검색의 기회를 적당히 활용하는것도 좋다고 생각한다.</em>)</p><h3 id="2-코딩-테스트"><a href="#2-코딩-테스트" class="headerlink" title="2. 코딩 테스트"></a>2. 코딩 테스트</h3><p>사실상 이 코딩테스트를 준비하기 위해 알고리즘 공부를 한 달 넘게 했다. <a href="https://programmers.co.kr/">프로그래머스</a>의 코딩테스트 환경으로 2시간 동안 총 4문제를 풀게 되는데, 이쪽으론 비전공자였던 내가 다 풀기에는 조금 어려운 난이도였다. 백준으로 따지면 1번은 <code>실버 4</code>, 2번은 <code>실버 1</code>, 3~4번은 <code>골드 1</code>정도의 난이도였던 것 같다. 사실 그렇게 어려운 알고리즘이 나온 건 아닌데, 문제 자체가 너무 더럽고 생각치 못한 예외 케이스들이 있어서 코드 양이 많이 길어질 수 밖에 없었던 것 같다. 난 결과적으로 1,2번 모두 풀고 3번은 패스, 4번을 절반 정도 점수를 받아서 최종 점수는 400점 만점에 254점이었다. 사실 알고리즘을 이번에 처음 입문을 하고 짧은 시간동안 압축해서 공부를 하자니 이론적인 부분은 많이 배웠어도, 실전 코딩테스트에서 좋은 성적이 나오려면 문제를 많이 풀어보는게 가장 좋은 것 같다.<br>참고로, 해커톤과 별개인 <strong>코딩경진대회</strong>는 이 코딩 테스트의 점수가 가장 높은 6명에게 시상과 상품을 준다. 이번 1등 상품은 iPad Air정도였으니, 부상이 꽤 쏠쏠하다. 다만 상위 3명은 모두 만점이라 해결 시간이 짧았던 순서로 순위가 정해졌고, 6등 커트라인이 322점이었으니 수상하려면 최소 백준 플레티넘 정도는 되야하지 않을까 싶다.</p><h3 id="3-개발-계획서"><a href="#3-개발-계획서" class="headerlink" title="3. 개발 계획서"></a>3. 개발 계획서</h3><p><strong>병영생활 및 국방에서 활용 가능한 창의적인 아이디어</strong>라는 대주제 안에서 본인이 해커톤에 진출했을 때 진행할 프로젝트의 구체적인 개발 계획서를 작성하는 과제였다. 물론 나중에 본인의 주제를 포기하고 다른 사람의 주제에 모여서 팀 빌딩을 할 수 있다는 걸 알고있었어서, 많은 노력을 들이지는 않았다.</p><h3 id="4-선발-결과"><a href="#4-선발-결과" class="headerlink" title="4. 선발 결과"></a>4. 선발 결과</h3><p>생각만큼 대회 경쟁률이 그렇게 빡세지 않아서 코딩테스트 점수가 기대에 못 미쳤던 나도 안정권으로 본선에 진출할 수 있었던 것 같다. 해커톤 참가자로 선발된 이후에는 별도의 탭에서 팀 빌딩 기능과 커뮤니티 게시판을 이용할 수 있게된다. 그래서 다른 참가자들의 개발 계획서도 볼 수 있었는데, 개발계획서가 빈칸인데도 선발된 사람도 있었다. 참가자 수가 그만큼 적어서 개발계획서를 완성하지 못해도 선발했던 것 같은데, 그럼 굳이 코딩테스트 준비나 개발계획서를 열심히 할 필요가 없었을 수도 있겠다는 생각도 들었다.</p><h2 id="팀-빌딩-과정"><a href="#팀-빌딩-과정" class="headerlink" title="팀 빌딩 과정"></a>팀 빌딩 과정</h2><p>팀 빌딩 기간이 시작되면 내 프로젝트에 필요한 구체적인 포지션과 인원수를 설정할 수 있게 된다. 그래서 다른 사람들의 개발 계획서를 보면서 참여하고 싶은 주제가 생기면 본인의 것을 포기하고, 비어있는 포지션에 참여 신청을 넣으면 되는 방식으로 진행된다. 나는 고등학교 동기가 팀장을 맡은 <strong>군 법규 도우미</strong> 프로젝트에 Frontend 파트로 참여하기로 했다. 실제로 육군 규정과 국방부 규정으로 정해진 사항임에도 불구하고 군인들이 잘 몰라서 억울한 일을 당해도 항의나 보상 요구를 하지 못하는 경우가 많다는데 공감했기 때문이다.<br>팀빌딩으로 실력 있는 분들이 들어오셔서 총 7명의 팀이 꾸려졌고, 현업에서 일하시는 능력있는 멘토분도 배정받게 되었다. 그 이후로 우리 팀이 목표한 아이디어를 구현하고 본격적으로 개발할 수 있는 1달이라는 시간이 주어졌다.</p><h2 id="온라인-해커톤-및-프로젝트-진행"><a href="#온라인-해커톤-및-프로젝트-진행" class="headerlink" title="온라인 해커톤 및 프로젝트 진행"></a>온라인 해커톤 및 프로젝트 진행</h2><p>팀원 모두가 현역 병사다 보니 훈련 일정도 있고, 남는 개인정비 시간을 쪼개가며 참여했던 해커톤이라 협업하기가 쉽지만은 않았다. 또, 싸지방 컴퓨터로 온라인 IDE를 사용해야 하는 등 열악한 개발환경의 문제도 있었다. 나도 외박 나가있는 동안은 거의 모든 시간을 개발에 쏟아부었던 것 같다.<br>멘토님으로부터 전해받은 몇 가지 팁을 남겨놓자면,</p><ol><li><strong>최종 평가는 발표자료(프레젠테이션)과 시연영상으로만 진행된다.</strong><br>데모에 자잘한 오류가 있더라도, 시간이 없으면 영상에 드러나지 않을 정도로만 수정하는 것도 좋다. 또한 발표는 멘토가 진행하셨기 때문에, 팀이 전하고자 하는 메세지를 프레젠테이션에 최대한 많이 담아야 한다.</li><li><strong>병사 개개인을 타겟으로 한 주제보다, 전체적인 ‘군’에 도움을 줄 수 있는 주제가 좋다.</strong><br>이 프로젝트로써 군의 어떤 문제를 긍정적으로 해결할 수 있는지가 강조되어야 한다.</li><li><strong>개발문서 (Github <code>README.md</code> 포함) 를 구체적으로 쓰고, 이미지를 많이 첨부하면 좋다.</strong><br>우리 팀의 경우에는 <code>GitBook</code>도 활용해서, 미처 시연영상에 담지 못한 내용까지 상세히 설명해 두었다.</li></ol><h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><ol><li><p>군 생활동안 대회에서 의미있는 상을 하나 정도는 받고 싶었는데, 육군창업경진대회마저 광탈하면서 아쉬웠던 터라 과기부 장관상(1등상)은 믿기 어려울 정도로 뿌듯한 소식이었다. 또 처음으로 참여해본 해커톤 형식의 대회였는데(사실 무박2일, 2박3일로 진행되는 대부분의 해커톤과는 조금 다르지만) 좋게 끝나서 다행이다. Expo, React-Query같은 새로운 기술 스택도 배울 수 있었고, 인사이트를 공유할 좋은 팀원들도 만날 수 있었다. 이런 분들과 협업하면서 완성이라는 하나의 목표를 위해 다 같이 고민하고 해결해나갔던 과정 자체가 참 재미있어서, 대회를 준비하는 한 달 남짓 시간동안 행복했던 것 같다.</p></li><li><p>요즘 군대가 많이 좋아졌다고들 하지만, 아직도 여러 군인이 부대 내 선임 ∙ 상관으로부터의 부조리, 성추행, 괴롭힘으로 정신적 피해를 호소하고 극단적인 선택을 한다. 몇몇 지휘관은 본인의 출세를 위해 덮고 숨기기 급급하며, 수사는 물론 배상조차 제대로 진행되지 못하는 경우가 다반수다. 이런 이슈가 터지고 뉴스를 볼 때마다, 원했던 원하지 않았던 국방의 의무를 다하기 위해 입대한 사람들이 대체 왜 이런 비극을 겪어야 했는지 분노하지 않을 수 없었다. 그리고 모두가 가만히 있으면 아무것도 바뀌지 않기에, 여느 ‘냄비근성’처럼 외면하면서 넘어가고 싶지 않았다. 해커톤에 제출한 하나의 데모 앱에 불과하겠지만, 나는 나만의 방식으로 이 문제를 해결하기 위해 고민했고 노력했다는 사실에 의미를 두고 싶다. 그리고 작은 변화의 바람이라도 함께하는 사람들이 많아지고 군 수뇌부부터 노력한다면, 조준우 일병, 이예람 중사같은 사고가 이제는 다시 일어나지 않을 수 있을 것이다.</p></li></ol>]]></content>
     
@@ -94,11 +117,11 @@
   </entry>
   
   <entry>
-    <title>2022년 10월 회고록</title>
+    <title>2022년 10월 회고</title>
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/2022/october-2022-review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/october-2022-review/</id>
     <published>2022-11-03T07:18:39.000Z</published>
-    <updated>2022-11-03T12:48:26.802Z</updated>
+    <updated>2022-11-30T12:20:56.463Z</updated>
     
     <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>육군창업경진대회는 본선 탈락했다. 나름 열심히 준비해서 본선은 갈 줄 알았는데, 아쉬움이 좀 남는다. 아이템이 대회의 컨셉과 안맞는 부분도 있었던 것 같고, 처음으로 준비해 본 창업 경진대회라서 노하우가 부족했던 것 같다.</li></ul><br/><ul><li>10월 한 달 내내 국방 해커톤 프로젝트에 집중한 결과 데모 앱을 기획대로 다 개발했고, 출품까지 잘 마무리했다. 팀원이 7명으로 꽤 많은 데다 다들 역량이 뛰어나셔서, 처음에 불가능해 보일 정도로 많았던 태스크를 모두 끝낼 수 있었던 것 같았다. 그치만 그만큼 협업에서의 어려움이 조금 느껴졌다. 아무래도 다들 열악한 환경에서 개인정비 시간 쪼개가며 참여하는 프로젝트이다 보니까 소통이나 진행 순서에서 꼬이는게 좀 있었다.<br>별개로, 우리 팀의 프로젝트가 군 내 인명피해와 사건사고를 막기 위한 솔루션이라는 점에서 큰 의미가 있었던 것 같다. 종종 군인이 자살했다는 뉴스를 들으면 안타까웠었는데, 그저 연민으로 끝내지 않고 내가 할 수 있는 방법으로 행동에 옮겼다는 뿌듯함이 남았다. 수상까지 하면 완벽할 것 같다.</li></ul><br/><ul><li>책은 많이 못 읽었다. &lt;데미안&gt;과 경제 관련 책을 읽는 중인데, 11월에 다 읽어야겠다.</li></ul>]]></content>
     
@@ -201,13 +224,13 @@
   </entry>
   
   <entry>
-    <title>2022년 9월 회고록</title>
+    <title>2022년 9월 회고</title>
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/2022/september-2022-review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/september-2022-review/</id>
     <published>2022-09-29T17:17:42.000Z</published>
-    <updated>2022-10-03T13:45:11.611Z</updated>
+    <updated>2022-11-30T14:54:58.928Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. <del>이게 군인이 맞냐?</del> 그치만 시간을 효율적으로 잘 보냈냐고 물어보면 잘 모르겠다.. 사람도 많이 만나고 개인적으로 재충전하느라 공부는 많이 못했다. 이럴 때 쉬어줘야지 느낌으로 자기합리화하는중.</p><br><ul><li><strong>군장병 공개SW 온라인 해커톤 본선</strong>에 진출했다. 9&#x2F;7에 참가자 발표가 났고, 나는 고등학교 친구가 낸 주제에 팀원으로 합류했다. 다른 장병분들도 주제를 보고 지원해 주셔서 총 7명의 거대 팀을 구성할 수 있었다. 모인 분들의 스펙이 대단하셔서 엄청 놀랐다.. 자세한 후기는 <a href="">OSAM 해커톤 후기</a>로 따로 포스팅할 생각이다. 이제 구체적인 기획을 마무리하고 내가 맡은 Front-End 쪽 개발에 집중할 계획이다. 그런데 마지막으로 받았던 피드백에서 주제가 대차게 까여서 어떻게 방향을 틀어야 할지 좀 고민이 돤다 ㅎㅎ..</li></ul><br><ul><li><strong>제 8회 육군창업경진대회</strong>를 2~3주 빡세게 준비해서 접수를 해놓은 상태다. 2주 뒤에 예선 결과발표가 나는데, 본선 진출만 해도 포상휴가라는 말에 시작한 대회였으니 제발 본선만이라도 갔으면 좋겠다. 지금 육군으로 복무중인 고등학교 친구 군바리 둘이랑 팀을 짜서, 몇 주 전부터 여러 아이디어를 내고 서로 피드백도 해주면서 나온 가장 괜찮은 아이템 하나로 develop하고 접수를 했다. 하나 걱정되는 건 아무래도 육군에서 주관하는 경진대회이다 보니 기술성을 많이 보고 특히 군과 관련된 아이템이 좋은 점수를 받는다고 하는데 우리 아이템이 그쪽은 아니라는거… 암튼 이번 기회에 유튜브로 Figma를 독학해서 프로토타입을 제작하는 데에 사용해봤다. 컴포넌트를 지정하고 그 variation을 만드는 기능이 아주 유용했고, 전반적으로 Adobe XD보다 사용하기 편했던 것 같다. 이제 UI&#x2F;UX Design + Front-End 개발을 같이 할 수 있다고 어디가서 말할 수 있을 것 같다.</li></ul><br><ul><li><strong>제로 투 원</strong>을 읽으며 인사이트를 얻을 수 있었다. 독점적 스타트업이 되야하는 이유, 기하급수적 성장의 중요성, 20-80 법칙, 작은 시장부터 독점하는 방법, 경쟁과 자본주의의 근본적 차이점.</li></ul><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>제로 투 원</strong> - 피터 틸<br><strong>1Q84 #3</strong> - 무라카미 하루키</p>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. <del>이게 군인이 맞냐?</del> 그치만 시간을 효율적으로 잘 보냈냐고 물어보면 잘 모르겠다.. 사람도 많이 만나고 개인적으로 재충전하느라 공부는 많이 못했다. 이럴 때 쉬어줘야지 느낌으로 자기합리화하는중.</p><br><ul><li><strong>군장병 공개SW 온라인 해커톤 본선</strong>에 진출했다. 9&#x2F;7에 참가자 발표가 났고, 나는 고등학교 친구가 낸 주제에 팀원으로 합류했다. 다른 장병분들도 주제를 보고 지원해 주셔서 총 7명의 거대 팀을 구성할 수 있었다. 모인 분들의 스펙이 대단하셔서 엄청 놀랐다.. 자세한 후기는 <a href="">OSAM 해커톤 후기</a>로 따로 포스팅할 생각이다. 이제 구체적인 기획을 마무리하고 내가 맡은 Front-End 쪽 개발에 집중할 계획이다. 그런데 마지막으로 받았던 피드백에서 주제가 대차게 까여서 어떻게 방향을 틀어야 할지 좀 고민이 돤다 ㅎㅎ..</li></ul><br><ul><li><strong>제 8회 육군창업경진대회</strong>를 2~3주 빡세게 준비해서 접수를 해놓은 상태다. 2주 뒤에 예선 결과발표가 나는데, 본선 진출만 해도 포상휴가라는 말에 시작한 대회였으니 제발 본선만이라도 갔으면 좋겠다. 지금 육군으로 복무중인 고등학교 친구 군바리 둘이랑 팀을 짜서, 몇 주 전부터 여러 아이디어를 내고 서로 피드백도 해주면서 나온 가장 괜찮은 아이템 하나로 develop하고 접수를 했다. 하나 걱정되는 건 아무래도 육군에서 주관하는 경진대회이다 보니 기술성을 많이 보고 특히 군과 관련된 아이템이 좋은 점수를 받는다고 하는데 우리 아이템이 그쪽은 아니라는거… 암튼 이번 기회에 유튜브로 Figma를 독학해서 프로토타입을 제작하는 데에 사용해봤다. 컴포넌트를 지정하고 그 variation을 만드는 기능이 아주 유용했고, 전반적으로 Adobe XD보다 사용하기 편했던 것 같다. 이제 UI&#x2F;UX Design + Front-End 개발을 같이 할 수 있다고 어디가서 말할 수 있을 것 같다.</li></ul><br><ul><li><strong>제로 투 원</strong>을 읽으며 인사이트를 얻을 수 있었다. 독점적 스타트업이 되야하는 이유, 기하급수적 성장의 중요성, 20-80 법칙, 작은 시장부터 독점하는 방법, 경쟁과 자본주의의 근본적 차이점.</li></ul><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul><li><strong>&lt;제로 투 원&gt;</strong> - 피터 틸</li><li><strong>&lt;1Q84 #3&gt;</strong> - 무라카미 하루키</li></ul>]]></content>
     
     
       
@@ -248,13 +271,13 @@
   </entry>
   
   <entry>
-    <title>2022년 8월 회고록</title>
+    <title>2022년 8월 회고</title>
     <link href="https://oxcarxierra.github.io/Monthly-Retrospectives/2022/august-2022-review/"/>
     <id>https://oxcarxierra.github.io/Monthly-Retrospectives/2022/august-2022-review/</id>
     <published>2022-09-01T10:59:02.000Z</published>
-    <updated>2022-11-15T03:24:39.448Z</updated>
+    <updated>2022-11-30T14:55:29.942Z</updated>
     
-    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li><strong>군장병 공개SW 온라인 해커톤</strong> 준비로 바빴다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었고, 도중에 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><div class="figure center fig-100" style="width:;"><a class="fancybox" href="https://imgur.com/dzRvkOI.png" title="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-caption="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-fancybox="default"><img class="fig-img" src="https://imgur.com/dzRvkOI.png" alt="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!"></a><span class="caption">알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</span></div><div style="clear:both;"></div><br ><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br ><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><br ><ul><li>넷플릭스의 기업 문화를 담은 &lt;규칙 없음&gt;을 읽었다. 나는 극한의 인재 밀도를 추구하는 기업에 어울릴수 있는가? 나는 기업이 업계 최고의 대우를 해주어서라도 가지고 있을만한 인재인가? 나는 직설적이고 솔직한 피드백을 주고, 또 받을 준비가 되어있는가?</li></ul><br ><div class="figure center" style="width:;"><img class="fig-img" src="https://i.imgur.com/vhgtCzI.jpg" alt="PFC Oh promoted to CPL Oh!🫡"><span class="caption">PFC Oh promoted to CPL Oh!🫡</span></div><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>1Q84 #2</strong> - 무라카미 하루키<br><strong>규칙 없음</strong> - 리드 헤이스팅스 ∙ 에린 마이어</p>]]></content>
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li><strong>군장병 공개SW 온라인 해커톤</strong> 준비로 바빴다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었고, 도중에 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><div class="figure center fig-100" style="width:;"><a class="fancybox" href="https://imgur.com/dzRvkOI.png" title="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-caption="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-fancybox="default"><img class="fig-img" src="https://imgur.com/dzRvkOI.png" alt="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!"></a><span class="caption">알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</span></div><div style="clear:both;"></div><br ><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br ><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><br ><ul><li>넷플릭스의 기업 문화를 담은 &lt;규칙 없음&gt;을 읽었다. 나는 극한의 인재 밀도를 추구하는 기업에 어울릴수 있는가? 나는 기업이 업계 최고의 대우를 해주어서라도 가지고 있을만한 인재인가? 나는 직설적이고 솔직한 피드백을 주고, 또 받을 준비가 되어있는가?</li></ul><br ><div class="figure center" style="width:;"><img class="fig-img" src="https://i.imgur.com/vhgtCzI.jpg" alt="PFC Oh promoted to CPL Oh!🫡"><span class="caption">PFC Oh promoted to CPL Oh!🫡</span></div><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>&lt;1Q84 #2&gt;</strong> - 무라카미 하루키<br><strong>&lt;규칙 없음&gt;</strong> - 리드 헤이스팅스 ∙ 에린 마이어 (진중문고)</p>]]></content>
     
     
       
@@ -487,32 +510,6 @@
     <category term="graph" scheme="https://oxcarxierra.github.io/tags/graph/"/>
     
     <category term="bellman-ford" scheme="https://oxcarxierra.github.io/tags/bellman-ford/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 9663번 N-Queen</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-9663/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-9663/</id>
-    <published>2022-08-01T06:27:23.000Z</published>
-    <updated>2022-08-07T05:07:12.367Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p>N-Queen 문제는 크기가 N × N인 체스판 위에 퀸 N개를 서로 공격할 수 없게 놓는 문제이다.<br>N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 작성하시오.</p><h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><p>N-Queen 문제는 백트래킹을 이용하는 유명한 문제중 하나이다.<br><strong>백트래킹</strong>이란, 해를 찾는 과정에서 유망성을 판단하고(promising) 유망하지 않은 후보 해에 막히면 되돌아가서(back track) 다른 해를 찾아가는 기법을 말한다. 백트래킹을 트리 탐색 기법의 한 종류로 분류할 수는 없다. 그러나 백트래킹을 DFS와 접목하면, 모든 노드를 방문하고 검색하지 않아도 되어 이득을 볼 수 있어 많이 사용된다.</p><p>N-Queen 문제의 경우, 총 N개의 퀸을 하나씩 배치해보면서 유망성 검사(promising)을 통해 더이상 퀸을 배치할 수 없는 상황에 도달하면, 전 단계로 되돌아가 다른 경우를 시도해본다. 퀸은 <strong>같은 열, 같은 행, 같은 대각선</strong>에 다른 퀸이 위치하는지 판단함으로써 유망성 검사를 할 수 있다.<br>처음에는 퀸의 위치좌표를 저장해가면서 x,y,대각선을 비교하는 방법으로 접근했으나, 훨씬 간단한 방법을 발견할 수 있었다. <strong>각 행의 몇 번째 열에 퀸이 놓여있는지</strong>를 행렬로 저장하면, 행은 겹칠일이 없고, 열과 대각선만 비교하면 된다.</p><figure class="highlight python"><figcaption><span>promising function</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">promising</span>(<span class="params">idx</span>):</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(idx):</span><br><span class="line">    <span class="keyword">if</span> queen[idx] == queen[i] <span class="keyword">or</span> <span class="built_in">abs</span>(queen[idx] - queen[i]) == idx - i:</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><p>기본적인 DFS의 틀을 따라가면서, 행렬의 길이가 N이 되었을 때(N개의 퀸을 성공적으로 배치했을 때)만 count해주면 된다.</p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><figcaption><span>BOJ 9663 N-Queen</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">queen = [<span class="number">0</span>]*(N)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">promising</span>(<span class="params">idx</span>):</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(idx):</span><br><span class="line">    <span class="keyword">if</span> queen[idx] == queen[i] <span class="keyword">or</span> <span class="built_in">abs</span>(queen[idx] - queen[i]) == idx - i:</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">idx</span>):</span><br><span class="line">  <span class="keyword">global</span> count</span><br><span class="line">  <span class="keyword">if</span> idx == N:</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    queen[idx] = i</span><br><span class="line">    <span class="keyword">if</span> promising(idx):</span><br><span class="line">      dfs(idx+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(count)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h2&gt;&lt;p&gt;N-Queen 문제는 크기가 N × N인 체스판 위에 퀸 N개를 서로 공격할 수 없게 놓는 문제이다.</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="backtracking" scheme="https://oxcarxierra.github.io/tags/backtracking/"/>
     
   </entry>
   
