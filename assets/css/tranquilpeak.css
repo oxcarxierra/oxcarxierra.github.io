@@ -191,10 +191,10 @@ code {
 
 acronym,
 abbr {
-  border-bottom: 1px dotted #a3a3a3; }
+  border-bottom: 1px dotted #a7a7a7; }
 
 blockquote {
-  border-left: 3px solid #a3a3a3;
+  border-left: 3px solid #a7a7a7;
   padding: 0 15px;
   font-style: italic;
   margin: 1.5em 0 0; }
@@ -287,7 +287,7 @@ blockquote {
       font-size: 1.6rem;
       line-height: 2.3em;
       font-weight: 400;
-      color: #a3a3a3; }
+      color: #a7a7a7; }
 
 @media only screen and (max-width: 767px) {
   #about #about-card {
@@ -1532,7 +1532,7 @@ blockquote {
   display: none; }
 
 .archive .archive-title {
-  color: #a3a3a3; }
+  color: #a7a7a7; }
   .archive .archive-title:hover {
     text-decoration: underline; }
 
@@ -1540,7 +1540,7 @@ blockquote {
   list-style: none; }
   .archive .archive-posts .archive-post .archive-post-title {
     margin-left: 10px;
-    color: #a3a3a3; }
+    color: #a7a7a7; }
     .archive .archive-posts .archive-post .archive-post-title:hover {
       text-decoration: underline; }
   .archive .archive-posts .archive-post .archive-post-date {
@@ -1785,7 +1785,7 @@ figure.highlight,
   width: 100%;
   border: none;
   outline: none;
-  color: #a3a3a3;
+  color: #a7a7a7;
   font-weight: 300; }
   .form-control:hover, .form-control:focus {
     outline: none; }
@@ -1984,7 +1984,7 @@ a.fancybox {
   color: #9eabb3; }
 
 .media-content {
-  color: #a3a3a3; }
+  color: #a7a7a7; }
 
 .modal-container {
   position: fixed;
@@ -2023,7 +2023,7 @@ a.fancybox {
     position: absolute;
     top: 9px;
     right: 15px;
-    color: #a3a3a3;
+    color: #a7a7a7;
     cursor: pointer; }
 
 .overlay {
@@ -2089,7 +2089,7 @@ a.fancybox {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
     font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
-    color: #a3a3a3;
+    color: #a7a7a7;
     margin-top: 20px;
     font-weight: 400;
     overflow: hidden;
@@ -2340,7 +2340,7 @@ a.fancybox {
 
 .postShorten-group .postShorten {
   margin-top: 15px;
-  border-bottom: 1px solid #a3a3a3; }
+  border-bottom: 1px solid #555; }
 
 .postShorten {
   position: relative;
@@ -2375,7 +2375,7 @@ a.fancybox {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
     font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
-    color: #a3a3a3;
+    color: #a7a7a7;
     font-weight: 400;
     overflow: hidden;
     -webkit-hypens: auto;
@@ -2485,7 +2485,7 @@ a.fancybox {
   top: 15px;
   right: 15px;
   font-size: 20px;
-  color: #a3a3a3;
+  color: #a7a7a7;
   cursor: pointer; }
 
 @media only screen and (max-width: 767px) {
@@ -2637,7 +2637,7 @@ a.tag--small,
   text-decoration: underline !important; }
 
 .text-color-base {
-  color: #a3a3a3 !important; }
+  color: #a7a7a7 !important; }
 
 .text-color-light {
   color: #9eabb3 !important; }
@@ -2792,7 +2792,7 @@ a.tag--small,
     position: absolute;
     top: 15px;
     left: 15px;
-    color: #a3a3a3; }
+    color: #a7a7a7; }
   #algolia-search-modal .media-content {
     font-size: 0.95em; }
   #algolia-search-modal .search-input {
@@ -2810,7 +2810,7 @@ a.tag--small,
     margin-top: 0; }
   #algolia-search-modal .results-count {
     line-height: 50px;
-    color: #a3a3a3; }
+    color: #a7a7a7; }
   #algolia-search-modal .searchby-algolia {
     position: absolute;
     top: 15px;
