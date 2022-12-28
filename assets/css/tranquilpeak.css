@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css);
+@import url(https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css);
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -61,7 +61,7 @@
   src: local("SourceCodePro"), url(../fonts/source-code-pro.otf) format("opentype"); }
 
 html {
-  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -74,10 +74,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: white;
-  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+  background: #1d1d1d;
+  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
   font-size: 1.6rem;
-  line-height: 1.9em;
+  line-height: 2.3em;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: subpixel-antialiased; }
@@ -90,11 +90,10 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: -0.04em;
-  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
-  font-weight: 700;
+  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+  font-weight: 500;
   line-height: 1.45em;
-  color: #4a4a4a; }
+  color: #e1e1e1; }
 
 h1,
 h2,
@@ -107,22 +106,22 @@ h6 {
   margin: 1em 0 0.5em 0; }
 
 h1 {
-  font-size: 2.8rem; }
-
-h2 {
   font-size: 2.4rem; }
 
-h3 {
+h2 {
   font-size: 2rem; }
 
-h4 {
+h3 {
   font-size: 1.8rem; }
 
-h5 {
+h4 {
   font-size: 1.7rem; }
 
-h6 {
+h5 {
   font-size: 1.6rem; }
+
+h6 {
+  font-size: 1.5rem; }
 
 p {
   margin: 0 0 1.5em 0; }
@@ -176,9 +175,10 @@ pre > code {
   font-family: Source Code Pro, Merriweather, Consolas;
   border: none;
   margin: 0;
+  color: #fff;
   cursor: text;
   overflow-x: auto;
-  line-height: 1.7em;
+  line-height: 1.5em;
   font-size: 1.4rem; }
 
 code {
@@ -186,53 +186,53 @@ code {
   display: inline-block;
   font-family: "Source Code Pro", "Merriweather", Consolas;
   font-weight: 400;
-  background-color: #f7f8f8;
+  background-color: #1d1d1d;
   padding: 0 10px; }
 
 acronym,
 abbr {
-  border-bottom: 1px dotted #5d686f; }
+  border-bottom: 1px dotted #a3a3a3; }
 
 blockquote {
-  border-left: 3px solid #5d686f;
+  border-left: 3px solid #a3a3a3;
   padding: 0 15px;
   font-style: italic;
   margin: 1.5em 0 0; }
   blockquote cite:before {
-    content: ' — ';
+    content: " — ";
     padding: 0 0.3em; }
   blockquote > p:first-child {
     margin: 0; }
 
 @media only screen and (max-width: 767px) {
   code {
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
   h1 {
-    font-size: 2.6rem; }
+    font-size: 2rem; }
   h2 {
-    font-size: 2.2rem; }
-  h3 {
-    font-size: 1.8rem; }
-  h4 {
     font-size: 1.6rem; }
+  h3 {
+    font-size: 1.4rem; }
+  h4 {
+    font-size: 1.3rem; }
   h5 {
-    font-size: 1.5rem; }
+    font-size: 1.2rem; }
   h6 {
-    font-size: 1.4rem; } }
+    font-size: 1.1rem; } }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   h1 {
-    font-size: 2.65rem; }
+    font-size: 2.1rem; }
   h2 {
-    font-size: 2.25rem; }
+    font-size: 1.7rem; }
   h3 {
-    font-size: 1.85rem; }
+    font-size: 1.5rem; }
   h4 {
-    font-size: 1.65rem; }
+    font-size: 1.4rem; }
   h5 {
-    font-size: 1.55rem; }
+    font-size: 1.3rem; }
   h6 {
-    font-size: 1.45rem; } }
+    font-size: 1.2rem; } }
 
 #about {
   display: none;
@@ -285,9 +285,9 @@ blockquote {
     #about #about-card #about-card-location,
     #about #about-card #about-card-bio {
       font-size: 1.6rem;
-      line-height: 1.9em;
+      line-height: 2.3em;
       font-weight: 400;
-      color: #5d686f; }
+      color: #a3a3a3; }
 
 @media only screen and (max-width: 767px) {
   #about #about-card {
@@ -332,13 +332,12 @@ blockquote {
   position: fixed;
   bottom: 0;
   height: 60px;
-  background: white;
+  background: #262626;
   margin: 0;
-  border-top: 1px solid #eef2f8;
   padding: 0 15px;
   z-index: 40;
-  transition: transform .25s ease-in-out;
-  -webkit-transition: -webkit-transform .25s ease-in-out; }
+  transition: transform 0.25s ease-in-out;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out; }
 
 @media only screen and (max-width: 767px) {
   #bottom-bar {
@@ -472,11 +471,10 @@ blockquote {
   display: block;
   width: 100%;
   height: 55px;
-  background: #fff;
+  background: #262626;
   position: fixed;
   top: 0;
-  border: 1px solid #eef2f8;
-  color: #88909a;
+  color: #e1e1e1;
   z-index: 20;
   transition: transform .25s ease-in-out;
   -webkit-transition: -webkit-transform .25s ease-in-out;
@@ -494,7 +492,7 @@ blockquote {
     display: block;
     width: 30px;
     height: 30px;
-    color: #88909a; }
+    color: #e1e1e1; }
     #header .header-right-picture .header-picture {
       display: block;
       width: 30px;
@@ -504,17 +502,17 @@ blockquote {
     position: absolute;
     top: 12.5px;
     right: 20px;
-    color: #88909a; }
+    color: #e1e1e1; }
   #header .header-title {
     text-align: center;
     font-size: 1.6rem;
     line-height: 55px;
     margin: 0; }
     #header .header-title .header-title-link {
-      color: #88909a;
+      color: #e1e1e1;
       font-weight: normal; }
       #header .header-title .header-title-link:hover, #header .header-title .header-title-link:active {
-        color: #6e7681;
+        color: #c8c7c7;
         text-decoration: none; }
   #header.header-up {
     -webkit-transform: translate3d(0, -55px, 0);
@@ -550,9 +548,9 @@ blockquote {
 #main {
   display: block;
   min-height: 100%;
-  background: #fff;
-  transition: transform .25s ease-in-out;
-  -webkit-transition: -webkit-transform .25s ease-in-out; }
+  background: #262626;
+  transition: transform 0.25s ease-in-out;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out; }
   #main.hasCover.hasCoverCaption, #main.hasCover.hasCoverMetaOut {
     padding-top: 50px !important; }
   #main.hasCover.hasCoverMetaIn, #main.hasCover.hasCoverMetaOut.hasCoverCaption {
@@ -659,7 +657,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
   height: 100%;
   position: fixed;
   top: 0;
@@ -1534,7 +1532,7 @@ blockquote {
   display: none; }
 
 .archive .archive-title {
-  color: #5d686f; }
+  color: #a3a3a3; }
   .archive .archive-title:hover {
     text-decoration: underline; }
 
@@ -1542,7 +1540,7 @@ blockquote {
   list-style: none; }
   .archive .archive-posts .archive-post .archive-post-title {
     margin-left: 10px;
-    color: #5d686f; }
+    color: #a3a3a3; }
     .archive .archive-posts .archive-post .archive-post-title:hover {
       text-decoration: underline; }
   .archive .archive-posts .archive-post .archive-post-date {
@@ -1619,7 +1617,7 @@ blockquote {
 
 .caption {
   display: block;
-  font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
   font-size: 1.3rem;
   color: #81929d;
   text-align: center;
@@ -1630,7 +1628,7 @@ blockquote {
 figure.highlight,
 .codeblock {
   margin: 10px 0;
-  line-height: 1.3em;
+  line-height: 1.1em;
   padding-top: 15px;
   padding-bottom: 15px;
   overflow: hidden; }
@@ -1683,7 +1681,7 @@ figure.highlight,
       overflow-y: hidden; }
   figure.highlight .line,
   .codeblock .line {
-    height: 1.3em;
+    height: 1.1em;
     font-size: 1.4rem; }
 
 .codeblock--tabbed figure.highlight,
@@ -1787,7 +1785,7 @@ figure.highlight,
   width: 100%;
   border: none;
   outline: none;
-  color: #5d686f;
+  color: #a3a3a3;
   font-weight: 300; }
   .form-control:hover, .form-control:focus {
     outline: none; }
@@ -1871,7 +1869,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -1928,45 +1926,45 @@ a.fancybox {
 
 @media only screen and (min-width: 1024px) {
   .markdown h1 {
-    font-size: 3rem; }
-  .markdown h2 {
-    font-size: 2.7rem; }
-  .markdown h3 {
-    font-size: 2.4rem; }
-  .markdown h4 {
-    font-size: 2.1rem; }
-  .markdown h5 {
-    font-size: 1.9rem; }
-  .markdown h6 {
-    font-size: 1.7rem; } }
-
-@media only screen and (max-width: 767px) {
-  .markdown h1 {
-    font-size: 2.65rem; }
-  .markdown h2 {
-    font-size: 2.35rem; }
-  .markdown h3 {
-    font-size: 2.05rem; }
-  .markdown h4 {
-    font-size: 1.75rem; }
-  .markdown h5 {
-    font-size: 1.55rem; }
-  .markdown h6 {
-    font-size: 1.35rem; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .markdown h1 {
     font-size: 2.8rem; }
   .markdown h2 {
-    font-size: 2.5rem; }
+    font-size: 2.4rem; }
   .markdown h3 {
-    font-size: 2.2rem; }
+    font-size: 2rem; }
   .markdown h4 {
-    font-size: 1.9rem; }
+    font-size: 1.8rem; }
   .markdown h5 {
     font-size: 1.7rem; }
   .markdown h6 {
-    font-size: 1.5rem; } }
+    font-size: 1.6rem; } }
+
+@media only screen and (max-width: 767px) {
+  .markdown h1 {
+    font-size: 2.3rem; }
+  .markdown h2 {
+    font-size: 1.9rem; }
+  .markdown h3 {
+    font-size: 1.5rem; }
+  .markdown h4 {
+    font-size: 1.3rem; }
+  .markdown h5 {
+    font-size: 1.2rem; }
+  .markdown h6 {
+    font-size: 1.1rem; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .markdown h1 {
+    font-size: 2.5rem; }
+  .markdown h2 {
+    font-size: 2.1rem; }
+  .markdown h3 {
+    font-size: 1.7rem; }
+  .markdown h4 {
+    font-size: 1.5rem; }
+  .markdown h5 {
+    font-size: 1.4rem; }
+  .markdown h6 {
+    font-size: 1.3rem; } }
 
 .media-body, .media-left {
   display: table-cell;
@@ -1986,7 +1984,7 @@ a.fancybox {
   color: #9eabb3; }
 
 .media-content {
-  color: #5d686f; }
+  color: #a3a3a3; }
 
 .modal-container {
   position: fixed;
@@ -2025,7 +2023,7 @@ a.fancybox {
     position: absolute;
     top: 9px;
     right: 15px;
-    color: #5d686f;
+    color: #a3a3a3;
     cursor: pointer; }
 
 .overlay {
@@ -2081,7 +2079,7 @@ a.fancybox {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     color: #9eabb3; }
@@ -2090,8 +2088,8 @@ a.fancybox {
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
-    color: #5d686f;
+    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    color: #a3a3a3;
     margin-top: 20px;
     font-weight: 400;
     overflow: hidden;
@@ -2115,11 +2113,11 @@ a.fancybox {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .post .post-header .post-title {
-    font-size: 3.3rem; } }
+    font-size: 2.9rem; } }
 
 @media only screen and (min-width: 1024px) {
   .post .post-header .post-title {
-    font-size: 3.7rem; } }
+    font-size: 3.3rem; } }
 
 @media only screen and (min-width: 768px) {
   .post-content {
@@ -2183,7 +2181,7 @@ a.fancybox {
     float: right;
     margin: 1.5em 0 1.5em 35px; }
   .pullquote.blur {
-    background-color: #eef0f1; }
+    background-color: white; }
 
 .post-header .post-title {
   margin: 0;
@@ -2221,7 +2219,7 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
-      font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+      font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
       font-size: 1.6rem;
       color: white !important;
       font-weight: 400;
@@ -2239,11 +2237,11 @@ a.fancybox {
 
 @media only screen and (max-width: 479px) {
   .post-header-cover .post-header .post-title {
-    font-size: 2.8rem; } }
+    font-size: 2.4rem; } }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .post-header-cover .post-header .post-title {
-    font-size: 3.3rem; } }
+    font-size: 2.9rem; } }
 
 @media only screen and (max-width: 767px) {
   .post-header-cover {
@@ -2260,7 +2258,7 @@ a.fancybox {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .post-header-cover .post-header .post-title {
-    font-size: 5.8rem;
+    font-size: 5.4rem;
     line-height: 1.3em; }
   .post-header-cover[data-behavior="1"], .post-header-cover[data-behavior="2"], .post-header-cover[data-behavior="3"] {
     width: calc(100% - 75px);
@@ -2282,7 +2280,7 @@ a.fancybox {
 
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
   .post-header-cover .post-header .post-title {
-    font-size: 6.5rem;
+    font-size: 6.1rem;
     line-height: 1.3em; }
   .post-header-cover[data-behavior="1"], .post-header-cover[data-behavior="2"] {
     width: calc(100% - 250px);
@@ -2307,7 +2305,7 @@ a.fancybox {
 
 @media only screen and (min-width: 1280px) {
   .post-header-cover .post-header .post-title {
-    font-size: 6.5rem;
+    font-size: 6.1rem;
     line-height: 1.3em; }
   .post-header-cover[data-behavior="1"] {
     width: calc(100% - 500px);
@@ -2342,7 +2340,7 @@ a.fancybox {
 
 .postShorten-group .postShorten {
   margin-top: 15px;
-  border-bottom: 1px solid #eef2f8; }
+  border-bottom: 1px solid #a3a3a3; }
 
 .postShorten {
   position: relative;
@@ -2369,15 +2367,15 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
+    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "NanumSquareRound", "Helvetica Neue", sans-serif;
-    color: #5d686f;
+    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    color: #a3a3a3;
     font-weight: 400;
     overflow: hidden;
     -webkit-hypens: auto;
@@ -2487,7 +2485,7 @@ a.fancybox {
   top: 15px;
   right: 15px;
   font-size: 20px;
-  color: #5d686f;
+  color: #a3a3a3;
   cursor: pointer; }
 
 @media only screen and (max-width: 767px) {
@@ -2639,7 +2637,7 @@ a.tag--small,
   text-decoration: underline !important; }
 
 .text-color-base {
-  color: #5d686f !important; }
+  color: #a3a3a3 !important; }
 
 .text-color-light {
   color: #9eabb3 !important; }
@@ -2666,7 +2664,7 @@ a.tag--small,
     color: #fff;
     content: attr(data-tooltip);
     font-size: 0.93em;
-    line-height: 1.9em;
+    line-height: 2.3em;
     border-radius: 5px; }
   .tooltip:before, [data-tooltip]:before, .tooltip:after, [data-tooltip]:after {
     position: absolute;
@@ -2794,7 +2792,7 @@ a.tag--small,
     position: absolute;
     top: 15px;
     left: 15px;
-    color: #5d686f; }
+    color: #a3a3a3; }
   #algolia-search-modal .media-content {
     font-size: 0.95em; }
   #algolia-search-modal .search-input {
@@ -2812,7 +2810,7 @@ a.tag--small,
     margin-top: 0; }
   #algolia-search-modal .results-count {
     line-height: 50px;
-    color: #5d686f; }
+    color: #a3a3a3; }
   #algolia-search-modal .searchby-algolia {
     position: absolute;
     top: 15px;
@@ -2833,11 +2831,11 @@ a.tag--small,
     transform: translateY(-50%); }
 
 pre > code {
-  background: #f7f8f8;
+  background: #1d1d1d;
   color: #333; }
 
 code {
-  background-color: #f7f8f8; }
+  background-color: #1d1d1d; }
 
 .codeblock--tabbed figcaption .tab.active {
   background: #349ef3;
@@ -2845,15 +2843,14 @@ code {
 
 figure.highlight,
 .codeblock {
-  background: #f7f8f8;
-  color: #333; }
+  background: #1d1d1d; }
   figure.highlight figcaption,
   .codeblock figcaption {
-    background: #f7f8f8;
+    background: #1d1d1d;
     color: #999999; }
   figure.highlight .gutter,
   .codeblock .gutter {
-    background: #f7f8f8;
+    background: #1d1d1d;
     border-right-color: #e6e6e6; }
     figure.highlight .gutter .line,
     .codeblock .gutter .line {
