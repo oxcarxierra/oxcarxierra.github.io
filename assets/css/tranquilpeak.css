@@ -1,67 +1,78 @@
 @charset "UTF-8";
-@import url(https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css);
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Open Sans Bold"), local("OpenSans-Bold"), url(../fonts/open-sans-bold.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: 300;
   src: local("Merriweather Light"), local("Merriweather-Light"), url(../fonts/merriweather-light.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: 400;
   src: local("Merriweather"), url(../fonts/merriweather.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: 700;
   src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../fonts/merriweather-bold.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: italic;
   font-weight: 300;
   src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(../fonts/merriweather-light-italic.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: italic;
   font-weight: 700;
   src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(../fonts/merriweather-bold-italic.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'NanumGothicCoding';
+  font-family: "NanumGothicCoding";
   font-style: consolas;
   font-weight: 700;
   src: local("NanumGothicCoding Bold"), url(../fonts/NanumGothicCoding-Bold.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'NanumGothicCoding';
+  font-family: "NanumGothicCoding";
   font-style: consolas;
   font-weight: 300;
   src: local("NanumGothicCoding"), url(../fonts/NanumGothicCoding.ttf) format("truetype"); }
 
 @font-face {
-  font-family: 'Source Code Pro';
+  font-family: "NanumSquareNeo";
+  font-style: consolas;
+  font-weight: 300;
+  src: local("NanumSqureNeoRegular"), url(../fonts/NanumSquareNeo-bRg.ttf) format("truetype"); }
+
+@font-face {
+  font-family: "NanumSquareNeo";
+  font-style: consolas;
+  font-weight: bold;
+  src: local("NanumGothicCoding"), url(../fonts/NanumSquareNeo-dEb.ttf) format("truetype"); }
+
+@font-face {
+  font-family: "Source Code Pro";
   font-style: consolas;
   font-weight: 300;
   src: local("SourceCodePro"), url(../fonts/source-code-pro.otf) format("opentype"); }
 
 html {
-  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -75,9 +86,9 @@ body {
   margin: 0;
   padding: 0;
   background: #1d1d1d;
-  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
-  font-size: 1.6rem;
-  line-height: 2.3em;
+  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-size: 1.5rem;
+  line-height: 2em;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: subpixel-antialiased;
   font-smoothing: subpixel-antialiased; }
@@ -90,7 +101,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
   font-weight: 500;
   line-height: 1.45em;
   color: #e1e1e1; }
@@ -172,7 +183,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: Source Code Pro, Merriweather, Consolas;
+  font-family: NanumGothicCoding, Merriweather, Consolas;
   border: none;
   margin: 0;
   color: #fff;
@@ -184,7 +195,7 @@ pre > code {
 code {
   font-size: 1.5rem;
   display: inline-block;
-  font-family: "Source Code Pro", "Merriweather", Consolas;
+  font-family: "NanumGothicCoding", "Merriweather", Consolas;
   font-weight: 400;
   background-color: #1d1d1d;
   padding: 0 10px; }
@@ -208,20 +219,6 @@ blockquote {
   code {
     font-size: 1.3rem; }
   h1 {
-    font-size: 2rem; }
-  h2 {
-    font-size: 1.6rem; }
-  h3 {
-    font-size: 1.4rem; }
-  h4 {
-    font-size: 1.3rem; }
-  h5 {
-    font-size: 1.2rem; }
-  h6 {
-    font-size: 1.1rem; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  h1 {
     font-size: 2.1rem; }
   h2 {
     font-size: 1.7rem; }
@@ -233,6 +230,20 @@ blockquote {
     font-size: 1.3rem; }
   h6 {
     font-size: 1.2rem; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  h1 {
+    font-size: 2.2rem; }
+  h2 {
+    font-size: 1.8rem; }
+  h3 {
+    font-size: 1.6rem; }
+  h4 {
+    font-size: 1.5rem; }
+  h5 {
+    font-size: 1.4rem; }
+  h6 {
+    font-size: 1.3rem; } }
 
 #about {
   display: none;
@@ -284,8 +295,8 @@ blockquote {
     #about #about-card #about-card-job,
     #about #about-card #about-card-location,
     #about #about-card #about-card-bio {
-      font-size: 1.6rem;
-      line-height: 2.3em;
+      font-size: 1.5rem;
+      line-height: 2em;
       font-weight: 400;
       color: #a7a7a7; }
 
@@ -505,7 +516,7 @@ blockquote {
     color: #e1e1e1; }
   #header .header-title {
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 55px;
     margin: 0; }
     #header .header-title .header-title-link {
@@ -657,7 +668,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
   height: 100%;
   position: fixed;
   top: 0;
@@ -1567,7 +1578,7 @@ blockquote {
   padding: 8px 15px;
   margin: 0;
   letter-spacing: 0.01em;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   cursor: pointer; }
   .btn:hover, .btn:focus, .btn:active {
     text-decoration: none; }
@@ -1617,7 +1628,7 @@ blockquote {
 
 .caption {
   display: block;
-  font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
   font-size: 1.3rem;
   color: #81929d;
   text-align: center;
@@ -1645,7 +1656,7 @@ figure.highlight,
   .codeblock .code,
   .codeblock .tag {
     background-color: inherit;
-    font-family: Source Code Pro, Merriweather, Consolas;
+    font-family: NanumGothicCoding, Merriweather, Consolas;
     border: none;
     padding: 0;
     margin: 0;
@@ -1704,7 +1715,7 @@ figure.highlight,
 
 .gist .line,
 .gist .line-number {
-  font-family: "Source Code Pro", "Merriweather", Consolas;
+  font-family: "NanumGothicCoding", "Merriweather", Consolas;
   font-size: 1em;
   margin: 0 0 5px 0; }
 
@@ -1869,7 +1880,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -2072,14 +2083,14 @@ a.fancybox {
   display: inline-block;
   vertical-align: top; }
   .post .post-header .post-title {
-    margin: 0;
+    margin: 0 0 10px 0;
     word-break: initial;
     overflow: hidden; }
     .post .post-header .post-title:hover {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     color: #9eabb3; }
@@ -2087,8 +2098,8 @@ a.fancybox {
       color: #9eabb3; }
   .post .post-content {
     text-rendering: optimizelegibility;
-    letter-spacing: -0.3px;
-    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    letter-spacing: 0.3px;
+    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
     color: #a7a7a7;
     margin-top: 20px;
     font-weight: 400;
@@ -2121,7 +2132,7 @@ a.fancybox {
 
 @media only screen and (min-width: 768px) {
   .post-content {
-    font-size: 1.7rem; } }
+    font-size: 1.6rem; } }
 
 .post-actions-wrap {
   height: 60px;
@@ -2202,8 +2213,8 @@ a.fancybox {
   padding: calc(55px + 30px) 0 30px 0;
   height: 100%;
   z-index: 15;
-  transition: transform .25s ease-in-out;
-  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000; }
   .post-header-cover .post-header {
@@ -2219,8 +2230,8 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
-      font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
-      font-size: 1.6rem;
+      font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+      font-size: 1.5rem;
       color: white !important;
       font-weight: 400;
       letter-spacing: 0.05em;
@@ -2367,14 +2378,14 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
-    letter-spacing: -0.3px;
-    font-family: "NanumBarunGothic", "Helvetica Neue", sans-serif;
+    letter-spacing: 0.3px;
+    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
     color: #a7a7a7;
     font-weight: 400;
     overflow: hidden;
@@ -2610,7 +2621,7 @@ a.tag--small,
   font-size: 1.5rem !important; }
 
 .text-base {
-  font-size: 1.6rem !important; }
+  font-size: 1.5rem !important; }
 
 .text-large {
   font-size: 1.7rem !important; }
@@ -2664,7 +2675,7 @@ a.tag--small,
     color: #fff;
     content: attr(data-tooltip);
     font-size: 0.93em;
-    line-height: 2.3em;
+    line-height: 2em;
     border-radius: 5px; }
   .tooltip:before, [data-tooltip]:before, .tooltip:after, [data-tooltip]:after {
     position: absolute;
