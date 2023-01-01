@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/Review/2022/december-2022-review/</loc>
+        <lastmod>2022-12-31T01:24:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Review/2022/august-2022-review/</loc>
         <lastmod>2022-12-28T11:34:36.523Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -73,14 +81,6 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Development/2022/army-hackathon-review/</loc>
-        <lastmod>2022-11-24T09:38:13.112Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://oxcarxierra.github.io/Development/development/react-build-hermes-error/</loc>
         <lastmod>2022-11-21T13:12:23.816Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -121,6 +121,14 @@
     </url>
 
     <url>
+        <loc>https://oxcarxierra.github.io/Development/2022/army-hackathon-review/</loc>
+        <lastmod>2022-11-14T10:41:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/Development/development/usfk_bus_app_review/</loc>
         <lastmod>2022-11-03T13:16:01.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -153,7 +161,7 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/</loc>
+        <loc>https://oxcarxierra.github.io/Algorithm/algorithm/boj_1918/</loc>
         <lastmod>2022-09-29T17:39:27.028Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -161,7 +169,7 @@
     </url>
 
     <url>
-        <loc>https://oxcarxierra.github.io/Algorithm/algorithm/boj_1918/</loc>
+        <loc>https://oxcarxierra.github.io/Algorithm/algorithm/boj_11723/</loc>
         <lastmod>2022-09-29T17:39:27.028Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
