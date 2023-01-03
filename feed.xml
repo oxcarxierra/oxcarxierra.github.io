@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2022-12-31T01:24:08.000Z</updated>
+  <updated>2023-01-02T11:36:15.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회</title>
+    <link href="https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"/>
+    <id>https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/</id>
+    <published>2023-01-02T11:36:15.000Z</published>
+    <updated>2023-01-02T11:36:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><br><div class="figure " style="width:;"><a class="fancybox" href="https://i.imgur.com/Ua5sYEA.png" title="" data-caption="" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/Ua5sYEA.png" alt=""></a></div><br><p>Elice 장병 역량강화 플랫폼에서 12&#x2F;24 ~ 27 4일간 진행된 <a href="https://military22.elice.io/courses/33714/info">[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회</a>에 참여해서, 7등으로 장려상을 수상하게 되었다.</p><h1 id="대회-개요"><a href="#대회-개요" class="headerlink" title="대회 개요"></a>대회 개요</h1><p>이 대회는 여러 단계가 있는 연속 생산 공정에서 특정 단계의 품질값을 예측하는 것이 목표다. 공정은 두 개의 Stage로 분리되며, Stage 1과 Stage 2의 작동 방식은 각각 아래와 같다.<br><br></p><ol><li>Stage 1</li></ol><ul><li>Machine 1, 2, 3은 병렬적으로 작업하며, 각 기계의 output들은 Combiner로 전달된다.</li><li>Combiner의 output은 15개의 특정 위치에서 품질값이 측정된다.</li></ul><ol start="2"><li>Stage 2</li></ol><ul><li>Stage 1의 output은 Machine 4, 5를 직렬적으로 통과한다.</li><li>Machine 5의 output 또한 15개의 특정 위치에서 품질값이 측정된다.</li></ul><p>시간(time_stamp)에 따른 Machine 1 ~ 5의 상태 데이터와 Stage 1, 2 output의 품질값이 데이터로 주어지며, 대회의 목표는 주어진 시간과 상태 데이터를 통해 30개의 품질값을 예측하는 것이었다. 각 스테이지에서 모델을 하나씩 사용하도록 하고, 각각의 예측값과 실제값의 <strong>R2</strong>를 계산하여 두 값을 평균낸 100점 만점의 성적으로 채점이 이루어졌다.</p><h1 id="코드-리뷰"><a href="#코드-리뷰" class="headerlink" title="코드 리뷰"></a>코드 리뷰</h1><h2 id="데이터-분석-및-전처리"><a href="#데이터-분석-및-전처리" class="headerlink" title="데이터 분석 및 전처리"></a>데이터 분석 및 전처리</h2><p>이번 데이터는 feature의 의미를 알려주지 않아서, 다른 대회와 다르게 어떤 feature를 남겨야 할지 감을 잡기가 불가능했다. 그래서 지시사항에서 삭제하라고 했던 feature만 제거하고 Stage 1, Stage 2의 데이터를 독립적으로 분리시켜 사용하기로 했다.</p><p>또한 시간대별로 데이터가 있어서 시계열로 볼 수도 있겠으나, test data 시간대가 train data 시간대의 과거&#x2F;미래가 아니라, train data 시간대 중간중간의 빈칸이었기 때문에 시계열로 풀지 않았다. 차라리 <code>time_stamp</code>에서 연, 월, 일을 버리고 시, 분, 초만 추출해서 <code>hour</code>, <code>min</code>, <code>sec</code> 세 개의 feature들로 분리했다.</p><figure class="highlight python"><figcaption><span>시간 데이터 분리</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_data[<span class="string">&#x27;hour&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">11</span>, stop=<span class="number">13</span>)</span><br><span class="line">train_data[<span class="string">&#x27;min&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">14</span>, stop=<span class="number">16</span>)</span><br><span class="line">train_data[<span class="string">&#x27;sec&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">17</span>, stop=<span class="number">19</span>)</span><br><span class="line">train_data = train_data.drop(columns=[<span class="string">&#x27;time_stamp&#x27;</span>])</span><br></pre></td></tr></table></figure><div class="figure " style="width:;"><a class="fancybox" href="https://i.imgur.com/WqQ8Q0L.png" title="" data-caption="" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/WqQ8Q0L.png" alt=""></a></div><figure class="highlight py"><figcaption><span>Stage 1, 2 데이터 분리</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stage1_data = train_data[train_data.columns.drop(<span class="built_in">list</span>(train_data.<span class="built_in">filter</span>(regex=<span class="string">&#x27;Machine4|Machine5|Stage2&#x27;</span>)))]</span><br><span class="line">stage2_data = train_data[train_data.columns.drop(<span class="built_in">list</span>(train_data.<span class="built_in">filter</span>(regex=<span class="string">&#x27;Machine1|Machine2|Machine3|Stage1&#x27;</span>)))]</span><br></pre></td></tr></table></figure><h2 id="모델-학습"><a href="#모델-학습" class="headerlink" title="모델 학습"></a>모델 학습</h2><p>사실 AI&#x2F;ML 대회는 처음이고 예전에 Kaggle 강의 찍먹해본게 다여서, 딱 하나 사용해봤던 <code>RandomForestRegressor</code>를 이번에도 가장 처음으로 시도해볼 수 밖에 없었다.</p><figure class="highlight py"><figcaption><span>Stage 1 모델</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor</span><br><span class="line"></span><br><span class="line">model = RandomForestRegressor(n_estimators=<span class="number">600</span>,</span><br><span class="line">                              n_jobs=-<span class="number">1</span>,</span><br><span class="line">                              random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">model.fit(stage1_train_X, stage1_train_y)</span><br><span class="line"></span><br><span class="line">stage1_predictions = model.predict(stage1_test_X)</span><br></pre></td></tr></table></figure><p>기대도 안했는데, 하이퍼파라미터 튜닝도 하기 전 결과가 72점이 나오면서 당시 순위로 3등에 올라가는 변수가 생겨버렸다. 뭔가 더 시도해보면 충분히 점수를 더 올릴 수 있을 것 같아서 랜덤 포레스트에 대해 다시 공부해보았다.</p><p><em>랜덤 포레스트는 부스트랩 샘플과 랜덤한 후보 특성들을 사용해 여러개의 결정 트리decision tree를 앙상블 합니다. 그래서 훈련 데이터에 과대적합을 막아주고 모델의 일반화 성능이 항상 단일 트리보다 높습니다. 랜덤 포레스트 모델의 변종으로 익스트림 랜덤 트리extremely randomized trees 혹은 엑스트라 트리ExtraTrees라 부르는 모델이 있습니다. 엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가 시킵니다. Scikit-Learn은 앙상블 패키지 안에 엑스트라 트리 모델을 제공합니다.</em></p><p>이후에 하이퍼파라미터 튜닝만 하다가, 점수가 더 이상 올라가지 않는 한계에 부딫히자 <code>ExtraTreesRegressor</code> 모델을 알게되어 시도해보았다.<br>엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가시킨 모델이다.</p><p>model1의 output data를 model2의 input feature로 사용해보기도 했는데, 오히려 정확도가 감소한 결과를 얻었다.</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> ExtraTreesRegressor</span><br><span class="line"></span><br><span class="line">model = ExtraTreesRegressor(</span><br><span class="line">  n_estimators=<span class="number">750</span>,</span><br><span class="line">  n_jobs=-<span class="number">1</span>,</span><br><span class="line">  random_state=<span class="number">0</span>,</span><br><span class="line">  max_depth=<span class="number">40</span>,</span><br><span class="line">  min_samples_split=<span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">model.fit(train_X, train_y)</span><br></pre></td></tr></table></figure><blockquote><p>본 자료는 SSDC-KATUSA ML&#x2F;DL팀 Weekly Scrum 자료로 사용되었습니다.</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+&lt;!-- toc --&gt;
+
+&lt;br&gt;
+&lt;div class=&quot;figure &quot; style=&quot;width:;&quot;&gt;&lt;a class=&quot;fancybox&quot; href=&quot;https://i.imgur.com/Ua5sYEA.png&quot; title=&quot;&quot;</summary>
+      
+    
+    
+    
+    <category term="AI/ML" scheme="https://oxcarxierra.github.io/categories/AI-ML/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2022년 12월 회고</title>
@@ -483,32 +509,6 @@
     
     
     <category term="backtracking" scheme="https://oxcarxierra.github.io/tags/backtracking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 1918번 후위 표기식</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj_1918/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj_1918/</id>
-    <published>2022-08-02T12:28:21.000Z</published>
-    <updated>2022-09-29T17:39:27.028Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="전위-중위-후위-표기식"><a href="#전위-중위-후위-표기식" class="headerlink" title="전위, 중위, 후위 표기식"></a>전위, 중위, 후위 표기식</h2><p><em>Prefix, Infix, Postfix Expression</em></p><p>일반적인 수식은 피연산자와 피연산자 사이에 연산자를 위치시킨다. A와 B를 더하는(+)연산을 기술할 때 A+B로 표현하듯이 말이다. 연산자를 피연산자들의 앞에 위치시키거나 뒤에 위치시키는 표기 방법을 각각 전위 Prefix, 후위 Postfix 표기식이라고 하며, 앞의 예시는 각각+AB, AB+로 쓸 수 있다.</p><h2 id="중위-표기식에서-후위-표기식으로의-변환"><a href="#중위-표기식에서-후위-표기식으로의-변환" class="headerlink" title="중위 표기식에서 후위 표기식으로의 변환"></a>중위 표기식에서 후위 표기식으로의 변환</h2><p>피연산자는 그 상대적인 위치가 바뀌지 않으므로, 연산자만 위치를 바꿔서 넣어주면 된다. 그러기 위해 연산자를 담아놓는 스택을 하나 만들어서, 입력된 연산자를 추가하거나 제거하면서 진행한다.</p><ol><li>입력된 수식을 문자열로 저장하고, 출력용 문자열을 빈 문자열로 초기화한다. 연산자를 담기 위한 opstack을 초기화한다.</li><li>입력 문자열을 앞에서부터 하나의 문자씩 접근한다.<ol><li>문자가 피연산자인 경우, 출력용 문자열에 추가한다.</li><li>문자가 왼쪽 괄호 ‘(‘인 경우, opstack에 push한다.</li><li>문자가 오른쪽 괄호 ‘)’인 경우, 대응하는 왼쪽 괄호 ’(‘가 나올 때 까지 opstack에서 연산자를 pop하고 문자열에 추가한다.</li><li>문자가 연산자인 경우, opstack에 push한다. 그 전에, <em>이미 opstack에 있는 연산자들 중 우선순위가 높거나 같은 것</em>들을 모두 pop한 후 문자열에 추가한다.</li></ol></li><li>입력 문자열을 모두 읽었다면 opstack에 남아있는 연산자를 차례대로 pop하고 문자열에 추가한다.</li></ol><p>처음 문제를 접근했을 때는 어떤 경우에 연산자를 하나 pop하거나 여러개를 pop해야 하는지 기준을 생각하지 못했었는데, 위의 과정 중 2-4에 그 답이 있다. 연산자의 우선순위를 딕셔너리 형식으로 저장해서, 곱셈과 나눗셈을 먼저 끝낼 수 있도록 했다.</p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">eq = <span class="built_in">input</span>().strip()</span><br><span class="line">posteq = <span class="string">&#x27;&#x27;</span></span><br><span class="line">opstack = []</span><br><span class="line">opdic=&#123;<span class="string">&#x27;(&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;+&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;-&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;*&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;/&#x27;</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> eq:</span><br><span class="line">    <span class="keyword">if</span> i.isalpha():</span><br><span class="line">        posteq += i</span><br><span class="line">    <span class="keyword">elif</span> i==<span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">        opstack.append(i)</span><br><span class="line">  <span class="keyword">elif</span> i==<span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">    <span class="keyword">while</span> opstack:</span><br><span class="line">      operator = opstack.pop()</span><br><span class="line">      <span class="keyword">if</span> operator == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      posteq += operator</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">while</span> opstack <span class="keyword">and</span> opdic[opstack[-<span class="number">1</span>]] &gt;= opdic[i]:</span><br><span class="line">      posteq += opstack.pop()</span><br><span class="line">    opstack.append(i)</span><br><span class="line"><span class="keyword">while</span> opstack:</span><br><span class="line">  posteq += opstack.pop()</span><br><span class="line"><span class="built_in">print</span>(posteq)</span><br></pre></td></tr></table></figure><h2 id="추가-후위-표기식의-연산"><a href="#추가-후위-표기식의-연산" class="headerlink" title="추가) 후위 표기식의 연산"></a>추가) 후위 표기식의 연산</h2><p>우리에게 친숙한 중위표기식은 연산하기 쉽지만, 후위 표기식으로 변환된 경우 직관적이지 않다. 이 때도 스택 자료구조를 사용한다.<br>앞에서부터 문자를 하나씩 접근해서 피연산자라면 스택에 push하고, 연산자라면 스택에서 두 개의 피연산자를 pop한 후 연산한 결과를 다시 push한다.<br>예를 들어, <code>4 5 6 * +</code>의 후위표기식이 있다고 하자. 스택에 담긴 데이터는 아래와 같은 순서로 변하면서 마지막에는 최종 결과값만 남아있게 된다.</p><ul><li><code>4</code> + <code>5</code></li><li><code>4 5</code> + <code>6</code></li><li><code>4 5 6</code> + <code>*</code></li><li><code>4 30</code> + <code>+</code></li><li><code>34</code></li></ul><blockquote><p>참고자료<br>Problem Solving with Algorithms and Data Structures using Python, Chapter 4.9.</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;전위-중위-후위-표기식&quot;&gt;&lt;a href=&quot;#전위-중위-후위-표기식&quot; class=&quot;headerlink&quot; title=&quot;전위, 중위, 후위 표기식&quot;&gt;&lt;/a&gt;전위, 중위, 후위 표기식&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Prefix, </summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="stack" scheme="https://oxcarxierra.github.io/tags/stack/"/>
     
   </entry>
   

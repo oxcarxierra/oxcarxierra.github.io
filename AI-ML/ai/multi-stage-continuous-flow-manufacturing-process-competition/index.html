@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of oxcarxierra">
+    <title>[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 - Blog of oxcarxierra</title>
+    <meta name="author" content="oxcarxierra | 오승석">
+    
+        <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\n\n\n\nElice 장병 역량강화 플랫폼에서 12&#x2F;24 ~ 27 4일간 진행된 [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회에 참여해서, 7등으로 장려상을 수상하게 되었다.\n대회 개요이 대회는 여러 단계가 있는 연속 생산 공정에서 특정 단계의 품질값을 예측하는 것이 목표다. 공정은 두 개의 Stage로 분리되며, Stage 1과 Stage 2의 작동 방식은 각각 아래와 같다.\n\nStage 1\n\n\nMachine 1, 2, 3은 병렬적으로 작업하며, 각 기계의 output들은 Combiner로 전달된다.\nCombiner의 output은 15개의 특정 위치에서 품질값이 측정된다.\n\n\nStage 2\n\n\nStage 1의 output은 Machine 4, 5를 직렬적으로 통과한다.\nMachine 5의 output 또한 15개의 특정 위치에서 품질값이 측정된다.\n\n시간(time_stamp)에 따른 Machine 1 ~ 5의 상태 데이터와 Stage 1, 2 output의 품질값이 데이터로 주어지며, 대회의 목표는 주어진 시간과 상태 데이터를 통해 30개의 품질값을 예측하는 것이었다. 각 스테이지에서 모델을 하나씩 사용하도록 하고, 각각의 예측값과 실제값의 R2를 계산하여 두 값을 평균낸 100점 만점의 성적으로 채점이 이루어졌다.\n코드 리뷰데이터 분석 및 전처리이번 데이터는 feature의 의미를 알려주지 않아서, 다른 대회와 다르게 어떤 feature를 남겨야 할지 감을 잡기가 불가능했다. 그래서 지시사항에서 삭제하라고 했던 feature만 제거하고 Stage 1, Stage 2의 데이터를 독립적으로 분리시켜 사용하기로 했다.\n또한 시간대별로 데이터가 있어서 시계열로 볼 수도 있겠으나, test data 시간대가 train data 시간대의 과거&#x2F;미래가 아니라, train data 시간대 중간중간의 빈칸이었기 때문에 시계열로 풀지 않았다. 차라리 time_stamp에서 연, 월, 일을 버리고 시, 분, 초만 추출해서 hour, min, sec 세 개의 feature들로 분리했다.\n시간 데이터 분리1234train_data[&#x27;hour&#x27;] = train_data[&#x27;time_stamp&#x27;].str.slice(start=11, stop=13)train_data[&#x27;min&#x27;] = train_data[&#x27;time_stamp&#x27;].str.slice(start=14, stop=16)train_data[&#x27;sec&#x27;] = train_data[&#x27;time_stamp&#x27;].str.slice(start=17, stop=19)train_data = train_data.drop(columns=[&#x27;time_stamp&#x27;])\n\n\n\nStage 1, 2 데이터 분리12stage1_data = train_data[train_data.columns.drop(list(train_data.filter(regex=&#x27;Machine4|Machine5|Stage2&#x27;)))]stage2_data = train_data[train_data.columns.drop(list(train_data.filter(regex=&#x27;Machine1|Machine2|Machine3|Stage1&#x27;)))]\n\n모델 학습사실 AI&#x2F;ML 대회는 처음이고 예전에 Kaggle 강의 찍먹해본게 다여서, 딱 하나 사용해봤던 RandomForestRegressor를 이번에도 가장 처음으로 시도해볼 수 밖에 없었다.\nStage 1 모델123456789from sklearn.ensemble import RandomForestRegressormodel = RandomForestRegressor(n_estimators=600,                              n_jobs=-1,                              random_state=0)model.fit(stage1_train_X, stage1_train_y)stage1_predictions = model.predict(stage1_test_X)\n\n기대도 안했는데, 하이퍼파라미터 튜닝도 하기 전 결과가 72점이 나오면서 당시 순위로 3등에 올라가는 변수가 생겨버렸다. 뭔가 더 시도해보면 충분히 점수를 더 올릴 수 있을 것 같아서 랜덤 포레스트에 대해 다시 공부해보았다.\n랜덤 포레스트는 부스트랩 샘플과 랜덤한 후보 특성들을 사용해 여러개의 결정 트리decision tree를 앙상블 합니다. 그래서 훈련 데이터에 과대적합을 막아주고 모델의 일반화 성능이 항상 단일 트리보다 높습니다. 랜덤 포레스트 모델의 변종으로 익스트림 랜덤 트리extremely randomized trees 혹은 엑스트라 트리ExtraTrees라 부르는 모델이 있습니다. 엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가 시킵니다. Scikit-Learn은 앙상블 패키지 안에 엑스트라 트리 모델을 제공합니다.\n이후에 하이퍼파라미터 튜닝만 하다가, 점수가 더 이상 올라가지 않는 한계에 부딫히자 ExtraTreesRegressor 모델을 알게되어 시도해보았다.엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가시킨 모델이다.\nmodel1의 output data를 model2의 input feature로 사용해보기도 했는데, 오히려 정확도가 감소한 결과를 얻었다.\n1234567891011from sklearn.ensemble import ExtraTreesRegressormodel = ExtraTreesRegressor(  n_estimators=750,  n_jobs=-1,  random_state=0,  max_depth=40,  min_samples_split=2)model.fit(train_X, train_y)\n\n\n본 자료는 SSDC-KATUSA ML&#x2F;DL팀 Weekly Scrum 자료로 사용되었습니다.\n","dateCreated":"2023-01-02T20:36:15+09:00","dateModified":"2023-01-02T20:36:15+09:00","datePublished":"2023-01-02T20:36:15+09:00","description":"","headline":"[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"}</script>
+    <meta name="description" content="Elice 장병 역량강화 플랫폼에서 12&#x2F;24 ~ 27 4일간 진행된 [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회에 참여해서, 7등으로 장려상을 수상하게 되었다. 대회 개요이 대회는 여러 단계가 있는 연속 생산 공정에서 특정 단계의 품질값을 예측하는 것이 목표다. 공정은 두 개의 Stage로 분리되며, S">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회">
+<meta property="og:url" content="https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/index.html">
+<meta property="og:site_name" content="Blog of oxcarxierra">
+<meta property="og:description" content="Elice 장병 역량강화 플랫폼에서 12&#x2F;24 ~ 27 4일간 진행된 [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회에 참여해서, 7등으로 장려상을 수상하게 되었다. 대회 개요이 대회는 여러 단계가 있는 연속 생산 공정에서 특정 단계의 품질값을 예측하는 것이 목표다. 공정은 두 개의 Stage로 분리되며, S">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/Ua5sYEA.png">
+<meta property="og:image" content="https://i.imgur.com/WqQ8Q0L.png">
+<meta property="article:published_time" content="2023-01-02T11:36:15.000Z">
+<meta property="article:modified_time" content="2023-01-02T11:36:15.000Z">
+<meta property="article:author" content="oxcarxierra | 오승석">
+<meta property="article:tag" content="오승석">
+<meta property="article:tag" content="oxcarxierra">
+<meta property="article:tag" content="Seungseok Oh">
+<meta property="article:tag" content="서울과학고등학교">
+<meta property="article:tag" content="서울대학교">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/Ua5sYEA.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19V9VE6BEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-19V9VE6BEX');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/ai-ml/ai/multi-stage-continuous-flow-manufacturing-process-competition/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of oxcarxierra
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">oxcarxierra | 오승석</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">36</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">5</div>
+            </a>
+          </div>
+          <!-- <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">21</div>
+            </a>
+          </div> -->
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/categories/Review" rel="noopener" title="Monthly Reviews">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Monthly Reviews</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2023-01-02T20:36:15+09:00">
+     Jan 02, 2023 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/AI-ML/">AI/ML</a>
+
+ 
+  <span class="post-readingtime">
+     - 8 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%8C%80%ED%9A%8C-%EA%B0%9C%EC%9A%94"><span class="toc-text">대회 개요</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0"><span class="toc-text">코드 리뷰</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EB%B0%8F-%EC%A0%84%EC%B2%98%EB%A6%AC"><span class="toc-text">데이터 분석 및 전처리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5"><span class="toc-text">모델 학습</span></a></li></ol></li></ol>
+
+<br>
+<div class="figure " style="width:;"><a class="fancybox" target="_blank" rel="external nofollow noopener noreferrer" href="https://i.imgur.com/Ua5sYEA.png" title data-caption data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/Ua5sYEA.png" alt></a></div>
+<br>
+
+<p>Elice 장병 역량강화 플랫폼에서 12&#x2F;24 ~ 27 4일간 진행된 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://military22.elice.io/courses/33714/info">[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회</a>에 참여해서, 7등으로 장려상을 수상하게 되었다.</p>
+<h1 id="대회-개요"><a href="#대회-개요" class="headerlink" title="대회 개요"></a>대회 개요</h1><p>이 대회는 여러 단계가 있는 연속 생산 공정에서 특정 단계의 품질값을 예측하는 것이 목표다. 공정은 두 개의 Stage로 분리되며, Stage 1과 Stage 2의 작동 방식은 각각 아래와 같다.<br><br></p>
+<ol>
+<li>Stage 1</li>
+</ol>
+<ul>
+<li>Machine 1, 2, 3은 병렬적으로 작업하며, 각 기계의 output들은 Combiner로 전달된다.</li>
+<li>Combiner의 output은 15개의 특정 위치에서 품질값이 측정된다.</li>
+</ul>
+<ol start="2">
+<li>Stage 2</li>
+</ol>
+<ul>
+<li>Stage 1의 output은 Machine 4, 5를 직렬적으로 통과한다.</li>
+<li>Machine 5의 output 또한 15개의 특정 위치에서 품질값이 측정된다.</li>
+</ul>
+<p>시간(time_stamp)에 따른 Machine 1 ~ 5의 상태 데이터와 Stage 1, 2 output의 품질값이 데이터로 주어지며, 대회의 목표는 주어진 시간과 상태 데이터를 통해 30개의 품질값을 예측하는 것이었다. 각 스테이지에서 모델을 하나씩 사용하도록 하고, 각각의 예측값과 실제값의 <strong>R2</strong>를 계산하여 두 값을 평균낸 100점 만점의 성적으로 채점이 이루어졌다.</p>
+<h1 id="코드-리뷰"><a href="#코드-리뷰" class="headerlink" title="코드 리뷰"></a>코드 리뷰</h1><h2 id="데이터-분석-및-전처리"><a href="#데이터-분석-및-전처리" class="headerlink" title="데이터 분석 및 전처리"></a>데이터 분석 및 전처리</h2><p>이번 데이터는 feature의 의미를 알려주지 않아서, 다른 대회와 다르게 어떤 feature를 남겨야 할지 감을 잡기가 불가능했다. 그래서 지시사항에서 삭제하라고 했던 feature만 제거하고 Stage 1, Stage 2의 데이터를 독립적으로 분리시켜 사용하기로 했다.</p>
+<p>또한 시간대별로 데이터가 있어서 시계열로 볼 수도 있겠으나, test data 시간대가 train data 시간대의 과거&#x2F;미래가 아니라, train data 시간대 중간중간의 빈칸이었기 때문에 시계열로 풀지 않았다. 차라리 <code>time_stamp</code>에서 연, 월, 일을 버리고 시, 분, 초만 추출해서 <code>hour</code>, <code>min</code>, <code>sec</code> 세 개의 feature들로 분리했다.</p>
+<figure class="highlight python"><figcaption><span>시간 데이터 분리</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_data[<span class="string">&#x27;hour&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">11</span>, stop=<span class="number">13</span>)</span><br><span class="line">train_data[<span class="string">&#x27;min&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">14</span>, stop=<span class="number">16</span>)</span><br><span class="line">train_data[<span class="string">&#x27;sec&#x27;</span>] = train_data[<span class="string">&#x27;time_stamp&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">slice</span>(start=<span class="number">17</span>, stop=<span class="number">19</span>)</span><br><span class="line">train_data = train_data.drop(columns=[<span class="string">&#x27;time_stamp&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<div class="figure " style="width:;"><a class="fancybox" target="_blank" rel="external nofollow noopener noreferrer" href="https://i.imgur.com/WqQ8Q0L.png" title data-caption data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/WqQ8Q0L.png" alt></a></div>
+
+<figure class="highlight py"><figcaption><span>Stage 1, 2 데이터 분리</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stage1_data = train_data[train_data.columns.drop(<span class="built_in">list</span>(train_data.<span class="built_in">filter</span>(regex=<span class="string">&#x27;Machine4|Machine5|Stage2&#x27;</span>)))]</span><br><span class="line">stage2_data = train_data[train_data.columns.drop(<span class="built_in">list</span>(train_data.<span class="built_in">filter</span>(regex=<span class="string">&#x27;Machine1|Machine2|Machine3|Stage1&#x27;</span>)))]</span><br></pre></td></tr></table></figure>
+
+<h2 id="모델-학습"><a href="#모델-학습" class="headerlink" title="모델 학습"></a>모델 학습</h2><p>사실 AI&#x2F;ML 대회는 처음이고 예전에 Kaggle 강의 찍먹해본게 다여서, 딱 하나 사용해봤던 <code>RandomForestRegressor</code>를 이번에도 가장 처음으로 시도해볼 수 밖에 없었다.</p>
+<figure class="highlight py"><figcaption><span>Stage 1 모델</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor</span><br><span class="line"></span><br><span class="line">model = RandomForestRegressor(n_estimators=<span class="number">600</span>,</span><br><span class="line">                              n_jobs=-<span class="number">1</span>,</span><br><span class="line">                              random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">model.fit(stage1_train_X, stage1_train_y)</span><br><span class="line"></span><br><span class="line">stage1_predictions = model.predict(stage1_test_X)</span><br></pre></td></tr></table></figure>
+
+<p>기대도 안했는데, 하이퍼파라미터 튜닝도 하기 전 결과가 72점이 나오면서 당시 순위로 3등에 올라가는 변수가 생겨버렸다. 뭔가 더 시도해보면 충분히 점수를 더 올릴 수 있을 것 같아서 랜덤 포레스트에 대해 다시 공부해보았다.</p>
+<p><em>랜덤 포레스트는 부스트랩 샘플과 랜덤한 후보 특성들을 사용해 여러개의 결정 트리decision tree를 앙상블 합니다. 그래서 훈련 데이터에 과대적합을 막아주고 모델의 일반화 성능이 항상 단일 트리보다 높습니다. 랜덤 포레스트 모델의 변종으로 익스트림 랜덤 트리extremely randomized trees 혹은 엑스트라 트리ExtraTrees라 부르는 모델이 있습니다. 엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가 시킵니다. Scikit-Learn은 앙상블 패키지 안에 엑스트라 트리 모델을 제공합니다.</em></p>
+<p>이후에 하이퍼파라미터 튜닝만 하다가, 점수가 더 이상 올라가지 않는 한계에 부딫히자 <code>ExtraTreesRegressor</code> 모델을 알게되어 시도해보았다.<br>엑스트라 트리는 포레스트 트리의 각 후보 특성을 무작위로 분할하는 식으로 무작위성을 증가시킨 모델이다.</p>
+<p>model1의 output data를 model2의 input feature로 사용해보기도 했는데, 오히려 정확도가 감소한 결과를 얻었다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> ExtraTreesRegressor</span><br><span class="line"></span><br><span class="line">model = ExtraTreesRegressor(</span><br><span class="line">  n_estimators=<span class="number">750</span>,</span><br><span class="line">  n_jobs=-<span class="number">1</span>,</span><br><span class="line">  random_state=<span class="number">0</span>,</span><br><span class="line">  max_depth=<span class="number">40</span>,</span><br><span class="line">  min_samples_split=<span class="number">2</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">model.fit(train_X, train_y)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>본 자료는 SSDC-KATUSA ML&#x2F;DL팀 Weekly Scrum 자료로 사용되었습니다.</p>
+</blockquote>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/december-2022-review/" data-tooltip="2022년 12월 회고" aria-label="NEXT: 2022년 12월 회고">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2023 oxcarxierra | 오승석.
+  </span>
+  <br>
+  <span class="copyrights"> All Rights Reserved. </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/december-2022-review/" data-tooltip="2022년 12월 회고" aria-label="NEXT: 2022년 12월 회고">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">oxcarxierra | 오승석</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/1d1d1d.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://oxcarxierra.github.io/categories/AI-ML/</loc>
+        <lastmod>2023-01-02T11:36:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://oxcarxierra.github.io/categories/Review/</loc>
         <lastmod>2022-12-31T01:24:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -32,13 +39,6 @@
     <url>
         <loc>https://oxcarxierra.github.io/categories/Algorithm/</loc>
         <lastmod>2022-09-29T17:39:27.029Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://oxcarxierra.github.io/categories/ML/</loc>
-        <lastmod>2022-08-06T09:15:56.517Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
