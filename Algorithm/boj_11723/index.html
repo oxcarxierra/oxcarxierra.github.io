@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\nLIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\nBOJ 11723 가장 긴 증가하는 부분수열123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n\n참고자료https://namu.wiki/w/최장 증가 부분 수열\n\n","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-07-24T12:01:19+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"","headline":"BOJ 11053 가장 긴 증가하는 부분수열","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj_11723/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj_11723/","keywords":"dp, lis","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다.\nLIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다.\n즉, A[i]를 찾는 알고리즘은 아래와 같다.\n\nA[0] &#x3D; 0, D[0] &#x3D; 0\nA[0] ~ A[i-1]중 대응하는 A[i]보다 작으면서(그래야 마지막에 올 수 있으니까), 대응하는 D중 가장 큰 값을 찾는다.\n그 값에 1을 더한 값울 D[i]에 할당한다.\n이렇게 D를 완성하면, D[0]~D[N]중 최댓값을 찾으면 된다.O(n^2)이라 느려서, 더 좋은 방법도 존재한다.\n\nBOJ 11723 가장 긴 증가하는 부분수열123456789101112131415# Longest Increasing Subsequenceimport sysN = int(sys.stdin.readline())A = [0]A.extend(list(map(int, sys.stdin.readline().split())))D = [0]*(N+1)for i in range(1, N+1):  max_D = 0  for j in range(0, i):    if A[j] &lt; A[i]:      max_D = max(max_D, D[j])  D[i] = max_D + 1print(max(D))\n\n\n참고자료https://namu.wiki/w/최장 증가 부분 수열\n\n","dateCreated":"2022-07-24T12:01:19+09:00","dateModified":"2022-07-24T12:01:19+09:00","datePublished":"2022-07-24T12:01:19+09:00","description":"","headline":"BOJ 11053 가장 긴 증가하는 부분수열","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_11723/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_11723/","keywords":"dp, lis","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="BOJ 11053 가장 긴 증가하는 부분수열">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj_11723/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_11723/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="처음에 알고리즘을 어떻게 짜야하지 고민하다가, 검색해본 결과 아주 유명한 dp문제였다.LIS, Longest Increasing Subsequence라고도 불린다. LIS주어진 행렬 A가 있으면, A[i]를 마지막으로 가지는 가장 긴 증가하는 부분수열의 길이를 D[i]에 할당한다. 즉, A[i]를 찾는 알고리즘은 아래와 같다.  A[0] &#x3D; 0">
 <meta property="og:locale" content="en_US">
@@ -299,7 +299,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -308,7 +308,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -328,7 +328,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -341,7 +341,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -354,7 +354,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -402,7 +402,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_lcs/" data-tooltip="최장 공통 부분 수열 알고리즘" aria-label="PREVIOUS: 최장 공통 부분 수열 알고리즘">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -411,7 +411,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1931/" data-tooltip="탐욕법 Greedy Algorithm" aria-label="NEXT: 탐욕법 Greedy Algorithm">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +431,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -444,7 +444,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -457,7 +457,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_11723/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -488,7 +488,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_11723/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -496,7 +496,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_11723/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -504,7 +504,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_11723/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_11723/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

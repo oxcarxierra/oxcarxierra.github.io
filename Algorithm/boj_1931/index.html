@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nGreedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.\n\n탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제\n다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.\n\n탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면\n\n탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)\n항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명\n\nBOJ 1931 회의실 배정초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.\n12345678910111213141516def greedy():  global cnt, time  time_min = time[0]  new_time=[]  for i in time:    if not time_min[1]&lt;=i[0]:      new_time.append(i)  time=new_time  print(time)  cnt += 1  if time:    greedy()  else:    print(cnt)greedy()\n\n탐욕법 이용:\n1234567891011import sysN = int(sys.stdin.readline())time = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]cnt = 1time.sort(key=lambda t: (t[1],t[0]))end_time = time[0][1]for i in range(1,N):  if time[i][0] &gt;= end_time:    cnt += 1    end_time=time[i][1]print(cnt)","dateCreated":"2022-07-16T17:27:45+09:00","dateModified":"2022-07-16T17:27:45+09:00","datePublished":"2022-07-16T17:27:45+09:00","description":"BOJ 1931 회의실 배정","headline":"탐욕법 Greedy Algorithm","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj_1931/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj_1931/","keywords":"greedy algorithm","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nGreedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.\n\n탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제\n다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.\n\n탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면\n\n탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)\n항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명\n\nBOJ 1931 회의실 배정초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.\n12345678910111213141516def greedy():  global cnt, time  time_min = time[0]  new_time=[]  for i in time:    if not time_min[1]&lt;=i[0]:      new_time.append(i)  time=new_time  print(time)  cnt += 1  if time:    greedy()  else:    print(cnt)greedy()\n\n탐욕법 이용:\n1234567891011import sysN = int(sys.stdin.readline())time = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]cnt = 1time.sort(key=lambda t: (t[1],t[0]))end_time = time[0][1]for i in range(1,N):  if time[i][0] &gt;= end_time:    cnt += 1    end_time=time[i][1]print(cnt)","dateCreated":"2022-07-16T17:27:45+09:00","dateModified":"2022-07-16T17:27:45+09:00","datePublished":"2022-07-16T17:27:45+09:00","description":"BOJ 1931 회의실 배정","headline":"탐욕법 Greedy Algorithm","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_1931/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_1931/","keywords":"greedy algorithm","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="BOJ 1931 회의실 배정">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="탐욕법 Greedy Algorithm">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj_1931/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_1931/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="BOJ 1931 회의실 배정">
 <meta property="og:locale" content="en_US">
@@ -299,7 +299,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -308,7 +308,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -328,7 +328,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -341,7 +341,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -354,7 +354,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -402,7 +402,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -411,7 +411,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +431,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -444,7 +444,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -457,7 +457,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_1931/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -488,7 +488,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_1931/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -496,7 +496,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_1931/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -504,7 +504,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_1931/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

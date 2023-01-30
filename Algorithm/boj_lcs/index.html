@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nLongest Common Substring, 최장 공통 문자열Substring인 경우 최장 공통 문자열을 찾는 다른 문제가 된다.\n\n2차원 배열을 두어서 A[i]와 B의 모든 문자열을 검토.\nA[i]와 B[j]가 같다면, LCS[i][j] &#x3D; LCS[i-1][j-1]+1\n다르다면, LCS[i][j] &#x3D; 0\nLCS중 최댓값\n\nLongest Common Subsequence, 최장 공통 부분 수열Substring의 경우와 매우 비슷하지만, A[i]와 B[j]가 다를 경우의 취급이 다르다.\n\nA[i]와 B[j]가 같다면, LCS[i][j] &#x3D; LCS[i-1][j-1]+1\n다르다면, LCS[i][j] &#x3D; max(LCS[i-1][j] ,LCS[i][j-1])그 이유는.. 이해하기 오래 걸렸지만 생각해보면 당연하다.A[i-1]와 B[j-1]까지 비교한 상황에서 A[i]가 추가되었을 때 새롭게 늘어나는 subsequence와 B[j]의 그것을 비교해주는 논리이다.\n모두 완성한 LCS의 마지막 원소\n\n완성한 LCS의 표를 마지막 원소로부터 거꾸로 올라가면 만족하는 subsequence를 얻어낼 수도 있다. 이는 BOJ 9252 LCS2 문제이기도 하다.\n\n완성한 LCS행렬의 마지막 원소에서 출발한다.\n해당 원소의 왼쪽이나 위쪽(LCS[i-1][j] or LCS[i][j-1])에 같은 값이 있다면, 그쪽으로 이동한다. (나는 왼쪽부터 탐색하도록 했다.)\n없다면, LCS행렬을 완성할 때 A[i]와 B[j]가 같아서 값이 증가한 값이라고 볼 수 있다. 왼쪽대각선(LCS[i-1][j-1])으로 이동한다.\n이동하면서 해당 위치의 알파벳을 다른 행렬 Sequence의 끝에 저장한다.\ni나 j가 0이 되었을 경우, Sequence를 뒤집으면 최장 공통 부분 수열을 얻을 수 있다.\n\nBOJ 9251 LCS문제LCS(Longest Common Subsequence, 최장 공통 부분 수열)문제는 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제이다.\n예를 들어, ACAYKP와 CAPCAK의 LCS는 ACAK가 된다.\n풀이123456789101112A = input()B = input()n, m = len(A),len(B)LCS = [[0]*(m+1)for _ in range(n+1)]for i in range(1,m+1):  for j in range(1, n+1):    if A[j-1] == B[i-1]:      LCS[j][i] = LCS[j-1][i-1] + 1    else:      LCS[j][i] = max(LCS[j-1][i], LCS[j][i-1])print(LCS[n][m])\n\nBOJ 9252 LCS 2문제LCS(Longest Common Subsequence, 최장 공통 부분 수열)문제는 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제이다.\n예를 들어, ACAYKP와 CAPCAK의 LCS는 ACAK가 된다.\n풀이BOJ 92521234567891011121314151617181920212223242526a = input()b = input()la ,lb = len(a), len(b)LCS = [[0]*(lb+1) for _ in range(la+1)]for i in range(1, la+1):  for j in range(1, lb+1):    if a[i-1] == b[j-1]:      LCS[i][j] = LCS[i-1][j-1]+1    else:      LCS[i][j] = max(LCS[i-1][j], LCS[i][j-1])sequence = []x,y = la, lbwhile x!=0 and y!= 0:  if LCS[x][y] == LCS[x-1][y]:    x -= 1  elif LCS[x][y] == LCS[x][y-1]:    y -= 1  else:    sequence.append(a[x-1])    x-=1    y -= 1print(LCS[la][lb])print(*reversed(sequence), sep=&#x27;&#x27;)\n\n\n참고자료https://velog.io/@emplam27/알고리즘-그림으로-알아보는-LCS-알고리즘-Longest-Common-Substring와-Longest-Common-Subsequence\n","dateCreated":"2022-07-25T15:48:40+09:00","dateModified":"2022-07-25T15:48:40+09:00","datePublished":"2022-07-25T15:48:40+09:00","description":"BOJ 9251 LCS, BOJ 9252 LCS 2","headline":"최장 공통 부분 수열 알고리즘","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj_lcs/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj_lcs/","keywords":"dp, lcs","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nLongest Common Substring, 최장 공통 문자열Substring인 경우 최장 공통 문자열을 찾는 다른 문제가 된다.\n\n2차원 배열을 두어서 A[i]와 B의 모든 문자열을 검토.\nA[i]와 B[j]가 같다면, LCS[i][j] &#x3D; LCS[i-1][j-1]+1\n다르다면, LCS[i][j] &#x3D; 0\nLCS중 최댓값\n\nLongest Common Subsequence, 최장 공통 부분 수열Substring의 경우와 매우 비슷하지만, A[i]와 B[j]가 다를 경우의 취급이 다르다.\n\nA[i]와 B[j]가 같다면, LCS[i][j] &#x3D; LCS[i-1][j-1]+1\n다르다면, LCS[i][j] &#x3D; max(LCS[i-1][j] ,LCS[i][j-1])그 이유는.. 이해하기 오래 걸렸지만 생각해보면 당연하다.A[i-1]와 B[j-1]까지 비교한 상황에서 A[i]가 추가되었을 때 새롭게 늘어나는 subsequence와 B[j]의 그것을 비교해주는 논리이다.\n모두 완성한 LCS의 마지막 원소\n\n완성한 LCS의 표를 마지막 원소로부터 거꾸로 올라가면 만족하는 subsequence를 얻어낼 수도 있다. 이는 BOJ 9252 LCS2 문제이기도 하다.\n\n완성한 LCS행렬의 마지막 원소에서 출발한다.\n해당 원소의 왼쪽이나 위쪽(LCS[i-1][j] or LCS[i][j-1])에 같은 값이 있다면, 그쪽으로 이동한다. (나는 왼쪽부터 탐색하도록 했다.)\n없다면, LCS행렬을 완성할 때 A[i]와 B[j]가 같아서 값이 증가한 값이라고 볼 수 있다. 왼쪽대각선(LCS[i-1][j-1])으로 이동한다.\n이동하면서 해당 위치의 알파벳을 다른 행렬 Sequence의 끝에 저장한다.\ni나 j가 0이 되었을 경우, Sequence를 뒤집으면 최장 공통 부분 수열을 얻을 수 있다.\n\nBOJ 9251 LCS문제LCS(Longest Common Subsequence, 최장 공통 부분 수열)문제는 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제이다.\n예를 들어, ACAYKP와 CAPCAK의 LCS는 ACAK가 된다.\n풀이123456789101112A = input()B = input()n, m = len(A),len(B)LCS = [[0]*(m+1)for _ in range(n+1)]for i in range(1,m+1):  for j in range(1, n+1):    if A[j-1] == B[i-1]:      LCS[j][i] = LCS[j-1][i-1] + 1    else:      LCS[j][i] = max(LCS[j-1][i], LCS[j][i-1])print(LCS[n][m])\n\nBOJ 9252 LCS 2문제LCS(Longest Common Subsequence, 최장 공통 부분 수열)문제는 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제이다.\n예를 들어, ACAYKP와 CAPCAK의 LCS는 ACAK가 된다.\n풀이BOJ 92521234567891011121314151617181920212223242526a = input()b = input()la ,lb = len(a), len(b)LCS = [[0]*(lb+1) for _ in range(la+1)]for i in range(1, la+1):  for j in range(1, lb+1):    if a[i-1] == b[j-1]:      LCS[i][j] = LCS[i-1][j-1]+1    else:      LCS[i][j] = max(LCS[i-1][j], LCS[i][j-1])sequence = []x,y = la, lbwhile x!=0 and y!= 0:  if LCS[x][y] == LCS[x-1][y]:    x -= 1  elif LCS[x][y] == LCS[x][y-1]:    y -= 1  else:    sequence.append(a[x-1])    x-=1    y -= 1print(LCS[la][lb])print(*reversed(sequence), sep=&#x27;&#x27;)\n\n\n참고자료https://velog.io/@emplam27/알고리즘-그림으로-알아보는-LCS-알고리즘-Longest-Common-Substring와-Longest-Common-Subsequence\n","dateCreated":"2022-07-25T15:48:40+09:00","dateModified":"2022-07-25T15:48:40+09:00","datePublished":"2022-07-25T15:48:40+09:00","description":"BOJ 9251 LCS, BOJ 9252 LCS 2","headline":"최장 공통 부분 수열 알고리즘","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_lcs/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_lcs/","keywords":"dp, lcs","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="BOJ 9251 LCS, BOJ 9252 LCS 2">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="최장 공통 부분 수열 알고리즘">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj_lcs/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_lcs/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="BOJ 9251 LCS, BOJ 9252 LCS 2">
 <meta property="og:locale" content="en_US">
@@ -317,7 +317,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="PREVIOUS: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="PREVIOUS: Dijkstra 알고리즘 (최단 경로 문제)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -326,7 +326,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="NEXT: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="NEXT: BOJ 11053 가장 긴 증가하는 부분수열">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -346,7 +346,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -359,7 +359,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -372,7 +372,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -420,7 +420,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="PREVIOUS: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="PREVIOUS: Dijkstra 알고리즘 (최단 경로 문제)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -429,7 +429,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="NEXT: BOJ 11053 가장 긴 증가하는 부분수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="NEXT: BOJ 11053 가장 긴 증가하는 부분수열">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -449,7 +449,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -462,7 +462,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -475,7 +475,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_lcs/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_lcs/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -506,7 +506,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_lcs/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_lcs/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -514,7 +514,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_lcs/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_lcs/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -522,7 +522,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_lcs/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_lcs/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

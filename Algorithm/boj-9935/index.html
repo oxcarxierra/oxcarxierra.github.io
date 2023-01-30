@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제BOJ 9935번 문자열 폭발\n\n접근문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.예를 들어, 문자열이 ACC44, 폭발 문자열이 C4인 경우 앞에서부터 폭발문자열의 검사를 시작하면 끝마쳤을 때 AC4가 남게된다. 이후 한번 더 검사를 해야 최종문자열 A만 남는다.그래서 처음에는 앞에서부터 폭발 문자열을 찾는 알고리즘을 함수로 만들고, 폭발 문자열을 검색할 수 없을 때 까지 재귀적으로 실행하려 했다.몇 번 실패하고 다른 사람들의 풀이를 참고해보니, 문자열을 뒤에서부터 검색하면 굳이 재귀를 하지 않아도 되는 방법이 있었다.\n\n입력 문자열의 앞에서부터 한 문자씩 stack에 추가한다.\n추가한 문자가 폭발 문자열의 마지막 문자와 일치하면, 문자의 앞쪽으로 폭발 문자열과 일치하는지 검사한다. 일치한다면 stack에서 폭발 문자열을 제거한다.\n입력 문자열의 모든 문자를 검사하고, stack에 원소가 남아있다면 원소를 string으로 바꿔 출력한다. 없다면, &#39;FRULA&#39;를 출력한다.\n\n풀이BOJ 9935 문자열 폭발123456789import syss = sys.stdin.readline().strip()bomb = sys.stdin.readline().strip()stack = []for i in range(len(s)):    stack.append(s[i])    if stack[-1] == bomb[-1] and &#x27;&#x27;.join(stack[-len(bomb):]) == bomb:        del stack[-len(bomb):]print(&#x27;FRULA&#x27; if len(stack) == 0 else &#x27;&#x27;.join(stack))\n","dateCreated":"2022-08-16T15:52:39+09:00","dateModified":"2022-08-16T15:52:39+09:00","datePublished":"2022-08-16T15:52:39+09:00","description":"","headline":"BOJ 9935번 문자열 폭발","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj-9935/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj-9935/","keywords":"string, search","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제BOJ 9935번 문자열 폭발\n\n접근문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.예를 들어, 문자열이 ACC44, 폭발 문자열이 C4인 경우 앞에서부터 폭발문자열의 검사를 시작하면 끝마쳤을 때 AC4가 남게된다. 이후 한번 더 검사를 해야 최종문자열 A만 남는다.그래서 처음에는 앞에서부터 폭발 문자열을 찾는 알고리즘을 함수로 만들고, 폭발 문자열을 검색할 수 없을 때 까지 재귀적으로 실행하려 했다.몇 번 실패하고 다른 사람들의 풀이를 참고해보니, 문자열을 뒤에서부터 검색하면 굳이 재귀를 하지 않아도 되는 방법이 있었다.\n\n입력 문자열의 앞에서부터 한 문자씩 stack에 추가한다.\n추가한 문자가 폭발 문자열의 마지막 문자와 일치하면, 문자의 앞쪽으로 폭발 문자열과 일치하는지 검사한다. 일치한다면 stack에서 폭발 문자열을 제거한다.\n입력 문자열의 모든 문자를 검사하고, stack에 원소가 남아있다면 원소를 string으로 바꿔 출력한다. 없다면, &#39;FRULA&#39;를 출력한다.\n\n풀이BOJ 9935 문자열 폭발123456789import syss = sys.stdin.readline().strip()bomb = sys.stdin.readline().strip()stack = []for i in range(len(s)):    stack.append(s[i])    if stack[-1] == bomb[-1] and &#x27;&#x27;.join(stack[-len(bomb):]) == bomb:        del stack[-len(bomb):]print(&#x27;FRULA&#x27; if len(stack) == 0 else &#x27;&#x27;.join(stack))\n","dateCreated":"2022-08-16T15:52:39+09:00","dateModified":"2022-08-16T15:52:39+09:00","datePublished":"2022-08-16T15:52:39+09:00","description":"","headline":"BOJ 9935번 문자열 폭발","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-9935/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-9935/","keywords":"string, search","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="문제BOJ 9935번 문자열 폭발  접근문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.예를 들어, 문자열이 ACC44, 폭발 문자열이 C4인 경우 앞에서부터 폭발문자열의 검사를 시">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="BOJ 9935번 문자열 폭발">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj-9935/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-9935/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="문제BOJ 9935번 문자열 폭발  접근문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.예를 들어, 문자열이 ACC44, 폭발 문자열이 C4인 경우 앞에서부터 폭발문자열의 검사를 시">
 <meta property="og:locale" content="en_US">
@@ -294,7 +294,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="PREVIOUS: BOJ 15686번 치킨 배달">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="PREVIOUS: BOJ 15686번 치킨 배달">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -303,7 +303,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-topological-sort/" data-tooltip="위상 정렬 알고리즘 Topological Sort" aria-label="NEXT: 위상 정렬 알고리즘 Topological Sort">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-topological-sort/" data-tooltip="위상 정렬 알고리즘 Topological Sort" aria-label="NEXT: 위상 정렬 알고리즘 Topological Sort">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -323,7 +323,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -336,7 +336,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -349,7 +349,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -397,7 +397,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="PREVIOUS: BOJ 15686번 치킨 배달">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-15686/" data-tooltip="BOJ 15686번 치킨 배달" aria-label="PREVIOUS: BOJ 15686번 치킨 배달">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -406,7 +406,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-topological-sort/" data-tooltip="위상 정렬 알고리즘 Topological Sort" aria-label="NEXT: 위상 정렬 알고리즘 Topological Sort">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-topological-sort/" data-tooltip="위상 정렬 알고리즘 Topological Sort" aria-label="NEXT: 위상 정렬 알고리즘 Topological Sort">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -426,7 +426,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -439,7 +439,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -452,7 +452,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-9935/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-9935/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -483,7 +483,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-9935/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-9935/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -491,7 +491,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-9935/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-9935/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -499,7 +499,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-9935/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-9935/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

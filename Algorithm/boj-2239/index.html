@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오.\n접근\nPost not found: boj-9663 BOJ 9663 N-Queen문제와 비슷하게, 백트래킹을 이용한다. 초기에 0이었던 위치에 1~9를 대입해보며 같은 행/열/사각형에 겹치는 숫자가 있는지 promising을 거치며 DFS를 실행한다.\n\n현재 검사하고 있는 칸을 x,y좌표로 두는 것 보다, (0,0)에서부터 순서를 정해 cnt로 정의하면 cnt // 9, cnt % 9로 좌표를 구할 수 있어 편하다.\n\n처음에 cnt==81 조건 이후 return을 넣었더니 출력초과가 떴다. 만족하는 모든 스도쿠의 해를 출력하고 있었던 것이다. 이 때 이용할 수 있는 함수가 exit()으로, 도달하면 컴파일된 프로그램 전체를 종료하기 때문에 처음으로 구한 해만 출력하고 종료할 수 있게 된다.\n\n\n풀이BOJ 2239 스도쿠1234567891011121314151617181920212223242526s = [[int(i) for i in input()] for _ in range(9)]r, c, sq = [[False]*10 for _ in range(9)],[[False]*10 for _ in range(9)],[[False]*10 for _ in range(9)]for i in range(9):  for j in range(9):    x = s[i][j]    r[i][x] = c[j][x] = sq[(i//3)*3+j//3][x] = Truedef solve(cnt):  global r, c, sq  if cnt == 81:    for i in s:      print(*i, sep=&#x27;&#x27;)    exit()  x,y = cnt // 9, cnt%9  if s[x][y] == 0:    for i in range(1,10):      if not r[x][i] and not c[y][i] and not sq[(x//3)*3+y//3][i]:        s[x][y] = i        r[x][i] = c[y][i] = sq[(x//3)*3+y//3][i] = True        solve(cnt+1)        s[x][y] = 0        r[x][i] = c[y][i] = sq[(x//3)*3+y//3][i] = False  else:    solve(cnt+1)solve(0)\n","dateCreated":"2022-08-07T01:41:40+09:00","dateModified":"2022-08-07T01:41:40+09:00","datePublished":"2022-08-07T01:41:40+09:00","description":"","headline":"BOJ 2239번 스도쿠","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj-2239/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj-2239/","keywords":"backtracking","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n문제하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오.\n접근\nPost not found: boj-9663 BOJ 9663 N-Queen문제와 비슷하게, 백트래킹을 이용한다. 초기에 0이었던 위치에 1~9를 대입해보며 같은 행/열/사각형에 겹치는 숫자가 있는지 promising을 거치며 DFS를 실행한다.\n\n현재 검사하고 있는 칸을 x,y좌표로 두는 것 보다, (0,0)에서부터 순서를 정해 cnt로 정의하면 cnt // 9, cnt % 9로 좌표를 구할 수 있어 편하다.\n\n처음에 cnt==81 조건 이후 return을 넣었더니 출력초과가 떴다. 만족하는 모든 스도쿠의 해를 출력하고 있었던 것이다. 이 때 이용할 수 있는 함수가 exit()으로, 도달하면 컴파일된 프로그램 전체를 종료하기 때문에 처음으로 구한 해만 출력하고 종료할 수 있게 된다.\n\n\n풀이BOJ 2239 스도쿠1234567891011121314151617181920212223242526s = [[int(i) for i in input()] for _ in range(9)]r, c, sq = [[False]*10 for _ in range(9)],[[False]*10 for _ in range(9)],[[False]*10 for _ in range(9)]for i in range(9):  for j in range(9):    x = s[i][j]    r[i][x] = c[j][x] = sq[(i//3)*3+j//3][x] = Truedef solve(cnt):  global r, c, sq  if cnt == 81:    for i in s:      print(*i, sep=&#x27;&#x27;)    exit()  x,y = cnt // 9, cnt%9  if s[x][y] == 0:    for i in range(1,10):      if not r[x][i] and not c[y][i] and not sq[(x//3)*3+y//3][i]:        s[x][y] = i        r[x][i] = c[y][i] = sq[(x//3)*3+y//3][i] = True        solve(cnt+1)        s[x][y] = 0        r[x][i] = c[y][i] = sq[(x//3)*3+y//3][i] = False  else:    solve(cnt+1)solve(0)\n","dateCreated":"2022-08-07T01:41:40+09:00","dateModified":"2022-08-07T01:41:40+09:00","datePublished":"2022-08-07T01:41:40+09:00","description":"","headline":"BOJ 2239번 스도쿠","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj-2239/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj-2239/","keywords":"backtracking","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="문제하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오. 접근 Post not found: boj-9663 BOJ 9663 N-Queen문제와 비슷하게, 백트래킹을 이용한다. 초기에 0이었던 위치에 1~9를 대입해보며 같은 행&#x2F;열&#x2F;사각형에 겹치는 숫자가 있는지 promising을 거치며 DFS를 실행한다.  현재 검사하고 있는 칸을">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="BOJ 2239번 스도쿠">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj-2239/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj-2239/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="문제하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오. 접근 Post not found: boj-9663 BOJ 9663 N-Queen문제와 비슷하게, 백트래킹을 이용한다. 초기에 0이었던 위치에 1~9를 대입해보며 같은 행&#x2F;열&#x2F;사각형에 겹치는 숫자가 있는지 promising을 거치며 DFS를 실행한다.  현재 검사하고 있는 칸을">
 <meta property="og:locale" content="en_US">
@@ -294,7 +294,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-disjoint-set/" data-tooltip="Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)" aria-label="PREVIOUS: Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-disjoint-set/" data-tooltip="Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)" aria-label="PREVIOUS: Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -303,7 +303,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_1918/" data-tooltip="BOJ 1918번 후위 표기식" aria-label="NEXT: BOJ 1918번 후위 표기식">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1918/" data-tooltip="BOJ 1918번 후위 표기식" aria-label="NEXT: BOJ 1918번 후위 표기식">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -323,7 +323,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -336,7 +336,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -349,7 +349,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -397,7 +397,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj-disjoint-set/" data-tooltip="Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)" aria-label="PREVIOUS: Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj-disjoint-set/" data-tooltip="Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)" aria-label="PREVIOUS: Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -406,7 +406,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_1918/" data-tooltip="BOJ 1918번 후위 표기식" aria-label="NEXT: BOJ 1918번 후위 표기식">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_1918/" data-tooltip="BOJ 1918번 후위 표기식" aria-label="NEXT: BOJ 1918번 후위 표기식">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -426,7 +426,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -439,7 +439,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -452,7 +452,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-2239/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-2239/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -483,7 +483,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj-2239/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj-2239/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -491,7 +491,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj-2239/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj-2239/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -499,7 +499,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj-2239/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj-2239/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>

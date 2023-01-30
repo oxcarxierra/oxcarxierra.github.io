@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nFloyd-Warshall 알고리즘이란Dijkstra 알고리즘이 그래프의 정해진 한 노드에서 다른 노드까지의 최단거리를 구하는 알고리즘이었다면, Floyd-Warshall 알고리즘은 출발 노드가 따로 정해져있지 않다. 따라서 V개의 노드가 있다면 V^2개의 최단경로를 결과로 얻게 된다.\n이 알고리즘의 핵심은 각 노드를 돌며 이 노드를 지나는 경로가 더 짧을 경우 갱신헤주는 방식이다.\n\n최단경로를 저장할 V by V 인접행렬을 만들고, INF값으로 초기화시킨다.\n입력값을 행렬에 저장한다. 대각선 원소들에는 0을 저장한다.\n각 노드를 순환하며, 다른 두 노드 사이의 최단거리가 이 노드를 거쳐갈 경우에 거리가 짧아진다면 갱신한다. (min함수를 이용한다)\n\nFloyd-Warshall 알고리즘의 시간복잡도단순하게 생각하면, V개의 노드를 세 번 순환을 돌았으니 O(V^3)이다.\nBOJ 11404 플로이드123456789101112131415161718192021INF = int(1e9)n = int(input())m = int(input())dist = [[INF]*(n+1) for _ in range(n+1)]for _ in range(m):  a, b, c= map(int, input().split())  dist[a][b] = min(dist[a][b],c)for i in range(n+1):  dist[i][i] = 0for i in range(1,n+1):  for j in range(1,n+1):    for k in range(1,n+1):      dist[j][k] = min(dist[j][k],dist[j][i] + dist[i][k])for z in range(1,n+1):    for y in range(1, n+1):        if dist[z][y] == INF:            dist[z][y] = 0    print(*dist[z][1:],sep=&quot; &quot;)\n\nBOJ 11404에선 입력값에 같은 간선이 들어올 수 있으므로 입력받을 때에도 min함수를 이용해 비교해주어야 한다.\n\n참고자료https://namu.wiki/w/플로이드-워셜%20알고리즘\n","dateCreated":"2022-07-28T10:43:12+09:00","dateModified":"2022-07-28T10:43:12+09:00","datePublished":"2022-07-28T10:43:12+09:00","description":"BOJ 11404번 플로이드","headline":"Floyd-Warshall 알고리즘 (최단 경로 문제)","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/","keywords":"graph, floyd-warshall","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nFloyd-Warshall 알고리즘이란Dijkstra 알고리즘이 그래프의 정해진 한 노드에서 다른 노드까지의 최단거리를 구하는 알고리즘이었다면, Floyd-Warshall 알고리즘은 출발 노드가 따로 정해져있지 않다. 따라서 V개의 노드가 있다면 V^2개의 최단경로를 결과로 얻게 된다.\n이 알고리즘의 핵심은 각 노드를 돌며 이 노드를 지나는 경로가 더 짧을 경우 갱신헤주는 방식이다.\n\n최단경로를 저장할 V by V 인접행렬을 만들고, INF값으로 초기화시킨다.\n입력값을 행렬에 저장한다. 대각선 원소들에는 0을 저장한다.\n각 노드를 순환하며, 다른 두 노드 사이의 최단거리가 이 노드를 거쳐갈 경우에 거리가 짧아진다면 갱신한다. (min함수를 이용한다)\n\nFloyd-Warshall 알고리즘의 시간복잡도단순하게 생각하면, V개의 노드를 세 번 순환을 돌았으니 O(V^3)이다.\nBOJ 11404 플로이드123456789101112131415161718192021INF = int(1e9)n = int(input())m = int(input())dist = [[INF]*(n+1) for _ in range(n+1)]for _ in range(m):  a, b, c= map(int, input().split())  dist[a][b] = min(dist[a][b],c)for i in range(n+1):  dist[i][i] = 0for i in range(1,n+1):  for j in range(1,n+1):    for k in range(1,n+1):      dist[j][k] = min(dist[j][k],dist[j][i] + dist[i][k])for z in range(1,n+1):    for y in range(1, n+1):        if dist[z][y] == INF:            dist[z][y] = 0    print(*dist[z][1:],sep=&quot; &quot;)\n\nBOJ 11404에선 입력값에 같은 간선이 들어올 수 있으므로 입력받을 때에도 min함수를 이용해 비교해주어야 한다.\n\n참고자료https://namu.wiki/w/플로이드-워셜%20알고리즘\n","dateCreated":"2022-07-28T10:43:12+09:00","dateModified":"2022-07-28T10:43:12+09:00","datePublished":"2022-07-28T10:43:12+09:00","description":"BOJ 11404번 플로이드","headline":"Floyd-Warshall 알고리즘 (최단 경로 문제)","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/","keywords":"graph, floyd-warshall","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
     <meta name="description" content="BOJ 11404번 플로이드">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Floyd-Warshall 알고리즘 (최단 경로 문제)">
-<meta property="og:url" content="https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/index.html">
+<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
 <meta property="og:description" content="BOJ 11404번 플로이드">
 <meta property="og:locale" content="en_US">
@@ -299,7 +299,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -308,7 +308,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -328,7 +328,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -341,7 +341,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -354,7 +354,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -402,7 +402,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -411,7 +411,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +431,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -444,7 +444,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -457,7 +457,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -488,7 +488,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -496,7 +496,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -504,7 +504,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
