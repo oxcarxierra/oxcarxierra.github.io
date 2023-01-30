@@ -2357,7 +2357,8 @@ a.fancybox {
   .postShorten .postShorten-thumbnailimg {
     overflow: hidden; }
   .postShorten .postShorten-header .postShorten-title {
-    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 4px;
     word-break: initial;
     overflow: hidden; }
     .postShorten .postShorten-header .postShorten-title:hover {
@@ -2385,18 +2386,18 @@ a.fancybox {
     color: #a7a7a7;
     font-weight: 400;
     overflow: hidden;
+    margin: 1em 0em;
     -webkit-hypens: auto;
     -moz-hypens: auto;
     hypens: auto; }
+    .postShorten .postShorten-excerpt p,
+    .postShorten .postShorten-content p {
+      margin: 0px; }
     .postShorten .postShorten-excerpt img,
     .postShorten .postShorten-content img {
       display: block;
       width: auto;
       max-width: 100%; }
-  .postShorten .postShorten-excerpt {
-    margin-top: 15px; }
-  .postShorten .postShorten-content {
-    margin-top: 25px; }
 
 @media only screen and (max-width: 479px) {
   .postShorten .postShorten-thumbnailimg {
