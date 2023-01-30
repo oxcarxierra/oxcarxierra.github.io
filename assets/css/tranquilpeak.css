@@ -65,14 +65,8 @@
   font-weight: bold;
   src: local("NanumGothicCoding"), url(../fonts/NanumSquareNeo-dEb.ttf) format("truetype"); }
 
-@font-face {
-  font-family: "Source Code Pro";
-  font-style: consolas;
-  font-weight: 300;
-  src: local("SourceCodePro"), url(../fonts/source-code-pro.otf) format("opentype"); }
-
 html {
-  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Open Sans", sans-serif;
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -86,7 +80,7 @@ body {
   margin: 0;
   padding: 0;
   background: #1d1d1d;
-  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Open Sans", sans-serif;
   font-size: 1.5rem;
   line-height: 2em;
   letter-spacing: 0.01em;
@@ -101,7 +95,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Open Sans", sans-serif;
   font-weight: 500;
   line-height: 1.45em;
   color: #e1e1e1; }
@@ -183,7 +177,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: NanumGothicCoding, Merriweather, Consolas;
+  font-family: NanumGothicCoding, Open Sans, Consolas;
   border: none;
   margin: 0;
   color: #fff;
@@ -195,7 +189,7 @@ pre > code {
 code {
   font-size: 1.5rem;
   display: inline-block;
-  font-family: "NanumGothicCoding", "Merriweather", Consolas;
+  font-family: "NanumGothicCoding", "Open Sans", Consolas;
   font-weight: 400;
   background-color: #1d1d1d;
   padding: 0 10px; }
@@ -668,7 +662,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Open Sans", sans-serif;
   height: 100%;
   position: fixed;
   top: 0;
@@ -1628,7 +1622,7 @@ blockquote {
 
 .caption {
   display: block;
-  font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+  font-family: "NanumSquareNeo", "Open Sans", sans-serif;
   font-size: 1.3rem;
   color: #81929d;
   text-align: center;
@@ -1656,7 +1650,7 @@ figure.highlight,
   .codeblock .code,
   .codeblock .tag {
     background-color: inherit;
-    font-family: NanumGothicCoding, Merriweather, Consolas;
+    font-family: NanumGothicCoding, Open Sans, Consolas;
     border: none;
     padding: 0;
     margin: 0;
@@ -1715,7 +1709,7 @@ figure.highlight,
 
 .gist .line,
 .gist .line-number {
-  font-family: "NanumGothicCoding", "Merriweather", Consolas;
+  font-family: "NanumGothicCoding", "Open Sans", Consolas;
   font-size: 1em;
   margin: 0 0 5px 0; }
 
@@ -1745,13 +1739,13 @@ figure.highlight,
 .figure.clear {
   clear: both; }
 
-.figure.center {
+.figure.center, .figure.fig-20, .figure.fig-25, .figure.fig-33, .figure.fig-50, .figure.fig-75 {
   width: calc(100% - 4px);
   margin: 2px auto; }
-  .figure.center .fig-img {
+  .figure.center .fig-img, .figure.fig-20 .fig-img, .figure.fig-25 .fig-img, .figure.fig-33 .fig-img, .figure.fig-50 .fig-img, .figure.fig-75 .fig-img {
     margin: 2px auto; }
 
-.figure.left, .figure.fig-20, .figure.fig-25, .figure.fig-33, .figure.fig-50, .figure.fig-75 {
+.figure.left {
   float: left;
   margin: 2px; }
 
@@ -1788,7 +1782,9 @@ figure.highlight,
     margin: 0 auto; }
 
 @media only screen and (max-width: 767px) {
-  .fig-33 .caption, .fig-25 .caption, .fig-20 .caption {
+  .fig-33 .caption,
+  .fig-25 .caption,
+  .fig-20 .caption {
     display: none; } }
 
 .form-control {
@@ -1880,7 +1876,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Open Sans", sans-serif;
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -2090,7 +2086,7 @@ a.fancybox {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Open Sans", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     color: #9eabb3; }
@@ -2099,7 +2095,7 @@ a.fancybox {
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: 0.3px;
-    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Open Sans", sans-serif;
     color: #a7a7a7;
     margin-top: 20px;
     font-weight: 400;
@@ -2183,7 +2179,7 @@ a.fancybox {
   text-align: left;
   font-style: italic;
   margin: 1.5em 0 0; }
-  .pullquote.left, .pullquote.figure.fig-20, .pullquote.figure.fig-25, .pullquote.figure.fig-33, .pullquote.figure.fig-50, .pullquote.figure.fig-75 {
+  .pullquote.left {
     width: 45%;
     float: left;
     margin: 1.5em 35px 1.5em 0; }
@@ -2230,7 +2226,7 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
-      font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+      font-family: "NanumSquareNeo", "Open Sans", sans-serif;
       font-size: 1.5rem;
       color: white !important;
       font-weight: 400;
@@ -2378,14 +2374,14 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Open Sans", sans-serif;
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: 0.3px;
-    font-family: "NanumSquareNeo", "Helvetica Neue", sans-serif;
+    font-family: "NanumSquareNeo", "Open Sans", sans-serif;
     color: #a7a7a7;
     font-weight: 400;
     overflow: hidden;
