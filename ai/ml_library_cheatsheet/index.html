@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of oxcarxierra">
+    <title>ML Library cheatsheet - Blog of oxcarxierra</title>
+    <meta name="author" content="oxcarxierra | 오승석">
+    
+        <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\nPandasA DataFrame is a table. It contains an array of individual entries.\nrow name을 index = [’A’,’B’]로 할당 가능\nA Series is a sequence of data values, a single column of a DataFrame.\nindex=[’A’,’B’],name=”SERIES NAME”\nMethods\npd.read_csv(’’, index_col=0) : index_col은 가져오지 않음.\nDataFrame.to_csv(’name.csv’) : name.csv으로 저장\nDataFrame.shape : 크기 m by n\nDataFrame.describe() : count, mean, Q1, Q2, Q3…\nDataFrame.iloc[:, 0] : Index - based selection. row first, column next.\nDataFrame.loc[: , ‘title’] : Label - based selction.\nDataFrame.set_index[‘title’] : index열의 이름을 붙여줌..loc[] 내에 조건을 주어 접근 가능, &amp; , | 사용 가능\nisin : reviews.country.isin([&#39;Italy&#39;, &#39;France&#39;])\nisnull | notnull : reviews.price.notnull()\nDataFrame[’column_name’] : 열 접근\nDataFrame.columns : 칼럼 인덱스만 배열로 보여줌.\n\n“Summary Functions”\nSeries.mean()\nSeries.unique() : unique value array\nSeries.value_counts() : unique value와 그 빈도\n\n열의 각 원소에 접근하는 방법 2가지\nSeries.map(lambda p : ~~~ ) : 원소를 P로 매개변수화해서 접근\nDataFrame.apply(method, axis=”columns”) : row를 변수로 받는 메소드\n\n! 둘 다 새로운 DataFrame이나 Series를 리턴하며, 원래의 것을 변형시키지 않는다.\n\n사실 이런 연산도 가능하다 :\n\n12review_points_mean = reviews.points.mean()reviews.points - review_points_mean\n\n\nDataFrame.groupby([’columnA,&#39;columnB’]) : column의 value가 같은 데이터를 묶는다.column이 여러개인 경우 Multi-index가 생성. 말그대로 index를 구성하는 데이터가 두개 이상.multi-index를 풀려면 .reset_index()\nDataFrame.groupby().column.agg([&#39;functionA&#39;,&#39;functionB&#39;] : multi function\nDataFrame.sort_values(by=[’columnA’,&#39;columnB&#39;], ascending=Boolean) : 데이터 순서 정렬\nDataFrame.sort_index() : index순서로 정렬\nSeries.dtype : column의 data type\nSeries.astype(&#39;type&#39;) : column의 data type을 변환! NaN은 float64타입으로 취급된다\npd.isnull(DataFrame.column) : column의 value &#x3D; NaN인 row만 추출\nSeries.fillna(&#39;something&#39;) : 해당 column의 nan값을 something으로 바꿔줌\nSeries.replace(&#39;value1&#39;,&#39;value2&#39;) : 해당 column중 value1인 것들을 value2로 바꿈\nDataFrame.rename(columns=&#123;&#39;before&#39;:&#39;after&#39;&#125;)\npd.concat([DF1,DF2]) : field(column)이 모두 동일한 두 DF를 합침\nDF1.join(DF2, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;) : index가 동일한 두 DF를 합침. lsuffix, rsuffix는 두 DF의 같은 column이 있을 때 column name 뒤에 추가됨\n\nSeabornplt.figure(figsize=(14,6)) set size of chart\nLine Chartssns.lineplot(data=&#39;&#39;, label=&#39;&#39;)\nBar Chartssns.barplot(x=column, y=column)\nHeatmapsns.heatmap(data=data, annot=Boolean) annot : cell 위에 숫자 표시 여부\nScatterPlot\nsns.scatterplot(x=columnA, y=columnB, hue?=columnC) : hue에 넣은 column은 색으로 구분\nsns.regplot(x=columnA, y=columnB) : regression line\nsns.lmplot(x=columnName, y=columnName, hue=columnName, data=data)\n\nHistogram : y축은 항상 countsns.histplot(column)\nkernel density estimate (KDE) Plot : smoothed histogram\nsns.kdeplot(data=column, shade=Boolean) : 1D\nsns.jointplot(x=column, y=column, kind=&quot;kde&quot;)\n\nStylesns.setstyle(&#39;option&#39;)\n\n&quot;darkgrid&quot;\n&quot;whitegrid&quot;\n&quot;dark&quot;\n&quot;white&quot;\n&quot;ticks&quot;\n","dateCreated":"2022-07-09T17:27:45+09:00","dateModified":"2022-07-09T17:27:45+09:00","datePublished":"2022-07-09T17:27:45+09:00","description":"What I learned in Kaggle Pandas, Seaborn course","headline":"ML Library cheatsheet","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/ai/ml_library_cheatsheet/","keywords":"pandas, seaborn"}</script>
+    <meta name="description" content="What I learned in Kaggle Pandas, Seaborn course">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="ML Library cheatsheet">
+<meta property="og:url" content="https://oxcarxierra.github.io/ai/ml_library_cheatsheet/index.html">
+<meta property="og:site_name" content="Blog of oxcarxierra">
+<meta property="og:description" content="What I learned in Kaggle Pandas, Seaborn course">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-09T08:27:45.000Z">
+<meta property="article:modified_time" content="2022-07-09T08:27:45.000Z">
+<meta property="article:author" content="oxcarxierra | 오승석">
+<meta property="article:tag" content="pandas">
+<meta property="article:tag" content="seaborn">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19V9VE6BEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-19V9VE6BEX');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/ai/ml_library_cheatsheet/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of oxcarxierra
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">oxcarxierra | 오승석</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">37</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">5</div>
+            </a>
+          </div>
+          <!-- <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">21</div>
+            </a>
+          </div> -->
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/categories/Review" rel="noopener" title="Monthly Reviews">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Monthly Reviews</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            ML Library cheatsheet
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2022-07-09T17:27:45+09:00">
+     Jul 09, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/AI-ML/">AI/ML</a>
+
+ 
+  <span class="post-readingtime">
+     - 4 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas"><span class="toc-text">Pandas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Methods"><span class="toc-text">Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9CSummary-Functions%E2%80%9D"><span class="toc-text">“Summary Functions”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B4%EC%9D%98-%EA%B0%81-%EC%9B%90%EC%86%8C%EC%97%90-%EC%A0%91%EA%B7%BC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-2%EA%B0%80%EC%A7%80"><span class="toc-text">열의 각 원소에 접근하는 방법 2가지</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Seaborn"><span class="toc-text">Seaborn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Line-Charts"><span class="toc-text">Line Charts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bar-Charts"><span class="toc-text">Bar Charts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Heatmap"><span class="toc-text">Heatmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScatterPlot"><span class="toc-text">ScatterPlot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Histogram-y%EC%B6%95%EC%9D%80-%ED%95%AD%EC%83%81-count"><span class="toc-text">Histogram : y축은 항상 count</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kernel-density-estimate-KDE-Plot-smoothed-histogram"><span class="toc-text">kernel density estimate (KDE) Plot : smoothed histogram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Style"><span class="toc-text">Style</span></a></li></ol></li></ol>
+
+<h2 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h2><p><strong>A DataFrame</strong> is a table. It contains an array of individual <em>entries.</em></p>
+<p>row name을 <code>index = [’A’,’B’]</code>로 할당 가능</p>
+<p><strong>A Series</strong> is a sequence of data values, a single column of a DataFrame.</p>
+<p><code>index=[’A’,’B’],name=”SERIES NAME”</code></p>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
+<li><code>pd.read_csv(’’, index_col=0)</code> : index_col은 가져오지 않음.</li>
+<li><code>DataFrame.to_csv(’name.csv’)</code> : name.csv으로 저장</li>
+<li><code>DataFrame.shape</code> : 크기 m by n</li>
+<li><code>DataFrame.describe()</code> : count, mean, Q1, Q2, Q3…</li>
+<li><code>DataFrame.iloc[:, 0]</code> : Index - based selection. row first, column next.</li>
+<li><code>DataFrame.loc[: , ‘title’]</code> : Label - based selction.</li>
+<li><code>DataFrame.set_index[‘title’]</code> : index열의 이름을 붙여줌.<br>.loc[] 내에 조건을 주어 접근 가능, &amp; , | 사용 가능</li>
+<li><code>isin</code> : <code>reviews.country.isin([&#39;Italy&#39;, &#39;France&#39;])</code></li>
+<li><code>isnull | notnull</code> : <code>reviews.price.notnull()</code></li>
+<li><code>DataFrame[’column_name’]</code> : 열 접근</li>
+<li><code>DataFrame.columns</code> : 칼럼 인덱스만 배열로 보여줌.</li>
+</ul>
+<h3 id="“Summary-Functions”"><a href="#“Summary-Functions”" class="headerlink" title="“Summary Functions”"></a>“Summary Functions”</h3><ul>
+<li><code>Series.mean()</code></li>
+<li><code>Series.unique()</code> : unique value array</li>
+<li><code>Series.value_counts()</code> : unique value와 그 빈도</li>
+</ul>
+<h3 id="열의-각-원소에-접근하는-방법-2가지"><a href="#열의-각-원소에-접근하는-방법-2가지" class="headerlink" title="열의 각 원소에 접근하는 방법 2가지"></a>열의 각 원소에 접근하는 방법 2가지</h3><ul>
+<li><code>Series.map(lambda p : ~~~ )</code> : 원소를 P로 매개변수화해서 접근</li>
+<li><code>DataFrame.apply(method, axis=”columns”)</code> : row를 변수로 받는 메소드</li>
+</ul>
+<p>! 둘 다 새로운 DataFrame이나 Series를 리턴하며, 원래의 것을 변형시키지 않는다.</p>
+<ul>
+<li>사실 이런 연산도 가능하다 :</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">review_points_mean = reviews.points.mean()</span><br><span class="line">reviews.points - review_points_mean</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>DataFrame.groupby([’columnA,&#39;columnB’])</code> : column의 value가 같은 데이터를 묶는다.<br>column이 여러개인 경우 Multi-index가 생성. 말그대로 index를 구성하는 데이터가 두개 이상.<br>multi-index를 풀려면 <code>.reset_index()</code></li>
+<li><code>DataFrame.groupby().column.agg([&#39;functionA&#39;,&#39;functionB&#39;]</code> : multi function</li>
+<li><code>DataFrame.sort_values(by=[’columnA’,&#39;columnB&#39;], ascending=Boolean)</code> : 데이터 순서 정렬</li>
+<li><code>DataFrame.sort_index()</code> : index순서로 정렬</li>
+<li><code>Series.dtype</code> : column의 data type</li>
+<li><code>Series.astype(&#39;type&#39;)</code> : column의 data type을 변환<br>! NaN은 float64타입으로 취급된다</li>
+<li><code>pd.isnull(DataFrame.column)</code> : column의 value &#x3D; NaN인 row만 추출</li>
+<li><code>Series.fillna(&#39;something&#39;)</code> : 해당 column의 nan값을 something으로 바꿔줌</li>
+<li><code>Series.replace(&#39;value1&#39;,&#39;value2&#39;)</code> : 해당 column중 value1인 것들을 value2로 바꿈</li>
+<li><code>DataFrame.rename(columns=&#123;&#39;before&#39;:&#39;after&#39;&#125;)</code></li>
+<li><code>pd.concat([DF1,DF2])</code> : field(column)이 모두 동일한 두 DF를 합침</li>
+<li><code>DF1.join(DF2, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;)</code> : index가 동일한 두 DF를 합침. lsuffix, rsuffix는 두 DF의 같은 column이 있을 때 column name 뒤에 추가됨</li>
+</ul>
+<h2 id="Seaborn"><a href="#Seaborn" class="headerlink" title="Seaborn"></a>Seaborn</h2><p><code>plt.figure(figsize=(14,6))</code> set size of chart</p>
+<h3 id="Line-Charts"><a href="#Line-Charts" class="headerlink" title="Line Charts"></a>Line Charts</h3><p><code>sns.lineplot(data=&#39;&#39;, label=&#39;&#39;)</code></p>
+<h3 id="Bar-Charts"><a href="#Bar-Charts" class="headerlink" title="Bar Charts"></a>Bar Charts</h3><p><code>sns.barplot(x=column, y=column)</code></p>
+<h3 id="Heatmap"><a href="#Heatmap" class="headerlink" title="Heatmap"></a>Heatmap</h3><p><code>sns.heatmap(data=data, annot=Boolean)</code> annot : cell 위에 숫자 표시 여부</p>
+<h3 id="ScatterPlot"><a href="#ScatterPlot" class="headerlink" title="ScatterPlot"></a>ScatterPlot</h3><ul>
+<li><code>sns.scatterplot(x=columnA, y=columnB, hue?=columnC)</code> : hue에 넣은 column은 색으로 구분</li>
+<li><code>sns.regplot(x=columnA, y=columnB)</code> : regression line</li>
+<li><code>sns.lmplot(x=columnName, y=columnName, hue=columnName, data=data)</code></li>
+</ul>
+<h3 id="Histogram-y축은-항상-count"><a href="#Histogram-y축은-항상-count" class="headerlink" title="Histogram : y축은 항상 count"></a>Histogram : y축은 항상 count</h3><p><code>sns.histplot(column)</code></p>
+<h3 id="kernel-density-estimate-KDE-Plot-smoothed-histogram"><a href="#kernel-density-estimate-KDE-Plot-smoothed-histogram" class="headerlink" title="kernel density estimate (KDE) Plot : smoothed histogram"></a>kernel density estimate (KDE) Plot : smoothed histogram</h3><ul>
+<li><code>sns.kdeplot(data=column, shade=Boolean)</code> : 1D</li>
+<li><code>sns.jointplot(x=column, y=column, kind=&quot;kde&quot;)</code></li>
+</ul>
+<h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a>Style</h3><p><code>sns.setstyle(&#39;option&#39;)</code></p>
+<ul>
+<li><code>&quot;darkgrid&quot;</code></li>
+<li><code>&quot;whitegrid&quot;</code></li>
+<li><code>&quot;dark&quot;</code></li>
+<li><code>&quot;white&quot;</code></li>
+<li><code>&quot;ticks&quot;</code></li>
+</ul>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/pandas/" rel="tag">pandas</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/seaborn/" rel="tag">seaborn</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/2022_3q_okr/" data-tooltip="2022년 3분기 OKR" aria-label="NEXT: 2022년 3분기 OKR">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2023 oxcarxierra | 오승석.
+  </span>
+  <br>
+  <span class="copyrights"> All Rights Reserved. </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="PREVIOUS: BOJ 10816번 숫자카드 2">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/2022_3q_okr/" data-tooltip="2022년 3분기 OKR" aria-label="NEXT: 2022년 3분기 OKR">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/ai/ml_library_cheatsheet/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">oxcarxierra | 오승석</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/1d1d1d.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of oxcarxierra">
+    <title>Dart 기초 문법 - Blog of oxcarxierra</title>
+    <meta name="author" content="oxcarxierra | 오승석">
+    
+        <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\n변수형\n정수형 Number\n\n문자열 String문자열 내 변수 value - ‘$value’\n\n불리안 bool\n\ntrue, false (소문자임에 주의!)\n\n타입 미지정 var, dynamic\n\n\ndynamic 타입으로 선언되면 할당되는 변수에 따라 타입이 바뀐다.\n리스트 List &lt;type&gt;\ngrowable list : 길이가 무한히 늘어날 수 있다.\nungrowable list의 선언 :12List&lt;String&gt; list = new List(n);List list_2 = new List.from([&#x27;a&#x27;,&#x27;b&#x27;])\n길이는 list.length\n\nMap 해쉬123456Map&lt;String, type&gt; dictionary = &#123;    &#x27;key&#x27;:&#x27;value&#x27;,    ...&#125;dictionary.keys.toList()\n\n\nfinal, const - 한 번만 선언하도록 설정, 차이점은 const는 compile time에 할당이 되어있어야 하고, final은 runtime에 지정\nEnum - 커스텀 변수형\n\n1enum Status = &#123;approved, rejected, pending&#125;\n\n\ntypedef 함수를 변수처럼 사용가능하게 함.\n\n연산자??&#x3D; : null인 경우 할당\n&#x2F; 계산하면 double형으로 할당\nis  , !is \n클래스class변수는 instance라고 부른다.\nconstructor의 이름은 변수이름과 같다.\n\nConstructor의 선언\n12345678class ClassName&#123;    String name;    String id;    ClassName(&#123;        String name, String id,    &#125;) : this.name = name, this.id = id;&#125;\n\nNamed Constructor\n12//선언방법ClassName.constructorName() :\nclass의 Getter와 setterclass 내에서 선언하는 변수들은 _name 언더스코어로 시작. private variable이라고 부른다.private variable은 외부에서 접근 불가. 그래서 getter, setter을 선언해준다\n12345678910111213class Idol&#123;    String _name;    String _group;    get name&#123;        return this._name;    &#125;    set name(String newname)&#123;        this._name = newname;    &#125;&#125;\n\n클래스의 상속1234567class ChildClass extends ParentClass&#123;    ChildClass(    ): super( // super은 부모클래스의 인스턴스를 지칭.    );&#125;\n\n부모 클래스의 인스턴스, 메소드 모두를 상속받음. 부모는 자식의 인스턴스와 자식을 상속받지 않음.\n부모 클래스는 두개 이상이 될 수 없다. 하나의 클래스의 자식 클래스는 여러개가 될 수 있다.\n메소드 오버라이딩자식클래스에서 메소드를 다시 작성\n12@override // decorator//이름은 같으면서 새로 쓴 메소드\n\nstatic 키워드하나의 클래스 내에 공유되는 변수가 있다면 static으로 선언해준다.\nInterface 키워드1234567891011class IdolInterface&#123;    String name;    void sayName()&#123;&#125;&#125;class BoyGroup implements IdolInterface&#123;    String name;    void sayName()&#123;        //something    &#125;&#125;\n\n클래스의 형식을 지정해주는 인터페이스\nCascade Operator1234567891011121314class Idol&#123;    String name;    String group;    void sayName()&#123;&#125;;    void sayGroup()&#123;&#125;;&#125;Idol idol = new Idol(&#x27;이름&#x27;,&#x27;그룹&#x27;);idol.sayName();idol.sayGroup();new Idol(&#x27;이름&#x27;,&#x27;그룹&#x27;)    ..sayname()    ..sayGroup();","dateCreated":"2022-10-07T22:13:45+09:00","dateModified":"2022-11-15T22:30:07+09:00","datePublished":"2022-10-07T22:13:45+09:00","description":"","headline":"Dart 기초 문법","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/development/basics-of-dart/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/development/basics-of-dart/"}</script>
+    <meta name="description" content="변수형 정수형 Number  문자열 String문자열 내 변수 value - ‘$value’  불리안 bool  true, false (소문자임에 주의!)  타입 미지정 var, dynamic   dynamic 타입으로 선언되면 할당되는 변수에 따라 타입이 바뀐다. 리스트 List &lt;type&gt; growable list : 길이가 무한히 늘">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Dart 기초 문법">
+<meta property="og:url" content="https://oxcarxierra.github.io/development/basics-of-dart/index.html">
+<meta property="og:site_name" content="Blog of oxcarxierra">
+<meta property="og:description" content="변수형 정수형 Number  문자열 String문자열 내 변수 value - ‘$value’  불리안 bool  true, false (소문자임에 주의!)  타입 미지정 var, dynamic   dynamic 타입으로 선언되면 할당되는 변수에 따라 타입이 바뀐다. 리스트 List &lt;type&gt; growable list : 길이가 무한히 늘">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-07T13:13:45.000Z">
+<meta property="article:modified_time" content="2022-11-15T13:30:07.349Z">
+<meta property="article:author" content="oxcarxierra | 오승석">
+<meta property="article:tag" content="오승석">
+<meta property="article:tag" content="oxcarxierra">
+<meta property="article:tag" content="Seungseok Oh">
+<meta property="article:tag" content="서울과학고등학교">
+<meta property="article:tag" content="서울대학교">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19V9VE6BEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-19V9VE6BEX');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/development/basics-of-dart/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of oxcarxierra
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">oxcarxierra | 오승석</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">37</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">5</div>
+            </a>
+          </div>
+          <!-- <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">21</div>
+            </a>
+          </div> -->
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/categories/Review" rel="noopener" title="Monthly Reviews">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Monthly Reviews</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Dart 기초 문법
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2022-10-07T22:13:45+09:00">
+     Oct 07, 2022 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Development/">Development</a>
+
+ 
+  <span class="post-readingtime">
+     - 4 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B3%80%EC%88%98%ED%98%95"><span class="toc-text">변수형</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-List-lt-type-gt"><span class="toc-text">리스트 List &lt;type&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map-%ED%95%B4%EC%89%AC"><span class="toc-text">Map 해쉬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90"><span class="toc-text">연산자</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">클래스</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%81%EC%86%8D"><span class="toc-text">클래스의 상속</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A9%94%EC%86%8C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9"><span class="toc-text">메소드 오버라이딩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#static-%ED%82%A4%EC%9B%8C%EB%93%9C"><span class="toc-text">static 키워드</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interface-%ED%82%A4%EC%9B%8C%EB%93%9C"><span class="toc-text">Interface 키워드</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cascade-Operator"><span class="toc-text">Cascade Operator</span></a></li></ol></li></ol>
+
+<h2 id="변수형"><a href="#변수형" class="headerlink" title="변수형"></a>변수형</h2><ul>
+<li><p>정수형 Number</p>
+</li>
+<li><p>문자열 String<br>문자열 내 변수 value - ‘$value’</p>
+</li>
+<li><p>불리안 bool</p>
+</li>
+<li><p>true, false (소문자임에 주의!)</p>
+</li>
+<li><p>타입 미지정 var, dynamic</p>
+</li>
+</ul>
+<p>dynamic 타입으로 선언되면 할당되는 변수에 따라 타입이 바뀐다.</p>
+<h2 id="리스트-List-lt-type-gt"><a href="#리스트-List-lt-type-gt" class="headerlink" title="리스트 List &lt;type&gt;"></a>리스트 List &lt;type&gt;</h2><ul>
+<li>growable list : 길이가 무한히 늘어날 수 있다.</li>
+<li>ungrowable list의 선언 :<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; list = <span class="keyword">new</span> <span class="built_in">List</span>(n);</span><br><span class="line"><span class="built_in">List</span> list_2 = <span class="keyword">new</span> <span class="built_in">List</span>.from([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+<li>길이는 list.length</li>
+</ul>
+<h2 id="Map-해쉬"><a href="#Map-해쉬" class="headerlink" title="Map 해쉬"></a>Map 해쉬</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, type&gt; dictionary = &#123;</span><br><span class="line">    <span class="string">&#x27;key&#x27;</span>:<span class="string">&#x27;value&#x27;</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">dictionary.keys.toList()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>final, const - 한 번만 선언하도록 설정, 차이점은 const는 compile time에 할당이 되어있어야 하고, final은 runtime에 지정</li>
+<li>Enum - 커스텀 변수형</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Status = &#123;approved, rejected, pending&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>typedef 함수를 변수처럼 사용가능하게 함.</li>
+</ul>
+<h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><p>??&#x3D; : null인 경우 할당</p>
+<p>&#x2F; 계산하면 double형으로 할당</p>
+<p>is <type> , !is <type></type></type></p>
+<h2 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h2><p>class변수는 instance라고 부른다.</p>
+<p>constructor의 이름은 변수이름과 같다.</p>
+<ul>
+<li><p>Constructor의 선언</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> name;</span><br><span class="line">    <span class="built_in">String</span> id;</span><br><span class="line"></span><br><span class="line">    ClassName(&#123;</span><br><span class="line">        <span class="built_in">String</span> name, <span class="built_in">String</span> id,</span><br><span class="line">    &#125;) : <span class="keyword">this</span>.name = name, <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Named Constructor</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//선언방법</span></span><br><span class="line">ClassName.constructorName() :</span><br></pre></td></tr></table></figure></li>
+<li><p>class의 Getter와 setter<br>class 내에서 선언하는 변수들은 _name 언더스코어로 시작. private variable이라고 부른다.<br>private variable은 외부에서 접근 불가. 그래서 getter, setter을 선언해준다</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Idol</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> _name;</span><br><span class="line">    <span class="built_in">String</span> _group;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span> name&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> name(<span class="built_in">String</span> newname)&#123;</span><br><span class="line">        <span class="keyword">this</span>._name = newname;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="클래스의-상속"><a href="#클래스의-상속" class="headerlink" title="클래스의 상속"></a>클래스의 상속</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">ParentClass</span></span>&#123;</span><br><span class="line">    ChildClass(</span><br><span class="line"></span><br><span class="line">    ): <span class="keyword">super</span>( <span class="comment">// super은 부모클래스의 인스턴스를 지칭.</span></span><br><span class="line"></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>부모 클래스의 인스턴스, 메소드 모두를 상속받음. 부모는 자식의 인스턴스와 자식을 상속받지 않음.</p>
+<p>부모 클래스는 두개 이상이 될 수 없다. 하나의 클래스의 자식 클래스는 여러개가 될 수 있다.</p>
+<h3 id="메소드-오버라이딩"><a href="#메소드-오버라이딩" class="headerlink" title="메소드 오버라이딩"></a>메소드 오버라이딩</h3><p>자식클래스에서 메소드를 다시 작성</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span> <span class="comment">// decorator</span></span><br><span class="line"><span class="comment">//이름은 같으면서 새로 쓴 메소드</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="static-키워드"><a href="#static-키워드" class="headerlink" title="static 키워드"></a>static 키워드</h3><p>하나의 클래스 내에 공유되는 변수가 있다면 <code>static</code>으로 선언해준다.</p>
+<h3 id="Interface-키워드"><a href="#Interface-키워드" class="headerlink" title="Interface 키워드"></a>Interface 키워드</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IdolInterface</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> name;</span><br><span class="line">    <span class="keyword">void</span> sayName()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BoyGroup</span> <span class="keyword">implements</span> <span class="title">IdolInterface</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> name;</span><br><span class="line">    <span class="keyword">void</span> sayName()&#123;</span><br><span class="line">        <span class="comment">//something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>클래스의 형식을 지정해주는 인터페이스</p>
+<h3 id="Cascade-Operator"><a href="#Cascade-Operator" class="headerlink" title="Cascade Operator"></a>Cascade Operator</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Idol</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> name;</span><br><span class="line">    <span class="built_in">String</span> group;</span><br><span class="line">    <span class="keyword">void</span> sayName()&#123;&#125;;</span><br><span class="line">    <span class="keyword">void</span> sayGroup()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Idol idol = <span class="keyword">new</span> Idol(<span class="string">&#x27;이름&#x27;</span>,<span class="string">&#x27;그룹&#x27;</span>);</span><br><span class="line">idol.sayName();</span><br><span class="line">idol.sayGroup();</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Idol(<span class="string">&#x27;이름&#x27;</span>,<span class="string">&#x27;그룹&#x27;</span>)</span><br><span class="line">    ..sayname()</span><br><span class="line">    ..sayGroup();</span><br></pre></td></tr></table></figure>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/development/using-luxon-js/" data-tooltip="[React] Luxon.js 라이브러리로 날짜/시간 포맷팅하기" aria-label="PREVIOUS: [React] Luxon.js 라이브러리로 날짜/시간 포맷팅하기">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/2022-4q-okr/" data-tooltip="2022년 4분기 OKR" aria-label="NEXT: 2022년 4분기 OKR">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2023 oxcarxierra | 오승석.
+  </span>
+  <br>
+  <span class="copyrights"> All Rights Reserved. </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/development/using-luxon-js/" data-tooltip="[React] Luxon.js 라이브러리로 날짜/시간 포맷팅하기" aria-label="PREVIOUS: [React] Luxon.js 라이브러리로 날짜/시간 포맷팅하기">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2022/2022-4q-okr/" data-tooltip="2022년 4분기 OKR" aria-label="NEXT: 2022년 4분기 OKR">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/development/basics-of-dart/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/development/basics-of-dart/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/development/basics-of-dart/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/development/basics-of-dart/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">oxcarxierra | 오승석</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/1d1d1d.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

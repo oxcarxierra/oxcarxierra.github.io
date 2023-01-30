@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2023-01-02T11:36:15.000Z</updated>
+  <updated>2023-01-29T15:37:13.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,9 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결</title>
+    <link href="https://oxcarxierra.github.io/development/react-native-init-ruby-version-error/"/>
+    <id>https://oxcarxierra.github.io/development/react-native-init-ruby-version-error/</id>
+    <published>2023-01-29T15:37:13.000Z</published>
+    <updated>2023-01-29T15:37:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><h2 id="React-Native-프로젝트-생성시-발생한-에러"><a href="#React-Native-프로젝트-생성시-발생한-에러" class="headerlink" title="React Native 프로젝트 생성시 발생한 에러"></a>React Native 프로젝트 생성시 발생한 에러</h2><p>오랜만에 설레는 마음으로 터미널을 켜고 React Native 프로젝트를 생성하는 순간</p><br /><div class="figure center fig-100" style="width:;"><a class="fancybox" href="https://i.imgur.com/XzgKlos.png" title="" data-caption="" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/XzgKlos.png" alt=""></a></div><div style="clear:both;"></div><p><code>Installing Bundler</code>단계에서 펑!하고 터져버렸다. <del>머선129</del></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ignoring digest-crc-0.6.3 because its extensions are not built. Try: gem pristine digest-crc --version 0.6.3</span><br><span class="line">Ignoring unf_ext-crc-0.0.7.7 because its extensions are not built. Try: gem pristine unf_ext --version 0.0.7.7</span><br><span class="line"></span><br><span class="line">Error: Looks like your iOS environment is not properly set. ~~</span><br></pre></td></tr></table></figure><p>Try해보라는 커맨드를 입력해봤지만 같은 에러가 뜨기는 마찬가지였다. 약간의 구글링과 삽질을 통해 ruby 버전의 문제임을 알았다. 내 mac에 설치된 Ruby의 버전이 낮아서, 업데이트하니 말끔히 해결되었다.</p><h2 id="Ruby-버전-업데이트"><a href="#Ruby-버전-업데이트" class="headerlink" title="Ruby 버전 업데이트"></a>Ruby 버전 업데이트</h2><p>현재 작업중인 폴더에 설치된 Ruby의 버전은 아래 커맨드로 확인할 수 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby --version</span><br></pre></td></tr></table></figure><p>Ruby의 버전을 선택해서 설치하거나 업그레이드하려면, Ruby 버전 관리 툴인 <code>rbenv</code>를 설치해야한다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line"></span><br><span class="line">$ brew install rbenv</span><br></pre></td></tr></table></figure><p>이후 React Native에서 요구하는 버전으로 Ruby를 새로 설치하자. 필요한 Ruby의 버전은 <a href="https://github.com/facebook/react-native/blob/main/.ruby-version">여기</a>에서 확인할 수 있다. 글을 작성하는 시점에는 2.7.6으로 되어있었다. 참고로 상위 버전의 Ruby를 설치했을 때에도 오류가 나서, 정확히 일치하는 버전을 설치해야 하는 것 같다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv install 2.7.6</span><br></pre></td></tr></table></figure><p>이후 아래 커맨드를 통해 rbenv에 설치된 Ruby를 사용하도록 설정해준다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv global 2.7.6</span><br><span class="line"></span><br><span class="line">$ ruby --version</span><br><span class="line">* 2.7.6</span><br></pre></td></tr></table></figure><p>만약 <code>rbenv global</code> 커맨드 이후에도 <code>ruby --version</code>이 바뀌지 않는다면, 환경변수 설정이 필요하다. <code>eval &quot;$(rbenv init - zsh)&quot;</code>를 <code>~/.zshrc</code>파일에 추가해주면, Ruby 버전이 정상적으로 반영된 것을 확인할 수 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 마지막줄에 eval &quot;$(rbenv init - zsh)&quot; 추가</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line">$ ruby --version</span><br><span class="line">* 2.7.6</span><br></pre></td></tr></table></figure><p>이제 다시 설레는 마음으로 새로운 프로젝트를 시작해보자!</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native init myProject --template react-native-template-typescript</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;h2 id=&quot;React-Native-프로젝트-생성시-발생한-에러&quot;&gt;&lt;a href=&quot;#React-Native-프로젝트-생성시-발생한-에러&quot; class=&quot;headerlink&quot; title=&quot;React Native 프로젝트 </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회</title>
-    <link href="https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/"/>
-    <id>https://oxcarxierra.github.io/AI-ML/ai/multi-stage-continuous-flow-manufacturing-process-competition/</id>
+    <link href="https://oxcarxierra.github.io/ai/multi-stage-continuous-flow-manufacturing-process-competition/"/>
+    <id>https://oxcarxierra.github.io/ai/multi-stage-continuous-flow-manufacturing-process-competition/</id>
     <published>2023-01-02T11:36:15.000Z</published>
     <updated>2023-01-02T11:36:15.000Z</updated>
     
@@ -44,8 +66,8 @@
   
   <entry>
     <title>2022년 12월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/december-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/december-2022-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/december-2022-review/"/>
+    <id>https://oxcarxierra.github.io/2022/december-2022-review/</id>
     <published>2022-12-31T01:24:08.000Z</published>
     <updated>2022-12-31T01:24:08.000Z</updated>
     
@@ -67,8 +89,8 @@
   
   <entry>
     <title>2022년 11월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/november-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/november-2022-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/november-2022-review/"/>
+    <id>https://oxcarxierra.github.io/2022/november-2022-review/</id>
     <published>2022-11-30T11:37:11.000Z</published>
     <updated>2022-11-30T11:37:11.000Z</updated>
     
@@ -90,8 +112,8 @@
   
   <entry>
     <title>[React] Library not loaded: @rpath/hermes.framework/hermes 에러</title>
-    <link href="https://oxcarxierra.github.io/Development/development/react-build-hermes-error/"/>
-    <id>https://oxcarxierra.github.io/Development/development/react-build-hermes-error/</id>
+    <link href="https://oxcarxierra.github.io/development/react-build-hermes-error/"/>
+    <id>https://oxcarxierra.github.io/development/react-build-hermes-error/</id>
     <published>2022-11-21T12:29:08.000Z</published>
     <updated>2022-11-21T13:12:23.816Z</updated>
     
@@ -119,8 +141,8 @@
   
   <entry>
     <title>[2022 군장병 공개 SW 온라인 해커톤] 과학기술정보통신부 장관상 수상 후기</title>
-    <link href="https://oxcarxierra.github.io/Development/2022/army-hackathon-review/"/>
-    <id>https://oxcarxierra.github.io/Development/2022/army-hackathon-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/army-hackathon-review/"/>
+    <id>https://oxcarxierra.github.io/2022/army-hackathon-review/</id>
     <published>2022-11-14T10:41:15.000Z</published>
     <updated>2022-11-14T10:41:15.000Z</updated>
     
@@ -146,8 +168,8 @@
   
   <entry>
     <title>[React] Axios를 React Hook으로 사용하기</title>
-    <link href="https://oxcarxierra.github.io/Development/development/use_axios_as_react_hook/"/>
-    <id>https://oxcarxierra.github.io/Development/development/use_axios_as_react_hook/</id>
+    <link href="https://oxcarxierra.github.io/development/use_axios_as_react_hook/"/>
+    <id>https://oxcarxierra.github.io/development/use_axios_as_react_hook/</id>
     <published>2022-11-05T13:03:24.000Z</published>
     <updated>2022-11-15T13:33:17.450Z</updated>
     
@@ -167,8 +189,8 @@
   
   <entry>
     <title>2022년 10월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/october-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/october-2022-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/october-2022-review/"/>
+    <id>https://oxcarxierra.github.io/2022/october-2022-review/</id>
     <published>2022-11-03T07:18:39.000Z</published>
     <updated>2022-11-03T07:18:39.000Z</updated>
     
@@ -193,8 +215,8 @@
   
   <entry>
     <title>[React] Luxon.js 라이브러리로 날짜/시간 포맷팅하기</title>
-    <link href="https://oxcarxierra.github.io/Development/development/using-luxon-js/"/>
-    <id>https://oxcarxierra.github.io/Development/development/using-luxon-js/</id>
+    <link href="https://oxcarxierra.github.io/development/using-luxon-js/"/>
+    <id>https://oxcarxierra.github.io/development/using-luxon-js/</id>
     <published>2022-10-23T14:35:03.000Z</published>
     <updated>2022-11-15T13:33:42.106Z</updated>
     
@@ -219,8 +241,8 @@
   
   <entry>
     <title>Dart 기초 문법</title>
-    <link href="https://oxcarxierra.github.io/Development/development/basics-of-dart/"/>
-    <id>https://oxcarxierra.github.io/Development/development/basics-of-dart/</id>
+    <link href="https://oxcarxierra.github.io/development/basics-of-dart/"/>
+    <id>https://oxcarxierra.github.io/development/basics-of-dart/</id>
     <published>2022-10-07T13:13:45.000Z</published>
     <updated>2022-11-15T13:30:07.349Z</updated>
     
@@ -248,8 +270,8 @@
   
   <entry>
     <title>2022년 4분기 OKR</title>
-    <link href="https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/"/>
-    <id>https://oxcarxierra.github.io/OKR/2022/2022-4q-okr/</id>
+    <link href="https://oxcarxierra.github.io/2022/2022-4q-okr/"/>
+    <id>https://oxcarxierra.github.io/2022/2022-4q-okr/</id>
     <published>2022-10-02T01:50:18.000Z</published>
     <updated>2022-11-03T13:10:00.611Z</updated>
     
@@ -273,8 +295,8 @@
   
   <entry>
     <title>2022년 9월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/september-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/september-2022-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/september-2022-review/"/>
+    <id>https://oxcarxierra.github.io/2022/september-2022-review/</id>
     <published>2022-09-29T17:17:42.000Z</published>
     <updated>2022-12-28T11:34:36.364Z</updated>
     
@@ -299,8 +321,8 @@
   
   <entry>
     <title>[React] Expo 이용해서 React Native 앱 시작하기</title>
-    <link href="https://oxcarxierra.github.io/Development/development/starting-expo-app/"/>
-    <id>https://oxcarxierra.github.io/Development/development/starting-expo-app/</id>
+    <link href="https://oxcarxierra.github.io/development/starting-expo-app/"/>
+    <id>https://oxcarxierra.github.io/development/starting-expo-app/</id>
     <published>2022-09-27T02:20:51.000Z</published>
     <updated>2022-11-15T13:33:59.659Z</updated>
     
@@ -320,8 +342,8 @@
   
   <entry>
     <title>2022년 8월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/august-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/august-2022-review/</id>
+    <link href="https://oxcarxierra.github.io/2022/august-2022-review/"/>
+    <id>https://oxcarxierra.github.io/2022/august-2022-review/</id>
     <published>2022-09-01T10:59:02.000Z</published>
     <updated>2022-12-28T11:34:36.523Z</updated>
     
@@ -345,8 +367,8 @@
   
   <entry>
     <title>비트마스킹 Bitmask</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-bitmask-1052/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-bitmask-1052/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-bitmask-1052/</id>
     <published>2022-08-22T13:03:21.000Z</published>
     <updated>2022-09-29T17:39:26.470Z</updated>
     
@@ -366,8 +388,8 @@
   
   <entry>
     <title>BOJ 15686번 치킨 배달</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-15686/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-15686/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-15686/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-15686/</id>
     <published>2022-08-16T11:20:38.000Z</published>
     <updated>2022-09-29T17:39:26.479Z</updated>
     
@@ -392,8 +414,8 @@
   
   <entry>
     <title>BOJ 9935번 문자열 폭발</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-9935/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-9935/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-9935/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-9935/</id>
     <published>2022-08-16T06:52:39.000Z</published>
     <updated>2022-08-16T07:01:24.351Z</updated>
     
@@ -420,8 +442,8 @@
   
   <entry>
     <title>위상 정렬 알고리즘 Topological Sort</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-topological-sort/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-topological-sort/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-topological-sort/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-topological-sort/</id>
     <published>2022-08-09T06:03:19.000Z</published>
     <updated>2022-09-29T17:39:26.470Z</updated>
     
@@ -443,8 +465,8 @@
   
   <entry>
     <title>Kruskal 알고리즘 (최소 스패닝 트리 문제)</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-kruskal/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-kruskal/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-kruskal/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-kruskal/</id>
     <published>2022-08-07T07:37:56.000Z</published>
     <updated>2022-09-29T17:39:26.483Z</updated>
     
@@ -466,8 +488,8 @@
   
   <entry>
     <title>Union-Find 자료구조 (상호 배타적 집합 Disjoint Set)</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-disjoint-set/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-disjoint-set/</id>
+    <link href="https://oxcarxierra.github.io/algorithm/boj-disjoint-set/"/>
+    <id>https://oxcarxierra.github.io/algorithm/boj-disjoint-set/</id>
     <published>2022-08-07T05:40:33.000Z</published>
     <updated>2022-09-29T17:39:26.761Z</updated>
     
@@ -482,33 +504,6 @@
     
     
     <category term="data structure" scheme="https://oxcarxierra.github.io/tags/data-structure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 2239번 스도쿠</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/algorithm/boj-2239/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/algorithm/boj-2239/</id>
-    <published>2022-08-06T16:41:40.000Z</published>
-    <updated>2022-08-07T05:12:39.154Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p>하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오.</p><h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><ul><li><a href="#">Post not found: boj-9663 BOJ 9663 N-Queen문제</a>와 비슷하게, 백트래킹을 이용한다. 초기에 0이었던 위치에 1~9를 대입해보며 같은 행/열/사각형에 겹치는 숫자가 있는지 promising을 거치며 DFS를 실행한다.</li><li><p>현재 검사하고 있는 칸을 x,y좌표로 두는 것 보다, (0,0)에서부터 순서를 정해 cnt로 정의하면 <code>cnt // 9</code>, <code>cnt % 9</code>로 좌표를 구할 수 있어 편하다.</p></li><li><p>처음에 <code>cnt==81</code> 조건 이후 <code>return</code>을 넣었더니 출력초과가 떴다. 만족하는 모든 스도쿠의 해를 출력하고 있었던 것이다. 이 때 이용할 수 있는 함수가 <code>exit()</code>으로, 도달하면 컴파일된 프로그램 전체를 종료하기 때문에 처음으로 구한 해만 출력하고 종료할 수 있게 된다.</p></li></ul><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><figcaption><span>BOJ 2239 스도쿠</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">s = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>()] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)]</span><br><span class="line">r, c, sq = [[<span class="literal">False</span>]*<span class="number">10</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)],[[<span class="literal">False</span>]*<span class="number">10</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)],[[<span class="literal">False</span>]*<span class="number">10</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">    x = s[i][j]</span><br><span class="line">    r[i][x] = c[j][x] = sq[(i//<span class="number">3</span>)*<span class="number">3</span>+j//<span class="number">3</span>][x] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">cnt</span>):</span><br><span class="line">  <span class="keyword">global</span> r, c, sq</span><br><span class="line">  <span class="keyword">if</span> cnt == <span class="number">81</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">      <span class="built_in">print</span>(*i, sep=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    exit()</span><br><span class="line">  x,y = cnt // <span class="number">9</span>, cnt%<span class="number">9</span></span><br><span class="line">  <span class="keyword">if</span> s[x][y] == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> r[x][i] <span class="keyword">and</span> <span class="keyword">not</span> c[y][i] <span class="keyword">and</span> <span class="keyword">not</span> sq[(x//<span class="number">3</span>)*<span class="number">3</span>+y//<span class="number">3</span>][i]:</span><br><span class="line">        s[x][y] = i</span><br><span class="line">        r[x][i] = c[y][i] = sq[(x//<span class="number">3</span>)*<span class="number">3</span>+y//<span class="number">3</span>][i] = <span class="literal">True</span></span><br><span class="line">        solve(cnt+<span class="number">1</span>)</span><br><span class="line">        s[x][y] = <span class="number">0</span></span><br><span class="line">        r[x][i] = c[y][i] = sq[(x//<span class="number">3</span>)*<span class="number">3</span>+y//<span class="number">3</span>][i] = <span class="literal">False</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    solve(cnt+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">solve(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h2&gt;&lt;p&gt;하다 만 스도쿠 퍼즐이 주어졌을 때, 마저 끝내는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;접근&quot;</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="backtracking" scheme="https://oxcarxierra.github.io/tags/backtracking/"/>
     
   </entry>
   
