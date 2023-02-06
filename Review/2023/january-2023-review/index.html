@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog of oxcarxierra">
-    <title>탐욕법 Greedy Algorithm - Blog of oxcarxierra</title>
+    <title>2023년 1월 회고 - Blog of oxcarxierra</title>
     <meta name="author" content="oxcarxierra | 오승석">
     
         <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
@@ -19,18 +19,22 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nGreedy Algorithm탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.\n\n탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제\n다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.\n\n탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면\n\n탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)\n항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명\n\nBOJ 1931 회의실 배정초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.\n12345678910111213141516def greedy():  global cnt, time  time_min = time[0]  new_time=[]  for i in time:    if not time_min[1]&lt;=i[0]:      new_time.append(i)  time=new_time  print(time)  cnt += 1  if time:    greedy()  else:    print(cnt)greedy()\n\n탐욕법 이용:\n1234567891011import sysN = int(sys.stdin.readline())time = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]cnt = 1time.sort(key=lambda t: (t[1],t[0]))end_time = time[0][1]for i in range(1,N):  if time[i][0] &gt;= end_time:    cnt += 1    end_time=time[i][1]print(cnt)","dateCreated":"2022-07-16T17:27:45+09:00","dateModified":"2022-07-16T17:27:45+09:00","datePublished":"2022-07-16T17:27:45+09:00","description":"BOJ 1931 회의실 배정","headline":"탐욕법 Greedy Algorithm","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_1931/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_1931/","keywords":"greedy algorithm","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
-    <meta name="description" content="BOJ 1931 회의실 배정">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"2월 회고를 일주일이나 지나서 쓰는… 귀찮음 + 바쁨을 핑계로 대겠다.\n2023년의 첫 한 달은 넘치는 포데이 덕분에 부대에서 일한 시간보다 밖에서 코딩한 시간이 더 많았던 것 같다. 매일 알차게 살긴 했는데, 국방부 시계가 멈춘다는 상말이라 그런건지 단순히 번아웃 때문인지 최근들어 알 수 없는 답답함과 찝찝함이 자꾸 든다.\nADDIT 팀에서 NextJs 기반의 웹을 제작해서, 배포까지 완료했다. 궁극적으로 만들고자 하는 아이템의 프로토타입으로서 테마를 축구로 Lean하게 좁힌 에디터를 구현해보기로 했다. 오랜만에 NextJs를 써보니 예전에 이해도가 부족한 상태로 사용할 때 보다 그 진가를 좀 알게 된 느낌이다. 그리고 지금까지 쌓인 노하우와 컨벤션을 최대한 적용해보면서, 옛날에 내가 썼던 코드들보다 훨씬 깔끔해진 걸 느낄 수 있었다.\n작년에 앱스토어에 출시했던 USFK Bus 앱을 사실상 손 놓고 방치해두고 있었는데, 어떤 미군이 잘 쓰고 있다면서 셔틀버스 시간표가 바뀌는데 업데이트 좀 해달라는 메일을 보내왔다. 순간 이 시장(?)을 독점할 수 있는 절호의 기회라는 생각에 급하게 데이터를 모으고 DB를 새로 팠다. Django랑 MySQL 지식을 많이 까먹어서 좀 헤멨지만 생각보다 빨리 감을 잡아서 업데이트 후 일단 배포까지 마무리했다. 역시 서비스는 유저가 있어야 그 의미가 생기고, 개발자는 동기부여를 얻는다. 앞으로 여러 부가기능 추가를 포함해서 유지보수를 꾸준히 해야겠다. 캠프 케이시 시간표도 추가할 예정이다.\n부스트코스 코칭스터디 9기 &lt;인공지능 기초 다지기&gt; 프로그램에 리드부스터로 참여하는 중이다. 강의를 들을 시간이 많지 않기도 하고, 지금까지는 알고 있던 내용이라 대충 넘기고 있는데 앞으로 남은 강의는 챙기면서 본격 딥러닝 복습을 시작해봐야겠다.\n읽은 책들\n&lt;위험한 숫자들 The Number Bias&gt;, 사너 블라우 (진중문고)\n\n책을.. 많이 .. 읽자.. 제발..\n","dateCreated":"2023-02-06T00:23:37+09:00","dateModified":"2023-02-06T00:23:37+09:00","datePublished":"2023-02-06T00:23:37+09:00","description":"","headline":"2023년 1월 회고","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Review/2023/january-2023-review/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Review/2023/january-2023-review/"}</script>
+    <meta name="description" content="2월 회고를 일주일이나 지나서 쓰는… 귀찮음 + 바쁨을 핑계로 대겠다. 2023년의 첫 한 달은 넘치는 포데이 덕분에 부대에서 일한 시간보다 밖에서 코딩한 시간이 더 많았던 것 같다. 매일 알차게 살긴 했는데, 국방부 시계가 멈춘다는 상말이라 그런건지 단순히 번아웃 때문인지 최근들어 알 수 없는 답답함과 찝찝함이 자꾸 든다. ADDIT 팀에서 NextJs">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="탐욕법 Greedy Algorithm">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_1931/index.html">
+<meta property="og:title" content="2023년 1월 회고">
+<meta property="og:url" content="https://oxcarxierra.github.io/Review/2023/january-2023-review/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
-<meta property="og:description" content="BOJ 1931 회의실 배정">
+<meta property="og:description" content="2월 회고를 일주일이나 지나서 쓰는… 귀찮음 + 바쁨을 핑계로 대겠다. 2023년의 첫 한 달은 넘치는 포데이 덕분에 부대에서 일한 시간보다 밖에서 코딩한 시간이 더 많았던 것 같다. 매일 알차게 살긴 했는데, 국방부 시계가 멈춘다는 상말이라 그런건지 단순히 번아웃 때문인지 최근들어 알 수 없는 답답함과 찝찝함이 자꾸 든다. ADDIT 팀에서 NextJs">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-16T08:27:45.000Z">
-<meta property="article:modified_time" content="2022-07-16T08:27:45.000Z">
+<meta property="article:published_time" content="2023-02-05T15:23:37.000Z">
+<meta property="article:modified_time" content="2023-02-05T15:23:37.000Z">
 <meta property="article:author" content="oxcarxierra | 오승석">
-<meta property="article:tag" content="greedy algorithm">
+<meta property="article:tag" content="오승석">
+<meta property="article:tag" content="oxcarxierra">
+<meta property="article:tag" content="Seungseok Oh">
+<meta property="article:tag" content="서울과학고등학교">
+<meta property="article:tag" content="서울대학교">
 <meta name="twitter:card" content="summary">
     
     
@@ -39,9 +43,6 @@
     
         <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
     
-    
-        <meta property="og:image" content="https://i.imgur.com/ydX4P1X.png">
-        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/ydX4P1X.png">
     
     
     
@@ -75,7 +76,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj_1931/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/review/2023/january-2023-review/">
 </head>
 
     <body>
@@ -235,22 +236,22 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            탐욕법 Greedy Algorithm
+            2023년 1월 회고
         </h1>
     
     
         <div class="post-meta">
-  <time datetime="2022-07-16T17:27:45+09:00">
-     Jul 16, 2022 
+  <time datetime="2023-02-06T00:23:37+09:00">
+     Feb 06, 2023 
   </time>
   
   <span>in </span>
   
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="category-link" href="/categories/Review/">Review</a>
 
  
   <span class="post-readingtime">
-     - 2 min read
+     - 4 min read
   </span>
 </div>
 
@@ -260,24 +261,16 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
-<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Greedy-Algorithm"><span class="toc-text">Greedy Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-1931-%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95"><span class="toc-text">BOJ 1931 회의실 배정</span></a></li></ol>
+            <p>2월 회고를 일주일이나 지나서 쓰는… 귀찮음 + 바쁨을 핑계로 대겠다.</p>
+<p>2023년의 첫 한 달은 넘치는 포데이 덕분에 부대에서 일한 시간보다 밖에서 코딩한 시간이 더 많았던 것 같다. 매일 알차게 살긴 했는데, 국방부 시계가 멈춘다는 상말이라 그런건지 단순히 번아웃 때문인지 최근들어 알 수 없는 답답함과 찝찝함이 자꾸 든다.</p>
+<p>ADDIT 팀에서 NextJs 기반의 웹을 제작해서, 배포까지 완료했다. 궁극적으로 만들고자 하는 아이템의 프로토타입으로서 테마를 축구로 Lean하게 좁힌 에디터를 구현해보기로 했다. 오랜만에 NextJs를 써보니 예전에 이해도가 부족한 상태로 사용할 때 보다 그 진가를 좀 알게 된 느낌이다. 그리고 지금까지 쌓인 노하우와 컨벤션을 최대한 적용해보면서, 옛날에 내가 썼던 코드들보다 훨씬 깔끔해진 걸 느낄 수 있었다.</p>
+<p>작년에 앱스토어에 출시했던 USFK Bus 앱을 사실상 손 놓고 방치해두고 있었는데, 어떤 미군이 잘 쓰고 있다면서 셔틀버스 시간표가 바뀌는데 업데이트 좀 해달라는 메일을 보내왔다. 순간 이 시장(?)을 독점할 수 있는 절호의 기회라는 생각에 급하게 데이터를 모으고 DB를 새로 팠다. Django랑 MySQL 지식을 많이 까먹어서 좀 헤멨지만 생각보다 빨리 감을 잡아서 업데이트 후 일단 배포까지 마무리했다. 역시 서비스는 유저가 있어야 그 의미가 생기고, 개발자는 동기부여를 얻는다. 앞으로 여러 부가기능 추가를 포함해서 유지보수를 꾸준히 해야겠다. 캠프 케이시 시간표도 추가할 예정이다.</p>
+<p>부스트코스 코칭스터디 9기 &lt;인공지능 기초 다지기&gt; 프로그램에 리드부스터로 참여하는 중이다. 강의를 들을 시간이 많지 않기도 하고, 지금까지는 알고 있던 내용이라 대충 넘기고 있는데 앞으로 남은 강의는 챙기면서 본격 딥러닝 복습을 시작해봐야겠다.</p>
+<h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul>
+<li><strong>&lt;위험한 숫자들 The Number Bias&gt;</strong>, 사너 블라우 (진중문고)</li>
+</ul>
+<p><del>책을.. 많이 .. 읽자.. 제발..</del></p>
 
-<h2 id="Greedy-Algorithm"><a href="#Greedy-Algorithm" class="headerlink" title="Greedy Algorithm"></a>Greedy Algorithm</h2><p>탐욕적 알고리즘(그리디 알고리즘)이 사용되는 경우는 두 가지가 있다.</p>
-<ol>
-<li>탐욕법을 사용해도 항상 최적해를 구할 수 있는 문제</li>
-<li>다른 방법으로 최적해를 찾기 너무 어려울 때 근사해를 구할 수 있음.</li>
-</ol>
-<p>탐욕적 알고리즘으로 찾은 해가 항상 최적해라는 정당성을 증명하려면</p>
-<ol>
-<li>탐욕적으로만 선택하더라도 최적해를 구할 수 있다는 것. 즉, 적어도 하나의 최적해는 이 알고리즘으로 구할 수 있다는 것.(탐욕적 선택 속성, greedy choice property)</li>
-<li>항상 최적의 선택만을 내려서 전체 문제의 최적해를 얻을 수 있음을 증명. (최적 부분 구조, optimal substructure) ⇒ 대부분은 자명</li>
-</ol>
-<h2 id="BOJ-1931-회의실-배정"><a href="#BOJ-1931-회의실-배정" class="headerlink" title="BOJ 1931 회의실 배정"></a>BOJ 1931 회의실 배정</h2><p>초기 시도: 재귀, 분할정복을 이용해보았지만 시간초과.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greedy</span>():</span><br><span class="line">  <span class="keyword">global</span> cnt, time</span><br><span class="line">  time_min = time[<span class="number">0</span>]</span><br><span class="line">  new_time=[]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> time:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> time_min[<span class="number">1</span>]&lt;=i[<span class="number">0</span>]:</span><br><span class="line">      new_time.append(i)</span><br><span class="line">  time=new_time</span><br><span class="line">  <span class="built_in">print</span>(time)</span><br><span class="line">  cnt += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> time:</span><br><span class="line">    greedy()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(cnt)</span><br><span class="line"></span><br><span class="line">greedy()</span><br></pre></td></tr></table></figure>
-
-<p>탐욕법 이용:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">time = [<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line">time.sort(key=<span class="keyword">lambda</span> t: (t[<span class="number">1</span>],t[<span class="number">0</span>]))</span><br><span class="line">end_time = time[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,N):</span><br><span class="line">  <span class="keyword">if</span> time[i][<span class="number">0</span>] &gt;= end_time:</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line">    end_time=time[i][<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure>
             
 
 
@@ -285,22 +278,14 @@
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
-                
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/greedy-algorithm/" rel="tag">greedy algorithm</a>
-
-            </div>
-        
         
             <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -308,7 +293,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/react-native-init-ruby-version-error/" data-tooltip="[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결" aria-label="NEXT: [React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -328,7 +313,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -341,7 +326,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -354,7 +339,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -367,7 +352,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -401,9 +386,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_11723/" data-tooltip="BOJ 11053 가장 긴 증가하는 부분수열" aria-label="PREVIOUS: BOJ 11053 가장 긴 증가하는 부분수열">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -411,7 +395,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_10816/" data-tooltip="BOJ 10816번 숫자카드 2" aria-label="NEXT: BOJ 10816번 숫자카드 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/react-native-init-ruby-version-error/" data-tooltip="[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결" aria-label="NEXT: [React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +415,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -444,7 +428,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -457,7 +441,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/january-2023-review/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -470,7 +454,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -488,7 +472,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/january-2023-review/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -496,7 +480,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/january-2023-review/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -504,7 +488,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_1931/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/january-2023-review/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
