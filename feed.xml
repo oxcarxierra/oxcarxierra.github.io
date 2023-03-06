@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2023-02-05T15:23:37.000Z</updated>
+  <updated>2023-02-28T13:33:39.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023년 2월 회고</title>
+    <link href="https://oxcarxierra.github.io/Review/2023/february-2023-review/"/>
+    <id>https://oxcarxierra.github.io/Review/2023/february-2023-review/</id>
+    <published>2023-02-28T13:33:39.000Z</published>
+    <updated>2023-02-28T13:33:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><p>번아웃이 씨게 온 한 달이었다. 슬슬 전역이 눈 앞에 보이는가 싶지만 디데이 속 숮자는 아직 세자리다. 사실 이 정도 기간이면 뭐 하나 정도는 더 할 수 있을 것 같아서 이대로 군생활을 끝내기엔 아직 아쉽다. 다만 뭘 할 수 있을지 잘 모르겠다.</p><p>험프리스 버스 노선도가 두 번이나 바뀌면서 USFK Bus App의 대대적인 업데이트를 진행했다. 덕분에 작년에 짜 놓은 코드를 보면서 한숨을 쉬며 리팩토링을 조금 했는데, 확실히 (리액트 한정) 실력이 늘긴 한 것 같았다. 이 참에 서버를 AWS로 옮기는 것도 시도해봤는데, 사실 유저수가 많지도 않고 생각보다 복잡해서 그만두기로 했다.</p><p>사이드프로젝트로 HYPE이라는 앱 개발을 시작했다. 우연한 인연으로 좋은 팀을 꾸려서 간간히 진행했는데, 그동안 시작만 해놓고 끝을 보지 못했던 프로젝트들과는 달리 기대가 된다. 특히 이번에 React-Query를 충분히 이해하고 사용해서 상태관리 라이브러리를 최소한으로 쓰려고 하고 있어서, Recoil이라는 새로운 라이브러리도 연습해보려고 한다.</p><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul><li><strong>&lt;인간 실격&gt;</strong>, 다자이 오사무</li><li><strong>&lt;2022 한국이 열광할 세계 트렌드&gt;</strong>, KOTRA (진중문고)</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;p&gt;번아웃이 씨게 온 한 달이었다. 슬슬 전역이 눈 앞에 보이는가 싶지만 디데이 속 숮자는 아직 세자리다. 사실 이 정도 기간이면 뭐 하나 정도는 더 할 수 있을 것 같아서 이대로 군생활을 끝내기엔 아직 아쉽다. 다만</summary>
+      
+    
+    
+    
+    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2023년 1월 회고</title>
@@ -485,29 +509,6 @@
     <category term="graph" scheme="https://oxcarxierra.github.io/tags/graph/"/>
     
     <category term="sort" scheme="https://oxcarxierra.github.io/tags/sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kruskal 알고리즘 (최소 스패닝 트리 문제)</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/boj-kruskal/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/boj-kruskal/</id>
-    <published>2022-08-07T07:37:56.000Z</published>
-    <updated>2022-08-07T07:37:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><hr><h2 id="최소-스패닝-트리-Minimum-Spanning-Tree-MST"><a href="#최소-스패닝-트리-Minimum-Spanning-Tree-MST" class="headerlink" title="최소 스패닝 트리 (Minimum Spanning Tree, MST)"></a>최소 스패닝 트리 (Minimum Spanning Tree, MST)</h2><p><strong>스패닝 트리 Spanning tree</strong>는 무향 그래프의 정점 전부와 간선의 부분집합으로 구성되어 있으면서, 모든 정점이 연결된 부분 그래프로 정의한다. 연결되기만 하면 되는 점에서 당연히 스패닝 트리는 하나가 아니다. 이 중 간선에 가중치가 부여된 경우 <strong>가중치의 합이 가장 작은 스패닝 트리</strong>를 찾는 문제가 <strong>최소 스패닝 트리 Minimum Spanning Tree</strong> 문제이다.<br>한마디로, 그래프의 연결성을 그대로 유지하는 가장 ‘저렴한’ 그래프를 찾는 문제라고 할 수 있다.</p><p>최소 스패닝 트리를 찾는 두 가지 유명한 알고리즘이 있는데, <strong>Kruskal 알고리즘</strong>과 <strong>Prim 알고리즘</strong>이 그것이다. 둘 다 비용이 적은 간선을 우선적으로 선택하는 <strong>탐욕법</strong>의 본질을 가지고 있다.</p><h2 id="Kruskal-알고리즘"><a href="#Kruskal-알고리즘" class="headerlink" title="Kruskal 알고리즘"></a>Kruskal 알고리즘</h2><p>Kruskal 알고리즘은 가중치가 낮은 간선부터 하나씩 추가해가면서 스패닝 트리를 만들어간다. 하나의 간선을 추가했을 때 최소 스패닝 트리의 조건을 만족하는지 검사해야 하는데, 이 때 <a href="#">Post not found: boj-disjoint-set Union-Find 자료구조</a>가 유용하게 쓰인다. 해당 간선을 추가했을 때 그래프에 사이클이 생긴다면, 불필요한 간선이므로 추가할 필요가 없기 때문이다.<br><br></p><ol><li>그래프의 모든 정점을 Union-Find 자료구조로 구현한다. 처음에는 원소 각각이 상호 배타적 부분집합이 된다.</li><li>가중치가 가장 낮은 간선부터 검사한다. 두 정점이 A,B라고 가정하면 <strong>Find(A)와 Find(B)가 다른 경우에만 Union(A, B)를 실행</strong>한다. 그리고 해당 간선의 가중치를 더한다.</li><li>2번 과정을 모든 간선에 대해 반복한다.</li></ol><h2 id="Kruskal-알고리즘의-시간-복잡도"><a href="#Kruskal-알고리즘의-시간-복잡도" class="headerlink" title="Kruskal 알고리즘의 시간 복잡도"></a>Kruskal 알고리즘의 시간 복잡도</h2><p>우선 Union, Find연산의 시간 복잡도는 <strong>상수 시간으로 수렴</strong>하므로 전체 알고리즘의 복잡도에 영향을 미치지 못한다. 따라서 정렬된 (<code>O(log E)</code>) 모든 간선에 대해(<code>O(E)</code>) 검사를 진행해야 하므로, 전체 시간 복잡도는 <code>O(ElogE)</code>가 된다.</p><h2 id="BOJ-1197번-최소-스패닝-트리"><a href="#BOJ-1197번-최소-스패닝-트리" class="headerlink" title="BOJ 1197번 최소 스패닝 트리"></a>BOJ 1197번 최소 스패닝 트리</h2><figure class="highlight py"><figcaption><span>BOJ 1197번 최소 스패닝 트리</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">graph = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">  s,e,w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  graph.append([w,s,e])</span><br><span class="line">parent = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(V+<span class="number">1</span>)]</span><br><span class="line">rank = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">a</span>):</span><br><span class="line">  <span class="keyword">if</span> a == parent[a]:</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    parent[a] = find(parent[a])</span><br><span class="line">    <span class="keyword">return</span> parent[a]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">a,b</span>):</span><br><span class="line">  a, b = find(a), find(b)</span><br><span class="line">  <span class="keyword">if</span> a==b:</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> rank[a] &gt; rank[b]:</span><br><span class="line">    a, b = b, a</span><br><span class="line">  parent[a] = b</span><br><span class="line">  <span class="keyword">if</span> rank[a] == rank[b]:</span><br><span class="line">    rank[b] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kruskal</span>():</span><br><span class="line">  tot_weight = <span class="number">0</span></span><br><span class="line">  graph.sort()</span><br><span class="line">  <span class="keyword">for</span> w,s,e <span class="keyword">in</span> graph:</span><br><span class="line">    <span class="keyword">if</span> find(s) != find(e):</span><br><span class="line">      union(s,e)</span><br><span class="line">      tot_weight += w</span><br><span class="line">  <span class="keyword">return</span> tot_weight</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(kruskal())</span><br></pre></td></tr></table></figure><blockquote><p>참고자료<br>프로그래밍 대회에서 배우는 알고리즘 문제해결전략 (종만북), 31장</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;BOJ 1197번 최소 스패닝 트리&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="graph" scheme="https://oxcarxierra.github.io/tags/graph/"/>
-    
-    <category term="mst" scheme="https://oxcarxierra.github.io/tags/mst/"/>
     
   </entry>
   
