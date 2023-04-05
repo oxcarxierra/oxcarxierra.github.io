@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2023-03-06T16:09:31.000Z</updated>
+  <updated>2023-04-05T06:04:29.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,127 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 현 상황, 그리고 배운 것들</title>
+    <link href="https://oxcarxierra.github.io/Review/2023/hype-development-review/"/>
+    <id>https://oxcarxierra.github.io/Review/2023/hype-development-review/</id>
+    <published>2023-04-05T06:04:29.000Z</published>
+    <updated>2023-04-05T06:04:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc -->]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;!-- toc --&gt;</summary>
+      
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2023년 3월 회고</title>
+    <link href="https://oxcarxierra.github.io/Review/2023/march-2023-review/"/>
+    <id>https://oxcarxierra.github.io/Review/2023/march-2023-review/</id>
+    <published>2023-04-01T05:22:45.000Z</published>
+    <updated>2023-04-01T05:22:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><ol><li><p>사이드프로젝트로 시작했던 HYPE 앱을 개발하고 디버깅하는데에 집중했던 한 달이었다. 원래는 4월이 오기 전에 배포까지 완료하고 서비스를 시작하려고 했으나, 경쟁 앱들을 뒤늦게 발견하고 기술적인 문제까지 겹치면서 4월 중으로 미뤄지게 되었다. 자세한 경험과 기록은 본격적인 HYPE 개발기 포스트에 적어보기로 했다.</p></li><li><p>D-111 계획을 세운 이후로 운동은 꾸준히 하는 중이다. 보통 마음을 먹어도 제대로 실천했던 적이 거의 없던 나에게는 이례적인 일이다. 투두메이트 기준 3월 1일부터 31일까지 21번 갔는데, 사실상 주말 빼고는 매일 갔던 셈이다. 눈으로 봐도, 인바디로 측정해봐도 3월 초보다 몸이 많이 좋아졌다. 슬슬 재미가 붙는 중인데 나태해지지 말고 주말에도 아침시간 내서 운동은 꼭 해야겠다. 프로틴 한통을 다 비운 김에 갑자기 삘이 와서 1.25키로를 더 사버렸다. 이번엔 게이너와 함꼐… 득근득근</p></li><li><p>책을 많이 읽지 않았다. 솔직히 출타하고 복귀하면서 지하철 타는 시간에 친목질하고 노노그램하느라 정신이 팔려있었다. 지금 읽고 있는 &lt;소크라테스 익스프레스&gt;가 철학알못인 나에게 흥미가 떨어져서 그런 것 같기도 하다. 취향을 거스르면서까지 독서를 하지는 않는 편…인건가 아무튼 좀 바꿔봐야겠다.</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;!-- toc --&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;사이드프로젝트로 시작했던 HYPE 앱을 개발하고 디버깅하는데에 집중했던 한 달이었다. 원래는 4월이 오기 전에 배포까지 완료하고 서비스를 시작하려고 했으나, 경쟁 앱들을 뒤</summary>
+      
+    
+    
+    
+    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting</title>
+    <link href="https://oxcarxierra.github.io/Development/hype-troubleshooting/"/>
+    <id>https://oxcarxierra.github.io/Development/hype-troubleshooting/</id>
+    <published>2023-03-25T17:53:42.000Z</published>
+    <updated>2023-03-25T17:53:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><p>HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)</p><!-- toc --><ol><li>iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</li></ol><p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p><ul><li><p>pod cache clean –all - 안됨</p></li><li><p>Podfile.lock 삭제 후 pod install - 안됨</p></li><li><p>.xcworkspace 삭제 후 pod install - 안됨</p></li><li><p>pod install –repo-update - 해결!</p></li></ul><ol start="2"><li>iOS Simulator ⚠ No permission handler detected.</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure><p>퍼미션 핸들러가 감지 안되었다는 에러.<br>아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에<br>react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.<br><a href="https://github.com/zoontek/react-native-permissions">https://github.com/zoontek/react-native-permissions</a><br><a href="https://velog.io/@adguy/react-native-ios-%EB%B6%80%EB%B6%84-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%9B%ED%8C%85">https://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅</a></p><p>이후 xcode에서 빌드폴더 한번 초기화</p><ol start="3"><li>The engine “node” is incompatible with this module.</li></ol><p>먼저 yarn config list 명령을 통해 확인해보자.</p><p>ignore-engine 속성이 없는 것 같다..<br>yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.</p><p>그리고 다시 yarn config list 를 통해 확인.</p><p>정상적으로 추가가 되었다.</p><ol start="4"><li>안드로이드 배포 후 firebase 전화 인증 이슈</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+
+&lt;p&gt;HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)&lt;/p&gt;
+&lt;!-- toc --&gt;
+
+&lt;ol&gt;
+&lt;li&gt;iOS Archive시 &lt;code&gt;ld: symbol</summary>
+      
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+    <category term="React Native" scheme="https://oxcarxierra.github.io/tags/React-Native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[React Native] Firebase 전화번호 인증기능 추가하기</title>
+    <link href="https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/"/>
+    <id>https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/</id>
+    <published>2023-03-25T16:57:43.000Z</published>
+    <updated>2023-03-25T16:57:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><p>HYPE 앱은 전화번호 기반으로 유저 로그인, 회원가입이 이루어지기 때문에 전화번호 인증이 필수적이었다. 때문에 Google Firebase에서 제공하는 문자메세지 인증 서비스를 처음으로 적용해보았다.</p><h3 id="Google-Firebase-연동하기"><a href="#Google-Firebase-연동하기" class="headerlink" title="Google Firebase 연동하기"></a>Google Firebase 연동하기</h3><p>연동하는 일련의 방법은 공식문서 및 블로그를 참고했다. 파베 공식문서는 Swift와 Kotlin 기반으로 설명이 되어있어서, 타 블로그가 도움이 많이 되었다.</p><h3 id="인증번호-전송-및-대조-검증-코드"><a href="#인증번호-전송-및-대조-검증-코드" class="headerlink" title="인증번호 전송 및 대조 검증 코드"></a>인증번호 전송 및 대조 검증 코드</h3>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Google Firebase를 이용하여 React Native 프로젝트에 전화번호 인증을 달아보자.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기</title>
+    <link href="https://oxcarxierra.github.io/Development/hype-appstore-reject-list/"/>
+    <id>https://oxcarxierra.github.io/Development/hype-appstore-reject-list/</id>
+    <published>2023-03-25T16:39:17.000Z</published>
+    <updated>2023-03-25T16:39:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h3 id="1-App-Tracking-Transparency-permission-모달이-안보여요"><a href="#1-App-Tracking-Transparency-permission-모달이-안보여요" class="headerlink" title="1. App Tracking Transparency permission 모달이 안보여요!"></a>1. App Tracking Transparency permission 모달이 안보여요!</h3><p>구글 애드몹으로 앱에 광고를 달면</p><p>애플 정책상 사용자 추적을 하려면 유저의 동의를 받아야 한다.</p><p><code>react-native-permissions</code> 라이브러리를 이용</p><h4 id="App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈"><a href="#App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈" class="headerlink" title="App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈"></a>App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈</h4><h3 id="2-계정-삭제-만드세요"><a href="#2-계정-삭제-만드세요" class="headerlink" title="2. 계정 삭제 만드세요!"></a>2. 계정 삭제 만드세요!</h3><p><code>Does this app have an account deletion feature? If so, where can we find it?</code></p><p>유저 이탈을 최대한 막기 위해서 탈퇴하려면 개발자에게 컨택하라는 모달 하나로 퉁쳤더니,</p><p><code>We noticed that your app supports account creation but does not appear to include an option to initiate account deletion.</code><br><code>Apps that support account creation must also offer account deletion to give App Store users more control of the data they’ve shared while using your app.</code></p><p>다시 똑바로 만들란다.</p><h3 id="3-회원가입시-성별-x2F-연령-왜-수집해요"><a href="#3-회원가입시-성별-x2F-연령-왜-수집해요" class="headerlink" title="3. 회원가입시 성별&#x2F;연령 왜 수집해요?"></a>3. 회원가입시 성별&#x2F;연령 왜 수집해요?</h3><p><code>the following fields or actions are required but do not appear to be directly relevant to your app’s core functionality:</code><br><code>- Age</code><br><code>- Gender</code></p><p>개인정보에 민감한 애플선생. 위 데이터의 수집이 앱의 기능에 필수적임을 친절하게 설명해주자 다시 묻지 않았다.</p><h3 id="4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요"><a href="#4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요" class="headerlink" title="4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!"></a>4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!</h3><p><code>We noticed that your screenshots do not sufficiently show your app in use. Specifically, your iPad screenshots reflect an iPhone image stretched out to appear to be an iPad image.</code><br><code>To help users understand your app’s functionality and value, your screenshots should highlight your app&#39;s core concept. For example, a gaming app should feature screenshots that capture actual gameplay within the app.</code></p><p>딱걸렸다..</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;HYPE 앱 App Store 리젝 사유들 모음&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+    <category term="React Native" scheme="https://oxcarxierra.github.io/tags/React-Native/"/>
+    
+  </entry>
   
   <entry>
     <title>전역 전 마지막 111일 - 군 생활 최종 OKR 세우기</title>
@@ -33,7 +154,7 @@
     
     
     
-    <category term="OKR" scheme="https://oxcarxierra.github.io/categories/OKR/"/>
+    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
     
     
   </entry>
@@ -110,7 +231,7 @@
   </entry>
   
   <entry>
-    <title>[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회</title>
+    <title>[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 참가 후기</title>
     <link href="https://oxcarxierra.github.io/ML/multi-stage-continuous-flow-manufacturing-process-competition/"/>
     <id>https://oxcarxierra.github.io/ML/multi-stage-continuous-flow-manufacturing-process-competition/</id>
     <published>2023-01-02T11:36:15.000Z</published>
@@ -244,7 +365,7 @@
     <published>2022-11-05T13:03:24.000Z</published>
     <updated>2022-11-05T13:03:24.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><p>그동안은 axios를 그냥 import해서 사용했는데, 이렇게 <code>useAxios()</code> 커스텀 훅을 만들어서 사용하면 에러 처리나 baseUrl에 대한 전처리를 쉽게 해줄 수 있다.</p><figure class="highlight ts"><figcaption><span>useAxios.ts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> extra <span class="keyword">from</span> <span class="string">&#x27;@utils/extra&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios, &#123; <span class="title class_">AxiosError</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useAtomValue &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useMemo &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useAxios</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> user = <span class="title function_">useAtomValue</span>(userAtom);</span><br><span class="line">  <span class="keyword">const</span> axiosInstance = <span class="title function_">useMemo</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">      <span class="attr">baseURL</span>: yourBackendBaseURL,</span><br><span class="line">    &#125;); <span class="comment">// Axios Instance 생성</span></span><br><span class="line">    instance.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="keyword">async</span> (config) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> token = <span class="keyword">await</span> yourToken; <span class="comment">// header에 들어갈 token 받아오기</span></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...config,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          ...(config.<span class="property">headers</span> ?? &#123;&#125;),</span><br><span class="line">          <span class="title class_">Authorization</span>: token,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;);</span><br><span class="line">    instance.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="literal">undefined</span>, <span class="keyword">async</span> (value) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="title class_">AxiosError</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(</span><br><span class="line">          <span class="string">`AxiosError(<span class="subst">$&#123;value.response?.status&#125;</span>/<span class="subst">$&#123;value.code&#125;</span>): <span class="subst">$&#123;value.message&#125;</span>\n<span class="subst">$&#123;value.response?.data&#125;</span>`</span></span><br><span class="line">        ); <span class="comment">// 에러 출력</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(value.<span class="property">response</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> value;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;, [user]);</span><br><span class="line">  <span class="keyword">return</span> axiosInstance;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useAxios;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><p>그동안은 axios를 그냥 import해서 사용했는데, 이렇게 <code>useAxios()</code> 커스텀 훅을 만들어서 사용하면 에러 처리나 baseUrl에 대한 전처리를 쉽게 해줄 수 있다.</p><figure class="highlight ts"><figcaption><span>useAxios.ts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> extra <span class="keyword">from</span> <span class="string">&quot;@utils/extra&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> axios, &#123; <span class="title class_">AxiosError</span> &#125; <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useAtomValue &#125; <span class="keyword">from</span> <span class="string">&quot;jotai&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useMemo &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useAxios</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> user = <span class="title function_">useAtomValue</span>(userAtom);</span><br><span class="line">  <span class="keyword">const</span> axiosInstance = <span class="title function_">useMemo</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">      <span class="attr">baseURL</span>: yourBackendBaseURL,</span><br><span class="line">    &#125;); <span class="comment">// Axios Instance 생성</span></span><br><span class="line">    instance.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="keyword">async</span> (config) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> token = <span class="keyword">await</span> yourToken; <span class="comment">// header에 들어갈 token 받아오기</span></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...config,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          ...(config.<span class="property">headers</span> ?? &#123;&#125;),</span><br><span class="line">          <span class="title class_">Authorization</span>: token,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;);</span><br><span class="line">    instance.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="literal">undefined</span>, <span class="keyword">async</span> (value) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="title class_">AxiosError</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(</span><br><span class="line">          <span class="string">`AxiosError(<span class="subst">$&#123;value.response?.status&#125;</span>/<span class="subst">$&#123;value.code&#125;</span>): <span class="subst">$&#123;value.message&#125;</span>\n<span class="subst">$&#123;value.response?.data&#125;</span>`</span></span><br><span class="line">        ); <span class="comment">// 에러 출력</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(value.<span class="property">response</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> value;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;, [user]);</span><br><span class="line">  <span class="keyword">return</span> axiosInstance;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useAxios;</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;useAxios()&lt;/p&gt;</summary>
@@ -359,7 +480,7 @@
     
     
     
-    <category term="OKR" scheme="https://oxcarxierra.github.io/categories/OKR/"/>
+    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
     
     
   </entry>
@@ -387,127 +508,6 @@
     
     
     <category term="retrospective" scheme="https://oxcarxierra.github.io/tags/retrospective/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[React] Expo 이용해서 React Native 앱 시작하기</title>
-    <link href="https://oxcarxierra.github.io/Development/starting-expo-app/"/>
-    <id>https://oxcarxierra.github.io/Development/starting-expo-app/</id>
-    <published>2022-09-27T02:20:51.000Z</published>
-    <updated>2022-09-27T02:20:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<!--excerpt--><h2 id="Expo-CLI-설치"><a href="#Expo-CLI-설치" class="headerlink" title="Expo CLI 설치"></a>Expo CLI 설치</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx expo <span class="built_in">whoami</span> <span class="comment"># 로그인된 계정 확인, Not logged in 이 뜨면 로그인해줘야함</span></span><br><span class="line">npx expo register <span class="comment"># 회원가입</span></span><br><span class="line">npx expo login</span><br></pre></td></tr></table></figure><h2 id="Typescript-Expo-앱-시작"><a href="#Typescript-Expo-앱-시작" class="headerlink" title="Typescript - Expo 앱 시작"></a>Typescript - Expo 앱 시작</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app app-name</span><br><span class="line"><span class="built_in">cd</span> app-name</span><br><span class="line"><span class="built_in">touch</span> tsconfig.json</span><br><span class="line">npx expo start <span class="comment"># Typescript 필요 번들설치</span></span><br><span class="line"><span class="built_in">mv</span> App.js App.tsx</span><br><span class="line">npx tsc <span class="comment"># 타입체크</span></span><br></pre></td></tr></table></figure><p>또는, 이미 만들어진 Typescript 기반의 expo 템플릿을 설치하여 사용할 수도 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-expo-app -t expo-template-blank-typescript</span><br></pre></td></tr></table></figure><blockquote><p>참고자료 : <a href="'https://docs.expo.dev/guides/typescript/'">Expo Docs</a></p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Starting React Native app with Expo&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
-    
-    
-    <category term="React" scheme="https://oxcarxierra.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2022년 8월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/august-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/august-2022-review/</id>
-    <published>2022-09-01T10:59:02.000Z</published>
-    <updated>2022-09-01T10:59:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li><strong>군장병 공개SW 온라인 해커톤</strong> 준비로 바빴다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 풀었고, 도중에 모르는 자료구조나 알고리즘은 종만북과 친절하게 설명해 놓은 블로그들을 참고하며 배울 수 있었다. 새로 알게된 내용은 블로그에 나만의 언어로 정리해서 포스팅하며 복습도 했다. 실제로 코딩테스트에 DP와 BFS문제가 나와서 공부했던 내용을 잘 써먹을 수 있었다. Dart 언어와 Flutter도 제공하는 강의를 모두 수강했더니 이론평가도 어렵지 않게 풀 수 있었다.</li></ul><div class="figure center fig-100" style="width:;"><a class="fancybox" href="https://imgur.com/dzRvkOI.png" title="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-caption="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!" data-fancybox="default"><img class="fig-img" src="https://imgur.com/dzRvkOI.png" alt="알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!"></a><span class="caption">알고리즘 공부를 시작하고 1개월 반동안 solved.ac 레이팅도 많이 올랐다!</span></div><div style="clear:both;"></div><br ><ul><li>본선에서 실제로 구현할 아이디어를 담은 개발계획서를 제출해야 하는데, 아무래도 내가 있는 부대는 일반적인 육군과 근무 환경이 다르다보니 문제점을 찾고 솔루션을 제안하는게 쉽지 않다. 괜찮은 주제를 찾을 때까지 노션을 스케치북삼아 브레인스토밍을 해나가고 있는데 하나 꽂히는 것이 없어서 고민이 되고 있다.</li></ul><br ><ul><li>이번 후반기에 열리는 <a href="https://www.army-startup.co.kr/">제 8회 육군창업경진대회</a>에 도전해보고 싶어서 팀빌딩을 하고 아이디어를 같이 구상해보기로 했다. 군에 복무하면서 스타트업을 준비하고 경험해볼 수 있는 좋은 기회가 될 것 같다. 본선만 진출해도 포상휴가가 나온다고 해서 더더욱 열심히 해볼 생각이다.</li></ul><br ><ul><li>넷플릭스의 기업 문화를 담은 &lt;규칙 없음&gt;을 읽었다. 나는 극한의 인재 밀도를 추구하는 기업에 어울릴수 있는가? 나는 기업이 업계 최고의 대우를 해주어서라도 가지고 있을만한 인재인가? 나는 직설적이고 솔직한 피드백을 주고, 또 받을 준비가 되어있는가?</li></ul><br ><div class="figure center" style="width:;"><img class="fig-img" src="https://i.imgur.com/vhgtCzI.jpg" alt="PFC Oh promoted to CPL Oh!🫡"><span class="caption">PFC Oh promoted to CPL Oh!🫡</span></div><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><p><strong>&lt;1Q84 #2&gt;</strong> - 무라카미 하루키<br><strong>&lt;규칙 없음&gt;</strong> - 리드 헤이스팅스 ∙ 에린 마이어 (진중문고)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;군장병 공개SW 온라인 해커톤&lt;/strong&gt; 준비로 바빴다. 코딩테스트 준비를 위해 BOJ 문제들을 난이도순으로 </summary>
-      
-    
-    
-    
-    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
-    
-    
-    <category term="retrospective" scheme="https://oxcarxierra.github.io/tags/retrospective/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>비트마스킹 Bitmask</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/boj-bitmask-1052/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/boj-bitmask-1052/</id>
-    <published>2022-08-22T13:03:21.000Z</published>
-    <updated>2022-08-22T13:03:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><!--toc--><h2 id="비트마스킹이란"><a href="#비트마스킹이란" class="headerlink" title="비트마스킹이란?"></a>비트마스킹이란?</h2><p><strong>이진법 숫자의 각 자리(비트)에</strong> <code>true</code>&#x2F;<code>false</code> <strong>혹은 0&#x2F;1의 데이터를 저장</strong>하는 자료구조 혹은 테크닉이다.<br>예를 들어, 0,1,2,3중 두 숫자를 뽑는 모든 경우의 수를 생각하자. <code>[0,1], [0,2], [0,3], [1,2], [1,3], [2,3]</code>처럼 행렬로 묶는 방법이 있다.<br>비트마스킹을 이용하여 i의 포함 여부를 2^i자리에 저장한다면, <code>0011 0101 0110 1001 1010 1100</code>로 여섯 가지 방법을 나타낼 수 있다. 이 숫자들을 십진법으로 바꾸면 각각 <code>3,5,6,9,11,13</code>이 된다.<br>즉, 리스트형 데이터를 정수형으로 간단하게 표현할 수 있게 된 것이다. 이렇게 비트마스킹은 원소들의 집합을 표현할 때 유용하다.</p><h3 id="비트-연산자"><a href="#비트-연산자" class="headerlink" title="비트 연산자"></a>비트 연산자</h3><p>이렇게 만들어진 이진수(혹은 정수)는 아래 5가지의 연산이 가능하다.</p><ul><li><strong>AND</strong><br>입력받은 두 이진수의 각 자리수가 모두 1일 때만 결과에도 1을 반환<br><code>1100 ^ 1010 = 1000</code></li><li><strong>OR</strong><br>입력받은 두 이진수의 각 자리수 중 하나라도 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 1110</code></li><li><strong>XOR</strong><br>입력받은 두 이진수의 각 자리수 중 하나만 1일 때 결과에도 1을 반환<br><code>1100 ^ 1010 = 0110</code></li><li><strong>NOT</strong><br>입력받은 이진수의 비트가 0일 때 1, 1일 때 0을 반환<br><code>~1100 = 0011</code></li><li><strong>shift</strong><br>이진수의 비트를 왼쪽, 오른쪽으로 원하는 만큼 움직인 값을 반환<br><code>11 &lt;&lt; 2 = 1100</code><br><code>1100 &gt;&gt; 2 = 11</code></li></ul><h3 id="비트-연산자를-이용한-데이터-제어"><a href="#비트-연산자를-이용한-데이터-제어" class="headerlink" title="비트 연산자를 이용한 데이터 제어"></a>비트 연산자를 이용한 데이터 제어</h3><ul><li><strong>비트 삽입</strong><br>p번 비트 추가 : <code>x = x | (1&lt;&lt;p)</code><br><code>1010 | (1&lt;&lt;2) = 1010 | 100 = 1110</code></li><li><strong>비트 삭제</strong><br>p번 비트 삭제 : <code>x = x &amp; ~(1&lt;&lt;p)</code><br><code>1110 &amp; ~ (1&lt;&lt;2) = 1110 &amp; 1011 = 1010</code></li><li><strong>비트 조회</strong><br>p번 비트 조회 : <code>x &amp; (1&lt;&lt;p)</code>의 p번 비트<br><code>1110 &amp; (1&lt;&lt;2) = 1110 &amp; 0100 = 0100</code></li><li><strong>비트 토글</strong><br>p번 비트 토글 : <code>x = x ^ (1&lt;&lt;p)</code><br><code>1110 ^ (1&lt;&lt;2) = 1110 ^ 0100 = 1010</code></li></ul><h2 id="BOJ-1052번-물병"><a href="#BOJ-1052번-물병" class="headerlink" title="BOJ 1052번 물병"></a>BOJ 1052번 물병</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p><a href="'https://www.acmicpc.net/problem/1052'">BOJ 1052번 물병</a></p><h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>문제를 수기로 조금 풀어보면, 물병의 물을 합치다 보면 <code>2^i</code>리터들의 합으로 분리됨을 알 수 있다. 즉 총 물의 양인 <code>N</code>을 이진수로 표현했을 때 1의 개수만큼의 비지 않은 병이 생긴다. 결국, <code>N+cnt</code>를 이진수로 표현했을 때 1의 개수가 k보다 작거나 같도록 하는 최소의 <code>cnt</code>를 구하는 문제가 된다.<br><code>cnt</code>를 1씩 증가시키면서 계산하면 최악의 경우 복잡도가 <code>O(NlogN)</code>이라서 시간초과가 난다. 1이 있는 가장 작은 자리수부터 1을 추가해주면 계산이 간단해진다.</p><blockquote><p>int형 자료 N의 이진법 표현은 <code>bin(N)</code>으로 구할 수 있으며, <code>0b</code>로 시작하기 때문에 <code>bin(N)[2:]</code>를 사용하기도 한다.</p></blockquote><figure class="highlight py"><figcaption><span>BOJ 1052번 물병</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">bin</span>(n).count(<span class="string">&#x27;1&#x27;</span>) &gt; k:</span><br><span class="line">  b = <span class="built_in">bin</span>(n)</span><br><span class="line">  idx = <span class="built_in">len</span>(b)-b.rfind(<span class="string">&#x27;1&#x27;</span>)-<span class="number">1</span></span><br><span class="line">  n += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line">  cnt += (<span class="number">1</span> &lt;&lt; idx)</span><br><span class="line"><span class="built_in">print</span>(cnt)</span><br></pre></td></tr></table></figure><blockquote><p>참고자료<br>프로그래밍 대회에서 배우는 알고리즘 문제해결전략 (종만북), 16장</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;BOJ 1052번 물병&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="data structure" scheme="https://oxcarxierra.github.io/tags/data-structure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 15686번 치킨 배달</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/boj-15686/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/boj-15686/</id>
-    <published>2022-08-16T11:20:38.000Z</published>
-    <updated>2022-08-16T11:20:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p><a href="'https://www.acmicpc.net/problem/15686'">BOJ 15686번 치킨 배달</a></p><h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><ul><li><p>집 하나의 치킨거리를 구하기 위해 처음에는 BFS를 이용하여, 해당 집(1)에서 출발해 가장 가까운 직선거리에 있는 치킨집(2)을 발견하면 그 거리를 구했다. 결과는 당연히 시간초과. 치킨집들의 좌표를 배열로 저장해두고 각각으로의 치킨거리를 계산해서 최소값을 찾는 게 훨씬 빠르다.</p></li><li><p>itertools를 몰라서 치킨 가게들 중 m개를 임의로 선택하는 함수를 직접 백트래킹으로 구현했었다. 알고리즘은 동일했겠지만 시간초과가 나왔다.</p></li></ul><h3 id="그리디-알고리즘을-사용하면-안되는-이유"><a href="#그리디-알고리즘을-사용하면-안되는-이유" class="headerlink" title="그리디 알고리즘을 사용하면 안되는 이유"></a>그리디 알고리즘을 사용하면 안되는 이유</h3><p>도시의 치킨거리를 가장 많이 줄여주는 치킨집부터 m개를 고르는 방법도 생각해보았지만, 이 문제는 그리디 알고리즘을 사용하면 안된다. m에 따라 고르는 치킨집의 조합이 전혀 달라질 수 있기 때문이다.</p><h3 id="완전탐색-시간복잡도-계산"><a href="#완전탐색-시간복잡도-계산" class="headerlink" title="완전탐색 시간복잡도 계산"></a>완전탐색 시간복잡도 계산</h3><p>치킨집의 최대 개수는 13, 집의 최대 개수는 2N &#x3D; 100개이다. 치킨집의 조합의 가짓수가 가장 많으려면 m&#x3D;6일때, 13C6으로 약 1700이다. 그럼 이 조합마다 도시의 치킨거리를 계산하는데 <code>100*13=1300</code>의 계산이 필요하다고 해도 <code>1700*1300 &lt; 10^8</code>로 주어진 1초 내에 해결 가능하다.<br>컴퓨터는 1초에 약 1억번의 연산이 가능한 것을 이용해, 문제를 풀기 전 복잡도를 구해서 가능한 알고리즘인지 확인해보는 습관을 들여야겠다.</p><h3 id="Itertools-combinations-함수-이용"><a href="#Itertools-combinations-함수-이용" class="headerlink" title="Itertools combinations() 함수 이용"></a>Itertools combinations() 함수 이용</h3><p>Python 내장 모듈 <code>Itertools</code>내에 주어진 집합의 부분집합을 반환해주는 함수 <code>combinations()</code>가 있다는 걸 알게되었다. 이를 이용하면 굳이 백트래킹으로 조합을 일일히 반환하지 않아도 된다.</p><ul><li><code>permutations(p,r)</code>: p의 부분집합 중 <strong>중복된 원소 없이</strong> 길이가 r인 부분집합의 배열을 반환</li><li><code>combinations(p,r)</code> : p의 부분집합 중 <strong>중복된 원소 없이</strong> 길이가 r이고 <strong>사전순으로 정렬</strong>된 부분집합의 배열을 반환</li><li><code>combinations_with_replactment(p,r)</code> : p의 부분집합 중 <strong>원소의 중복을 허용</strong>하는 길이가 r이고 <strong>사전순으로 정렬된</strong> 부분집합의 배열을 반환</li></ul><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight py"><figcaption><span>BOJ 15686 치킨 배달</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">n,m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">home = []</span><br><span class="line">store =[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  row = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">if</span> row[y] == <span class="number">2</span>:</span><br><span class="line">      store.append([x,y])</span><br><span class="line">    <span class="keyword">elif</span> row[y] == <span class="number">1</span>:</span><br><span class="line">      home.append([x,y])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nearest</span>(<span class="params">i,j</span>):</span><br><span class="line">  d = <span class="number">999999</span></span><br><span class="line">  <span class="keyword">for</span> [x,y] <span class="keyword">in</span> selected:</span><br><span class="line">    d = <span class="built_in">min</span>(d, <span class="built_in">abs</span>(i-x)+<span class="built_in">abs</span>(j-y))</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chicken</span>():</span><br><span class="line">  chicken = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> [x,y] <span class="keyword">in</span> home:</span><br><span class="line">    chicken += nearest(x,y)</span><br><span class="line">  <span class="keyword">return</span> chicken</span><br><span class="line"></span><br><span class="line">min_chicken = <span class="number">999999</span></span><br><span class="line"><span class="keyword">for</span> selected <span class="keyword">in</span> combinations(store, m):</span><br><span class="line">  min_chicken = <span class="built_in">min</span>(min_chicken, chicken())</span><br><span class="line"><span class="built_in">print</span>(min_chicken)</span><br></pre></td></tr></table></figure><blockquote><p>참고자료<br><a href="https://docs.python.org/3/library/itertools.html">itertools 공식 문서</a></p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;&#39;https://www.acmicpc.net/problem/15686&#39;&quot;&gt;BOJ 15</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="itertools" scheme="https://oxcarxierra.github.io/tags/itertools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BOJ 9935번 문자열 폭발</title>
-    <link href="https://oxcarxierra.github.io/Algorithm/boj-9935/"/>
-    <id>https://oxcarxierra.github.io/Algorithm/boj-9935/</id>
-    <published>2022-08-16T06:52:39.000Z</published>
-    <updated>2022-08-16T06:52:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p><a href="'https://www.acmicpc.net/problem/9935'">BOJ 9935번 문자열 폭발</a></p><hr><h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><p>문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.<br>주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.<br>예를 들어, 문자열이 <code>ACC44</code>, 폭발 문자열이 <code>C4</code>인 경우 앞에서부터 폭발문자열의 검사를 시작하면 끝마쳤을 때 <code>AC4</code>가 남게된다. 이후 한번 더 검사를 해야 최종문자열 <code>A</code>만 남는다.<br>그래서 처음에는 앞에서부터 폭발 문자열을 찾는 알고리즘을 함수로 만들고, 폭발 문자열을 검색할 수 없을 때 까지 재귀적으로 실행하려 했다.<br>몇 번 실패하고 다른 사람들의 풀이를 참고해보니, 문자열을 뒤에서부터 검색하면 굳이 재귀를 하지 않아도 되는 방법이 있었다.</p><ol><li>입력 문자열의 앞에서부터 한 문자씩 stack에 추가한다.</li><li>추가한 문자가 폭발 문자열의 마지막 문자와 일치하면, 문자의 앞쪽으로 폭발 문자열과 일치하는지 검사한다. 일치한다면 stack에서 폭발 문자열을 제거한다.</li><li>입력 문자열의 모든 문자를 검사하고, stack에 원소가 남아있다면 원소를 string으로 바꿔 출력한다. 없다면, <code>&#39;FRULA&#39;</code>를 출력한다.</li></ol><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><figcaption><span>BOJ 9935 문자열 폭발</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">s = sys.stdin.readline().strip()</span><br><span class="line">bomb = sys.stdin.readline().strip()</span><br><span class="line">stack = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">    stack.append(s[i])</span><br><span class="line">    <span class="keyword">if</span> stack[-<span class="number">1</span>] == bomb[-<span class="number">1</span>] <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span>.join(stack[-<span class="built_in">len</span>(bomb):]) == bomb:</span><br><span class="line">        <span class="keyword">del</span> stack[-<span class="built_in">len</span>(bomb):]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;FRULA&#x27;</span> <span class="keyword">if</span> <span class="built_in">len</span>(stack) == <span class="number">0</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span>.join(stack))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;&#39;https://www.acmicpc.net/problem/9935&#39;&quot;&gt;BOJ 993</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://oxcarxierra.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="string" scheme="https://oxcarxierra.github.io/tags/string/"/>
-    
-    <category term="search" scheme="https://oxcarxierra.github.io/tags/search/"/>
     
   </entry>
   

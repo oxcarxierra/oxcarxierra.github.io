@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of oxcarxierra">
+    <title>[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting - Blog of oxcarxierra</title>
+    <meta name="author" content="oxcarxierra | 오승석">
+    
+        <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nHYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)\n\n\n\niOS Archive시 ld: symbol(s) not found for architecture arm64 오류\n\nnpx react-native run-ios 빌드는 되는데 archive에서 터지는 경우\n\npod cache clean –all - 안됨\n\nPodfile.lock 삭제 후 pod install - 안됨\n\n.xcworkspace 삭제 후 pod install - 안됨\n\npod install –repo-update - 해결!\n\n\n\niOS Simulator ⚠ No permission handler detected.\n\n123• Check that you link at least one permission handler in your Podfile.• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.• If you use use_frameworks!, follow the workaround guide in the project README.\n\n퍼미션 핸들러가 감지 안되었다는 에러.아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.https://github.com/zoontek/react-native-permissionshttps://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅\n이후 xcode에서 빌드폴더 한번 초기화\n\nThe engine “node” is incompatible with this module.\n\n먼저 yarn config list 명령을 통해 확인해보자.\nignore-engine 속성이 없는 것 같다..yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.\n그리고 다시 yarn config list 를 통해 확인.\n정상적으로 추가가 되었다.\n\n안드로이드 배포 후 firebase 전화 인증 이슈\n","dateCreated":"2023-03-26T02:53:42+09:00","dateModified":"2023-03-26T02:53:42+09:00","datePublished":"2023-03-26T02:53:42+09:00","description":"","headline":"[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting","image":["https://i.imgur.com/gpOryh1.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/hype-troubleshooting/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/hype-troubleshooting/","keywords":"React Native","thumbnailUrl":"https://i.imgur.com/gpOryh1.png"}</script>
+    <meta name="description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)    iOS Archive시 ld: symbol(s) not found for architecture arm64 오류  npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우  pod cache clean –">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting">
+<meta property="og:url" content="https://oxcarxierra.github.io/Development/hype-troubleshooting/index.html">
+<meta property="og:site_name" content="Blog of oxcarxierra">
+<meta property="og:description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)    iOS Archive시 ld: symbol(s) not found for architecture arm64 오류  npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우  pod cache clean –">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-25T17:53:42.000Z">
+<meta property="article:modified_time" content="2023-03-25T17:53:42.000Z">
+<meta property="article:author" content="oxcarxierra | 오승석">
+<meta property="article:tag" content="React Native">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+        <meta property="og:image" content="https://i.imgur.com/gpOryh1.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/gpOryh1.png">
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19V9VE6BEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-19V9VE6BEX');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/development/hype-troubleshooting/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of oxcarxierra
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">oxcarxierra | 오승석</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">45</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">4</div>
+            </a>
+          </div>
+          <!-- <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">22</div>
+            </a>
+          </div> -->
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/categories/Review" rel="noopener" title="Monthly Reviews">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Monthly Reviews</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2023-03-26T02:53:42+09:00">
+     Mar 26, 2023 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Development/">Development</a>
+
+ 
+  <span class="post-readingtime">
+     - 2 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+
+<p>HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)</p>
+<h1 id="table-of-contents"> </h1>
+
+<ol>
+<li>iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</li>
+</ol>
+<p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p>
+<ul>
+<li><p>pod cache clean –all - 안됨</p>
+</li>
+<li><p>Podfile.lock 삭제 후 pod install - 안됨</p>
+</li>
+<li><p>.xcworkspace 삭제 후 pod install - 안됨</p>
+</li>
+<li><p>pod install –repo-update - 해결!</p>
+</li>
+</ul>
+<ol start="2">
+<li>iOS Simulator ⚠ No permission handler detected.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure>
+
+<p>퍼미션 핸들러가 감지 안되었다는 에러.<br>아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에<br>react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/zoontek/react-native-permissions">https://github.com/zoontek/react-native-permissions</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://velog.io/@adguy/react-native-ios-%EB%B6%80%EB%B6%84-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%9B%ED%8C%85">https://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅</a></p>
+<p>이후 xcode에서 빌드폴더 한번 초기화</p>
+<ol start="3">
+<li>The engine “node” is incompatible with this module.</li>
+</ol>
+<p>먼저 yarn config list 명령을 통해 확인해보자.</p>
+<p>ignore-engine 속성이 없는 것 같다..<br>yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.</p>
+<p>그리고 다시 yarn config list 를 통해 확인.</p>
+<p>정상적으로 추가가 되었다.</p>
+<ol start="4">
+<li>안드로이드 배포 후 firebase 전화 인증 이슈</li>
+</ol>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/React-Native/" rel="tag">React Native</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2023/march-2023-review/" data-tooltip="2023년 3월 회고" aria-label="PREVIOUS: 2023년 3월 회고">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2023 oxcarxierra | 오승석.
+  </span>
+  <br>
+  <span class="copyrights"> All Rights Reserved. </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2023/march-2023-review/" data-tooltip="2023년 3월 회고" aria-label="PREVIOUS: 2023년 3월 회고">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-troubleshooting/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-troubleshooting/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-troubleshooting/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-troubleshooting/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">oxcarxierra | 오승석</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/1d1d1d.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

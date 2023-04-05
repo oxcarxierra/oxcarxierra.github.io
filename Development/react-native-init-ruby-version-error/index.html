@@ -19,7 +19,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nReact Native 프로젝트 생성시 발생한 에러오랜만에 설레는 마음으로 터미널을 켜고 React Native 프로젝트를 생성하는 순간\n\n\n\nInstalling Bundler단계에서 펑!하고 터져버렸다. 머선129\n1234Ignoring digest-crc-0.6.3 because its extensions are not built. Try: gem pristine digest-crc --version 0.6.3Ignoring unf_ext-crc-0.0.7.7 because its extensions are not built. Try: gem pristine unf_ext --version 0.0.7.7Error: Looks like your iOS environment is not properly set. ~~\n\nTry해보라는 커맨드를 입력해봤지만 같은 에러가 뜨기는 마찬가지였다. 약간의 구글링과 삽질을 통해 ruby 버전의 문제임을 알았다. 내 mac에 설치된 Ruby의 버전이 낮아서, 업데이트하니 말끔히 해결되었다.\nRuby 버전 업데이트현재 작업중인 폴더에 설치된 Ruby의 버전은 아래 커맨드로 확인할 수 있다.\n1$ ruby --version\n\nRuby의 버전을 선택해서 설치하거나 업그레이드하려면, Ruby 버전 관리 툴인 rbenv를 설치해야한다.\n123$ brew update$ brew install rbenv\n\n이후 React Native에서 요구하는 버전으로 Ruby를 새로 설치하자. 필요한 Ruby의 버전은 여기에서 확인할 수 있다. 글을 작성하는 시점에는 2.7.6으로 되어있었다. 참고로 상위 버전의 Ruby를 설치했을 때에도 오류가 나서, 정확히 일치하는 버전을 설치해야 하는 것 같다.\n1$ rbenv install 2.7.6\n\n이후 아래 커맨드를 통해 rbenv에 설치된 Ruby를 사용하도록 설정해준다.\n1234$ rbenv global 2.7.6$ ruby --version* 2.7.6\n\n만약 rbenv global 커맨드 이후에도 ruby --version이 바뀌지 않는다면, 환경변수 설정이 필요하다. eval &quot;$(rbenv init - zsh)&quot;를 ~/.zshrc파일에 추가해주면, Ruby 버전이 정상적으로 반영된 것을 확인할 수 있다.\n12345678$ vim ~/.zshrc# 마지막줄에 eval &quot;$(rbenv init - zsh)&quot; 추가$ source ~/.zshrc$ ruby --version* 2.7.6\n\n이제 다시 설레는 마음으로 새로운 프로젝트를 시작해보자!\n1$ npx react-native init myProject --template react-native-template-typescript","dateCreated":"2023-01-30T00:37:13+09:00","dateModified":"2023-01-30T00:37:13+09:00","datePublished":"2023-01-30T00:37:13+09:00","description":"","headline":"[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/react-native-init-ruby-version-error/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/react-native-init-ruby-version-error/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nReact Native 프로젝트 생성시 발생한 에러오랜만에 설레는 마음으로 터미널을 켜고 React Native 프로젝트를 생성하는 순간\n\n\n\nInstalling Bundler단계에서 펑!하고 터져버렸다. 머선129\n1234Ignoring digest-crc-0.6.3 because its extensions are not built. Try: gem pristine digest-crc --version 0.6.3Ignoring unf_ext-crc-0.0.7.7 because its extensions are not built. Try: gem pristine unf_ext --version 0.0.7.7Error: Looks like your iOS environment is not properly set. ~~\n\nTry해보라는 커맨드를 입력해봤지만 같은 에러가 뜨기는 마찬가지였다. 약간의 구글링과 삽질을 통해 ruby 버전의 문제임을 알았다. 내 mac에 설치된 Ruby의 버전이 낮아서, 업데이트하니 말끔히 해결되었다.\nRuby 버전 업데이트현재 작업중인 폴더에 설치된 Ruby의 버전은 아래 커맨드로 확인할 수 있다.\n1$ ruby --version\n\nRuby의 버전을 선택해서 설치하거나 업그레이드하려면, Ruby 버전 관리 툴인 rbenv를 설치해야한다.\n123$ brew update$ brew install rbenv\n\n이후 React Native에서 요구하는 버전으로 Ruby를 새로 설치하자. 필요한 Ruby의 버전은 여기에서 확인할 수 있다. 글을 작성하는 시점에는 2.7.6으로 되어있었다. 참고로 상위 버전의 Ruby를 설치했을 때에도 오류가 나서, 정확히 일치하는 버전을 설치해야 하는 것 같다.\n1$ rbenv install 2.7.6\n\n이후 아래 커맨드를 통해 rbenv에 설치된 Ruby를 사용하도록 설정해준다.\n1234$ rbenv global 2.7.6$ ruby --version* 2.7.6\n\n만약 rbenv global 커맨드 이후에도 ruby --version이 바뀌지 않는다면, 환경변수 설정이 필요하다. eval &quot;$(rbenv init - zsh)&quot;를 ~/.zshrc파일에 추가해주면, Ruby 버전이 정상적으로 반영된 것을 확인할 수 있다.\n12345678$ vim ~/.zshrc# 마지막줄에 eval &quot;$(rbenv init - zsh)&quot; 추가$ source ~/.zshrc$ ruby --version* 2.7.6\n\n이제 다시 설레는 마음으로 새로운 프로젝트를 시작해보자!\n1$ npx react-native init myProject --template react-native-template-typescript","dateCreated":"2023-01-30T00:37:13+09:00","dateModified":"2023-01-30T00:37:13+09:00","datePublished":"2023-01-30T00:37:13+09:00","description":"","headline":"[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결","image":["https://i.imgur.com/zZQ9qON.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/react-native-init-ruby-version-error/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/react-native-init-ruby-version-error/","thumbnailUrl":"https://i.imgur.com/zZQ9qON.png"}</script>
     <meta name="description" content="React Native 프로젝트 생성시 발생한 에러오랜만에 설레는 마음으로 터미널을 켜고 React Native 프로젝트를 생성하는 순간    Installing Bundler단계에서 펑!하고 터져버렸다. 머선129 1234Ignoring digest-crc-0.6.3 because its extensions are not built. Try: gem">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[React Native] React Native 프로젝트 생성시 Ruby 버전 오류와 해결">
@@ -45,6 +45,9 @@
     
         <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
     
+    
+        <meta property="og:image" content="https://i.imgur.com/zZQ9qON.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/zZQ9qON.png">
     
     
     
@@ -131,19 +134,19 @@
           <div class="sidebar-count-button">
             <a class="sidebar-count-link" href="/posts">
               <div class="sidebar-count-title">POSTS</div>
-              <div class="sidebar-count-number">40</div>
+              <div class="sidebar-count-number">45</div>
             </a>
           </div>
           <div class="sidebar-count-button">
             <a class="sidebar-count-link" href="/all-categories">
               <div class="sidebar-count-title">CATEGORIES</div>
-              <div class="sidebar-count-number">5</div>
+              <div class="sidebar-count-number">4</div>
             </a>
           </div>
           <!-- <div class="sidebar-count-button">
             <a class="sidebar-count-link" href="/all-tags">
               <div class="sidebar-count-title">TAGS</div>
-              <div class="sidebar-count-number">21</div>
+              <div class="sidebar-count-number">22</div>
             </a>
           </div> -->
         </div>
@@ -313,7 +316,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/ML/multi-stage-continuous-flow-manufacturing-process-competition/" data-tooltip="[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회" aria-label="NEXT: [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/ML/multi-stage-continuous-flow-manufacturing-process-competition/" data-tooltip="[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 참가 후기" aria-label="NEXT: [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 참가 후기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -416,7 +419,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/ML/multi-stage-continuous-flow-manufacturing-process-competition/" data-tooltip="[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회" aria-label="NEXT: [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/ML/multi-stage-continuous-flow-manufacturing-process-competition/" data-tooltip="[국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 참가 후기" aria-label="NEXT: [국방 AI 부문 MINI 경진대회] 공정 프로세스 최종 품질값 예측 대회 참가 후기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
