@@ -19,13 +19,13 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\nHYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)\n\n\n\niOS Archive시 ld: symbol(s) not found for architecture arm64 오류\n\nnpx react-native run-ios 빌드는 되는데 archive에서 터지는 경우\n\npod cache clean –all - 안됨\n\nPodfile.lock 삭제 후 pod install - 안됨\n\n.xcworkspace 삭제 후 pod install - 안됨\n\npod install –repo-update - 해결!\n\n\n\niOS Simulator ⚠ No permission handler detected.\n\n123• Check that you link at least one permission handler in your Podfile.• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.• If you use use_frameworks!, follow the workaround guide in the project README.\n\n퍼미션 핸들러가 감지 안되었다는 에러.아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.https://github.com/zoontek/react-native-permissionshttps://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅\n이후 xcode에서 빌드폴더 한번 초기화\n\nThe engine “node” is incompatible with this module.\n\n먼저 yarn config list 명령을 통해 확인해보자.\nignore-engine 속성이 없는 것 같다..yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.\n그리고 다시 yarn config list 를 통해 확인.\n정상적으로 추가가 되었다.\n\n안드로이드 배포 후 firebase 전화 인증 이슈\n","dateCreated":"2023-03-26T02:53:42+09:00","dateModified":"2023-03-26T02:53:42+09:00","datePublished":"2023-03-26T02:53:42+09:00","description":"","headline":"[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting","image":["https://i.imgur.com/gpOryh1.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/hype-troubleshooting/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/hype-troubleshooting/","keywords":"React Native","thumbnailUrl":"https://i.imgur.com/gpOryh1.png"}</script>
-    <meta name="description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)    iOS Archive시 ld: symbol(s) not found for architecture arm64 오류  npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우  pod cache clean –">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\n1. iOS Archive시 ld: symbol(s) not found for architecture arm64 오류npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우\n\npod cache clean –all - 안됨\n\nPodfile.lock 삭제 후 pod install - 안됨\n\n.xcworkspace 삭제 후 pod install - 안됨\n\npod install –repo-update - 해결!\n\n\n2. iOS Simulator ⚠ No permission handler detected.123• Check that you link at least one permission handler in your Podfile.• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.• If you use use_frameworks!, follow the workaround guide in the project README.\n\n퍼미션 핸들러가 감지 안되었다는 에러.아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.https://github.com/zoontek/react-native-permissionshttps://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅\n이후 xcode에서 빌드폴더 한번 초기화\n3. The engine “node” is incompatible with this module.먼저 yarn config list 명령을 통해 확인해보자.\nignore-engine 속성이 없는 것 같다..yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.\n그리고 다시 yarn config list 를 통해 확인.\n정상적으로 추가가 되었다.\n4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈해결하는데만 총 7일이 걸린 최고로 사악한 이슈다. 진짜 노트북 여러번 부셔질 뻔 했다. 아예 하나의 포스트로 남겨두는게 나을 것 같아서, 여기에서 자세하게 확인할 수 있다.","dateCreated":"2023-03-26T02:53:42+09:00","dateModified":"2023-03-26T02:53:42+09:00","datePublished":"2023-03-26T02:53:42+09:00","description":"HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)","headline":"[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting","image":["https://i.imgur.com/gpOryh1.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/hype-troubleshooting/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/hype-troubleshooting/","keywords":"React Native","thumbnailUrl":"https://i.imgur.com/gpOryh1.png"}</script>
+    <meta name="description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[React Native] HYPE 개발 중 부딪힌 각종 Issue Troubleshooting">
 <meta property="og:url" content="https://oxcarxierra.github.io/Development/hype-troubleshooting/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
-<meta property="og:description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)    iOS Archive시 ld: symbol(s) not found for architecture arm64 오류  npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우  pod cache clean –">
+<meta property="og:description" content="HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-25T17:53:42.000Z">
 <meta property="article:modified_time" content="2023-03-25T17:53:42.000Z">
@@ -128,7 +128,7 @@
           <div class="sidebar-count-button">
             <a class="sidebar-count-link" href="/posts">
               <div class="sidebar-count-title">POSTS</div>
-              <div class="sidebar-count-number">45</div>
+              <div class="sidebar-count-number">46</div>
             </a>
           </div>
           <div class="sidebar-count-button">
@@ -250,7 +250,7 @@
 
  
   <span class="post-readingtime">
-     - 2 min read
+     - 3 min read
   </span>
 </div>
 
@@ -262,13 +262,9 @@
         <div class="main-content-wrap">
             <!-- excerpt -->
 
-<p>HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)</p>
-<h1 id="table-of-contents"> </h1>
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-iOS-Archive%EC%8B%9C-ld-symbol-s-not-found-for-architecture-arm64-%EC%98%A4%EB%A5%98"><span class="toc-text">1. iOS Archive시 ld: symbol(s) not found for architecture arm64 오류</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-iOS-Simulator-%E2%9A%A0-No-permission-handler-detected"><span class="toc-text">2. iOS Simulator ⚠ No permission handler detected.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-The-engine-%E2%80%9Cnode%E2%80%9D-is-incompatible-with-this-module"><span class="toc-text">3. The engine “node” is incompatible with this module.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C-Firebase-%EC%9E%90%EB%8F%99-%EB%AC%B8%EC%9E%90-%EC%9D%B8%EC%A6%9D-%EC%9D%B4%EC%8A%88"><span class="toc-text">4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈</span></a></li></ol>
 
-<ol>
-<li>iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</li>
-</ol>
-<p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p>
+<h1 id="1-iOS-Archive시-ld-symbol-s-not-found-for-architecture-arm64-오류"><a href="#1-iOS-Archive시-ld-symbol-s-not-found-for-architecture-arm64-오류" class="headerlink" title="1. iOS Archive시 ld: symbol(s) not found for architecture arm64 오류"></a>1. iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</h1><p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p>
 <ul>
 <li><p>pod cache clean –all - 안됨</p>
 </li>
@@ -279,23 +275,15 @@
 <li><p>pod install –repo-update - 해결!</p>
 </li>
 </ul>
-<ol start="2">
-<li>iOS Simulator ⚠ No permission handler detected.</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure>
+<h1 id="2-iOS-Simulator-⚠-No-permission-handler-detected"><a href="#2-iOS-Simulator-⚠-No-permission-handler-detected" class="headerlink" title="2. iOS Simulator ⚠ No permission handler detected."></a>2. iOS Simulator ⚠ No permission handler detected.</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure>
 
 <p>퍼미션 핸들러가 감지 안되었다는 에러.<br>아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에<br>react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/zoontek/react-native-permissions">https://github.com/zoontek/react-native-permissions</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://velog.io/@adguy/react-native-ios-%EB%B6%80%EB%B6%84-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%9B%ED%8C%85">https://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅</a></p>
 <p>이후 xcode에서 빌드폴더 한번 초기화</p>
-<ol start="3">
-<li>The engine “node” is incompatible with this module.</li>
-</ol>
-<p>먼저 yarn config list 명령을 통해 확인해보자.</p>
+<h1 id="3-The-engine-“node”-is-incompatible-with-this-module"><a href="#3-The-engine-“node”-is-incompatible-with-this-module" class="headerlink" title="3. The engine “node” is incompatible with this module."></a>3. The engine “node” is incompatible with this module.</h1><p>먼저 yarn config list 명령을 통해 확인해보자.</p>
 <p>ignore-engine 속성이 없는 것 같다..<br>yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.</p>
 <p>그리고 다시 yarn config list 를 통해 확인.</p>
 <p>정상적으로 추가가 되었다.</p>
-<ol start="4">
-<li>안드로이드 배포 후 firebase 전화 인증 이슈</li>
-</ol>
+<h1 id="4-안드로이드-기기에서-Firebase-자동-문자-인증-이슈"><a href="#4-안드로이드-기기에서-Firebase-자동-문자-인증-이슈" class="headerlink" title="4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈"></a>4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈</h1><p>해결하는데만 총 7일이 걸린 최고로 사악한 이슈다. 진짜 노트북 여러번 부셔질 뻔 했다. 아예 하나의 포스트로 남겨두는게 나을 것 같아서, <a href="'http://oxcarxierra.github.io/Development/rn-firebase-phone-auth/'">여기</a>에서 자세하게 확인할 수 있다.</p>
             
 
 
@@ -326,7 +314,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/hype-appstore-reject-list/" data-tooltip="[React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기" aria-label="NEXT: [React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -429,7 +417,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/hype-appstore-reject-list/" data-tooltip="[React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기" aria-label="NEXT: [React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>

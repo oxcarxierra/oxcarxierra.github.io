@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog of oxcarxierra">
+    <title>[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들 - Blog of oxcarxierra</title>
+    <meta name="author" content="oxcarxierra | 오승석">
+    
+        <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
+    
+    
+        <link rel="icon" href="https://oxcarxierra.github.io/assets/images/airplane.svg">
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\n\n아직 작성이 완료되지 않은 게시물입니다.\n\n시작2월 초 SDM형에게서 “앱 하나 빠르게 만들어볼 생각 있냐”며 연락이 왔다. 미국의 GAS, 독일의 SLAY 앱을 벤치마킹하여 학생들을 위한 “칭찬 앱”을 만들어보자는 제안이었다. 다양한 질문에 대해 유저들이 답변하면 자연스럽게 유저 간 칭찬이 이루어지고, BM은 칭찬을 보낸 사람을 확인하려면 광고를 보거나 프리미엄 구독에서 나오는 서비스였다.\n기대SLAY는 출시 4일만에 독일 앱스토어 1위를 하고 250만 유로 규모의 투자를 유치했으며, GAS의 경우는 700만 달러의 수입을 내며 디스코드가 인수하기로 했다는 뉴스를 봤다. 이렇게 대박을 냈던 아이템이 아직 한국에는 없었다. 앱스토어와 플레이스토어 어디를 뒤져보아도 없었다. 우리가 국내 시장에서만큼은 선두주자처럼 느껴졌다.\n지인들에게 개발 중간중간에 앱을 소개할 때, 술게임중 하나인 ‘거짓말 게임’이 좋은 예시가 되었다. 답을 듣고 질문이 궁금하면 선뜻 술을 마시고자 하는 의지가 생기듯이, 칭찬을 받고 사람이 궁금하면 진짜로 유저들이 선뜻 광고를 볼 것 같았다. 외국 학생들 뿐더러 우리나라 대학생 사이에도 먹히는데, MZ 중고등학생들에게 먹히지 않을 이유가 있겠는가? 하면서 말이다.\n기획과 개발과정SDM형이 백엔드(+프론트 지원)를, 내가 프론트엔드를 맡았고 옛날 동아리에서 한 번 만난 적 있었던 SWJ형이 기획을 맡아, 세 명으로 팀이 구성됐다. 디자이너가 있었다면 더 좋았겠지만, 프론트를 맡는 김에 내가 그냥 디자인도 해보기로 했다.\n앱 프레임워크는 언제나 그랬듯 React Native를, 백엔드 프레임워크는 Nest.js를 사용해봤다. 지난 프로젝트들로 배웠던 부분을 최대한 활용해보기 위해 React-Query활용을 극대화하고 상태관리를 최소화하며, 꼭 필요할 때만 Recoil을 사용해보기로 했다.\n앱 이름은 HYPE으로 정했다. MZ를 타겟으로 하는 만큼 힙하고 입에 잘 붙는 이름을 찾다가 만장일치로 뜻이 모였다. 자연스럽게 우리 팀 이름은 Hypeboyz가 되었다. 뉴진스의 하입보이요\n하루이틀, 길면 일주일로 끝날 줄 알았던 개발은 군대로 인한 시간 부족과 개인 역량의 부족으로 한 달 남짓이 걸렸다. 결국 2월 중순에 시작해서 3월 중순에 개발이 완료되었지만, 갖가지 버그와 오류로 인해 (특히 이 이슈) 4월 초에야 본격적인 서비스 개시가 가능하게 되었다.\n비록 일정의 지연이 조금은 있었지만, 큰 문제 없이 순조롭게 진행되는 중이라고 생각했었고 마케팅과 유통 준비도 꽤나 구체적으로 계획하고 있었다.\n경쟁 앱의 등장 🤯과 Plan B배포를 앞두고 막바지 QA를 진행하고 있었던 3월 26일, 지인을 통해서 우리와 같은 컨셉의 앱이 서비스를 시작했다는 소식을 들었다. 직접 설치해서 빠르게 훑어보니 HYPE보다 UI도 더 깔끔할 뿐더러 카카오 로그인을 이용한 간편한 유저 유입이 가능했다. 사이드프로젝트 정도로 진행하던 우리보다 더 본격적으로 준비해왔다는걸 단번에 느낄 수 있었고, 우리가 선발주자라는 굳은 믿음과 함께 내 멘탈은 조각나버렸다.\n복구하는데 SDM형과 SWJ형의 긍정적인 마인드가 큰 도움이 되었다.\n\n“어차피 우리가 선두였어도, 후발주자는 필연적으로 따라왔을 것이다.”“우리 앱만의 아이덴티티를 찾을 수 있는 좋은 기회다.”“중요한 건 꺾이지 않는 마음, 우리는 우리 할 일을 하자!”\n\nHYPE의 현위치와 이정표4월 10일 현재 경인고등학교 학생들을 대상으로 한 인스타그램 마케팅으로 약 40명의 유저를 확보했으나, 이들이 얼마나 앱을 사용하는지는 미지수다. 지긋지긋했던 안드로이드 전화번호 인증 문제를 해결했으니 안드로이드 유저를 대상으로 2차 넛지를 주며 재시도를 해보고, 지표들을 확인할 차례다.우선 총 유저수를 확보하는게 우선이고, 이후 유저간의 상호작용을 유발하거나 개인 질문같은 컨텐츠로 리텐션을 잡고 DAU를 확보해야 한다. J커브를 그려주어 다른 학교로도 확장해 나간다면 베스트지만, 그렇지 않을 가능성이 높다고 본다.\n아쉬웠던 것들, 배운 것들1. 쌓이는 디자인 부채2. 개발 속도와 Lean함의 중요성","dateCreated":"2023-04-10T15:04:29+09:00","dateModified":"2023-04-10T15:04:29+09:00","datePublished":"2023-04-10T15:04:29+09:00","description":"","headline":"[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들","image":["https://i.imgur.com/gpOryh1.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Development/hype-development-review/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Development/hype-development-review/","thumbnailUrl":"https://i.imgur.com/gpOryh1.png"}</script>
+    <meta name="description" content="아직 작성이 완료되지 않은 게시물입니다.  시작2월 초 SDM형에게서 “앱 하나 빠르게 만들어볼 생각 있냐”며 연락이 왔다. 미국의 GAS, 독일의 SLAY 앱을 벤치마킹하여 학생들을 위한 “칭찬 앱”을 만들어보자는 제안이었다. 다양한 질문에 대해 유저들이 답변하면 자연스럽게 유저 간 칭찬이 이루어지고, BM은 칭찬을 보낸 사람을 확인하려면 광고를">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들">
+<meta property="og:url" content="https://oxcarxierra.github.io/Development/hype-development-review/index.html">
+<meta property="og:site_name" content="Blog of oxcarxierra">
+<meta property="og:description" content="아직 작성이 완료되지 않은 게시물입니다.  시작2월 초 SDM형에게서 “앱 하나 빠르게 만들어볼 생각 있냐”며 연락이 왔다. 미국의 GAS, 독일의 SLAY 앱을 벤치마킹하여 학생들을 위한 “칭찬 앱”을 만들어보자는 제안이었다. 다양한 질문에 대해 유저들이 답변하면 자연스럽게 유저 간 칭찬이 이루어지고, BM은 칭찬을 보낸 사람을 확인하려면 광고를">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-10T06:04:29.000Z">
+<meta property="article:modified_time" content="2023-04-10T06:04:29.000Z">
+<meta property="article:author" content="oxcarxierra | 오승석">
+<meta property="article:tag" content="오승석">
+<meta property="article:tag" content="oxcarxierra">
+<meta property="article:tag" content="Seungseok Oh">
+<meta property="article:tag" content="서울과학고등학교">
+<meta property="article:tag" content="서울대학교">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
+    
+    
+        <meta property="og:image" content="https://i.imgur.com/gpOryh1.png">
+        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/gpOryh1.png">
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19V9VE6BEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-19V9VE6BEX');
+    </script>
+
+
+    
+
+    
+        
+    
+    <link rel="canonical" href="https://oxcarxierra.github.io/development/hype-development-review/">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            Blog of oxcarxierra
+        </a>
+    </div>
+    
+        
+            <a class="header-right-icon " href="/" aria-label="Open the link: /">
+        
+        
+            <i class="fa fa-home fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+              <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                <a aria-label="Read more about the author" href="/#about">
+                </a>
+                <h4 class="sidebar-profile-name">oxcarxierra | 오승석</h4>
+                
+                    <h5 class="sidebar-profile-bio"></h5>
+                
+            </div>
+        
+        <div class="sidebar-counts">
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/posts">
+              <div class="sidebar-count-title">POSTS</div>
+              <div class="sidebar-count-number">46</div>
+            </a>
+          </div>
+          <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-categories">
+              <div class="sidebar-count-title">CATEGORIES</div>
+              <div class="sidebar-count-number">4</div>
+            </a>
+          </div>
+          <!-- <div class="sidebar-count-button">
+            <a class="sidebar-count-link" href="/all-tags">
+              <div class="sidebar-count-title">TAGS</div>
+              <div class="sidebar-count-number">22</div>
+            </a>
+          </div> -->
+        </div>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/about" rel="noopener" title="About Me">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About Me</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/categories/Review" rel="noopener" title="Monthly Reviews">
+                        <i class="sidebar-button-icon fa fa-calendar" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Monthly Reviews</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/posts" rel="noopener" title="Posts">
+                        <i class="sidebar-button-icon fa fa-pen" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Posts</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/OXcarXierra" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/oh-seungseok-370746242/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.instagram.com/_oscarsierra_/" target="_blank" rel="external nofollow noopener noreferrer" title="Instagram">
+                        <i class="sidebar-button-icon fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Instagram</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들
+        </h1>
+    
+    
+        <div class="post-meta">
+  <time datetime="2023-04-10T15:04:29+09:00">
+     Apr 10, 2023 
+  </time>
+  
+  <span>in </span>
+  
+    <a class="category-link" href="/categories/Development/">Development</a>
+
+ 
+  <span class="post-readingtime">
+     - 9 min read
+  </span>
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8B%9C%EC%9E%91"><span class="toc-text">시작</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B8%B0%EB%8C%80"><span class="toc-text">기대</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B8%B0%ED%9A%8D%EA%B3%BC-%EA%B0%9C%EB%B0%9C%EA%B3%BC%EC%A0%95"><span class="toc-text">기획과 개발과정</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B2%BD%EC%9F%81-%EC%95%B1%EC%9D%98-%EB%93%B1%EC%9E%A5-%F0%9F%A4%AF%EA%B3%BC-Plan-B"><span class="toc-text">경쟁 앱의 등장 🤯과 Plan B</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HYPE%EC%9D%98-%ED%98%84%EC%9C%84%EC%B9%98%EC%99%80-%EC%9D%B4%EC%A0%95%ED%91%9C"><span class="toc-text">HYPE의 현위치와 이정표</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%95%84%EC%89%AC%EC%9B%A0%EB%8D%98-%EA%B2%83%EB%93%A4-%EB%B0%B0%EC%9A%B4-%EA%B2%83%EB%93%A4"><span class="toc-text">아쉬웠던 것들, 배운 것들</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EC%8C%93%EC%9D%B4%EB%8A%94-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B6%80%EC%B1%84"><span class="toc-text">1. 쌓이는 디자인 부채</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EA%B0%9C%EB%B0%9C-%EC%86%8D%EB%8F%84%EC%99%80-Lean%ED%95%A8%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1"><span class="toc-text">2. 개발 속도와 Lean함의 중요성</span></a></li></ol></li></ol>
+
+<blockquote>
+<p>아직 작성이 완료되지 않은 게시물입니다.</p>
+</blockquote>
+<h1 id="시작"><a href="#시작" class="headerlink" title="시작"></a>시작</h1><p>2월 초 SDM형에게서 “앱 하나 빠르게 만들어볼 생각 있냐”며 연락이 왔다. 미국의 <strong>GAS</strong>, 독일의 <strong>SLAY</strong> 앱을 벤치마킹하여 학생들을 위한 “칭찬 앱”을 만들어보자는 제안이었다. 다양한 질문에 대해 유저들이 답변하면 자연스럽게 유저 간 칭찬이 이루어지고, BM은 칭찬을 보낸 사람을 확인하려면 광고를 보거나 프리미엄 구독에서 나오는 서비스였다.</p>
+<h1 id="기대"><a href="#기대" class="headerlink" title="기대"></a>기대</h1><p><strong>SLAY</strong>는 출시 4일만에 독일 앱스토어 1위를 하고 250만 유로 규모의 투자를 유치했으며, <strong>GAS</strong>의 경우는 700만 달러의 수입을 내며 디스코드가 인수하기로 했다는 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://startuprecipe.co.kr/archives/5687391">뉴스</a>를 봤다. 이렇게 대박을 냈던 아이템이 아직 한국에는 없었다. 앱스토어와 플레이스토어 어디를 뒤져보아도 없었다. 우리가 국내 시장에서만큼은 선두주자처럼 느껴졌다.</p>
+<p>지인들에게 개발 중간중간에 앱을 소개할 때, 술게임중 하나인 ‘거짓말 게임’이 좋은 예시가 되었다. 답을 듣고 질문이 궁금하면 선뜻 술을 마시고자 하는 의지가 생기듯이, 칭찬을 받고 사람이 궁금하면 진짜로 유저들이 선뜻 광고를 볼 것 같았다. 외국 학생들 뿐더러 우리나라 대학생 사이에도 먹히는데, MZ 중고등학생들에게 먹히지 않을 이유가 있겠는가? 하면서 말이다.</p>
+<h1 id="기획과-개발과정"><a href="#기획과-개발과정" class="headerlink" title="기획과 개발과정"></a>기획과 개발과정</h1><p>SDM형이 백엔드(+프론트 지원)를, 내가 프론트엔드를 맡았고 옛날 동아리에서 한 번 만난 적 있었던 SWJ형이 기획을 맡아, 세 명으로 팀이 구성됐다. 디자이너가 있었다면 더 좋았겠지만, 프론트를 맡는 김에 내가 그냥 디자인도 해보기로 했다.</p>
+<p>앱 프레임워크는 언제나 그랬듯 <code>React Native</code>를, 백엔드 프레임워크는 <code>Nest.js</code>를 사용해봤다. 지난 프로젝트들로 배웠던 부분을 최대한 활용해보기 위해 <code>React-Query</code>활용을 극대화하고 상태관리를 최소화하며, 꼭 필요할 때만 <code>Recoil</code>을 사용해보기로 했다.</p>
+<p>앱 이름은 <strong>HYPE</strong>으로 정했다. MZ를 타겟으로 하는 만큼 힙하고 입에 잘 붙는 이름을 찾다가 만장일치로 뜻이 모였다. 자연스럽게 우리 팀 이름은 <strong>Hypeboyz</strong>가 되었다. <del>뉴진스의 하입보이요</del></p>
+<p>하루이틀, 길면 일주일로 끝날 줄 알았던 개발은 군대로 인한 시간 부족과 개인 역량의 부족으로 한 달 남짓이 걸렸다. 결국 2월 중순에 시작해서 3월 중순에 개발이 완료되었지만, 갖가지 버그와 오류로 인해 (<a href>특히 이 이슈</a>) 4월 초에야 본격적인 서비스 개시가 가능하게 되었다.</p>
+<p>비록 일정의 지연이 조금은 있었지만, 큰 문제 없이 순조롭게 진행되는 중이라고 생각했었고 마케팅과 유통 준비도 꽤나 구체적으로 계획하고 있었다.</p>
+<h1 id="경쟁-앱의-등장-🤯과-Plan-B"><a href="#경쟁-앱의-등장-🤯과-Plan-B" class="headerlink" title="경쟁 앱의 등장 🤯과 Plan B"></a>경쟁 앱의 등장 🤯과 Plan B</h1><p>배포를 앞두고 막바지 QA를 진행하고 있었던 <strong>3월 26일</strong>, 지인을 통해서 우리와 같은 컨셉의 앱이 서비스를 시작했다는 소식을 들었다. 직접 설치해서 빠르게 훑어보니 HYPE보다 UI도 더 깔끔할 뿐더러 카카오 로그인을 이용한 간편한 유저 유입이 가능했다. 사이드프로젝트 정도로 진행하던 우리보다 더 본격적으로 준비해왔다는걸 단번에 느낄 수 있었고, 우리가 선발주자라는 굳은 믿음과 함께 내 멘탈은 조각나버렸다.</p>
+<p>복구하는데 SDM형과 SWJ형의 긍정적인 마인드가 큰 도움이 되었다.</p>
+<blockquote>
+<p>“어차피 우리가 선두였어도, 후발주자는 필연적으로 따라왔을 것이다.”<br>“우리 앱만의 아이덴티티를 찾을 수 있는 좋은 기회다.”<br>“중요한 건 꺾이지 않는 마음, 우리는 우리 할 일을 하자!”</p>
+</blockquote>
+<h1 id="HYPE의-현위치와-이정표"><a href="#HYPE의-현위치와-이정표" class="headerlink" title="HYPE의 현위치와 이정표"></a>HYPE의 현위치와 이정표</h1><p>4월 10일 현재 경인고등학교 학생들을 대상으로 한 인스타그램 마케팅으로 약 40명의 유저를 확보했으나, 이들이 얼마나 앱을 사용하는지는 미지수다. 지긋지긋했던 안드로이드 전화번호 인증 문제를 해결했으니 안드로이드 유저를 대상으로 2차 넛지를 주며 재시도를 해보고, 지표들을 확인할 차례다.<br>우선 총 유저수를 확보하는게 우선이고, 이후 유저간의 상호작용을 유발하거나 개인 질문같은 컨텐츠로 리텐션을 잡고 DAU를 확보해야 한다. J커브를 그려주어 다른 학교로도 확장해 나간다면 베스트지만, 그렇지 않을 가능성이 높다고 본다.</p>
+<h1 id="아쉬웠던-것들-배운-것들"><a href="#아쉬웠던-것들-배운-것들" class="headerlink" title="아쉬웠던 것들, 배운 것들"></a>아쉬웠던 것들, 배운 것들</h1><h2 id="1-쌓이는-디자인-부채"><a href="#1-쌓이는-디자인-부채" class="headerlink" title="1. 쌓이는 디자인 부채"></a>1. 쌓이는 디자인 부채</h2><h2 id="2-개발-속도와-Lean함의-중요성"><a href="#2-개발-속도와-Lean함의-중요성" class="headerlink" title="2. 개발 속도와 Lean함의 중요성"></a>2. 개발 속도와 Lean함의 중요성</h2>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    Copyrights &copy; 2023 oxcarxierra | 오승석.
+  </span>
+  <br>
+  <span class="copyrights"> All Rights Reserved. </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Development/rn-firebase-phone-auth/" data-tooltip="[React Native] Firebase 전화번호 인증기능 추가하기" aria-label="NEXT: [React Native] Firebase 전화번호 인증기능 추가하기">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- 
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-development-review/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+         -->
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label=" ">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Development/hype-development-review/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Development/hype-development-review/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Development/hype-development-review/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+              
+<div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+    
+    <h4 id="about-card-name">oxcarxierra | 오승석</h4>
+    
+    <div id="about-card-bio"></div>
+     
+    <div id="about-card-job">
+      <i class="fa fa-briefcase"></i>
+      <br>
+      <p>author.job</p>
+
+    </div>
+     
+  </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/1d1d1d.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

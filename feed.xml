@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2023-04-05T06:04:29.000Z</updated>
+  <updated>2023-04-10T06:04:29.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -17,21 +17,64 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 현 상황, 그리고 배운 것들</title>
-    <link href="https://oxcarxierra.github.io/Review/2023/hype-development-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2023/hype-development-review/</id>
-    <published>2023-04-05T06:04:29.000Z</published>
-    <updated>2023-04-05T06:04:29.000Z</updated>
+    <title>[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들</title>
+    <link href="https://oxcarxierra.github.io/Development/hype-development-review/"/>
+    <id>https://oxcarxierra.github.io/Development/hype-development-review/</id>
+    <published>2023-04-10T06:04:29.000Z</published>
+    <updated>2023-04-10T06:04:29.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc -->]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><blockquote><p>아직 작성이 완료되지 않은 게시물입니다.</p></blockquote><h1 id="시작"><a href="#시작" class="headerlink" title="시작"></a>시작</h1><p>2월 초 SDM형에게서 “앱 하나 빠르게 만들어볼 생각 있냐”며 연락이 왔다. 미국의 <strong>GAS</strong>, 독일의 <strong>SLAY</strong> 앱을 벤치마킹하여 학생들을 위한 “칭찬 앱”을 만들어보자는 제안이었다. 다양한 질문에 대해 유저들이 답변하면 자연스럽게 유저 간 칭찬이 이루어지고, BM은 칭찬을 보낸 사람을 확인하려면 광고를 보거나 프리미엄 구독에서 나오는 서비스였다.</p><h1 id="기대"><a href="#기대" class="headerlink" title="기대"></a>기대</h1><p><strong>SLAY</strong>는 출시 4일만에 독일 앱스토어 1위를 하고 250만 유로 규모의 투자를 유치했으며, <strong>GAS</strong>의 경우는 700만 달러의 수입을 내며 디스코드가 인수하기로 했다는 <a href="https://startuprecipe.co.kr/archives/5687391">뉴스</a>를 봤다. 이렇게 대박을 냈던 아이템이 아직 한국에는 없었다. 앱스토어와 플레이스토어 어디를 뒤져보아도 없었다. 우리가 국내 시장에서만큼은 선두주자처럼 느껴졌다.</p><p>지인들에게 개발 중간중간에 앱을 소개할 때, 술게임중 하나인 ‘거짓말 게임’이 좋은 예시가 되었다. 답을 듣고 질문이 궁금하면 선뜻 술을 마시고자 하는 의지가 생기듯이, 칭찬을 받고 사람이 궁금하면 진짜로 유저들이 선뜻 광고를 볼 것 같았다. 외국 학생들 뿐더러 우리나라 대학생 사이에도 먹히는데, MZ 중고등학생들에게 먹히지 않을 이유가 있겠는가? 하면서 말이다.</p><h1 id="기획과-개발과정"><a href="#기획과-개발과정" class="headerlink" title="기획과 개발과정"></a>기획과 개발과정</h1><p>SDM형이 백엔드(+프론트 지원)를, 내가 프론트엔드를 맡았고 옛날 동아리에서 한 번 만난 적 있었던 SWJ형이 기획을 맡아, 세 명으로 팀이 구성됐다. 디자이너가 있었다면 더 좋았겠지만, 프론트를 맡는 김에 내가 그냥 디자인도 해보기로 했다.</p><p>앱 프레임워크는 언제나 그랬듯 <code>React Native</code>를, 백엔드 프레임워크는 <code>Nest.js</code>를 사용해봤다. 지난 프로젝트들로 배웠던 부분을 최대한 활용해보기 위해 <code>React-Query</code>활용을 극대화하고 상태관리를 최소화하며, 꼭 필요할 때만 <code>Recoil</code>을 사용해보기로 했다.</p><p>앱 이름은 <strong>HYPE</strong>으로 정했다. MZ를 타겟으로 하는 만큼 힙하고 입에 잘 붙는 이름을 찾다가 만장일치로 뜻이 모였다. 자연스럽게 우리 팀 이름은 <strong>Hypeboyz</strong>가 되었다. <del>뉴진스의 하입보이요</del></p><p>하루이틀, 길면 일주일로 끝날 줄 알았던 개발은 군대로 인한 시간 부족과 개인 역량의 부족으로 한 달 남짓이 걸렸다. 결국 2월 중순에 시작해서 3월 중순에 개발이 완료되었지만, 갖가지 버그와 오류로 인해 (<a href="">특히 이 이슈</a>) 4월 초에야 본격적인 서비스 개시가 가능하게 되었다.</p><p>비록 일정의 지연이 조금은 있었지만, 큰 문제 없이 순조롭게 진행되는 중이라고 생각했었고 마케팅과 유통 준비도 꽤나 구체적으로 계획하고 있었다.</p><h1 id="경쟁-앱의-등장-🤯과-Plan-B"><a href="#경쟁-앱의-등장-🤯과-Plan-B" class="headerlink" title="경쟁 앱의 등장 🤯과 Plan B"></a>경쟁 앱의 등장 🤯과 Plan B</h1><p>배포를 앞두고 막바지 QA를 진행하고 있었던 <strong>3월 26일</strong>, 지인을 통해서 우리와 같은 컨셉의 앱이 서비스를 시작했다는 소식을 들었다. 직접 설치해서 빠르게 훑어보니 HYPE보다 UI도 더 깔끔할 뿐더러 카카오 로그인을 이용한 간편한 유저 유입이 가능했다. 사이드프로젝트 정도로 진행하던 우리보다 더 본격적으로 준비해왔다는걸 단번에 느낄 수 있었고, 우리가 선발주자라는 굳은 믿음과 함께 내 멘탈은 조각나버렸다.</p><p>복구하는데 SDM형과 SWJ형의 긍정적인 마인드가 큰 도움이 되었다.</p><blockquote><p>“어차피 우리가 선두였어도, 후발주자는 필연적으로 따라왔을 것이다.”<br>“우리 앱만의 아이덴티티를 찾을 수 있는 좋은 기회다.”<br>“중요한 건 꺾이지 않는 마음, 우리는 우리 할 일을 하자!”</p></blockquote><h1 id="HYPE의-현위치와-이정표"><a href="#HYPE의-현위치와-이정표" class="headerlink" title="HYPE의 현위치와 이정표"></a>HYPE의 현위치와 이정표</h1><p>4월 10일 현재 경인고등학교 학생들을 대상으로 한 인스타그램 마케팅으로 약 40명의 유저를 확보했으나, 이들이 얼마나 앱을 사용하는지는 미지수다. 지긋지긋했던 안드로이드 전화번호 인증 문제를 해결했으니 안드로이드 유저를 대상으로 2차 넛지를 주며 재시도를 해보고, 지표들을 확인할 차례다.<br>우선 총 유저수를 확보하는게 우선이고, 이후 유저간의 상호작용을 유발하거나 개인 질문같은 컨텐츠로 리텐션을 잡고 DAU를 확보해야 한다. J커브를 그려주어 다른 학교로도 확장해 나간다면 베스트지만, 그렇지 않을 가능성이 높다고 본다.</p><h1 id="아쉬웠던-것들-배운-것들"><a href="#아쉬웠던-것들-배운-것들" class="headerlink" title="아쉬웠던 것들, 배운 것들"></a>아쉬웠던 것들, 배운 것들</h1><h2 id="1-쌓이는-디자인-부채"><a href="#1-쌓이는-디자인-부채" class="headerlink" title="1. 쌓이는 디자인 부채"></a>1. 쌓이는 디자인 부채</h2><h2 id="2-개발-속도와-Lean함의-중요성"><a href="#2-개발-속도와-Lean함의-중요성" class="headerlink" title="2. 개발 속도와 Lean함의 중요성"></a>2. 개발 속도와 Lean함의 중요성</h2>]]></content>
     
     
       
       
     <summary type="html">&lt;!-- excerpt --&gt;
 
-&lt;!-- toc --&gt;</summary>
+&lt;!-- toc --&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;아직 작성이 완료되지 않은 게시물입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;시작&quot;&gt;&lt;a href=&quot;#시작&quot; class=&quot;headerlink&quot; title=</summary>
       
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[React Native] Firebase 전화번호 인증기능 추가하기</title>
+    <link href="https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/"/>
+    <id>https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/</id>
+    <published>2023-04-07T16:57:43.000Z</published>
+    <updated>2023-04-07T16:57:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><blockquote><p>아직 작성이 완료되지 않은 게시물입니다.</p></blockquote><p>HYPE 앱은 전화번호 기반으로 유저 로그인, 회원가입이 이루어지기 때문에 전화번호 인증이 필수적이었다. 때문에 Google Firebase에서 제공하는 문자메세지 인증 서비스를 처음으로 적용해보았다.</p><h1 id="Google-Firebase-연동하기"><a href="#Google-Firebase-연동하기" class="headerlink" title="Google Firebase 연동하기"></a>Google Firebase 연동하기</h1><p>연동하는 일련의 방법은 공식문서 및 블로그를 참고했다. 파베 공식문서는 Swift와 Kotlin 기반으로 설명이 되어있어서, 타 블로그가 도움이 많이 되었다.</p><h1 id="인증번호-전송-및-대조-검증-코드"><a href="#인증번호-전송-및-대조-검증-코드" class="headerlink" title="인증번호 전송 및 대조 검증 코드"></a>인증번호 전송 및 대조 검증 코드</h1><h1 id="Android-기기에서-전화번호-자동-인증-로직"><a href="#Android-기기에서-전화번호-자동-인증-로직" class="headerlink" title="Android 기기에서 전화번호 자동 인증 로직"></a>Android 기기에서 전화번호 자동 인증 로직</h1>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Google Firebase를 이용하여 React Native 프로젝트에 전화번호 인증을 달아보자.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[React Native] 앱 추적 권한 요청하기 + App Store Connect 추적 권한 제거 버그</title>
+    <link href="https://oxcarxierra.github.io/Development/hype-troubleshooting-ios-permission-request/"/>
+    <id>https://oxcarxierra.github.io/Development/hype-troubleshooting-ios-permission-request/</id>
+    <published>2023-04-07T15:40:38.000Z</published>
+    <updated>2023-04-07T15:40:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h1 id="React-Native-앱-내에서-앱-추적-권한-요청하기"><a href="#React-Native-앱-내에서-앱-추적-권한-요청하기" class="headerlink" title="React Native 앱 내에서 앱 추적 권한 요청하기"></a>React Native 앱 내에서 앱 추적 권한 요청하기</h1><p>앱에서 추적 허용 권한을 얻으러면, <code>ios/Appname/Info.plist</code> 파일 내에 아래의 코드를 넣어야 한다.</p><figure class="highlight plaintext"><figcaption><span>Info.plist</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;NSUserTrackingUsageDescription&lt;/key&gt;</span><br><span class="line">&lt;string&gt;예시 문구 : 유저에게 최적화된 광고를 제공하기 위해 광고 활동 정보를 수집하고 있어요.&lt;/string&gt;</span><br></pre></td></tr></table></figure><p>이후 빌드된 파일을 App Store Connect에 업로드하면, 아래와 같이 앱이 수집하는 개인정보 탭에서 <strong>광고 데이터</strong>에 체크가 되어있는걸 볼 수 있다.<br><br></p><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/hoyx4jT.png" alt=""></div><p>이후 앱을 실행했을 때 추적 허용 여부를 묻는 모달을 띄워야 하는데, 이 떄 <code>react-native-permissions</code> 라이브러리가 필요하다.</p><p>이후 구체적인 과정은 <a href="'https://juzero-space.tistory.com/312'">이 블로그</a>를 참고하며 많은 도움을 받았다.</p><h1 id="앱-추적-투명성-App-Tracking-Transparency-제거-시도시-App-Store-Connect에-반영이-되지-않는-버그"><a href="#앱-추적-투명성-App-Tracking-Transparency-제거-시도시-App-Store-Connect에-반영이-되지-않는-버그" class="headerlink" title="앱 추적 투명성(App Tracking Transparency) 제거 시도시 App Store Connect에 반영이 되지 않는 버그"></a>앱 추적 투명성(App Tracking Transparency) 제거 시도시 App Store Connect에 반영이 되지 않는 버그</h1><p>이 버그는 HYPE 개발중에 나를 빡치게 만든 이슈 중 당당히 Top 3 안에 들었다.</p><p>앱 추적 권한 요청 모달이 잘 해결되지 않아 아예 앱 추적 투명성을 지워보려고 시도했었다. <code>Info.plist</code>에서 <code>NSUserTrackingUsageDescription</code> 키와 string을 삭제하고 다시 빌드한 후 App Store Connect에 업로드해서 권한을 요청 여부를 변경하려 하는데..</p><br><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/fEmnLBg.png" alt=""></div><p>이 문구가 사라지지 않으면서 <strong>게시</strong> 버튼이 눌리지도 않는다. 일단 <code>Info.plist</code>에서 해당 권한을 지웠으니 괜찮을 것으로 예상하면서 심사에 제출하였으나, 어림도 없지! 바로 Reject당해버렸다.</p><p>좀 더 구글링해보니 해당 버그는 Apple Developer Forum에도 등록된 악명 높은 버그였다.</p><blockquote><p><a href="'https://developer.apple.com/forums/thread/679585'">해당 페이지</a></p></blockquote><p>앱 심사위원(?)이 직접 남긴 댓글과 그에 대한 답글을 보자.</p><br><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/f7xSe5a.png" alt=""></div><p>새로운 버전을 만들고 앱이 수집하는 개인정보를 수정하라고 하는데, 이게 사실상 불가능한 것이 리뷰 팀은 App Store Connect의 개인정보 설정을 기준으로 심사를 해서 <code>Info.plist</code>에 해당 키가 없다고 심사를 거부하며, App Store Connect 페이지에서는 <code>Info.plist</code>를 변경을 해도 개인정보 설정이 바뀌지 않기 때문이다.</p><br><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/pW29LgR.png" alt="분노가 느껴진다.."><span class="caption">분노가 느껴진다..</span></div><p>유일한 해결 방법은 리뷰팀에게 남기는 메모를 통해 개인정보 설정을 변경했다고 어필을 하는 것이라고 한다. 실제로 그렇게 해서 겨우 통과했다는 후기들이 있었다. 나 또한 그렇게 어필을 하려고 시도해보았으나..</p><br><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/He4guBg.png" alt=""></div><p>내가 공들여서 설명을 해줬음에도 불구하고 메모를 전혀 읽지 않은 것 처럼 이전과 정확히 똑같은 리젝 사유만이 돌아올 뿐이었다. 자다 깨서 리젝 사유를 확인하고 역대급으로 애플에 분노한 나는 그만 이런 메모를 보내버리고 말았다.</p><br><div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/COf5hwu.png" alt=""></div><p>결국 나는 다시 앱 추적 권한 요청을 띄우기로 해보고, 며칠간의 디버깅 끝에 결국 성공하고 심사에서 통과할 수 있었다. 혹시나 같은 에러를 겪고 있는 개발자를 위해 이렇게 글을 남겨놓는다.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;iOS 앱 내에 App Tracking Transparency permission(앱 추적 권한 허용) 설정하기&lt;/p&gt;</summary>
     
     
     
@@ -74,19 +117,10 @@
     <published>2023-03-25T17:53:42.000Z</published>
     <updated>2023-03-25T17:53:42.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><p>HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)</p><!-- toc --><ol><li>iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</li></ol><p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p><ul><li><p>pod cache clean –all - 안됨</p></li><li><p>Podfile.lock 삭제 후 pod install - 안됨</p></li><li><p>.xcworkspace 삭제 후 pod install - 안됨</p></li><li><p>pod install –repo-update - 해결!</p></li></ul><ol start="2"><li>iOS Simulator ⚠ No permission handler detected.</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure><p>퍼미션 핸들러가 감지 안되었다는 에러.<br>아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에<br>react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.<br><a href="https://github.com/zoontek/react-native-permissions">https://github.com/zoontek/react-native-permissions</a><br><a href="https://velog.io/@adguy/react-native-ios-%EB%B6%80%EB%B6%84-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%9B%ED%8C%85">https://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅</a></p><p>이후 xcode에서 빌드폴더 한번 초기화</p><ol start="3"><li>The engine “node” is incompatible with this module.</li></ol><p>먼저 yarn config list 명령을 통해 확인해보자.</p><p>ignore-engine 속성이 없는 것 같다..<br>yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.</p><p>그리고 다시 yarn config list 를 통해 확인.</p><p>정상적으로 추가가 되었다.</p><ol start="4"><li>안드로이드 배포 후 firebase 전화 인증 이슈</li></ol>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h1 id="1-iOS-Archive시-ld-symbol-s-not-found-for-architecture-arm64-오류"><a href="#1-iOS-Archive시-ld-symbol-s-not-found-for-architecture-arm64-오류" class="headerlink" title="1. iOS Archive시 ld: symbol(s) not found for architecture arm64 오류"></a>1. iOS Archive시 <code>ld: symbol(s) not found for architecture arm64</code> 오류</h1><p>npx react-native run-ios 빌드는 되는데 archive에서 터지는 경우</p><ul><li><p>pod cache clean –all - 안됨</p></li><li><p>Podfile.lock 삭제 후 pod install - 안됨</p></li><li><p>.xcworkspace 삭제 후 pod install - 안됨</p></li><li><p>pod install –repo-update - 해결!</p></li></ul><h1 id="2-iOS-Simulator-⚠-No-permission-handler-detected"><a href="#2-iOS-Simulator-⚠-No-permission-handler-detected" class="headerlink" title="2. iOS Simulator ⚠ No permission handler detected."></a>2. iOS Simulator ⚠ No permission handler detected.</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• Check that you link at least one permission handler in your Podfile.</span><br><span class="line">• Uninstall this app, delete your Xcode DerivedData folder and rebuild it.</span><br><span class="line">• If you use use_frameworks!, follow the workaround guide in the project README.</span><br></pre></td></tr></table></figure><p>퍼미션 핸들러가 감지 안되었다는 에러.<br>아마 앞의 에러 땜에 ios 폴더 안에 pod 관련 파일들을 다 날리고 reinstall 해줬기에<br>react-native-permission 라이브러리 사용을 위해 ios에서 설정해주는 게 초기화 돼서 에러 뜨는듯.<br><a href="https://github.com/zoontek/react-native-permissions">https://github.com/zoontek/react-native-permissions</a><br><a href="https://velog.io/@adguy/react-native-ios-%EB%B6%80%EB%B6%84-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%9B%ED%8C%85">https://velog.io/@adguy/react-native-ios-부분-내용-및-트러블-슛팅</a></p><p>이후 xcode에서 빌드폴더 한번 초기화</p><h1 id="3-The-engine-“node”-is-incompatible-with-this-module"><a href="#3-The-engine-“node”-is-incompatible-with-this-module" class="headerlink" title="3. The engine “node” is incompatible with this module."></a>3. The engine “node” is incompatible with this module.</h1><p>먼저 yarn config list 명령을 통해 확인해보자.</p><p>ignore-engine 속성이 없는 것 같다..<br>yarn config set ignore-engines true 로, 엔진 버전과 일치하지 않더라도 커맨드를 진행하게 해버리자.</p><p>그리고 다시 yarn config list 를 통해 확인.</p><p>정상적으로 추가가 되었다.</p><h1 id="4-안드로이드-기기에서-Firebase-자동-문자-인증-이슈"><a href="#4-안드로이드-기기에서-Firebase-자동-문자-인증-이슈" class="headerlink" title="4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈"></a>4. 안드로이드 기기에서 Firebase 자동 문자 인증 이슈</h1><p>해결하는데만 총 7일이 걸린 최고로 사악한 이슈다. 진짜 노트북 여러번 부셔질 뻔 했다. 아예 하나의 포스트로 남겨두는게 나을 것 같아서, <a href="'http://oxcarxierra.github.io/Development/rn-firebase-phone-auth/'">여기</a>에서 자세하게 확인할 수 있다.</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;!-- excerpt --&gt;
-
-&lt;p&gt;HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)&lt;/p&gt;
-&lt;!-- toc --&gt;
-
-&lt;ol&gt;
-&lt;li&gt;iOS Archive시 &lt;code&gt;ld: symbol</summary>
-      
+    <summary type="html">&lt;p&gt;HYPE 앱 개발하면서 나를 미치게했던 이슈 모음 (Special Thanks to. Stackoverflow)&lt;/p&gt;</summary>
     
     
     
@@ -98,32 +132,13 @@
   </entry>
   
   <entry>
-    <title>[React Native] Firebase 전화번호 인증기능 추가하기</title>
-    <link href="https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/"/>
-    <id>https://oxcarxierra.github.io/Development/rn-firebase-phone-auth/</id>
-    <published>2023-03-25T16:57:43.000Z</published>
-    <updated>2023-03-25T16:57:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><p>HYPE 앱은 전화번호 기반으로 유저 로그인, 회원가입이 이루어지기 때문에 전화번호 인증이 필수적이었다. 때문에 Google Firebase에서 제공하는 문자메세지 인증 서비스를 처음으로 적용해보았다.</p><h3 id="Google-Firebase-연동하기"><a href="#Google-Firebase-연동하기" class="headerlink" title="Google Firebase 연동하기"></a>Google Firebase 연동하기</h3><p>연동하는 일련의 방법은 공식문서 및 블로그를 참고했다. 파베 공식문서는 Swift와 Kotlin 기반으로 설명이 되어있어서, 타 블로그가 도움이 많이 되었다.</p><h3 id="인증번호-전송-및-대조-검증-코드"><a href="#인증번호-전송-및-대조-검증-코드" class="headerlink" title="인증번호 전송 및 대조 검증 코드"></a>인증번호 전송 및 대조 검증 코드</h3>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Google Firebase를 이용하여 React Native 프로젝트에 전화번호 인증을 달아보자.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[React Native] 7전 8기 앱스토어 심사 - Reject 사유 모아보기</title>
     <link href="https://oxcarxierra.github.io/Development/hype-appstore-reject-list/"/>
     <id>https://oxcarxierra.github.io/Development/hype-appstore-reject-list/</id>
     <published>2023-03-25T16:39:17.000Z</published>
     <updated>2023-03-25T16:39:17.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h3 id="1-App-Tracking-Transparency-permission-모달이-안보여요"><a href="#1-App-Tracking-Transparency-permission-모달이-안보여요" class="headerlink" title="1. App Tracking Transparency permission 모달이 안보여요!"></a>1. App Tracking Transparency permission 모달이 안보여요!</h3><p>구글 애드몹으로 앱에 광고를 달면</p><p>애플 정책상 사용자 추적을 하려면 유저의 동의를 받아야 한다.</p><p><code>react-native-permissions</code> 라이브러리를 이용</p><h4 id="App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈"><a href="#App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈" class="headerlink" title="App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈"></a>App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈</h4><h3 id="2-계정-삭제-만드세요"><a href="#2-계정-삭제-만드세요" class="headerlink" title="2. 계정 삭제 만드세요!"></a>2. 계정 삭제 만드세요!</h3><p><code>Does this app have an account deletion feature? If so, where can we find it?</code></p><p>유저 이탈을 최대한 막기 위해서 탈퇴하려면 개발자에게 컨택하라는 모달 하나로 퉁쳤더니,</p><p><code>We noticed that your app supports account creation but does not appear to include an option to initiate account deletion.</code><br><code>Apps that support account creation must also offer account deletion to give App Store users more control of the data they’ve shared while using your app.</code></p><p>다시 똑바로 만들란다.</p><h3 id="3-회원가입시-성별-x2F-연령-왜-수집해요"><a href="#3-회원가입시-성별-x2F-연령-왜-수집해요" class="headerlink" title="3. 회원가입시 성별&#x2F;연령 왜 수집해요?"></a>3. 회원가입시 성별&#x2F;연령 왜 수집해요?</h3><p><code>the following fields or actions are required but do not appear to be directly relevant to your app’s core functionality:</code><br><code>- Age</code><br><code>- Gender</code></p><p>개인정보에 민감한 애플선생. 위 데이터의 수집이 앱의 기능에 필수적임을 친절하게 설명해주자 다시 묻지 않았다.</p><h3 id="4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요"><a href="#4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요" class="headerlink" title="4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!"></a>4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!</h3><p><code>We noticed that your screenshots do not sufficiently show your app in use. Specifically, your iPad screenshots reflect an iPhone image stretched out to appear to be an iPad image.</code><br><code>To help users understand your app’s functionality and value, your screenshots should highlight your app&#39;s core concept. For example, a gaming app should feature screenshots that capture actual gameplay within the app.</code></p><p>딱걸렸다..</p>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><h3 id="1-App-Tracking-Transparency-앱-추적-투명성-permission-모달이-안보여요"><a href="#1-App-Tracking-Transparency-앱-추적-투명성-permission-모달이-안보여요" class="headerlink" title="1. App Tracking Transparency(앱 추적 투명성) permission 모달이 안보여요!"></a>1. App Tracking Transparency(앱 추적 투명성) permission 모달이 안보여요!</h3><p>구글 애드몹을 이용하여 넣은 앱 내 광고가 사용자에게 <strong>맞춤형 광고</strong>를 보여주려면 기기의 IDFA(IDentifier for Advertising)애 접근하여아 한다. 안드로이드는 상관없으나, iOS 기기에서는 사용자가 권한을 허가해야만 해당 ID에 접근이 가능하다.</p><p>이 추적 권한 요청은 앱 내에서 단 한번만 가능하고, 사용자가 광고를 시청하기 전에 반드시 요청되어야 한다. React Native 앱 내에 권한 요청을 넣는 방법을과 그 과정에서 겪었던 Troubleshooting은 <a href="'http://oxcarxierra.github.io/Development/hype-troubleshooting-ios-permission-request/'">이 글</a>을 참고.</p><h4 id="App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈"><a href="#App-Store-Connect에서-사용자-추적-권한-해제가-불가능한-이슈" class="headerlink" title="App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈"></a>App Store Connect에서 사용자 추적 권한 해제가 불가능한 이슈</h4><h3 id="2-계정-삭제-만드세요"><a href="#2-계정-삭제-만드세요" class="headerlink" title="2. 계정 삭제 만드세요!"></a>2. 계정 삭제 만드세요!</h3><p><code>Does this app have an account deletion feature? If so, where can we find it?</code></p><p>유저 이탈을 최대한 막기 위해서 탈퇴하려면 개발자에게 컨택하라는 모달 하나로 퉁쳤더니,</p><p><code>We noticed that your app supports account creation but does not appear to include an option to initiate account deletion.</code><br><code>Apps that support account creation must also offer account deletion to give App Store users more control of the data they’ve shared while using your app.</code></p><p>다시 똑바로 만들란다.</p><h3 id="3-회원가입시-성별-x2F-연령-왜-수집해요"><a href="#3-회원가입시-성별-x2F-연령-왜-수집해요" class="headerlink" title="3. 회원가입시 성별&#x2F;연령 왜 수집해요?"></a>3. 회원가입시 성별&#x2F;연령 왜 수집해요?</h3><p><code>the following fields or actions are required but do not appear to be directly relevant to your app’s core functionality:</code><br><code>- Age</code><br><code>- Gender</code></p><p>개인정보에 민감한 애플선생. 위 데이터의 수집이 앱의 기능에 필수적임을 친절하게 설명해주자 다시 묻지 않았다.</p><h3 id="4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요"><a href="#4-iPhone-스크린샷으로-iPad-스크린샷-때우지-마세요" class="headerlink" title="4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!"></a>4. iPhone 스크린샷으로 iPad 스크린샷 때우지 마세요!</h3><p><code>We noticed that your screenshots do not sufficiently show your app in use. Specifically, your iPad screenshots reflect an iPhone image stretched out to appear to be an iPad image.</code><br><code>To help users understand your app’s functionality and value, your screenshots should highlight your app&#39;s core concept. For example, a gaming app should feature screenshots that capture actual gameplay within the app.</code></p><p>딱걸렸다..</p><p><a href="https://velog.io/@msi753/%EC%95%B1%EC%8A%A4%ED%86%A0%EC%96%B4-%EB%93%B1%EB%A1%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7-%EB%A7%8C%EB%93%A4%EA%B8%B0">https://velog.io/@msi753/앱스토어-등록을-위한-스크린샷-만들기</a></p>]]></content>
     
     
     <summary type="html">&lt;p&gt;HYPE 앱 App Store 리젝 사유들 모음&lt;/p&gt;</summary>
@@ -482,32 +497,6 @@
     
     <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>2022년 9월 회고</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/september-2022-review/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/september-2022-review/</id>
-    <published>2022-09-29T17:17:42.000Z</published>
-    <updated>2022-09-29T17:17:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. <del>이게 군인이 맞냐?</del> 그치만 시간을 효율적으로 잘 보냈냐고 물어보면 잘 모르겠다.. 사람도 많이 만나고 개인적으로 재충전하느라 공부는 많이 못했다. 이럴 때 쉬어줘야지 느낌으로 자기합리화하는중.</p><br><ul><li><strong>군장병 공개SW 온라인 해커톤 본선</strong>에 진출했다. 9&#x2F;7에 참가자 발표가 났고, 나는 고등학교 친구가 낸 주제에 팀원으로 합류했다. 다른 장병분들도 주제를 보고 지원해 주셔서 총 7명의 거대 팀을 구성할 수 있었다. 모인 분들의 스펙이 대단하셔서 엄청 놀랐다.. 자세한 후기는 <a href="">OSAM 해커톤 후기</a>로 따로 포스팅할 생각이다. 이제 구체적인 기획을 마무리하고 내가 맡은 Front-End 쪽 개발에 집중할 계획이다. 그런데 마지막으로 받았던 피드백에서 주제가 대차게 까여서 어떻게 방향을 틀어야 할지 좀 고민이 돤다 ㅎㅎ..</li></ul><br><ul><li><strong>제 8회 육군창업경진대회</strong>를 2~3주 빡세게 준비해서 접수를 해놓은 상태다. 2주 뒤에 예선 결과발표가 나는데, 본선 진출만 해도 포상휴가라는 말에 시작한 대회였으니 제발 본선만이라도 갔으면 좋겠다. 지금 육군으로 복무중인 고등학교 친구 군바리 둘이랑 팀을 짜서, 몇 주 전부터 여러 아이디어를 내고 서로 피드백도 해주면서 나온 가장 괜찮은 아이템 하나로 develop하고 접수를 했다. 하나 걱정되는 건 아무래도 육군에서 주관하는 경진대회이다 보니 기술성을 많이 보고 특히 군과 관련된 아이템이 좋은 점수를 받는다고 하는데 우리 아이템이 그쪽은 아니라는거… 암튼 이번 기회에 유튜브로 Figma를 독학해서 프로토타입을 제작하는 데에 사용해봤다. 컴포넌트를 지정하고 그 variation을 만드는 기능이 아주 유용했고, 전반적으로 Adobe XD보다 사용하기 편했던 것 같다. 이제 UI&#x2F;UX Design + Front-End 개발을 같이 할 수 있다고 어디가서 말할 수 있을 것 같다.</li></ul><br><ul><li><strong>제로 투 원</strong>을 읽으며 인사이트를 얻을 수 있었다. 독점적 스타트업이 되야하는 이유, 기하급수적 성장의 중요성, 20-80 법칙, 작은 시장부터 독점하는 방법, 경쟁과 자본주의의 근본적 차이점.</li></ul><hr><h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul><li><strong>&lt;제로 투 원&gt;</strong> - 피터 틸</li><li><strong>&lt;1Q84 #3&gt;</strong> - 무라카미 하루키</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- excerpt --&gt;
-
-&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;9월엔 포데이 3번에, 2박 3일 휴가까지 써서 부대보다 사회에 있었던 시간이 더 많았다. &lt;del&gt;이게 군</summary>
-      
-    
-    
-    
-    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
-    
-    
-    <category term="retrospective" scheme="https://oxcarxierra.github.io/tags/retrospective/"/>
     
   </entry>
   
