@@ -263,7 +263,7 @@
         <div class="main-content-wrap">
             <h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AC%B8%EC%A0%9C"><span class="toc-text">문제</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%91%EA%B7%BC"><span class="toc-text">접근</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%92%80%EC%9D%B4"><span class="toc-text">풀이</span></a></li></ol>
 
-<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p><a href="'https://www.acmicpc.net/problem/9935'">BOJ 9935번 문자열 폭발</a></p>
+<h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/9935">BOJ 9935번 문자열 폭발</a></p>
 <hr>
 <h2 id="접근"><a href="#접근" class="headerlink" title="접근"></a>접근</h2><p>문자열 문제를 아직 많이 다뤄보지 못해서 처음 접근할 때 어려움이 있었다.<br>주어진 문자열에서 폭발 문자열을 찾고 모두 지우면 되는데, 문자열을 지우고 난 후 연쇄적으로 생성되는 폭발 문자열도 지워야 하는 게 어려운 점이었다.<br>예를 들어, 문자열이 <code>ACC44</code>, 폭발 문자열이 <code>C4</code>인 경우 앞에서부터 폭발문자열의 검사를 시작하면 끝마쳤을 때 <code>AC4</code>가 남게된다. 이후 한번 더 검사를 해야 최종문자열 <code>A</code>만 남는다.<br>그래서 처음에는 앞에서부터 폭발 문자열을 찾는 알고리즘을 함수로 만들고, 폭발 문자열을 검색할 수 없을 때 까지 재귀적으로 실행하려 했다.<br>몇 번 실패하고 다른 사람들의 풀이를 참고해보니, 문자열을 뒤에서부터 검색하면 굳이 재귀를 하지 않아도 되는 방법이 있었다.</p>
 <ol>

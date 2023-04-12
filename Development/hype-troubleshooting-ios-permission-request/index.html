@@ -278,7 +278,7 @@
 <div class="figure " style="width:;"><img class="fig-img" src="https://i.imgur.com/hoyx4jT.png" alt></div>
 
 <p>이후 앱을 실행했을 때 추적 허용 여부를 묻는 모달을 띄워야 하는데, 이 떄 <code>react-native-permissions</code> 라이브러리가 필요하다.</p>
-<p>이후 구체적인 과정은 <a href="'https://juzero-space.tistory.com/312'">이 블로그</a>를 참고하며 많은 도움을 받았다.</p>
+<p>이후 구체적인 과정은 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://juzero-space.tistory.com/312">이 블로그</a>를 참고하며 많은 도움을 받았다.</p>
 <h1 id="앱-추적-투명성-App-Tracking-Transparency-제거-시도시-App-Store-Connect에-반영이-되지-않는-버그"><a href="#앱-추적-투명성-App-Tracking-Transparency-제거-시도시-App-Store-Connect에-반영이-되지-않는-버그" class="headerlink" title="앱 추적 투명성(App Tracking Transparency) 제거 시도시 App Store Connect에 반영이 되지 않는 버그"></a>앱 추적 투명성(App Tracking Transparency) 제거 시도시 App Store Connect에 반영이 되지 않는 버그</h1><p>이 버그는 HYPE 개발중에 나를 빡치게 만든 이슈 중 당당히 Top 3 안에 들었다.</p>
 <p>앱 추적 권한 요청 모달이 잘 해결되지 않아 아예 앱 추적 투명성을 지워보려고 시도했었다. <code>Info.plist</code>에서 <code>NSUserTrackingUsageDescription</code> 키와 string을 삭제하고 다시 빌드한 후 App Store Connect에 업로드해서 권한을 요청 여부를 변경하려 하는데..</p>
 <br>
@@ -287,7 +287,7 @@
 <p>이 문구가 사라지지 않으면서 <strong>게시</strong> 버튼이 눌리지도 않는다. 일단 <code>Info.plist</code>에서 해당 권한을 지웠으니 괜찮을 것으로 예상하면서 심사에 제출하였으나, 어림도 없지! 바로 Reject당해버렸다.</p>
 <p>좀 더 구글링해보니 해당 버그는 Apple Developer Forum에도 등록된 악명 높은 버그였다.</p>
 <blockquote>
-<p><a href="'https://developer.apple.com/forums/thread/679585'">해당 페이지</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.apple.com/forums/thread/679585">해당 페이지</a></p>
 </blockquote>
 <p>앱 심사위원(?)이 직접 남긴 댓글과 그에 대한 답글을 보자.</p>
 <br>
