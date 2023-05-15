@@ -6,7 +6,7 @@
   <link href="https://oxcarxierra.github.io/feed.xml" rel="self"/>
   
   <link href="https://oxcarxierra.github.io/"/>
-  <updated>2023-04-13T06:04:29.000Z</updated>
+  <updated>2023-05-04T13:49:36.000Z</updated>
   <id>https://oxcarxierra.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023년 4월 회고</title>
+    <link href="https://oxcarxierra.github.io/Review/2023/april-2023-review/"/>
+    <id>https://oxcarxierra.github.io/Review/2023/april-2023-review/</id>
+    <published>2023-05-04T13:49:36.000Z</published>
+    <updated>2023-05-04T13:49:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><!-- toc --><ul><li><p>Nomad Coders 니꼬썜의 &lt;Flutter로 웹툰 앱 만들기&gt;를 모두 수강했다. 최근에 네이티브 앱 개발을 하면서 디버깅을 할 때 양 쪽 플랫폼을 모두 신경써야 하는 문제들 때문에 질릴만큼 질려버렸는데, Flutter은 그런 부분이 덜할 뿐더러 확실히 개발자에게 친화적이도록 만들어졌다는 느낌을 받을 수 있었다. 다음 사이드 프로젝트를 진행하게 되면 프론트엔드 라이브러리로 꼭 사용해볼 생각이다.</p></li><li><p>D-111 계획으로 세웠던 목표들 중에서는 어쩌면 운동하기를 가장 잘 실천하고 있는 것 같다. 4월 한 달간 헬스장에 24일이나 출근했고 2주마다 재보고 있는 인바디 결과로도 이제 어느정도 상승곡선이 보이기 시작했다. 그러면서 동시에 체지방률 증가 없이 골격근량 38kg이라는 목표가 얼마나 터무니없는 숫자인지도 깨달아버렸다. 할 수 있는 만큼 해보자는 생각이다.</p></li></ul><!-- - 4월 초에 본격적으로 <HYPE - 달콤한 칭찬을 나눠봐요!>앱을 출시하고 서비스를 시작하면서 우여곡절과 시행착오를 겪을 수 있었다. 경쟁 앱의 출시로 -->]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- excerpt --&gt;
+&lt;!-- toc --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Nomad Coders 니꼬썜의 &amp;lt;Flutter로 웹툰 앱 만들기&amp;gt;를 모두 수강했다. 최근에 네이티브 앱 개발을 하면서 디버깅을 할 때 양 쪽 플랫폼을 모두 신경써</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>[HYPE 앱 개발기] 희망찼던 시작과 아쉬운 지금, 그리고 배운 것들 </title>
@@ -468,31 +492,6 @@
     
     
     <category term="Development" scheme="https://oxcarxierra.github.io/categories/Development/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2022년 4분기 OKR</title>
-    <link href="https://oxcarxierra.github.io/Review/2022/2022-4q-okr/"/>
-    <id>https://oxcarxierra.github.io/Review/2022/2022-4q-okr/</id>
-    <published>2022-10-02T01:50:18.000Z</published>
-    <updated>2022-10-02T01:50:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><ol><li><strong>경진대회 준비</strong></li><li><strong>꾸준한 자기개발</strong></li><li><strong>사이드 프로젝트</strong></li></ol><h2 id="Key-Results"><a href="#Key-Results" class="headerlink" title="Key Results"></a>Key Results</h2><ol><li><strong>경진대회 준비</strong></li></ol><ul><li>2022 OSAM 국방 해커톤 입상</li><li><del>제 8회 육군창업경진대회 본선 진출 및 수상</del> (탈락)</li></ul><ol start="2"><li><strong>꾸준한 자기개발</strong></li></ol><ul><li>책 7권 읽기 (경제∙금융 분야 포함)</li><li>운동(농구 헬스 포함) 일주일에 3번 이상 하기</li></ul><ol start="3"><li><strong>사이드 프로젝트</strong></li></ol><ul><li>USFK Bus 앱 업데이트 및 Playstore 배포</li><li>신규 사이드프로젝트 시작하기?</li></ul><blockquote><p>목표가 생기거나 바뀔 때 마다 OKR은 유연하게 수정해도 됨!</p></blockquote><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- toc --&gt;
-
-&lt;h2 id=&quot;Objectives&quot;&gt;&lt;a href=&quot;#Objectives&quot; class=&quot;headerlink&quot; title=&quot;Objectives&quot;&gt;&lt;/a&gt;Objectives&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;경진대회 준비&lt;/s</summary>
-      
-    
-    
-    
-    <category term="Review" scheme="https://oxcarxierra.github.io/categories/Review/"/>
     
     
   </entry>
