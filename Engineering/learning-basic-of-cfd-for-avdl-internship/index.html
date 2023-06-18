@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog of oxcarxierra">
-    <title>[AVDL Intern] CFD의 기초와 Ansys Fluent 배워보기 - Blog of oxcarxierra</title>
+    <title>[AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기 - Blog of oxcarxierra</title>
     <meta name="author" content="oxcarxierra | 오승석">
     
         <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
@@ -19,17 +19,19 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 CFD 이론과 자주 이용되는 툴 중인 Pointwise 및 Ansys Fluent를 배울 수 있었다.\nPointwise를 이용한 Airfoil 격자 생성작성중입니다.\nAnsys Fluent를 이용한 Airfoil 주변의 pressure 및 streamline 계산연구실 컴퓨터로 나름 열심히 계산을 돌렸고 여러 받음각에 따른 에어포일 주변의 압력분포를 계산해볼 수 있었다.\nPressure gradient and streamlines around NACA0012 airfoil at AoA = 19°\n\n\nPointwise 프로그램을 이용해 NACA 0012 및 그 파생형 Airfoil 주변에 C-grid, O-grid 격자를 생성.\nAnsys Fluent 프로그램을 이용해 두 종류의 에어포일의 AoA를 바꿔가며 Cl, Cd를 계산.\naoa-Cl, Cd 그레프를 그려 reference data와 비교.\n\n실험 결과를 분석해 보았더니, aoa가 13도 아래일때는 거의 일치했지만, aoa가 15°가 넘어가면서 경향성을 벗어나는 결과를 얻었다. 실험을 잘못 한 줄 알았지만, 사실 그 이유는 다른 곳에 있었다. 그 상황에서는 기존의 steady flow를 가정하고 풀던 방법이 아닌, unsteady flow를 가정한 새로운 조건 하에서 다른 방식의 CFD가 필요했던 것이었다. 아쉽게도 그 부분은 진행하지 못했다.\n상당히 오랜 시간이 지나고 나서 기억을 더듬어 쓸려니까 빠진 부분이 너무 많다. CFD의 다양한 방식도 나름 독학했었늗네 다 까먹어버렸다.. k-w인가 뭐였는데 앞으로는 바로바로 기록을 해봐야겠다.","dateCreated":"2021-02-24T22:49:36+09:00","dateModified":"2021-02-24T22:49:36+09:00","datePublished":"2021-02-24T22:49:36+09:00","description":"","headline":"[AVDL Intern] CFD의 기초와 Ansys Fluent 배워보기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Engineering/learning-basic-of-cfd-for-avdl-internship/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Engineering/learning-basic-of-cfd-for-avdl-internship/"}</script>
-    <meta name="description" content="계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 CFD 이론과">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 개략적인 CFD 이론을 배워보고 CFD에서 자주 이용되는 툴인 Pointwise 및 Ansys Fluent를 익히는 좋은 기회가 되었다.\nCFD 공부사수님의 도움을 받아 Versteeg의 &lt;유한체적법을 이용한 전산유체역학&gt; 교재를 실습에 필요할 정도만 독학해봤다. 이해하기 어려운 수준은 아니었으나 수치해석쪽 지식이 없었다면 난감했을 것 같다. 시간이 좀 지나고 포스팅을 하는 중이라 기억이 많이 나지는 않지만, 다양한 CFD의 방법론을 위주로 공부해봤고 그 중 후속 실습에 이용할 SST k-w method를 집중적으로 읽었던 것 같다.\nNACA 0012 Airfoil의 받음각에 따른 Cl, Cd 계산 실습대표적인 에어포일인 NACA0012 형상의 받음각에 따른 Cl와 Cd를 연산하고 참값과 비교해보는 프로젝트를 진행해보았다. 실험을 통해 구해진 참값은 NASA에서도 공식적으로 제공하고 있다.\nGenerating mesh grid around the airfoil using Pointwise연산에 앞서 에어포일 주변의 공간을 분할하는 Grid를 짜야 한다. 이 과정에서는 대표적인 격자 생성 프로그램인 Pointwise를 이용하였다.우선 Airfoil의 단면이 포함된 2D 평면을 분할한 후, z축으로 그대로 쌓아서 공간으로 확장하였다. 이 떄 2D 평면을 분할하는 방법으로는 아래 그림처럼 1) C Grid 2) H Grid 3) O Grid 3가지가 있다. Leading Edge에서는 O Grid, Trailing Edge 후방으로는 H Grid를 채택하여 혼합한 것이 C Grid라고 볼 수 있다. 본 실습에서는 C-Grid와 O-Grid 두 가지만 시도해보았다.이 때 Airfoil에 가까운 공간일수록 마찰의 효과를 많이 받으므로 격자가 더 촘촘하게 짜여지도록 만들어야 한다. 격자의 크기가 작을수록 정밀한 연산이 가능하지만, 당연하게도 연산에 걸리는 시간은 길어진다.\n\n우상단 좌상단 C-grid, 좌하단 H Grid, 우하단 O Grid\n\n\nComputing with Ansys Fluent연산을 위한 프로그램으로는 Ansys Fluent를 이용하였다. Pointwise로 만든 mesh 파일을 CAE(Computer Aided Engineering) 메뉴를 이용하여 export하면, Fluent 프로그램에서 import해올 수 있다.\n연산을 돌리면 mesh내 각 grid의 압력을 계산할 수 있으며, 이를 통해 전체 Airfoil에 가해지는 Lift와 Drag이 도출된다. 설정해준 밀도와 유속을 이용하면 무차원 상수 Cl과 Cd를 얻어낸다. 이 방식으로 본 실습에서는 1°부터 19°까지 2° 간격으로 받음각을 증가시키면서 Cl과 Cd를 각각 계산했다. 이 때 에어포일 자체를 회전시키는 것이 아니라 유동의 방향이 받음각만큼 아래로 설정해주어야 했기에, 구해진 Lift와 Drag에 삼각함수를 적절히 곱해서 후처리하는 과정이 필요했다.\n대부분의 CFD에 필요한 연산량은 PC로는 감당하지 못하는 정도라서, 아마 AVDL 연구실에 할당된 원격 CPU에서 연산을 한 것 같았다. (관련 설정은 사수님이 도와주셔서 확실하지 않다) 성능이 좋을 터임에도 불구하고 하나의 받음각에 대해 연산을 돌리고 iteration이 어느 정도 없어지기까지 대략 30분의 시간이 걸렸던 것 같다. Grid 수가 많았다면 더 걸렸을 것이다.\n결과 데이터로 pressure gradient나 streamline을 그리는 등 Postprocessing 과정도 수행할 수 있다.\nPressure gradient and streamlines around NACA0012 airfoil at AoA = 19°\n\naoa - Cl graph of NACA0012\n\n받음각이 13° 미만인 경우에는 reference data와 거의 일치했지만, 15° 이상의 받음각 상황에서는 경향성을 벗어나는 연산 결과를 얻었다. 처음에는 연산 과정에서의 오류거나 충분한 iteration을 하지 않은 줄 알았으나, 사실 그 이유는 다른 곳에 있었다.애초에 steady flow를 가정하고 풀고 있었으므로 13° 미만의 받음각 상황에서는 문제가 없지만 unsteady flow가 생기는 상황에서는 초기 조건부터 잘못되었던 것이다. 새롭게 설정하여 다시 연산해야 했는데, 아쉽게도 그 부분은 진행하지 못했다.","dateCreated":"2023-06-18T22:49:36+09:00","dateModified":"2023-06-18T22:49:36+09:00","datePublished":"2023-06-18T22:49:36+09:00","description":"","headline":"[AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Engineering/learning-basic-of-cfd-for-avdl-internship/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Engineering/learning-basic-of-cfd-for-avdl-internship/"}</script>
+    <meta name="description" content="계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 개략적인 CFD">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="[AVDL Intern] CFD의 기초와 Ansys Fluent 배워보기">
+<meta property="og:title" content="[AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기">
 <meta property="og:url" content="https://oxcarxierra.github.io/Engineering/learning-basic-of-cfd-for-avdl-internship/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
-<meta property="og:description" content="계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 CFD 이론과">
+<meta property="og:description" content="계기20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 개략적인 CFD">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/V1VsSka.png">
 <meta property="og:image" content="https://imgur.com/JWgH5c6.png">
-<meta property="article:published_time" content="2021-02-24T13:49:36.000Z">
-<meta property="article:modified_time" content="2021-02-24T13:49:36.000Z">
+<meta property="og:image" content="https://i.imgur.com/a4MB2t6.jpg">
+<meta property="article:published_time" content="2023-06-18T13:49:36.000Z">
+<meta property="article:modified_time" content="2023-06-18T13:49:36.000Z">
 <meta property="article:author" content="oxcarxierra | 오승석">
 <meta property="article:tag" content="오승석">
 <meta property="article:tag" content="oxcarxierra">
@@ -37,7 +39,7 @@
 <meta property="article:tag" content="서울과학고등학교">
 <meta property="article:tag" content="서울대학교">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imgur.com/JWgH5c6.png">
+<meta name="twitter:image" content="https://i.imgur.com/V1VsSka.png">
     
     
         
@@ -238,13 +240,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            [AVDL Intern] CFD의 기초와 Ansys Fluent 배워보기
+            [AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기
         </h1>
     
     
         <div class="post-meta">
-  <time datetime="2021-02-24T22:49:36+09:00">
-     Feb 24, 2021 
+  <time datetime="2023-06-18T22:49:36+09:00">
+     Jun 18, 2023 
   </time>
   
   <span>in </span>
@@ -253,7 +255,7 @@
 
  
   <span class="post-readingtime">
-     - 4 min read
+     - 9 min read
   </span>
 </div>
 
@@ -264,20 +266,25 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <!--excerpt -->
-<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%84%EA%B8%B0"><span class="toc-text">계기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointwise%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Airfoil-%EA%B2%A9%EC%9E%90-%EC%83%9D%EC%84%B1"><span class="toc-text">Pointwise를 이용한 Airfoil 격자 생성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ansys-Fluent%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Airfoil-%EC%A3%BC%EB%B3%80%EC%9D%98-pressure-%EB%B0%8F-streamline-%EA%B3%84%EC%82%B0"><span class="toc-text">Ansys Fluent를 이용한 Airfoil 주변의 pressure 및 streamline 계산</span></a></li></ol>
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B3%84%EA%B8%B0"><span class="toc-text">계기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CFD-%EA%B3%B5%EB%B6%80"><span class="toc-text">CFD 공부</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NACA-0012-Airfoil%EC%9D%98-%EB%B0%9B%EC%9D%8C%EA%B0%81%EC%97%90-%EB%94%B0%EB%A5%B8-Cl-Cd-%EA%B3%84%EC%82%B0-%EC%8B%A4%EC%8A%B5"><span class="toc-text">NACA 0012 Airfoil의 받음각에 따른 Cl, Cd 계산 실습</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Generating-mesh-grid-around-the-airfoil-using-Pointwise"><span class="toc-text">Generating mesh grid around the airfoil using Pointwise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Computing-with-Ansys-Fluent"><span class="toc-text">Computing with Ansys Fluent</span></a></li></ol></li></ol>
 
-<h2 id="계기"><a href="#계기" class="headerlink" title="계기"></a>계기</h2><p>20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 CFD 이론과 자주 이용되는 툴 중인 Pointwise 및 Ansys Fluent를 배울 수 있었다.</p>
-<h2 id="Pointwise를-이용한-Airfoil-격자-생성"><a href="#Pointwise를-이용한-Airfoil-격자-생성" class="headerlink" title="Pointwise를 이용한 Airfoil 격자 생성"></a>Pointwise를 이용한 Airfoil 격자 생성</h2><p>작성중입니다.</p>
-<h2 id="Ansys-Fluent를-이용한-Airfoil-주변의-pressure-및-streamline-계산"><a href="#Ansys-Fluent를-이용한-Airfoil-주변의-pressure-및-streamline-계산" class="headerlink" title="Ansys Fluent를 이용한 Airfoil 주변의 pressure 및 streamline 계산"></a>Ansys Fluent를 이용한 Airfoil 주변의 pressure 및 streamline 계산</h2><p>연구실 컴퓨터로 나름 열심히 계산을 돌렸고 여러 받음각에 따른 에어포일 주변의 압력분포를 계산해볼 수 있었다.</p>
+<h1 id="계기"><a href="#계기" class="headerlink" title="계기"></a>계기</h1><p>20년도 2학기에 유체역학을 수강하고 전산유체 분야에 흥미를 느껴서, 무작정 항공우주공학부 이관중 교수님께 항공우주 비행체 설계 연구실(AVDL)에 학부생 인턴으로 참여하여 CFD에 대해 더 공부해보고 싶다는 메일을 드렸다. 유체에 겨우 입문한 상태였지만 감사하게도 홍윤표 박사과정 연구원님께서 지도를 맡아주셨고, 덕분에 겨울방학동안 개략적인 CFD 이론을 배워보고 CFD에서 자주 이용되는 툴인 Pointwise 및 Ansys Fluent를 익히는 좋은 기회가 되었다.</p>
+<h1 id="CFD-공부"><a href="#CFD-공부" class="headerlink" title="CFD 공부"></a>CFD 공부</h1><p>사수님의 도움을 받아 Versteeg의 &lt;유한체적법을 이용한 전산유체역학&gt; 교재를 실습에 필요할 정도만 독학해봤다. 이해하기 어려운 수준은 아니었으나 수치해석쪽 지식이 없었다면 난감했을 것 같다. 시간이 좀 지나고 포스팅을 하는 중이라 기억이 많이 나지는 않지만, 다양한 CFD의 방법론을 위주로 공부해봤고 그 중 후속 실습에 이용할 <strong>SST k-w method</strong>를 집중적으로 읽었던 것 같다.</p>
+<h1 id="NACA-0012-Airfoil의-받음각에-따른-Cl-Cd-계산-실습"><a href="#NACA-0012-Airfoil의-받음각에-따른-Cl-Cd-계산-실습" class="headerlink" title="NACA 0012 Airfoil의 받음각에 따른 Cl, Cd 계산 실습"></a>NACA 0012 Airfoil의 받음각에 따른 <em>Cl</em>, <em>Cd</em> 계산 실습</h1><p>대표적인 에어포일인 NACA0012 형상의 받음각에 따른 <em>Cl</em>와 <em>Cd</em>를 연산하고 참값과 비교해보는 프로젝트를 진행해보았다. 실험을 통해 구해진 참값은 NASA에서도 공식적으로 제공하고 있다.</p>
+<h2 id="Generating-mesh-grid-around-the-airfoil-using-Pointwise"><a href="#Generating-mesh-grid-around-the-airfoil-using-Pointwise" class="headerlink" title="Generating mesh grid around the airfoil using Pointwise"></a>Generating mesh grid around the airfoil using Pointwise</h2><p>연산에 앞서 에어포일 주변의 공간을 분할하는 Grid를 짜야 한다. 이 과정에서는 대표적인 격자 생성 프로그램인 <strong>Pointwise</strong>를 이용하였다.<br>우선 Airfoil의 단면이 포함된 2D 평면을 분할한 후, z축으로 그대로 쌓아서 공간으로 확장하였다. 이 떄 2D 평면을 분할하는 방법으로는 아래 그림처럼 1) C Grid 2) H Grid 3) O Grid 3가지가 있다. Leading Edge에서는 O Grid, Trailing Edge 후방으로는 H Grid를 채택하여 혼합한 것이 C Grid라고 볼 수 있다. 본 실습에서는 <strong>C-Grid</strong>와 <strong>O-Grid</strong> 두 가지만 시도해보았다.<br>이 때 Airfoil에 가까운 공간일수록 마찰의 효과를 많이 받으므로 격자가 더 촘촘하게 짜여지도록 만들어야 한다. 격자의 크기가 작을수록 정밀한 연산이 가능하지만, 당연하게도 연산에 걸리는 시간은 길어진다.</p>
+<br>
+<div class="figure center fig-75" style="width:;"><a class="fancybox" target="_blank" rel="external nofollow noopener noreferrer" href="https://i.imgur.com/V1VsSka.png" title="우상단 좌상단 C-grid, 좌하단 H Grid, 우하단 O Grid" data-caption="우상단 좌상단 C-grid, 좌하단 H Grid, 우하단 O Grid" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/V1VsSka.png" alt="우상단 좌상단 C-grid, 좌하단 H Grid, 우하단 O Grid"></a><span class="caption">우상단 좌상단 C-grid, 좌하단 H Grid, 우하단 O Grid</span></div><div style="clear:both;"></div>
+<br>
+
+<h2 id="Computing-with-Ansys-Fluent"><a href="#Computing-with-Ansys-Fluent" class="headerlink" title="Computing with Ansys Fluent"></a>Computing with Ansys Fluent</h2><p>연산을 위한 프로그램으로는 Ansys Fluent를 이용하였다. Pointwise로 만든 mesh 파일을 CAE(Computer Aided Engineering) 메뉴를 이용하여 export하면, Fluent 프로그램에서 import해올 수 있다.</p>
+<p>연산을 돌리면 mesh내 각 grid의 압력을 계산할 수 있으며, 이를 통해 전체 Airfoil에 가해지는 Lift와 Drag이 도출된다. 설정해준 밀도와 유속을 이용하면 무차원 상수 Cl과 Cd를 얻어낸다. 이 방식으로 본 실습에서는 1°부터 19°까지 2° 간격으로 받음각을 증가시키면서 Cl과 Cd를 각각 계산했다. 이 때 에어포일 자체를 회전시키는 것이 아니라 유동의 방향이 받음각만큼 아래로 설정해주어야 했기에, 구해진 Lift와 Drag에 삼각함수를 적절히 곱해서 후처리하는 과정이 필요했다.</p>
+<p>대부분의 CFD에 필요한 연산량은 PC로는 감당하지 못하는 정도라서, 아마 AVDL 연구실에 할당된 원격 CPU에서 연산을 한 것 같았다. (관련 설정은 사수님이 도와주셔서 확실하지 않다) 성능이 좋을 터임에도 불구하고 하나의 받음각에 대해 연산을 돌리고 iteration이 어느 정도 없어지기까지 대략 30분의 시간이 걸렸던 것 같다. Grid 수가 많았다면 더 걸렸을 것이다.</p>
+<p>결과 데이터로 pressure gradient나 streamline을 그리는 등 Postprocessing 과정도 수행할 수 있다.</p>
 <div class="figure center fig-75" style="width:;"><a class="fancybox" target="_blank" rel="external nofollow noopener noreferrer" href="https://imgur.com/JWgH5c6.png" title="Pressure gradient and streamlines around NACA0012 airfoil at AoA = 19°" data-caption="Pressure gradient and streamlines around NACA0012 airfoil at AoA = 19°" data-fancybox="default"><img class="fig-img" src="https://imgur.com/JWgH5c6.png" alt="Pressure gradient and streamlines around NACA0012 airfoil at AoA = 19°"></a><span class="caption">Pressure gradient and streamlines around NACA0012 airfoil at AoA = 19°</span></div><div style="clear:both;"></div>
 
-<ol>
-<li>Pointwise 프로그램을 이용해 NACA 0012 및 그 파생형 Airfoil 주변에 C-grid, O-grid 격자를 생성.</li>
-<li>Ansys Fluent 프로그램을 이용해 두 종류의 에어포일의 AoA를 바꿔가며 Cl, Cd를 계산.</li>
-<li>aoa-Cl, Cd 그레프를 그려 reference data와 비교.</li>
-</ol>
-<p>실험 결과를 분석해 보았더니, aoa가 13도 아래일때는 거의 일치했지만, aoa가 15°가 넘어가면서 경향성을 벗어나는 결과를 얻었다. 실험을 잘못 한 줄 알았지만, 사실 그 이유는 다른 곳에 있었다. 그 상황에서는 기존의 steady flow를 가정하고 풀던 방법이 아닌, unsteady flow를 가정한 새로운 조건 하에서 다른 방식의 CFD가 필요했던 것이었다. 아쉽게도 그 부분은 진행하지 못했다.</p>
-<p>상당히 오랜 시간이 지나고 나서 기억을 더듬어 쓸려니까 빠진 부분이 너무 많다. CFD의 다양한 방식도 나름 독학했었늗네 다 까먹어버렸다.. <del>k-w인가 뭐였는데</del> 앞으로는 바로바로 기록을 해봐야겠다.</p>
+<div class="figure center fig-75" style="width:;"><a class="fancybox" target="_blank" rel="external nofollow noopener noreferrer" href="https://i.imgur.com/a4MB2t6.jpg" title="aoa - Cl graph of NACA0012" data-caption="aoa - Cl graph of NACA0012" data-fancybox="default"><img class="fig-img" src="https://i.imgur.com/a4MB2t6.jpg" alt="aoa - Cl graph of NACA0012"></a><span class="caption">aoa - Cl graph of NACA0012</span></div><div style="clear:both;"></div>
+
+<p>받음각이 13° 미만인 경우에는 reference data와 거의 일치했지만, 15° 이상의 받음각 상황에서는 경향성을 벗어나는 연산 결과를 얻었다. 처음에는 연산 과정에서의 오류거나 충분한 iteration을 하지 않은 줄 알았으나, 사실 그 이유는 다른 곳에 있었다.<br>애초에 steady flow를 가정하고 풀고 있었으므로 13° 미만의 받음각 상황에서는 문제가 없지만 unsteady flow가 생기는 상황에서는 초기 조건부터 잘못되었던 것이다. 새롭게 설정하여 다시 연산해야 했는데, 아쉽게도 그 부분은 진행하지 못했다.</p>
             
 
 
@@ -291,17 +298,17 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/2022_2q_okr/" data-tooltip="2022년 2분기 OKR" aria-label="PREVIOUS: 2022년 2분기 OKR">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
-                        
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Engineering/passive-flow-control-of-dynamic-stall-via-surface-based-trapped-vortex-generators-paper-review/" data-tooltip="[Paper Review] Passive Flow Control of Dynamic Stall via Surface-Based Trapped Vortex Generators" aria-label="NEXT: [Paper Review] Passive Flow Control of Dynamic Stall via Surface-Based Trapped Vortex Generators">
+                    
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
@@ -393,17 +400,17 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/2022_2q_okr/" data-tooltip="2022년 2분기 OKR" aria-label="PREVIOUS: 2022년 2분기 OKR">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
-                        
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Engineering/passive-flow-control-of-dynamic-stall-via-surface-based-trapped-vortex-generators-paper-review/" data-tooltip="[Paper Review] Passive Flow Control of Dynamic Stall via Surface-Based Trapped Vortex Generators" aria-label="NEXT: [Paper Review] Passive Flow Control of Dynamic Stall via Surface-Based Trapped Vortex Generators">
+                    
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
