@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog of oxcarxierra">
-    <title>Floyd-Warshall 알고리즘 (최단 경로 문제) - Blog of oxcarxierra</title>
+    <title>2023년 6-9월 회고 - Blog of oxcarxierra</title>
     <meta name="author" content="oxcarxierra | 오승석">
     
         <meta name="keywords" content="오승석,oxcarxierra,Seungseok Oh,서울과학고등학교,서울대학교,">
@@ -19,19 +19,22 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\nFloyd-Warshall 알고리즘이란Dijkstra 알고리즘이 그래프의 정해진 한 노드에서 다른 노드까지의 최단거리를 구하는 알고리즘이었다면, Floyd-Warshall 알고리즘은 출발 노드가 따로 정해져있지 않다. 따라서 V개의 노드가 있다면 V^2개의 최단경로를 결과로 얻게 된다.\n이 알고리즘의 핵심은 각 노드를 돌며 이 노드를 지나는 경로가 더 짧을 경우 갱신헤주는 방식이다.\n\n최단경로를 저장할 V by V 인접행렬을 만들고, INF값으로 초기화시킨다.\n입력값을 행렬에 저장한다. 대각선 원소들에는 0을 저장한다.\n각 노드를 순환하며, 다른 두 노드 사이의 최단거리가 이 노드를 거쳐갈 경우에 거리가 짧아진다면 갱신한다. (min함수를 이용한다)\n\nFloyd-Warshall 알고리즘의 시간복잡도단순하게 생각하면, V개의 노드를 세 번 순환을 돌았으니 O(V^3)이다.\nBOJ 11404 플로이드123456789101112131415161718192021INF = int(1e9)n = int(input())m = int(input())dist = [[INF]*(n+1) for _ in range(n+1)]for _ in range(m):  a, b, c= map(int, input().split())  dist[a][b] = min(dist[a][b],c)for i in range(n+1):  dist[i][i] = 0for i in range(1,n+1):  for j in range(1,n+1):    for k in range(1,n+1):      dist[j][k] = min(dist[j][k],dist[j][i] + dist[i][k])for z in range(1,n+1):    for y in range(1, n+1):        if dist[z][y] == INF:            dist[z][y] = 0    print(*dist[z][1:],sep=&quot; &quot;)\n\nBOJ 11404에선 입력값에 같은 간선이 들어올 수 있으므로 입력받을 때에도 min함수를 이용해 비교해주어야 한다.\n\n참고자료https://namu.wiki/w/플로이드-워셜%20알고리즘\n","dateCreated":"2022-07-28T10:43:12+09:00","dateModified":"2022-07-28T10:43:12+09:00","datePublished":"2022-07-28T10:43:12+09:00","description":"BOJ 11404번 플로이드","headline":"Floyd-Warshall 알고리즘 (최단 경로 문제)","image":["https://i.imgur.com/ydX4P1X.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/","keywords":"graph, floyd-warshall","thumbnailUrl":"https://i.imgur.com/ydX4P1X.png"}</script>
-    <meta name="description" content="BOJ 11404번 플로이드">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg"},"articleBody":"\n\n\n\n전역 이후로 블로그를 안쓰다가 무려 네 달치 회고록이 밀려버렸다.. 생각나는 것 위주로 써봐야겠다.\n\n전역 직후 6,7,8월에 걸쳐서 여행을 많이 다녀와서 그런지 현생과 멀어질 수 있었다. 군생활도 이제 꿈꾼 것 같이 느껴지는데 그 이후에 4박 5일 도쿄, 3주 반 유럽여행, 그리고 4박 6일 코타키나발루까지 세 번이나 갔다온 여행은 더 꿈같다. 1년 반동안 쌓였던 한이 풀릴지 의문이었는데, 기대보다 더 행복했던 시간이었던 것 같다.\n\n유난히 고민이 많은 여름방학을 보냈다. 진로 고민을 제일 많이 했는데, 솔직히 아직까지 해결이 되지 않은 부분이 더 많다. 이쪽은 생각하면 할수록 미래를 바꾸는 중요한 결정인지라 쉽게 단정짓기도 힘들고 나 자신에 대한 원론적인 질문으로 빠지게 되는 것 같다. 단편적으로 보면 결국 대학원을 갈지 말지 판단으로 귀결되는데, 가기로 결심했다고 생각하면 또 가지 않는 방향으로 마음이 바뀐다. 스스로 귀가 얇은 사람이었는지 의심하게 될 정도로 주변의 말에 흔들리는건, 그만큼 내적인 갈등이 팽팽해서 그런거라고 합리화하고 있다.\n\n\n10월 목표\n학교 열심히 다니기. 학점에 매진하지는 말되 잘 챙겨보자.\n\n읽은 책들\n지적대화를 위한 넓고 얕은 지식 1, 채사장 (eBook) 9&#x2F;10\n돈의 심리학, 모건 하우절 (진중문고) 9&#x2F;13\n우리가 빛의 속도로 갈 수 없다면, 김초엽 9&#x2F;20\n","dateCreated":"2023-09-30T09:57:59+09:00","dateModified":"2023-09-30T09:57:59+09:00","datePublished":"2023-09-30T09:57:59+09:00","description":"","headline":"2023년 6-9월 회고","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://oxcarxierra.github.io/Review/2023/september-2023-review/"},"publisher":{"@type":"Organization","name":"oxcarxierra | 오승석","sameAs":["https://github.com/OXcarXierra","https://www.linkedin.com/in/oh-seungseok-370746242/","https://www.instagram.com/_oscarsierra_/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://oxcarxierra.github.io/Review/2023/september-2023-review/"}</script>
+    <meta name="description" content="전역 이후로 블로그를 안쓰다가 무려 네 달치 회고록이 밀려버렸다.. 생각나는 것 위주로 써봐야겠다.  전역 직후 6,7,8월에 걸쳐서 여행을 많이 다녀와서 그런지 현생과 멀어질 수 있었다. 군생활도 이제 꿈꾼 것 같이 느껴지는데 그 이후에 4박 5일 도쿄, 3주 반 유럽여행, 그리고 4박 6일 코타키나발루까지 세 번이나 갔다온 여행은 더 꿈같다. 1">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Floyd-Warshall 알고리즘 (최단 경로 문제)">
-<meta property="og:url" content="https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/index.html">
+<meta property="og:title" content="2023년 6-9월 회고">
+<meta property="og:url" content="https://oxcarxierra.github.io/Review/2023/september-2023-review/index.html">
 <meta property="og:site_name" content="Blog of oxcarxierra">
-<meta property="og:description" content="BOJ 11404번 플로이드">
+<meta property="og:description" content="전역 이후로 블로그를 안쓰다가 무려 네 달치 회고록이 밀려버렸다.. 생각나는 것 위주로 써봐야겠다.  전역 직후 6,7,8월에 걸쳐서 여행을 많이 다녀와서 그런지 현생과 멀어질 수 있었다. 군생활도 이제 꿈꾼 것 같이 느껴지는데 그 이후에 4박 5일 도쿄, 3주 반 유럽여행, 그리고 4박 6일 코타키나발루까지 세 번이나 갔다온 여행은 더 꿈같다. 1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-28T01:43:12.000Z">
-<meta property="article:modified_time" content="2022-07-28T01:43:12.000Z">
+<meta property="article:published_time" content="2023-09-30T00:57:59.000Z">
+<meta property="article:modified_time" content="2023-09-30T00:57:59.000Z">
 <meta property="article:author" content="oxcarxierra | 오승석">
-<meta property="article:tag" content="graph">
-<meta property="article:tag" content="floyd-warshall">
+<meta property="article:tag" content="오승석">
+<meta property="article:tag" content="oxcarxierra">
+<meta property="article:tag" content="Seungseok Oh">
+<meta property="article:tag" content="서울과학고등학교">
+<meta property="article:tag" content="서울대학교">
 <meta name="twitter:card" content="summary">
     
     
@@ -40,9 +43,6 @@
     
         <meta property="og:image" content="https://oxcarxierra.github.io/assets/images/profile.jpg">
     
-    
-        <meta property="og:image" content="https://i.imgur.com/ydX4P1X.png">
-        <meta class="swiftype" name="image" data-type="enum" content="https://i.imgur.com/ydX4P1X.png">
     
     
     
@@ -76,7 +76,7 @@
     
         
     
-    <link rel="canonical" href="https://oxcarxierra.github.io/algorithm/boj_floyd-warshall/">
+    <link rel="canonical" href="https://oxcarxierra.github.io/review/2023/september-2023-review/">
 </head>
 
     <body>
@@ -236,18 +236,18 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            Floyd-Warshall 알고리즘 (최단 경로 문제)
+            2023년 6-9월 회고
         </h1>
     
     
         <div class="post-meta">
-  <time datetime="2022-07-28T10:43:12+09:00">
-     Jul 28, 2022 
+  <time datetime="2023-09-30T09:57:59+09:00">
+     Sep 30, 2023 
   </time>
   
   <span>in </span>
   
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="category-link" href="/categories/Review/">Review</a>
 
  
   <span class="post-readingtime">
@@ -262,22 +262,24 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <!-- excerpt -->
-<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd-Warshall-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%B4%EB%9E%80"><span class="toc-text">Floyd-Warshall 알고리즘이란</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd-Warshall-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%98-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84"><span class="toc-text">Floyd-Warshall 알고리즘의 시간복잡도</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOJ-11404-%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C"><span class="toc-text">BOJ 11404 플로이드</span></a></li></ol>
 
-<h2 id="Floyd-Warshall-알고리즘이란"><a href="#Floyd-Warshall-알고리즘이란" class="headerlink" title="Floyd-Warshall 알고리즘이란"></a>Floyd-Warshall 알고리즘이란</h2><p>Dijkstra 알고리즘이 그래프의 정해진 한 노드에서 다른 노드까지의 최단거리를 구하는 알고리즘이었다면, Floyd-Warshall 알고리즘은 출발 노드가 따로 정해져있지 않다. 따라서 V개의 노드가 있다면 V^2개의 최단경로를 결과로 얻게 된다.</p>
-<p>이 알고리즘의 핵심은 각 노드를 돌며 <strong>이 노드를 지나는 경로가 더 짧을 경우 갱신</strong>헤주는 방식이다.</p>
-<ol>
-<li>최단경로를 저장할 V by V 인접행렬을 만들고, INF값으로 초기화시킨다.</li>
-<li>입력값을 행렬에 저장한다. 대각선 원소들에는 0을 저장한다.</li>
-<li>각 노드를 순환하며, 다른 두 노드 사이의 최단거리가 이 노드를 거쳐갈 경우에 거리가 짧아진다면 갱신한다. (min함수를 이용한다)</li>
-</ol>
-<h2 id="Floyd-Warshall-알고리즘의-시간복잡도"><a href="#Floyd-Warshall-알고리즘의-시간복잡도" class="headerlink" title="Floyd-Warshall 알고리즘의 시간복잡도"></a>Floyd-Warshall 알고리즘의 시간복잡도</h2><p>단순하게 생각하면, V개의 노드를 세 번 순환을 돌았으니 O(V^3)이다.</p>
-<h2 id="BOJ-11404-플로이드"><a href="#BOJ-11404-플로이드" class="headerlink" title="BOJ 11404 플로이드"></a>BOJ 11404 플로이드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">INF = <span class="built_in">int</span>(<span class="number">1e9</span>)</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">dist = [[INF]*(n+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">  a, b, c= <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">  dist[a][b] = <span class="built_in">min</span>(dist[a][b],c)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>):</span><br><span class="line">  dist[i][i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">      dist[j][k] = <span class="built_in">min</span>(dist[j][k],dist[j][i] + dist[i][k])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> dist[z][y] == INF:</span><br><span class="line">            dist[z][y] = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(*dist[z][<span class="number">1</span>:],sep=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="table-of-contents"> </h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#10%EC%9B%94-%EB%AA%A9%ED%91%9C"><span class="toc-text">10월 목표</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%BD%EC%9D%80-%EC%B1%85%EB%93%A4"><span class="toc-text">읽은 책들</span></a></li></ol>
 
-<p>BOJ 11404에선 입력값에 같은 간선이 들어올 수 있으므로 입력받을 때에도 min함수를 이용해 비교해주어야 한다.</p>
-<blockquote>
-<p>참고자료<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://namu.wiki/w/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%9B%8C%EC%85%9C%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">https://namu.wiki/w/플로이드-워셜%20알고리즘</a></p>
-</blockquote>
+<p>전역 이후로 블로그를 안쓰다가 무려 네 달치 회고록이 밀려버렸다.. 생각나는 것 위주로 써봐야겠다.</p>
+<ul>
+<li><p>전역 직후 6,7,8월에 걸쳐서 여행을 많이 다녀와서 그런지 현생과 멀어질 수 있었다. 군생활도 이제 꿈꾼 것 같이 느껴지는데 그 이후에 4박 5일 도쿄, 3주 반 유럽여행, 그리고 4박 6일 코타키나발루까지 세 번이나 갔다온 여행은 더 꿈같다. 1년 반동안 쌓였던 한이 풀릴지 의문이었는데, 기대보다 더 행복했던 시간이었던 것 같다.</p>
+</li>
+<li><p>유난히 고민이 많은 여름방학을 보냈다. 진로 고민을 제일 많이 했는데, 솔직히 아직까지 해결이 되지 않은 부분이 더 많다. 이쪽은 생각하면 할수록 미래를 바꾸는 중요한 결정인지라 쉽게 단정짓기도 힘들고 나 자신에 대한 원론적인 질문으로 빠지게 되는 것 같다. 단편적으로 보면 결국 대학원을 갈지 말지 판단으로 귀결되는데, 가기로 결심했다고 생각하면 또 가지 않는 방향으로 마음이 바뀐다. 스스로 귀가 얇은 사람이었는지 의심하게 될 정도로 주변의 말에 흔들리는건, 그만큼 내적인 갈등이 팽팽해서 그런거라고 합리화하고 있다.</p>
+</li>
+</ul>
+<h2 id="10월-목표"><a href="#10월-목표" class="headerlink" title="10월 목표"></a>10월 목표</h2><ul>
+<li>학교 열심히 다니기. 학점에 매진하지는 말되 잘 챙겨보자.</li>
+</ul>
+<h2 id="읽은-책들"><a href="#읽은-책들" class="headerlink" title="읽은 책들"></a>읽은 책들</h2><ul>
+<li>지적대화를 위한 넓고 얕은 지식 1, 채사장 (eBook) 9&#x2F;10</li>
+<li>돈의 심리학, 모건 하우절 (진중문고) 9&#x2F;13</li>
+<li>우리가 빛의 속도로 갈 수 없다면, 김초엽 9&#x2F;20</li>
+</ul>
             
 
 
@@ -285,22 +287,14 @@
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
-                
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/floyd-warshall/" rel="tag">floyd-warshall</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/graph/" rel="tag">graph</a>
-
-            </div>
-        
         
             <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -308,7 +302,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Engineering/learning-basic-of-cfd-for-avdl-internship/" data-tooltip="[AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기" aria-label="NEXT: [AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -328,7 +322,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -341,7 +335,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -354,7 +348,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -401,9 +395,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Review/2022/july_2022_review/" data-tooltip="2022년 7월 회고" aria-label="PREVIOUS: 2022년 7월 회고">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -411,7 +404,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/Algorithm/boj_dijkstra/" data-tooltip="Dijkstra 알고리즘 (최단 경로 문제)" aria-label="NEXT: Dijkstra 알고리즘 (최단 경로 문제)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/Engineering/learning-basic-of-cfd-for-avdl-internship/" data-tooltip="[AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기" aria-label="NEXT: [AVDL 인턴] Airfoil의 Lift, Drag 계산 실습으로 CFD 입문하기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +424,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -444,7 +437,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -457,7 +450,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/"
+                    target="new" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/september-2023-review/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -488,7 +481,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oxcarxierra.github.io/Review/2023/september-2023-review/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -496,7 +489,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://oxcarxierra.github.io/Review/2023/september-2023-review/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -504,7 +497,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Algorithm/boj_floyd-warshall/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://oxcarxierra.github.io/Review/2023/september-2023-review/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
